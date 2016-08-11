@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <title>GL Constants Translator</title>
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+        <script type="text/javascript" src="scripts/GLConstantsTranslator.js"></script>
+    </head>
+
+    <p align="center">
+        Type GL constant names or values into the input field, to see the corresponding values or possible names
+        in the output field
+    </p>
+    <p align="center">
+        Constant names can be in upper- or lower case, and the leading <b><code>"GL_"</code></b> is optional
+    </p>
+    <p align="center">
+        Values can be in decimal or hexadecimal. Hexadecimal values have to start with <b><code>"0x"</code></b>
+    </p>
+
+    <table align="center">
+        <tr>
+            <td>Input:</td>
+            <td><input style="font-family:'Courier'; font-size:16px" size="60" type="text" name="Input" /></td>
+        </tr>
+        <tr>
+            <td>Output:</td>
+            <td><textarea style="font-family:'Courier'; font-size:16px" name="Output" cols="60" rows="12"> </textarea></td>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementsByName("Input")[0].addEventListener('input', update);
+        function update() {
+            document.getElementsByName("Output")[0].value = translate(this.value);
+        }
+    </script>
+</html>
