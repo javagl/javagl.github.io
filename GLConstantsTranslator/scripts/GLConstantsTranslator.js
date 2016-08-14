@@ -1,2644 +1,1832 @@
+var data = [
+    { "name" : "GL_VERSION_1_0", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_VERSION_1_1", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_DEPTH_BUFFER_BIT", "dec" : "256", "hex" : "0x100" },
+    { "name" : "GL_STENCIL_BUFFER_BIT", "dec" : "1024", "hex" : "0x400" },
+    { "name" : "GL_COLOR_BUFFER_BIT", "dec" : "16384", "hex" : "0x4000" },
+    { "name" : "GL_FALSE", "dec" : "0", "hex" : "0x0" },
+    { "name" : "GL_TRUE", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_POINTS", "dec" : "0", "hex" : "0x0" },
+    { "name" : "GL_LINES", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_LINE_LOOP", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_LINE_STRIP", "dec" : "3", "hex" : "0x3" },
+    { "name" : "GL_TRIANGLES", "dec" : "4", "hex" : "0x4" },
+    { "name" : "GL_TRIANGLE_STRIP", "dec" : "5", "hex" : "0x5" },
+    { "name" : "GL_TRIANGLE_FAN", "dec" : "6", "hex" : "0x6" },
+    { "name" : "GL_QUADS", "dec" : "7", "hex" : "0x7" },
+    { "name" : "GL_NEVER", "dec" : "512", "hex" : "0x200" },
+    { "name" : "GL_LESS", "dec" : "513", "hex" : "0x201" },
+    { "name" : "GL_EQUAL", "dec" : "514", "hex" : "0x202" },
+    { "name" : "GL_LEQUAL", "dec" : "515", "hex" : "0x203" },
+    { "name" : "GL_GREATER", "dec" : "516", "hex" : "0x204" },
+    { "name" : "GL_NOTEQUAL", "dec" : "517", "hex" : "0x205" },
+    { "name" : "GL_GEQUAL", "dec" : "518", "hex" : "0x206" },
+    { "name" : "GL_ALWAYS", "dec" : "519", "hex" : "0x207" },
+    { "name" : "GL_ZERO", "dec" : "0", "hex" : "0x0" },
+    { "name" : "GL_ONE", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_SRC_COLOR", "dec" : "768", "hex" : "0x300" },
+    { "name" : "GL_ONE_MINUS_SRC_COLOR", "dec" : "769", "hex" : "0x301" },
+    { "name" : "GL_SRC_ALPHA", "dec" : "770", "hex" : "0x302" },
+    { "name" : "GL_ONE_MINUS_SRC_ALPHA", "dec" : "771", "hex" : "0x303" },
+    { "name" : "GL_DST_ALPHA", "dec" : "772", "hex" : "0x304" },
+    { "name" : "GL_ONE_MINUS_DST_ALPHA", "dec" : "773", "hex" : "0x305" },
+    { "name" : "GL_DST_COLOR", "dec" : "774", "hex" : "0x306" },
+    { "name" : "GL_ONE_MINUS_DST_COLOR", "dec" : "775", "hex" : "0x307" },
+    { "name" : "GL_SRC_ALPHA_SATURATE", "dec" : "776", "hex" : "0x308" },
+    { "name" : "GL_NONE", "dec" : "0", "hex" : "0x0" },
+    { "name" : "GL_FRONT_LEFT", "dec" : "1024", "hex" : "0x400" },
+    { "name" : "GL_FRONT_RIGHT", "dec" : "1025", "hex" : "0x401" },
+    { "name" : "GL_BACK_LEFT", "dec" : "1026", "hex" : "0x402" },
+    { "name" : "GL_BACK_RIGHT", "dec" : "1027", "hex" : "0x403" },
+    { "name" : "GL_FRONT", "dec" : "1028", "hex" : "0x404" },
+    { "name" : "GL_BACK", "dec" : "1029", "hex" : "0x405" },
+    { "name" : "GL_LEFT", "dec" : "1030", "hex" : "0x406" },
+    { "name" : "GL_RIGHT", "dec" : "1031", "hex" : "0x407" },
+    { "name" : "GL_FRONT_AND_BACK", "dec" : "1032", "hex" : "0x408" },
+    { "name" : "GL_NO_ERROR", "dec" : "0", "hex" : "0x0" },
+    { "name" : "GL_INVALID_ENUM", "dec" : "1280", "hex" : "0x500" },
+    { "name" : "GL_INVALID_VALUE", "dec" : "1281", "hex" : "0x501" },
+    { "name" : "GL_INVALID_OPERATION", "dec" : "1282", "hex" : "0x502" },
+    { "name" : "GL_OUT_OF_MEMORY", "dec" : "1285", "hex" : "0x505" },
+    { "name" : "GL_CW", "dec" : "2304", "hex" : "0x900" },
+    { "name" : "GL_CCW", "dec" : "2305", "hex" : "0x901" },
+    { "name" : "GL_POINT_SIZE", "dec" : "2833", "hex" : "0xb11" },
+    { "name" : "GL_POINT_SIZE_RANGE", "dec" : "2834", "hex" : "0xb12" },
+    { "name" : "GL_POINT_SIZE_GRANULARITY", "dec" : "2835", "hex" : "0xb13" },
+    { "name" : "GL_LINE_SMOOTH", "dec" : "2848", "hex" : "0xb20" },
+    { "name" : "GL_LINE_WIDTH", "dec" : "2849", "hex" : "0xb21" },
+    { "name" : "GL_LINE_WIDTH_RANGE", "dec" : "2850", "hex" : "0xb22" },
+    { "name" : "GL_LINE_WIDTH_GRANULARITY", "dec" : "2851", "hex" : "0xb23" },
+    { "name" : "GL_POLYGON_MODE", "dec" : "2880", "hex" : "0xb40" },
+    { "name" : "GL_POLYGON_SMOOTH", "dec" : "2881", "hex" : "0xb41" },
+    { "name" : "GL_CULL_FACE", "dec" : "2884", "hex" : "0xb44" },
+    { "name" : "GL_CULL_FACE_MODE", "dec" : "2885", "hex" : "0xb45" },
+    { "name" : "GL_FRONT_FACE", "dec" : "2886", "hex" : "0xb46" },
+    { "name" : "GL_DEPTH_RANGE", "dec" : "2928", "hex" : "0xb70" },
+    { "name" : "GL_DEPTH_TEST", "dec" : "2929", "hex" : "0xb71" },
+    { "name" : "GL_DEPTH_WRITEMASK", "dec" : "2930", "hex" : "0xb72" },
+    { "name" : "GL_DEPTH_CLEAR_VALUE", "dec" : "2931", "hex" : "0xb73" },
+    { "name" : "GL_DEPTH_FUNC", "dec" : "2932", "hex" : "0xb74" },
+    { "name" : "GL_STENCIL_TEST", "dec" : "2960", "hex" : "0xb90" },
+    { "name" : "GL_STENCIL_CLEAR_VALUE", "dec" : "2961", "hex" : "0xb91" },
+    { "name" : "GL_STENCIL_FUNC", "dec" : "2962", "hex" : "0xb92" },
+    { "name" : "GL_STENCIL_VALUE_MASK", "dec" : "2963", "hex" : "0xb93" },
+    { "name" : "GL_STENCIL_FAIL", "dec" : "2964", "hex" : "0xb94" },
+    { "name" : "GL_STENCIL_PASS_DEPTH_FAIL", "dec" : "2965", "hex" : "0xb95" },
+    { "name" : "GL_STENCIL_PASS_DEPTH_PASS", "dec" : "2966", "hex" : "0xb96" },
+    { "name" : "GL_STENCIL_REF", "dec" : "2967", "hex" : "0xb97" },
+    { "name" : "GL_STENCIL_WRITEMASK", "dec" : "2968", "hex" : "0xb98" },
+    { "name" : "GL_VIEWPORT", "dec" : "2978", "hex" : "0xba2" },
+    { "name" : "GL_DITHER", "dec" : "3024", "hex" : "0xbd0" },
+    { "name" : "GL_BLEND_DST", "dec" : "3040", "hex" : "0xbe0" },
+    { "name" : "GL_BLEND_SRC", "dec" : "3041", "hex" : "0xbe1" },
+    { "name" : "GL_BLEND", "dec" : "3042", "hex" : "0xbe2" },
+    { "name" : "GL_LOGIC_OP_MODE", "dec" : "3056", "hex" : "0xbf0" },
+    { "name" : "GL_COLOR_LOGIC_OP", "dec" : "3058", "hex" : "0xbf2" },
+    { "name" : "GL_DRAW_BUFFER", "dec" : "3073", "hex" : "0xc01" },
+    { "name" : "GL_READ_BUFFER", "dec" : "3074", "hex" : "0xc02" },
+    { "name" : "GL_SCISSOR_BOX", "dec" : "3088", "hex" : "0xc10" },
+    { "name" : "GL_SCISSOR_TEST", "dec" : "3089", "hex" : "0xc11" },
+    { "name" : "GL_COLOR_CLEAR_VALUE", "dec" : "3106", "hex" : "0xc22" },
+    { "name" : "GL_COLOR_WRITEMASK", "dec" : "3107", "hex" : "0xc23" },
+    { "name" : "GL_DOUBLEBUFFER", "dec" : "3122", "hex" : "0xc32" },
+    { "name" : "GL_STEREO", "dec" : "3123", "hex" : "0xc33" },
+    { "name" : "GL_LINE_SMOOTH_HINT", "dec" : "3154", "hex" : "0xc52" },
+    { "name" : "GL_POLYGON_SMOOTH_HINT", "dec" : "3155", "hex" : "0xc53" },
+    { "name" : "GL_UNPACK_SWAP_BYTES", "dec" : "3312", "hex" : "0xcf0" },
+    { "name" : "GL_UNPACK_LSB_FIRST", "dec" : "3313", "hex" : "0xcf1" },
+    { "name" : "GL_UNPACK_ROW_LENGTH", "dec" : "3314", "hex" : "0xcf2" },
+    { "name" : "GL_UNPACK_SKIP_ROWS", "dec" : "3315", "hex" : "0xcf3" },
+    { "name" : "GL_UNPACK_SKIP_PIXELS", "dec" : "3316", "hex" : "0xcf4" },
+    { "name" : "GL_UNPACK_ALIGNMENT", "dec" : "3317", "hex" : "0xcf5" },
+    { "name" : "GL_PACK_SWAP_BYTES", "dec" : "3328", "hex" : "0xd00" },
+    { "name" : "GL_PACK_LSB_FIRST", "dec" : "3329", "hex" : "0xd01" },
+    { "name" : "GL_PACK_ROW_LENGTH", "dec" : "3330", "hex" : "0xd02" },
+    { "name" : "GL_PACK_SKIP_ROWS", "dec" : "3331", "hex" : "0xd03" },
+    { "name" : "GL_PACK_SKIP_PIXELS", "dec" : "3332", "hex" : "0xd04" },
+    { "name" : "GL_PACK_ALIGNMENT", "dec" : "3333", "hex" : "0xd05" },
+    { "name" : "GL_MAX_TEXTURE_SIZE", "dec" : "3379", "hex" : "0xd33" },
+    { "name" : "GL_MAX_VIEWPORT_DIMS", "dec" : "3386", "hex" : "0xd3a" },
+    { "name" : "GL_SUBPIXEL_BITS", "dec" : "3408", "hex" : "0xd50" },
+    { "name" : "GL_TEXTURE_1D", "dec" : "3552", "hex" : "0xde0" },
+    { "name" : "GL_TEXTURE_2D", "dec" : "3553", "hex" : "0xde1" },
+    { "name" : "GL_POLYGON_OFFSET_UNITS", "dec" : "10752", "hex" : "0x2a00" },
+    { "name" : "GL_POLYGON_OFFSET_POINT", "dec" : "10753", "hex" : "0x2a01" },
+    { "name" : "GL_POLYGON_OFFSET_LINE", "dec" : "10754", "hex" : "0x2a02" },
+    { "name" : "GL_POLYGON_OFFSET_FILL", "dec" : "32823", "hex" : "0x8037" },
+    { "name" : "GL_POLYGON_OFFSET_FACTOR", "dec" : "32824", "hex" : "0x8038" },
+    { "name" : "GL_TEXTURE_BINDING_1D", "dec" : "32872", "hex" : "0x8068" },
+    { "name" : "GL_TEXTURE_BINDING_2D", "dec" : "32873", "hex" : "0x8069" },
+    { "name" : "GL_TEXTURE_WIDTH", "dec" : "4096", "hex" : "0x1000" },
+    { "name" : "GL_TEXTURE_HEIGHT", "dec" : "4097", "hex" : "0x1001" },
+    { "name" : "GL_TEXTURE_INTERNAL_FORMAT", "dec" : "4099", "hex" : "0x1003" },
+    { "name" : "GL_TEXTURE_BORDER_COLOR", "dec" : "4100", "hex" : "0x1004" },
+    { "name" : "GL_TEXTURE_RED_SIZE", "dec" : "32860", "hex" : "0x805c" },
+    { "name" : "GL_TEXTURE_GREEN_SIZE", "dec" : "32861", "hex" : "0x805d" },
+    { "name" : "GL_TEXTURE_BLUE_SIZE", "dec" : "32862", "hex" : "0x805e" },
+    { "name" : "GL_TEXTURE_ALPHA_SIZE", "dec" : "32863", "hex" : "0x805f" },
+    { "name" : "GL_DONT_CARE", "dec" : "4352", "hex" : "0x1100" },
+    { "name" : "GL_FASTEST", "dec" : "4353", "hex" : "0x1101" },
+    { "name" : "GL_NICEST", "dec" : "4354", "hex" : "0x1102" },
+    { "name" : "GL_BYTE", "dec" : "5120", "hex" : "0x1400" },
+    { "name" : "GL_UNSIGNED_BYTE", "dec" : "5121", "hex" : "0x1401" },
+    { "name" : "GL_SHORT", "dec" : "5122", "hex" : "0x1402" },
+    { "name" : "GL_UNSIGNED_SHORT", "dec" : "5123", "hex" : "0x1403" },
+    { "name" : "GL_INT", "dec" : "5124", "hex" : "0x1404" },
+    { "name" : "GL_UNSIGNED_INT", "dec" : "5125", "hex" : "0x1405" },
+    { "name" : "GL_FLOAT", "dec" : "5126", "hex" : "0x1406" },
+    { "name" : "GL_DOUBLE", "dec" : "5130", "hex" : "0x140a" },
+    { "name" : "GL_STACK_OVERFLOW", "dec" : "1283", "hex" : "0x503" },
+    { "name" : "GL_STACK_UNDERFLOW", "dec" : "1284", "hex" : "0x504" },
+    { "name" : "GL_CLEAR", "dec" : "5376", "hex" : "0x1500" },
+    { "name" : "GL_AND", "dec" : "5377", "hex" : "0x1501" },
+    { "name" : "GL_AND_REVERSE", "dec" : "5378", "hex" : "0x1502" },
+    { "name" : "GL_COPY", "dec" : "5379", "hex" : "0x1503" },
+    { "name" : "GL_AND_INVERTED", "dec" : "5380", "hex" : "0x1504" },
+    { "name" : "GL_NOOP", "dec" : "5381", "hex" : "0x1505" },
+    { "name" : "GL_XOR", "dec" : "5382", "hex" : "0x1506" },
+    { "name" : "GL_OR", "dec" : "5383", "hex" : "0x1507" },
+    { "name" : "GL_NOR", "dec" : "5384", "hex" : "0x1508" },
+    { "name" : "GL_EQUIV", "dec" : "5385", "hex" : "0x1509" },
+    { "name" : "GL_INVERT", "dec" : "5386", "hex" : "0x150a" },
+    { "name" : "GL_OR_REVERSE", "dec" : "5387", "hex" : "0x150b" },
+    { "name" : "GL_COPY_INVERTED", "dec" : "5388", "hex" : "0x150c" },
+    { "name" : "GL_OR_INVERTED", "dec" : "5389", "hex" : "0x150d" },
+    { "name" : "GL_NAND", "dec" : "5390", "hex" : "0x150e" },
+    { "name" : "GL_SET", "dec" : "5391", "hex" : "0x150f" },
+    { "name" : "GL_TEXTURE", "dec" : "5890", "hex" : "0x1702" },
+    { "name" : "GL_COLOR", "dec" : "6144", "hex" : "0x1800" },
+    { "name" : "GL_DEPTH", "dec" : "6145", "hex" : "0x1801" },
+    { "name" : "GL_STENCIL", "dec" : "6146", "hex" : "0x1802" },
+    { "name" : "GL_STENCIL_INDEX", "dec" : "6401", "hex" : "0x1901" },
+    { "name" : "GL_DEPTH_COMPONENT", "dec" : "6402", "hex" : "0x1902" },
+    { "name" : "GL_RED", "dec" : "6403", "hex" : "0x1903" },
+    { "name" : "GL_GREEN", "dec" : "6404", "hex" : "0x1904" },
+    { "name" : "GL_BLUE", "dec" : "6405", "hex" : "0x1905" },
+    { "name" : "GL_ALPHA", "dec" : "6406", "hex" : "0x1906" },
+    { "name" : "GL_RGB", "dec" : "6407", "hex" : "0x1907" },
+    { "name" : "GL_RGBA", "dec" : "6408", "hex" : "0x1908" },
+    { "name" : "GL_POINT", "dec" : "6912", "hex" : "0x1b00" },
+    { "name" : "GL_LINE", "dec" : "6913", "hex" : "0x1b01" },
+    { "name" : "GL_FILL", "dec" : "6914", "hex" : "0x1b02" },
+    { "name" : "GL_KEEP", "dec" : "7680", "hex" : "0x1e00" },
+    { "name" : "GL_REPLACE", "dec" : "7681", "hex" : "0x1e01" },
+    { "name" : "GL_INCR", "dec" : "7682", "hex" : "0x1e02" },
+    { "name" : "GL_DECR", "dec" : "7683", "hex" : "0x1e03" },
+    { "name" : "GL_VENDOR", "dec" : "7936", "hex" : "0x1f00" },
+    { "name" : "GL_RENDERER", "dec" : "7937", "hex" : "0x1f01" },
+    { "name" : "GL_VERSION", "dec" : "7938", "hex" : "0x1f02" },
+    { "name" : "GL_EXTENSIONS", "dec" : "7939", "hex" : "0x1f03" },
+    { "name" : "GL_NEAREST", "dec" : "9728", "hex" : "0x2600" },
+    { "name" : "GL_LINEAR", "dec" : "9729", "hex" : "0x2601" },
+    { "name" : "GL_NEAREST_MIPMAP_NEAREST", "dec" : "9984", "hex" : "0x2700" },
+    { "name" : "GL_LINEAR_MIPMAP_NEAREST", "dec" : "9985", "hex" : "0x2701" },
+    { "name" : "GL_NEAREST_MIPMAP_LINEAR", "dec" : "9986", "hex" : "0x2702" },
+    { "name" : "GL_LINEAR_MIPMAP_LINEAR", "dec" : "9987", "hex" : "0x2703" },
+    { "name" : "GL_TEXTURE_MAG_FILTER", "dec" : "10240", "hex" : "0x2800" },
+    { "name" : "GL_TEXTURE_MIN_FILTER", "dec" : "10241", "hex" : "0x2801" },
+    { "name" : "GL_TEXTURE_WRAP_S", "dec" : "10242", "hex" : "0x2802" },
+    { "name" : "GL_TEXTURE_WRAP_T", "dec" : "10243", "hex" : "0x2803" },
+    { "name" : "GL_PROXY_TEXTURE_1D", "dec" : "32867", "hex" : "0x8063" },
+    { "name" : "GL_PROXY_TEXTURE_2D", "dec" : "32868", "hex" : "0x8064" },
+    { "name" : "GL_REPEAT", "dec" : "10497", "hex" : "0x2901" },
+    { "name" : "GL_R3_G3_B2", "dec" : "10768", "hex" : "0x2a10" },
+    { "name" : "GL_RGB4", "dec" : "32847", "hex" : "0x804f" },
+    { "name" : "GL_RGB5", "dec" : "32848", "hex" : "0x8050" },
+    { "name" : "GL_RGB8", "dec" : "32849", "hex" : "0x8051" },
+    { "name" : "GL_RGB10", "dec" : "32850", "hex" : "0x8052" },
+    { "name" : "GL_RGB12", "dec" : "32851", "hex" : "0x8053" },
+    { "name" : "GL_RGB16", "dec" : "32852", "hex" : "0x8054" },
+    { "name" : "GL_RGBA2", "dec" : "32853", "hex" : "0x8055" },
+    { "name" : "GL_RGBA4", "dec" : "32854", "hex" : "0x8056" },
+    { "name" : "GL_RGB5_A1", "dec" : "32855", "hex" : "0x8057" },
+    { "name" : "GL_RGBA8", "dec" : "32856", "hex" : "0x8058" },
+    { "name" : "GL_RGB10_A2", "dec" : "32857", "hex" : "0x8059" },
+    { "name" : "GL_RGBA12", "dec" : "32858", "hex" : "0x805a" },
+    { "name" : "GL_RGBA16", "dec" : "32859", "hex" : "0x805b" },
+    { "name" : "GL_VERTEX_ARRAY", "dec" : "32884", "hex" : "0x8074" },
+    { "name" : "GL_VERSION_1_2", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_UNSIGNED_BYTE_3_3_2", "dec" : "32818", "hex" : "0x8032" },
+    { "name" : "GL_UNSIGNED_SHORT_4_4_4_4", "dec" : "32819", "hex" : "0x8033" },
+    { "name" : "GL_UNSIGNED_SHORT_5_5_5_1", "dec" : "32820", "hex" : "0x8034" },
+    { "name" : "GL_UNSIGNED_INT_8_8_8_8", "dec" : "32821", "hex" : "0x8035" },
+    { "name" : "GL_UNSIGNED_INT_10_10_10_2", "dec" : "32822", "hex" : "0x8036" },
+    { "name" : "GL_TEXTURE_BINDING_3D", "dec" : "32874", "hex" : "0x806a" },
+    { "name" : "GL_PACK_SKIP_IMAGES", "dec" : "32875", "hex" : "0x806b" },
+    { "name" : "GL_PACK_IMAGE_HEIGHT", "dec" : "32876", "hex" : "0x806c" },
+    { "name" : "GL_UNPACK_SKIP_IMAGES", "dec" : "32877", "hex" : "0x806d" },
+    { "name" : "GL_UNPACK_IMAGE_HEIGHT", "dec" : "32878", "hex" : "0x806e" },
+    { "name" : "GL_TEXTURE_3D", "dec" : "32879", "hex" : "0x806f" },
+    { "name" : "GL_PROXY_TEXTURE_3D", "dec" : "32880", "hex" : "0x8070" },
+    { "name" : "GL_TEXTURE_DEPTH", "dec" : "32881", "hex" : "0x8071" },
+    { "name" : "GL_TEXTURE_WRAP_R", "dec" : "32882", "hex" : "0x8072" },
+    { "name" : "GL_MAX_3D_TEXTURE_SIZE", "dec" : "32883", "hex" : "0x8073" },
+    { "name" : "GL_UNSIGNED_BYTE_2_3_3_REV", "dec" : "33634", "hex" : "0x8362" },
+    { "name" : "GL_UNSIGNED_SHORT_5_6_5", "dec" : "33635", "hex" : "0x8363" },
+    { "name" : "GL_UNSIGNED_SHORT_5_6_5_REV", "dec" : "33636", "hex" : "0x8364" },
+    { "name" : "GL_UNSIGNED_SHORT_4_4_4_4_REV", "dec" : "33637", "hex" : "0x8365" },
+    { "name" : "GL_UNSIGNED_SHORT_1_5_5_5_REV", "dec" : "33638", "hex" : "0x8366" },
+    { "name" : "GL_UNSIGNED_INT_8_8_8_8_REV", "dec" : "33639", "hex" : "0x8367" },
+    { "name" : "GL_UNSIGNED_INT_2_10_10_10_REV", "dec" : "33640", "hex" : "0x8368" },
+    { "name" : "GL_BGR", "dec" : "32992", "hex" : "0x80e0" },
+    { "name" : "GL_BGRA", "dec" : "32993", "hex" : "0x80e1" },
+    { "name" : "GL_MAX_ELEMENTS_VERTICES", "dec" : "33000", "hex" : "0x80e8" },
+    { "name" : "GL_MAX_ELEMENTS_INDICES", "dec" : "33001", "hex" : "0x80e9" },
+    { "name" : "GL_CLAMP_TO_EDGE", "dec" : "33071", "hex" : "0x812f" },
+    { "name" : "GL_TEXTURE_MIN_LOD", "dec" : "33082", "hex" : "0x813a" },
+    { "name" : "GL_TEXTURE_MAX_LOD", "dec" : "33083", "hex" : "0x813b" },
+    { "name" : "GL_TEXTURE_BASE_LEVEL", "dec" : "33084", "hex" : "0x813c" },
+    { "name" : "GL_TEXTURE_MAX_LEVEL", "dec" : "33085", "hex" : "0x813d" },
+    { "name" : "GL_SMOOTH_POINT_SIZE_RANGE", "dec" : "2834", "hex" : "0xb12" },
+    { "name" : "GL_SMOOTH_POINT_SIZE_GRANULARITY", "dec" : "2835", "hex" : "0xb13" },
+    { "name" : "GL_SMOOTH_LINE_WIDTH_RANGE", "dec" : "2850", "hex" : "0xb22" },
+    { "name" : "GL_SMOOTH_LINE_WIDTH_GRANULARITY", "dec" : "2851", "hex" : "0xb23" },
+    { "name" : "GL_ALIASED_LINE_WIDTH_RANGE", "dec" : "33902", "hex" : "0x846e" },
+    { "name" : "GL_VERSION_1_3", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_TEXTURE0", "dec" : "33984", "hex" : "0x84c0" },
+    { "name" : "GL_TEXTURE1", "dec" : "33985", "hex" : "0x84c1" },
+    { "name" : "GL_TEXTURE2", "dec" : "33986", "hex" : "0x84c2" },
+    { "name" : "GL_TEXTURE3", "dec" : "33987", "hex" : "0x84c3" },
+    { "name" : "GL_TEXTURE4", "dec" : "33988", "hex" : "0x84c4" },
+    { "name" : "GL_TEXTURE5", "dec" : "33989", "hex" : "0x84c5" },
+    { "name" : "GL_TEXTURE6", "dec" : "33990", "hex" : "0x84c6" },
+    { "name" : "GL_TEXTURE7", "dec" : "33991", "hex" : "0x84c7" },
+    { "name" : "GL_TEXTURE8", "dec" : "33992", "hex" : "0x84c8" },
+    { "name" : "GL_TEXTURE9", "dec" : "33993", "hex" : "0x84c9" },
+    { "name" : "GL_TEXTURE10", "dec" : "33994", "hex" : "0x84ca" },
+    { "name" : "GL_TEXTURE11", "dec" : "33995", "hex" : "0x84cb" },
+    { "name" : "GL_TEXTURE12", "dec" : "33996", "hex" : "0x84cc" },
+    { "name" : "GL_TEXTURE13", "dec" : "33997", "hex" : "0x84cd" },
+    { "name" : "GL_TEXTURE14", "dec" : "33998", "hex" : "0x84ce" },
+    { "name" : "GL_TEXTURE15", "dec" : "33999", "hex" : "0x84cf" },
+    { "name" : "GL_TEXTURE16", "dec" : "34000", "hex" : "0x84d0" },
+    { "name" : "GL_TEXTURE17", "dec" : "34001", "hex" : "0x84d1" },
+    { "name" : "GL_TEXTURE18", "dec" : "34002", "hex" : "0x84d2" },
+    { "name" : "GL_TEXTURE19", "dec" : "34003", "hex" : "0x84d3" },
+    { "name" : "GL_TEXTURE20", "dec" : "34004", "hex" : "0x84d4" },
+    { "name" : "GL_TEXTURE21", "dec" : "34005", "hex" : "0x84d5" },
+    { "name" : "GL_TEXTURE22", "dec" : "34006", "hex" : "0x84d6" },
+    { "name" : "GL_TEXTURE23", "dec" : "34007", "hex" : "0x84d7" },
+    { "name" : "GL_TEXTURE24", "dec" : "34008", "hex" : "0x84d8" },
+    { "name" : "GL_TEXTURE25", "dec" : "34009", "hex" : "0x84d9" },
+    { "name" : "GL_TEXTURE26", "dec" : "34010", "hex" : "0x84da" },
+    { "name" : "GL_TEXTURE27", "dec" : "34011", "hex" : "0x84db" },
+    { "name" : "GL_TEXTURE28", "dec" : "34012", "hex" : "0x84dc" },
+    { "name" : "GL_TEXTURE29", "dec" : "34013", "hex" : "0x84dd" },
+    { "name" : "GL_TEXTURE30", "dec" : "34014", "hex" : "0x84de" },
+    { "name" : "GL_TEXTURE31", "dec" : "34015", "hex" : "0x84df" },
+    { "name" : "GL_ACTIVE_TEXTURE", "dec" : "34016", "hex" : "0x84e0" },
+    { "name" : "GL_MULTISAMPLE", "dec" : "32925", "hex" : "0x809d" },
+    { "name" : "GL_SAMPLE_ALPHA_TO_COVERAGE", "dec" : "32926", "hex" : "0x809e" },
+    { "name" : "GL_SAMPLE_ALPHA_TO_ONE", "dec" : "32927", "hex" : "0x809f" },
+    { "name" : "GL_SAMPLE_COVERAGE", "dec" : "32928", "hex" : "0x80a0" },
+    { "name" : "GL_SAMPLE_BUFFERS", "dec" : "32936", "hex" : "0x80a8" },
+    { "name" : "GL_SAMPLES", "dec" : "32937", "hex" : "0x80a9" },
+    { "name" : "GL_SAMPLE_COVERAGE_VALUE", "dec" : "32938", "hex" : "0x80aa" },
+    { "name" : "GL_SAMPLE_COVERAGE_INVERT", "dec" : "32939", "hex" : "0x80ab" },
+    { "name" : "GL_TEXTURE_CUBE_MAP", "dec" : "34067", "hex" : "0x8513" },
+    { "name" : "GL_TEXTURE_BINDING_CUBE_MAP", "dec" : "34068", "hex" : "0x8514" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_POSITIVE_X", "dec" : "34069", "hex" : "0x8515" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_NEGATIVE_X", "dec" : "34070", "hex" : "0x8516" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_POSITIVE_Y", "dec" : "34071", "hex" : "0x8517" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_NEGATIVE_Y", "dec" : "34072", "hex" : "0x8518" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_POSITIVE_Z", "dec" : "34073", "hex" : "0x8519" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_NEGATIVE_Z", "dec" : "34074", "hex" : "0x851a" },
+    { "name" : "GL_PROXY_TEXTURE_CUBE_MAP", "dec" : "34075", "hex" : "0x851b" },
+    { "name" : "GL_MAX_CUBE_MAP_TEXTURE_SIZE", "dec" : "34076", "hex" : "0x851c" },
+    { "name" : "GL_COMPRESSED_RGB", "dec" : "34029", "hex" : "0x84ed" },
+    { "name" : "GL_COMPRESSED_RGBA", "dec" : "34030", "hex" : "0x84ee" },
+    { "name" : "GL_TEXTURE_COMPRESSION_HINT", "dec" : "34031", "hex" : "0x84ef" },
+    { "name" : "GL_TEXTURE_COMPRESSED_IMAGE_SIZE", "dec" : "34464", "hex" : "0x86a0" },
+    { "name" : "GL_TEXTURE_COMPRESSED", "dec" : "34465", "hex" : "0x86a1" },
+    { "name" : "GL_NUM_COMPRESSED_TEXTURE_FORMATS", "dec" : "34466", "hex" : "0x86a2" },
+    { "name" : "GL_COMPRESSED_TEXTURE_FORMATS", "dec" : "34467", "hex" : "0x86a3" },
+    { "name" : "GL_CLAMP_TO_BORDER", "dec" : "33069", "hex" : "0x812d" },
+    { "name" : "GL_VERSION_1_4", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_BLEND_DST_RGB", "dec" : "32968", "hex" : "0x80c8" },
+    { "name" : "GL_BLEND_SRC_RGB", "dec" : "32969", "hex" : "0x80c9" },
+    { "name" : "GL_BLEND_DST_ALPHA", "dec" : "32970", "hex" : "0x80ca" },
+    { "name" : "GL_BLEND_SRC_ALPHA", "dec" : "32971", "hex" : "0x80cb" },
+    { "name" : "GL_POINT_FADE_THRESHOLD_SIZE", "dec" : "33064", "hex" : "0x8128" },
+    { "name" : "GL_DEPTH_COMPONENT16", "dec" : "33189", "hex" : "0x81a5" },
+    { "name" : "GL_DEPTH_COMPONENT24", "dec" : "33190", "hex" : "0x81a6" },
+    { "name" : "GL_DEPTH_COMPONENT32", "dec" : "33191", "hex" : "0x81a7" },
+    { "name" : "GL_MIRRORED_REPEAT", "dec" : "33648", "hex" : "0x8370" },
+    { "name" : "GL_MAX_TEXTURE_LOD_BIAS", "dec" : "34045", "hex" : "0x84fd" },
+    { "name" : "GL_TEXTURE_LOD_BIAS", "dec" : "34049", "hex" : "0x8501" },
+    { "name" : "GL_INCR_WRAP", "dec" : "34055", "hex" : "0x8507" },
+    { "name" : "GL_DECR_WRAP", "dec" : "34056", "hex" : "0x8508" },
+    { "name" : "GL_TEXTURE_DEPTH_SIZE", "dec" : "34890", "hex" : "0x884a" },
+    { "name" : "GL_TEXTURE_COMPARE_MODE", "dec" : "34892", "hex" : "0x884c" },
+    { "name" : "GL_TEXTURE_COMPARE_FUNC", "dec" : "34893", "hex" : "0x884d" },
+    { "name" : "GL_FUNC_ADD", "dec" : "32774", "hex" : "0x8006" },
+    { "name" : "GL_FUNC_SUBTRACT", "dec" : "32778", "hex" : "0x800a" },
+    { "name" : "GL_FUNC_REVERSE_SUBTRACT", "dec" : "32779", "hex" : "0x800b" },
+    { "name" : "GL_MIN", "dec" : "32775", "hex" : "0x8007" },
+    { "name" : "GL_MAX", "dec" : "32776", "hex" : "0x8008" },
+    { "name" : "GL_CONSTANT_COLOR", "dec" : "32769", "hex" : "0x8001" },
+    { "name" : "GL_ONE_MINUS_CONSTANT_COLOR", "dec" : "32770", "hex" : "0x8002" },
+    { "name" : "GL_CONSTANT_ALPHA", "dec" : "32771", "hex" : "0x8003" },
+    { "name" : "GL_ONE_MINUS_CONSTANT_ALPHA", "dec" : "32772", "hex" : "0x8004" },
+    { "name" : "GL_VERSION_1_5", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_BUFFER_SIZE", "dec" : "34660", "hex" : "0x8764" },
+    { "name" : "GL_BUFFER_USAGE", "dec" : "34661", "hex" : "0x8765" },
+    { "name" : "GL_QUERY_COUNTER_BITS", "dec" : "34916", "hex" : "0x8864" },
+    { "name" : "GL_CURRENT_QUERY", "dec" : "34917", "hex" : "0x8865" },
+    { "name" : "GL_QUERY_RESULT", "dec" : "34918", "hex" : "0x8866" },
+    { "name" : "GL_QUERY_RESULT_AVAILABLE", "dec" : "34919", "hex" : "0x8867" },
+    { "name" : "GL_ARRAY_BUFFER", "dec" : "34962", "hex" : "0x8892" },
+    { "name" : "GL_ELEMENT_ARRAY_BUFFER", "dec" : "34963", "hex" : "0x8893" },
+    { "name" : "GL_ARRAY_BUFFER_BINDING", "dec" : "34964", "hex" : "0x8894" },
+    { "name" : "GL_ELEMENT_ARRAY_BUFFER_BINDING", "dec" : "34965", "hex" : "0x8895" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING", "dec" : "34975", "hex" : "0x889f" },
+    { "name" : "GL_READ_ONLY", "dec" : "35000", "hex" : "0x88b8" },
+    { "name" : "GL_WRITE_ONLY", "dec" : "35001", "hex" : "0x88b9" },
+    { "name" : "GL_READ_WRITE", "dec" : "35002", "hex" : "0x88ba" },
+    { "name" : "GL_BUFFER_ACCESS", "dec" : "35003", "hex" : "0x88bb" },
+    { "name" : "GL_BUFFER_MAPPED", "dec" : "35004", "hex" : "0x88bc" },
+    { "name" : "GL_BUFFER_MAP_POINTER", "dec" : "35005", "hex" : "0x88bd" },
+    { "name" : "GL_STREAM_DRAW", "dec" : "35040", "hex" : "0x88e0" },
+    { "name" : "GL_STREAM_READ", "dec" : "35041", "hex" : "0x88e1" },
+    { "name" : "GL_STREAM_COPY", "dec" : "35042", "hex" : "0x88e2" },
+    { "name" : "GL_STATIC_DRAW", "dec" : "35044", "hex" : "0x88e4" },
+    { "name" : "GL_STATIC_READ", "dec" : "35045", "hex" : "0x88e5" },
+    { "name" : "GL_STATIC_COPY", "dec" : "35046", "hex" : "0x88e6" },
+    { "name" : "GL_DYNAMIC_DRAW", "dec" : "35048", "hex" : "0x88e8" },
+    { "name" : "GL_DYNAMIC_READ", "dec" : "35049", "hex" : "0x88e9" },
+    { "name" : "GL_DYNAMIC_COPY", "dec" : "35050", "hex" : "0x88ea" },
+    { "name" : "GL_SAMPLES_PASSED", "dec" : "35092", "hex" : "0x8914" },
+    { "name" : "GL_SRC1_ALPHA", "dec" : "34185", "hex" : "0x8589" },
+    { "name" : "GL_VERSION_2_0", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_BLEND_EQUATION_RGB", "dec" : "32777", "hex" : "0x8009" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_ENABLED", "dec" : "34338", "hex" : "0x8622" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_SIZE", "dec" : "34339", "hex" : "0x8623" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_STRIDE", "dec" : "34340", "hex" : "0x8624" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_TYPE", "dec" : "34341", "hex" : "0x8625" },
+    { "name" : "GL_CURRENT_VERTEX_ATTRIB", "dec" : "34342", "hex" : "0x8626" },
+    { "name" : "GL_VERTEX_PROGRAM_POINT_SIZE", "dec" : "34370", "hex" : "0x8642" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_POINTER", "dec" : "34373", "hex" : "0x8645" },
+    { "name" : "GL_STENCIL_BACK_FUNC", "dec" : "34816", "hex" : "0x8800" },
+    { "name" : "GL_STENCIL_BACK_FAIL", "dec" : "34817", "hex" : "0x8801" },
+    { "name" : "GL_STENCIL_BACK_PASS_DEPTH_FAIL", "dec" : "34818", "hex" : "0x8802" },
+    { "name" : "GL_STENCIL_BACK_PASS_DEPTH_PASS", "dec" : "34819", "hex" : "0x8803" },
+    { "name" : "GL_MAX_DRAW_BUFFERS", "dec" : "34852", "hex" : "0x8824" },
+    { "name" : "GL_DRAW_BUFFER0", "dec" : "34853", "hex" : "0x8825" },
+    { "name" : "GL_DRAW_BUFFER1", "dec" : "34854", "hex" : "0x8826" },
+    { "name" : "GL_DRAW_BUFFER2", "dec" : "34855", "hex" : "0x8827" },
+    { "name" : "GL_DRAW_BUFFER3", "dec" : "34856", "hex" : "0x8828" },
+    { "name" : "GL_DRAW_BUFFER4", "dec" : "34857", "hex" : "0x8829" },
+    { "name" : "GL_DRAW_BUFFER5", "dec" : "34858", "hex" : "0x882a" },
+    { "name" : "GL_DRAW_BUFFER6", "dec" : "34859", "hex" : "0x882b" },
+    { "name" : "GL_DRAW_BUFFER7", "dec" : "34860", "hex" : "0x882c" },
+    { "name" : "GL_DRAW_BUFFER8", "dec" : "34861", "hex" : "0x882d" },
+    { "name" : "GL_DRAW_BUFFER9", "dec" : "34862", "hex" : "0x882e" },
+    { "name" : "GL_DRAW_BUFFER10", "dec" : "34863", "hex" : "0x882f" },
+    { "name" : "GL_DRAW_BUFFER11", "dec" : "34864", "hex" : "0x8830" },
+    { "name" : "GL_DRAW_BUFFER12", "dec" : "34865", "hex" : "0x8831" },
+    { "name" : "GL_DRAW_BUFFER13", "dec" : "34866", "hex" : "0x8832" },
+    { "name" : "GL_DRAW_BUFFER14", "dec" : "34867", "hex" : "0x8833" },
+    { "name" : "GL_DRAW_BUFFER15", "dec" : "34868", "hex" : "0x8834" },
+    { "name" : "GL_BLEND_EQUATION_ALPHA", "dec" : "34877", "hex" : "0x883d" },
+    { "name" : "GL_MAX_VERTEX_ATTRIBS", "dec" : "34921", "hex" : "0x8869" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_NORMALIZED", "dec" : "34922", "hex" : "0x886a" },
+    { "name" : "GL_MAX_TEXTURE_IMAGE_UNITS", "dec" : "34930", "hex" : "0x8872" },
+    { "name" : "GL_FRAGMENT_SHADER", "dec" : "35632", "hex" : "0x8b30" },
+    { "name" : "GL_VERTEX_SHADER", "dec" : "35633", "hex" : "0x8b31" },
+    { "name" : "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS", "dec" : "35657", "hex" : "0x8b49" },
+    { "name" : "GL_MAX_VERTEX_UNIFORM_COMPONENTS", "dec" : "35658", "hex" : "0x8b4a" },
+    { "name" : "GL_MAX_VARYING_FLOATS", "dec" : "35659", "hex" : "0x8b4b" },
+    { "name" : "GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS", "dec" : "35660", "hex" : "0x8b4c" },
+    { "name" : "GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS", "dec" : "35661", "hex" : "0x8b4d" },
+    { "name" : "GL_SHADER_TYPE", "dec" : "35663", "hex" : "0x8b4f" },
+    { "name" : "GL_FLOAT_VEC2", "dec" : "35664", "hex" : "0x8b50" },
+    { "name" : "GL_FLOAT_VEC3", "dec" : "35665", "hex" : "0x8b51" },
+    { "name" : "GL_FLOAT_VEC4", "dec" : "35666", "hex" : "0x8b52" },
+    { "name" : "GL_INT_VEC2", "dec" : "35667", "hex" : "0x8b53" },
+    { "name" : "GL_INT_VEC3", "dec" : "35668", "hex" : "0x8b54" },
+    { "name" : "GL_INT_VEC4", "dec" : "35669", "hex" : "0x8b55" },
+    { "name" : "GL_BOOL", "dec" : "35670", "hex" : "0x8b56" },
+    { "name" : "GL_BOOL_VEC2", "dec" : "35671", "hex" : "0x8b57" },
+    { "name" : "GL_BOOL_VEC3", "dec" : "35672", "hex" : "0x8b58" },
+    { "name" : "GL_BOOL_VEC4", "dec" : "35673", "hex" : "0x8b59" },
+    { "name" : "GL_FLOAT_MAT2", "dec" : "35674", "hex" : "0x8b5a" },
+    { "name" : "GL_FLOAT_MAT3", "dec" : "35675", "hex" : "0x8b5b" },
+    { "name" : "GL_FLOAT_MAT4", "dec" : "35676", "hex" : "0x8b5c" },
+    { "name" : "GL_SAMPLER_1D", "dec" : "35677", "hex" : "0x8b5d" },
+    { "name" : "GL_SAMPLER_2D", "dec" : "35678", "hex" : "0x8b5e" },
+    { "name" : "GL_SAMPLER_3D", "dec" : "35679", "hex" : "0x8b5f" },
+    { "name" : "GL_SAMPLER_CUBE", "dec" : "35680", "hex" : "0x8b60" },
+    { "name" : "GL_SAMPLER_1D_SHADOW", "dec" : "35681", "hex" : "0x8b61" },
+    { "name" : "GL_SAMPLER_2D_SHADOW", "dec" : "35682", "hex" : "0x8b62" },
+    { "name" : "GL_DELETE_STATUS", "dec" : "35712", "hex" : "0x8b80" },
+    { "name" : "GL_COMPILE_STATUS", "dec" : "35713", "hex" : "0x8b81" },
+    { "name" : "GL_LINK_STATUS", "dec" : "35714", "hex" : "0x8b82" },
+    { "name" : "GL_VALIDATE_STATUS", "dec" : "35715", "hex" : "0x8b83" },
+    { "name" : "GL_INFO_LOG_LENGTH", "dec" : "35716", "hex" : "0x8b84" },
+    { "name" : "GL_ATTACHED_SHADERS", "dec" : "35717", "hex" : "0x8b85" },
+    { "name" : "GL_ACTIVE_UNIFORMS", "dec" : "35718", "hex" : "0x8b86" },
+    { "name" : "GL_ACTIVE_UNIFORM_MAX_LENGTH", "dec" : "35719", "hex" : "0x8b87" },
+    { "name" : "GL_SHADER_SOURCE_LENGTH", "dec" : "35720", "hex" : "0x8b88" },
+    { "name" : "GL_ACTIVE_ATTRIBUTES", "dec" : "35721", "hex" : "0x8b89" },
+    { "name" : "GL_ACTIVE_ATTRIBUTE_MAX_LENGTH", "dec" : "35722", "hex" : "0x8b8a" },
+    { "name" : "GL_FRAGMENT_SHADER_DERIVATIVE_HINT", "dec" : "35723", "hex" : "0x8b8b" },
+    { "name" : "GL_SHADING_LANGUAGE_VERSION", "dec" : "35724", "hex" : "0x8b8c" },
+    { "name" : "GL_CURRENT_PROGRAM", "dec" : "35725", "hex" : "0x8b8d" },
+    { "name" : "GL_POINT_SPRITE_COORD_ORIGIN", "dec" : "36000", "hex" : "0x8ca0" },
+    { "name" : "GL_LOWER_LEFT", "dec" : "36001", "hex" : "0x8ca1" },
+    { "name" : "GL_UPPER_LEFT", "dec" : "36002", "hex" : "0x8ca2" },
+    { "name" : "GL_STENCIL_BACK_REF", "dec" : "36003", "hex" : "0x8ca3" },
+    { "name" : "GL_STENCIL_BACK_VALUE_MASK", "dec" : "36004", "hex" : "0x8ca4" },
+    { "name" : "GL_STENCIL_BACK_WRITEMASK", "dec" : "36005", "hex" : "0x8ca5" },
+    { "name" : "GL_VERSION_2_1", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_PIXEL_PACK_BUFFER", "dec" : "35051", "hex" : "0x88eb" },
+    { "name" : "GL_PIXEL_UNPACK_BUFFER", "dec" : "35052", "hex" : "0x88ec" },
+    { "name" : "GL_PIXEL_PACK_BUFFER_BINDING", "dec" : "35053", "hex" : "0x88ed" },
+    { "name" : "GL_PIXEL_UNPACK_BUFFER_BINDING", "dec" : "35055", "hex" : "0x88ef" },
+    { "name" : "GL_SRGB", "dec" : "35904", "hex" : "0x8c40" },
+    { "name" : "GL_SRGB8", "dec" : "35905", "hex" : "0x8c41" },
+    { "name" : "GL_SRGB_ALPHA", "dec" : "35906", "hex" : "0x8c42" },
+    { "name" : "GL_SRGB8_ALPHA8", "dec" : "35907", "hex" : "0x8c43" },
+    { "name" : "GL_COMPRESSED_SRGB", "dec" : "35912", "hex" : "0x8c48" },
+    { "name" : "GL_COMPRESSED_SRGB_ALPHA", "dec" : "35913", "hex" : "0x8c49" },
+    { "name" : "GL_VERSION_3_0", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_COMPARE_REF_TO_TEXTURE", "dec" : "34894", "hex" : "0x884e" },
+    { "name" : "GL_CLIP_DISTANCE0", "dec" : "12288", "hex" : "0x3000" },
+    { "name" : "GL_CLIP_DISTANCE1", "dec" : "12289", "hex" : "0x3001" },
+    { "name" : "GL_CLIP_DISTANCE2", "dec" : "12290", "hex" : "0x3002" },
+    { "name" : "GL_CLIP_DISTANCE3", "dec" : "12291", "hex" : "0x3003" },
+    { "name" : "GL_CLIP_DISTANCE4", "dec" : "12292", "hex" : "0x3004" },
+    { "name" : "GL_CLIP_DISTANCE5", "dec" : "12293", "hex" : "0x3005" },
+    { "name" : "GL_CLIP_DISTANCE6", "dec" : "12294", "hex" : "0x3006" },
+    { "name" : "GL_CLIP_DISTANCE7", "dec" : "12295", "hex" : "0x3007" },
+    { "name" : "GL_MAX_CLIP_DISTANCES", "dec" : "3378", "hex" : "0xd32" },
+    { "name" : "GL_MAJOR_VERSION", "dec" : "33307", "hex" : "0x821b" },
+    { "name" : "GL_MINOR_VERSION", "dec" : "33308", "hex" : "0x821c" },
+    { "name" : "GL_NUM_EXTENSIONS", "dec" : "33309", "hex" : "0x821d" },
+    { "name" : "GL_CONTEXT_FLAGS", "dec" : "33310", "hex" : "0x821e" },
+    { "name" : "GL_COMPRESSED_RED", "dec" : "33317", "hex" : "0x8225" },
+    { "name" : "GL_COMPRESSED_RG", "dec" : "33318", "hex" : "0x8226" },
+    { "name" : "GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_RGBA32F", "dec" : "34836", "hex" : "0x8814" },
+    { "name" : "GL_RGB32F", "dec" : "34837", "hex" : "0x8815" },
+    { "name" : "GL_RGBA16F", "dec" : "34842", "hex" : "0x881a" },
+    { "name" : "GL_RGB16F", "dec" : "34843", "hex" : "0x881b" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_INTEGER", "dec" : "35069", "hex" : "0x88fd" },
+    { "name" : "GL_MAX_ARRAY_TEXTURE_LAYERS", "dec" : "35071", "hex" : "0x88ff" },
+    { "name" : "GL_MIN_PROGRAM_TEXEL_OFFSET", "dec" : "35076", "hex" : "0x8904" },
+    { "name" : "GL_MAX_PROGRAM_TEXEL_OFFSET", "dec" : "35077", "hex" : "0x8905" },
+    { "name" : "GL_CLAMP_READ_COLOR", "dec" : "35100", "hex" : "0x891c" },
+    { "name" : "GL_FIXED_ONLY", "dec" : "35101", "hex" : "0x891d" },
+    { "name" : "GL_MAX_VARYING_COMPONENTS", "dec" : "35659", "hex" : "0x8b4b" },
+    { "name" : "GL_TEXTURE_1D_ARRAY", "dec" : "35864", "hex" : "0x8c18" },
+    { "name" : "GL_PROXY_TEXTURE_1D_ARRAY", "dec" : "35865", "hex" : "0x8c19" },
+    { "name" : "GL_TEXTURE_2D_ARRAY", "dec" : "35866", "hex" : "0x8c1a" },
+    { "name" : "GL_PROXY_TEXTURE_2D_ARRAY", "dec" : "35867", "hex" : "0x8c1b" },
+    { "name" : "GL_TEXTURE_BINDING_1D_ARRAY", "dec" : "35868", "hex" : "0x8c1c" },
+    { "name" : "GL_TEXTURE_BINDING_2D_ARRAY", "dec" : "35869", "hex" : "0x8c1d" },
+    { "name" : "GL_R11F_G11F_B10F", "dec" : "35898", "hex" : "0x8c3a" },
+    { "name" : "GL_UNSIGNED_INT_10F_11F_11F_REV", "dec" : "35899", "hex" : "0x8c3b" },
+    { "name" : "GL_RGB9_E5", "dec" : "35901", "hex" : "0x8c3d" },
+    { "name" : "GL_UNSIGNED_INT_5_9_9_9_REV", "dec" : "35902", "hex" : "0x8c3e" },
+    { "name" : "GL_TEXTURE_SHARED_SIZE", "dec" : "35903", "hex" : "0x8c3f" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH", "dec" : "35958", "hex" : "0x8c76" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_MODE", "dec" : "35967", "hex" : "0x8c7f" },
+    { "name" : "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS", "dec" : "35968", "hex" : "0x8c80" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_VARYINGS", "dec" : "35971", "hex" : "0x8c83" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_START", "dec" : "35972", "hex" : "0x8c84" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_SIZE", "dec" : "35973", "hex" : "0x8c85" },
+    { "name" : "GL_PRIMITIVES_GENERATED", "dec" : "35975", "hex" : "0x8c87" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN", "dec" : "35976", "hex" : "0x8c88" },
+    { "name" : "GL_RASTERIZER_DISCARD", "dec" : "35977", "hex" : "0x8c89" },
+    { "name" : "GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS", "dec" : "35978", "hex" : "0x8c8a" },
+    { "name" : "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS", "dec" : "35979", "hex" : "0x8c8b" },
+    { "name" : "GL_INTERLEAVED_ATTRIBS", "dec" : "35980", "hex" : "0x8c8c" },
+    { "name" : "GL_SEPARATE_ATTRIBS", "dec" : "35981", "hex" : "0x8c8d" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER", "dec" : "35982", "hex" : "0x8c8e" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_BINDING", "dec" : "35983", "hex" : "0x8c8f" },
+    { "name" : "GL_RGBA32UI", "dec" : "36208", "hex" : "0x8d70" },
+    { "name" : "GL_RGB32UI", "dec" : "36209", "hex" : "0x8d71" },
+    { "name" : "GL_RGBA16UI", "dec" : "36214", "hex" : "0x8d76" },
+    { "name" : "GL_RGB16UI", "dec" : "36215", "hex" : "0x8d77" },
+    { "name" : "GL_RGBA8UI", "dec" : "36220", "hex" : "0x8d7c" },
+    { "name" : "GL_RGB8UI", "dec" : "36221", "hex" : "0x8d7d" },
+    { "name" : "GL_RGBA32I", "dec" : "36226", "hex" : "0x8d82" },
+    { "name" : "GL_RGB32I", "dec" : "36227", "hex" : "0x8d83" },
+    { "name" : "GL_RGBA16I", "dec" : "36232", "hex" : "0x8d88" },
+    { "name" : "GL_RGB16I", "dec" : "36233", "hex" : "0x8d89" },
+    { "name" : "GL_RGBA8I", "dec" : "36238", "hex" : "0x8d8e" },
+    { "name" : "GL_RGB8I", "dec" : "36239", "hex" : "0x8d8f" },
+    { "name" : "GL_RED_INTEGER", "dec" : "36244", "hex" : "0x8d94" },
+    { "name" : "GL_GREEN_INTEGER", "dec" : "36245", "hex" : "0x8d95" },
+    { "name" : "GL_BLUE_INTEGER", "dec" : "36246", "hex" : "0x8d96" },
+    { "name" : "GL_RGB_INTEGER", "dec" : "36248", "hex" : "0x8d98" },
+    { "name" : "GL_RGBA_INTEGER", "dec" : "36249", "hex" : "0x8d99" },
+    { "name" : "GL_BGR_INTEGER", "dec" : "36250", "hex" : "0x8d9a" },
+    { "name" : "GL_BGRA_INTEGER", "dec" : "36251", "hex" : "0x8d9b" },
+    { "name" : "GL_SAMPLER_1D_ARRAY", "dec" : "36288", "hex" : "0x8dc0" },
+    { "name" : "GL_SAMPLER_2D_ARRAY", "dec" : "36289", "hex" : "0x8dc1" },
+    { "name" : "GL_SAMPLER_1D_ARRAY_SHADOW", "dec" : "36291", "hex" : "0x8dc3" },
+    { "name" : "GL_SAMPLER_2D_ARRAY_SHADOW", "dec" : "36292", "hex" : "0x8dc4" },
+    { "name" : "GL_SAMPLER_CUBE_SHADOW", "dec" : "36293", "hex" : "0x8dc5" },
+    { "name" : "GL_UNSIGNED_INT_VEC2", "dec" : "36294", "hex" : "0x8dc6" },
+    { "name" : "GL_UNSIGNED_INT_VEC3", "dec" : "36295", "hex" : "0x8dc7" },
+    { "name" : "GL_UNSIGNED_INT_VEC4", "dec" : "36296", "hex" : "0x8dc8" },
+    { "name" : "GL_INT_SAMPLER_1D", "dec" : "36297", "hex" : "0x8dc9" },
+    { "name" : "GL_INT_SAMPLER_2D", "dec" : "36298", "hex" : "0x8dca" },
+    { "name" : "GL_INT_SAMPLER_3D", "dec" : "36299", "hex" : "0x8dcb" },
+    { "name" : "GL_INT_SAMPLER_CUBE", "dec" : "36300", "hex" : "0x8dcc" },
+    { "name" : "GL_INT_SAMPLER_1D_ARRAY", "dec" : "36302", "hex" : "0x8dce" },
+    { "name" : "GL_INT_SAMPLER_2D_ARRAY", "dec" : "36303", "hex" : "0x8dcf" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_1D", "dec" : "36305", "hex" : "0x8dd1" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_2D", "dec" : "36306", "hex" : "0x8dd2" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_3D", "dec" : "36307", "hex" : "0x8dd3" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_CUBE", "dec" : "36308", "hex" : "0x8dd4" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_1D_ARRAY", "dec" : "36310", "hex" : "0x8dd6" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_2D_ARRAY", "dec" : "36311", "hex" : "0x8dd7" },
+    { "name" : "GL_QUERY_WAIT", "dec" : "36371", "hex" : "0x8e13" },
+    { "name" : "GL_QUERY_NO_WAIT", "dec" : "36372", "hex" : "0x8e14" },
+    { "name" : "GL_QUERY_BY_REGION_WAIT", "dec" : "36373", "hex" : "0x8e15" },
+    { "name" : "GL_QUERY_BY_REGION_NO_WAIT", "dec" : "36374", "hex" : "0x8e16" },
+    { "name" : "GL_BUFFER_ACCESS_FLAGS", "dec" : "37151", "hex" : "0x911f" },
+    { "name" : "GL_BUFFER_MAP_LENGTH", "dec" : "37152", "hex" : "0x9120" },
+    { "name" : "GL_BUFFER_MAP_OFFSET", "dec" : "37153", "hex" : "0x9121" },
+    { "name" : "GL_DEPTH_COMPONENT32F", "dec" : "36012", "hex" : "0x8cac" },
+    { "name" : "GL_DEPTH32F_STENCIL8", "dec" : "36013", "hex" : "0x8cad" },
+    { "name" : "GL_FLOAT_32_UNSIGNED_INT_24_8_REV", "dec" : "36269", "hex" : "0x8dad" },
+    { "name" : "GL_INVALID_FRAMEBUFFER_OPERATION", "dec" : "1286", "hex" : "0x506" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING", "dec" : "33296", "hex" : "0x8210" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE", "dec" : "33297", "hex" : "0x8211" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE", "dec" : "33298", "hex" : "0x8212" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE", "dec" : "33299", "hex" : "0x8213" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE", "dec" : "33300", "hex" : "0x8214" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE", "dec" : "33301", "hex" : "0x8215" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE", "dec" : "33302", "hex" : "0x8216" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE", "dec" : "33303", "hex" : "0x8217" },
+    { "name" : "GL_FRAMEBUFFER_DEFAULT", "dec" : "33304", "hex" : "0x8218" },
+    { "name" : "GL_FRAMEBUFFER_UNDEFINED", "dec" : "33305", "hex" : "0x8219" },
+    { "name" : "GL_DEPTH_STENCIL_ATTACHMENT", "dec" : "33306", "hex" : "0x821a" },
+    { "name" : "GL_MAX_RENDERBUFFER_SIZE", "dec" : "34024", "hex" : "0x84e8" },
+    { "name" : "GL_DEPTH_STENCIL", "dec" : "34041", "hex" : "0x84f9" },
+    { "name" : "GL_UNSIGNED_INT_24_8", "dec" : "34042", "hex" : "0x84fa" },
+    { "name" : "GL_DEPTH24_STENCIL8", "dec" : "35056", "hex" : "0x88f0" },
+    { "name" : "GL_TEXTURE_STENCIL_SIZE", "dec" : "35057", "hex" : "0x88f1" },
+    { "name" : "GL_TEXTURE_RED_TYPE", "dec" : "35856", "hex" : "0x8c10" },
+    { "name" : "GL_TEXTURE_GREEN_TYPE", "dec" : "35857", "hex" : "0x8c11" },
+    { "name" : "GL_TEXTURE_BLUE_TYPE", "dec" : "35858", "hex" : "0x8c12" },
+    { "name" : "GL_TEXTURE_ALPHA_TYPE", "dec" : "35859", "hex" : "0x8c13" },
+    { "name" : "GL_TEXTURE_DEPTH_TYPE", "dec" : "35862", "hex" : "0x8c16" },
+    { "name" : "GL_UNSIGNED_NORMALIZED", "dec" : "35863", "hex" : "0x8c17" },
+    { "name" : "GL_FRAMEBUFFER_BINDING", "dec" : "36006", "hex" : "0x8ca6" },
+    { "name" : "GL_DRAW_FRAMEBUFFER_BINDING", "dec" : "36006", "hex" : "0x8ca6" },
+    { "name" : "GL_RENDERBUFFER_BINDING", "dec" : "36007", "hex" : "0x8ca7" },
+    { "name" : "GL_READ_FRAMEBUFFER", "dec" : "36008", "hex" : "0x8ca8" },
+    { "name" : "GL_DRAW_FRAMEBUFFER", "dec" : "36009", "hex" : "0x8ca9" },
+    { "name" : "GL_READ_FRAMEBUFFER_BINDING", "dec" : "36010", "hex" : "0x8caa" },
+    { "name" : "GL_RENDERBUFFER_SAMPLES", "dec" : "36011", "hex" : "0x8cab" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE", "dec" : "36048", "hex" : "0x8cd0" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME", "dec" : "36049", "hex" : "0x8cd1" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL", "dec" : "36050", "hex" : "0x8cd2" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE", "dec" : "36051", "hex" : "0x8cd3" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER", "dec" : "36052", "hex" : "0x8cd4" },
+    { "name" : "GL_FRAMEBUFFER_COMPLETE", "dec" : "36053", "hex" : "0x8cd5" },
+    { "name" : "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT", "dec" : "36054", "hex" : "0x8cd6" },
+    { "name" : "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT", "dec" : "36055", "hex" : "0x8cd7" },
+    { "name" : "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER", "dec" : "36059", "hex" : "0x8cdb" },
+    { "name" : "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER", "dec" : "36060", "hex" : "0x8cdc" },
+    { "name" : "GL_FRAMEBUFFER_UNSUPPORTED", "dec" : "36061", "hex" : "0x8cdd" },
+    { "name" : "GL_MAX_COLOR_ATTACHMENTS", "dec" : "36063", "hex" : "0x8cdf" },
+    { "name" : "GL_COLOR_ATTACHMENT0", "dec" : "36064", "hex" : "0x8ce0" },
+    { "name" : "GL_COLOR_ATTACHMENT1", "dec" : "36065", "hex" : "0x8ce1" },
+    { "name" : "GL_COLOR_ATTACHMENT2", "dec" : "36066", "hex" : "0x8ce2" },
+    { "name" : "GL_COLOR_ATTACHMENT3", "dec" : "36067", "hex" : "0x8ce3" },
+    { "name" : "GL_COLOR_ATTACHMENT4", "dec" : "36068", "hex" : "0x8ce4" },
+    { "name" : "GL_COLOR_ATTACHMENT5", "dec" : "36069", "hex" : "0x8ce5" },
+    { "name" : "GL_COLOR_ATTACHMENT6", "dec" : "36070", "hex" : "0x8ce6" },
+    { "name" : "GL_COLOR_ATTACHMENT7", "dec" : "36071", "hex" : "0x8ce7" },
+    { "name" : "GL_COLOR_ATTACHMENT8", "dec" : "36072", "hex" : "0x8ce8" },
+    { "name" : "GL_COLOR_ATTACHMENT9", "dec" : "36073", "hex" : "0x8ce9" },
+    { "name" : "GL_COLOR_ATTACHMENT10", "dec" : "36074", "hex" : "0x8cea" },
+    { "name" : "GL_COLOR_ATTACHMENT11", "dec" : "36075", "hex" : "0x8ceb" },
+    { "name" : "GL_COLOR_ATTACHMENT12", "dec" : "36076", "hex" : "0x8cec" },
+    { "name" : "GL_COLOR_ATTACHMENT13", "dec" : "36077", "hex" : "0x8ced" },
+    { "name" : "GL_COLOR_ATTACHMENT14", "dec" : "36078", "hex" : "0x8cee" },
+    { "name" : "GL_COLOR_ATTACHMENT15", "dec" : "36079", "hex" : "0x8cef" },
+    { "name" : "GL_COLOR_ATTACHMENT16", "dec" : "36080", "hex" : "0x8cf0" },
+    { "name" : "GL_COLOR_ATTACHMENT17", "dec" : "36081", "hex" : "0x8cf1" },
+    { "name" : "GL_COLOR_ATTACHMENT18", "dec" : "36082", "hex" : "0x8cf2" },
+    { "name" : "GL_COLOR_ATTACHMENT19", "dec" : "36083", "hex" : "0x8cf3" },
+    { "name" : "GL_COLOR_ATTACHMENT20", "dec" : "36084", "hex" : "0x8cf4" },
+    { "name" : "GL_COLOR_ATTACHMENT21", "dec" : "36085", "hex" : "0x8cf5" },
+    { "name" : "GL_COLOR_ATTACHMENT22", "dec" : "36086", "hex" : "0x8cf6" },
+    { "name" : "GL_COLOR_ATTACHMENT23", "dec" : "36087", "hex" : "0x8cf7" },
+    { "name" : "GL_COLOR_ATTACHMENT24", "dec" : "36088", "hex" : "0x8cf8" },
+    { "name" : "GL_COLOR_ATTACHMENT25", "dec" : "36089", "hex" : "0x8cf9" },
+    { "name" : "GL_COLOR_ATTACHMENT26", "dec" : "36090", "hex" : "0x8cfa" },
+    { "name" : "GL_COLOR_ATTACHMENT27", "dec" : "36091", "hex" : "0x8cfb" },
+    { "name" : "GL_COLOR_ATTACHMENT28", "dec" : "36092", "hex" : "0x8cfc" },
+    { "name" : "GL_COLOR_ATTACHMENT29", "dec" : "36093", "hex" : "0x8cfd" },
+    { "name" : "GL_COLOR_ATTACHMENT30", "dec" : "36094", "hex" : "0x8cfe" },
+    { "name" : "GL_COLOR_ATTACHMENT31", "dec" : "36095", "hex" : "0x8cff" },
+    { "name" : "GL_DEPTH_ATTACHMENT", "dec" : "36096", "hex" : "0x8d00" },
+    { "name" : "GL_STENCIL_ATTACHMENT", "dec" : "36128", "hex" : "0x8d20" },
+    { "name" : "GL_FRAMEBUFFER", "dec" : "36160", "hex" : "0x8d40" },
+    { "name" : "GL_RENDERBUFFER", "dec" : "36161", "hex" : "0x8d41" },
+    { "name" : "GL_RENDERBUFFER_WIDTH", "dec" : "36162", "hex" : "0x8d42" },
+    { "name" : "GL_RENDERBUFFER_HEIGHT", "dec" : "36163", "hex" : "0x8d43" },
+    { "name" : "GL_RENDERBUFFER_INTERNAL_FORMAT", "dec" : "36164", "hex" : "0x8d44" },
+    { "name" : "GL_STENCIL_INDEX1", "dec" : "36166", "hex" : "0x8d46" },
+    { "name" : "GL_STENCIL_INDEX4", "dec" : "36167", "hex" : "0x8d47" },
+    { "name" : "GL_STENCIL_INDEX8", "dec" : "36168", "hex" : "0x8d48" },
+    { "name" : "GL_STENCIL_INDEX16", "dec" : "36169", "hex" : "0x8d49" },
+    { "name" : "GL_RENDERBUFFER_RED_SIZE", "dec" : "36176", "hex" : "0x8d50" },
+    { "name" : "GL_RENDERBUFFER_GREEN_SIZE", "dec" : "36177", "hex" : "0x8d51" },
+    { "name" : "GL_RENDERBUFFER_BLUE_SIZE", "dec" : "36178", "hex" : "0x8d52" },
+    { "name" : "GL_RENDERBUFFER_ALPHA_SIZE", "dec" : "36179", "hex" : "0x8d53" },
+    { "name" : "GL_RENDERBUFFER_DEPTH_SIZE", "dec" : "36180", "hex" : "0x8d54" },
+    { "name" : "GL_RENDERBUFFER_STENCIL_SIZE", "dec" : "36181", "hex" : "0x8d55" },
+    { "name" : "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE", "dec" : "36182", "hex" : "0x8d56" },
+    { "name" : "GL_MAX_SAMPLES", "dec" : "36183", "hex" : "0x8d57" },
+    { "name" : "GL_FRAMEBUFFER_SRGB", "dec" : "36281", "hex" : "0x8db9" },
+    { "name" : "GL_HALF_FLOAT", "dec" : "5131", "hex" : "0x140b" },
+    { "name" : "GL_MAP_READ_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_MAP_WRITE_BIT", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_MAP_INVALIDATE_RANGE_BIT", "dec" : "4", "hex" : "0x4" },
+    { "name" : "GL_MAP_INVALIDATE_BUFFER_BIT", "dec" : "8", "hex" : "0x8" },
+    { "name" : "GL_MAP_FLUSH_EXPLICIT_BIT", "dec" : "16", "hex" : "0x10" },
+    { "name" : "GL_MAP_UNSYNCHRONIZED_BIT", "dec" : "32", "hex" : "0x20" },
+    { "name" : "GL_COMPRESSED_RED_RGTC1", "dec" : "36283", "hex" : "0x8dbb" },
+    { "name" : "GL_COMPRESSED_SIGNED_RED_RGTC1", "dec" : "36284", "hex" : "0x8dbc" },
+    { "name" : "GL_COMPRESSED_RG_RGTC2", "dec" : "36285", "hex" : "0x8dbd" },
+    { "name" : "GL_COMPRESSED_SIGNED_RG_RGTC2", "dec" : "36286", "hex" : "0x8dbe" },
+    { "name" : "GL_RG", "dec" : "33319", "hex" : "0x8227" },
+    { "name" : "GL_RG_INTEGER", "dec" : "33320", "hex" : "0x8228" },
+    { "name" : "GL_R8", "dec" : "33321", "hex" : "0x8229" },
+    { "name" : "GL_R16", "dec" : "33322", "hex" : "0x822a" },
+    { "name" : "GL_RG8", "dec" : "33323", "hex" : "0x822b" },
+    { "name" : "GL_RG16", "dec" : "33324", "hex" : "0x822c" },
+    { "name" : "GL_R16F", "dec" : "33325", "hex" : "0x822d" },
+    { "name" : "GL_R32F", "dec" : "33326", "hex" : "0x822e" },
+    { "name" : "GL_RG16F", "dec" : "33327", "hex" : "0x822f" },
+    { "name" : "GL_RG32F", "dec" : "33328", "hex" : "0x8230" },
+    { "name" : "GL_R8I", "dec" : "33329", "hex" : "0x8231" },
+    { "name" : "GL_R8UI", "dec" : "33330", "hex" : "0x8232" },
+    { "name" : "GL_R16I", "dec" : "33331", "hex" : "0x8233" },
+    { "name" : "GL_R16UI", "dec" : "33332", "hex" : "0x8234" },
+    { "name" : "GL_R32I", "dec" : "33333", "hex" : "0x8235" },
+    { "name" : "GL_R32UI", "dec" : "33334", "hex" : "0x8236" },
+    { "name" : "GL_RG8I", "dec" : "33335", "hex" : "0x8237" },
+    { "name" : "GL_RG8UI", "dec" : "33336", "hex" : "0x8238" },
+    { "name" : "GL_RG16I", "dec" : "33337", "hex" : "0x8239" },
+    { "name" : "GL_RG16UI", "dec" : "33338", "hex" : "0x823a" },
+    { "name" : "GL_RG32I", "dec" : "33339", "hex" : "0x823b" },
+    { "name" : "GL_RG32UI", "dec" : "33340", "hex" : "0x823c" },
+    { "name" : "GL_VERTEX_ARRAY_BINDING", "dec" : "34229", "hex" : "0x85b5" },
+    { "name" : "GL_VERSION_3_1", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_SAMPLER_2D_RECT", "dec" : "35683", "hex" : "0x8b63" },
+    { "name" : "GL_SAMPLER_2D_RECT_SHADOW", "dec" : "35684", "hex" : "0x8b64" },
+    { "name" : "GL_SAMPLER_BUFFER", "dec" : "36290", "hex" : "0x8dc2" },
+    { "name" : "GL_INT_SAMPLER_2D_RECT", "dec" : "36301", "hex" : "0x8dcd" },
+    { "name" : "GL_INT_SAMPLER_BUFFER", "dec" : "36304", "hex" : "0x8dd0" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_2D_RECT", "dec" : "36309", "hex" : "0x8dd5" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_BUFFER", "dec" : "36312", "hex" : "0x8dd8" },
+    { "name" : "GL_TEXTURE_BUFFER", "dec" : "35882", "hex" : "0x8c2a" },
+    { "name" : "GL_MAX_TEXTURE_BUFFER_SIZE", "dec" : "35883", "hex" : "0x8c2b" },
+    { "name" : "GL_TEXTURE_BINDING_BUFFER", "dec" : "35884", "hex" : "0x8c2c" },
+    { "name" : "GL_TEXTURE_BUFFER_DATA_STORE_BINDING", "dec" : "35885", "hex" : "0x8c2d" },
+    { "name" : "GL_TEXTURE_RECTANGLE", "dec" : "34037", "hex" : "0x84f5" },
+    { "name" : "GL_TEXTURE_BINDING_RECTANGLE", "dec" : "34038", "hex" : "0x84f6" },
+    { "name" : "GL_PROXY_TEXTURE_RECTANGLE", "dec" : "34039", "hex" : "0x84f7" },
+    { "name" : "GL_MAX_RECTANGLE_TEXTURE_SIZE", "dec" : "34040", "hex" : "0x84f8" },
+    { "name" : "GL_R8_SNORM", "dec" : "36756", "hex" : "0x8f94" },
+    { "name" : "GL_RG8_SNORM", "dec" : "36757", "hex" : "0x8f95" },
+    { "name" : "GL_RGB8_SNORM", "dec" : "36758", "hex" : "0x8f96" },
+    { "name" : "GL_RGBA8_SNORM", "dec" : "36759", "hex" : "0x8f97" },
+    { "name" : "GL_R16_SNORM", "dec" : "36760", "hex" : "0x8f98" },
+    { "name" : "GL_RG16_SNORM", "dec" : "36761", "hex" : "0x8f99" },
+    { "name" : "GL_RGB16_SNORM", "dec" : "36762", "hex" : "0x8f9a" },
+    { "name" : "GL_RGBA16_SNORM", "dec" : "36763", "hex" : "0x8f9b" },
+    { "name" : "GL_SIGNED_NORMALIZED", "dec" : "36764", "hex" : "0x8f9c" },
+    { "name" : "GL_PRIMITIVE_RESTART", "dec" : "36765", "hex" : "0x8f9d" },
+    { "name" : "GL_PRIMITIVE_RESTART_INDEX", "dec" : "36766", "hex" : "0x8f9e" },
+    { "name" : "GL_COPY_READ_BUFFER", "dec" : "36662", "hex" : "0x8f36" },
+    { "name" : "GL_COPY_WRITE_BUFFER", "dec" : "36663", "hex" : "0x8f37" },
+    { "name" : "GL_UNIFORM_BUFFER", "dec" : "35345", "hex" : "0x8a11" },
+    { "name" : "GL_UNIFORM_BUFFER_BINDING", "dec" : "35368", "hex" : "0x8a28" },
+    { "name" : "GL_UNIFORM_BUFFER_START", "dec" : "35369", "hex" : "0x8a29" },
+    { "name" : "GL_UNIFORM_BUFFER_SIZE", "dec" : "35370", "hex" : "0x8a2a" },
+    { "name" : "GL_MAX_VERTEX_UNIFORM_BLOCKS", "dec" : "35371", "hex" : "0x8a2b" },
+    { "name" : "GL_MAX_GEOMETRY_UNIFORM_BLOCKS", "dec" : "35372", "hex" : "0x8a2c" },
+    { "name" : "GL_MAX_FRAGMENT_UNIFORM_BLOCKS", "dec" : "35373", "hex" : "0x8a2d" },
+    { "name" : "GL_MAX_COMBINED_UNIFORM_BLOCKS", "dec" : "35374", "hex" : "0x8a2e" },
+    { "name" : "GL_MAX_UNIFORM_BUFFER_BINDINGS", "dec" : "35375", "hex" : "0x8a2f" },
+    { "name" : "GL_MAX_UNIFORM_BLOCK_SIZE", "dec" : "35376", "hex" : "0x8a30" },
+    { "name" : "GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS", "dec" : "35377", "hex" : "0x8a31" },
+    { "name" : "GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS", "dec" : "35378", "hex" : "0x8a32" },
+    { "name" : "GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS", "dec" : "35379", "hex" : "0x8a33" },
+    { "name" : "GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT", "dec" : "35380", "hex" : "0x8a34" },
+    { "name" : "GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH", "dec" : "35381", "hex" : "0x8a35" },
+    { "name" : "GL_ACTIVE_UNIFORM_BLOCKS", "dec" : "35382", "hex" : "0x8a36" },
+    { "name" : "GL_UNIFORM_TYPE", "dec" : "35383", "hex" : "0x8a37" },
+    { "name" : "GL_UNIFORM_SIZE", "dec" : "35384", "hex" : "0x8a38" },
+    { "name" : "GL_UNIFORM_NAME_LENGTH", "dec" : "35385", "hex" : "0x8a39" },
+    { "name" : "GL_UNIFORM_BLOCK_INDEX", "dec" : "35386", "hex" : "0x8a3a" },
+    { "name" : "GL_UNIFORM_OFFSET", "dec" : "35387", "hex" : "0x8a3b" },
+    { "name" : "GL_UNIFORM_ARRAY_STRIDE", "dec" : "35388", "hex" : "0x8a3c" },
+    { "name" : "GL_UNIFORM_MATRIX_STRIDE", "dec" : "35389", "hex" : "0x8a3d" },
+    { "name" : "GL_UNIFORM_IS_ROW_MAJOR", "dec" : "35390", "hex" : "0x8a3e" },
+    { "name" : "GL_UNIFORM_BLOCK_BINDING", "dec" : "35391", "hex" : "0x8a3f" },
+    { "name" : "GL_UNIFORM_BLOCK_DATA_SIZE", "dec" : "35392", "hex" : "0x8a40" },
+    { "name" : "GL_UNIFORM_BLOCK_NAME_LENGTH", "dec" : "35393", "hex" : "0x8a41" },
+    { "name" : "GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS", "dec" : "35394", "hex" : "0x8a42" },
+    { "name" : "GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES", "dec" : "35395", "hex" : "0x8a43" },
+    { "name" : "GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER", "dec" : "35396", "hex" : "0x8a44" },
+    { "name" : "GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER", "dec" : "35397", "hex" : "0x8a45" },
+    { "name" : "GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER", "dec" : "35398", "hex" : "0x8a46" },
+    { "name" : "GL_VERSION_3_2", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_CONTEXT_CORE_PROFILE_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_CONTEXT_COMPATIBILITY_PROFILE_BIT", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_LINES_ADJACENCY", "dec" : "10", "hex" : "0xa" },
+    { "name" : "GL_LINE_STRIP_ADJACENCY", "dec" : "11", "hex" : "0xb" },
+    { "name" : "GL_TRIANGLES_ADJACENCY", "dec" : "12", "hex" : "0xc" },
+    { "name" : "GL_TRIANGLE_STRIP_ADJACENCY", "dec" : "13", "hex" : "0xd" },
+    { "name" : "GL_PROGRAM_POINT_SIZE", "dec" : "34370", "hex" : "0x8642" },
+    { "name" : "GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS", "dec" : "35881", "hex" : "0x8c29" },
+    { "name" : "GL_FRAMEBUFFER_ATTACHMENT_LAYERED", "dec" : "36263", "hex" : "0x8da7" },
+    { "name" : "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS", "dec" : "36264", "hex" : "0x8da8" },
+    { "name" : "GL_GEOMETRY_SHADER", "dec" : "36313", "hex" : "0x8dd9" },
+    { "name" : "GL_GEOMETRY_VERTICES_OUT", "dec" : "35094", "hex" : "0x8916" },
+    { "name" : "GL_GEOMETRY_INPUT_TYPE", "dec" : "35095", "hex" : "0x8917" },
+    { "name" : "GL_GEOMETRY_OUTPUT_TYPE", "dec" : "35096", "hex" : "0x8918" },
+    { "name" : "GL_MAX_GEOMETRY_UNIFORM_COMPONENTS", "dec" : "36319", "hex" : "0x8ddf" },
+    { "name" : "GL_MAX_GEOMETRY_OUTPUT_VERTICES", "dec" : "36320", "hex" : "0x8de0" },
+    { "name" : "GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS", "dec" : "36321", "hex" : "0x8de1" },
+    { "name" : "GL_MAX_VERTEX_OUTPUT_COMPONENTS", "dec" : "37154", "hex" : "0x9122" },
+    { "name" : "GL_MAX_GEOMETRY_INPUT_COMPONENTS", "dec" : "37155", "hex" : "0x9123" },
+    { "name" : "GL_MAX_GEOMETRY_OUTPUT_COMPONENTS", "dec" : "37156", "hex" : "0x9124" },
+    { "name" : "GL_MAX_FRAGMENT_INPUT_COMPONENTS", "dec" : "37157", "hex" : "0x9125" },
+    { "name" : "GL_CONTEXT_PROFILE_MASK", "dec" : "37158", "hex" : "0x9126" },
+    { "name" : "GL_DEPTH_CLAMP", "dec" : "34383", "hex" : "0x864f" },
+    { "name" : "GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION", "dec" : "36428", "hex" : "0x8e4c" },
+    { "name" : "GL_FIRST_VERTEX_CONVENTION", "dec" : "36429", "hex" : "0x8e4d" },
+    { "name" : "GL_LAST_VERTEX_CONVENTION", "dec" : "36430", "hex" : "0x8e4e" },
+    { "name" : "GL_PROVOKING_VERTEX", "dec" : "36431", "hex" : "0x8e4f" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_SEAMLESS", "dec" : "34895", "hex" : "0x884f" },
+    { "name" : "GL_MAX_SERVER_WAIT_TIMEOUT", "dec" : "37137", "hex" : "0x9111" },
+    { "name" : "GL_OBJECT_TYPE", "dec" : "37138", "hex" : "0x9112" },
+    { "name" : "GL_SYNC_CONDITION", "dec" : "37139", "hex" : "0x9113" },
+    { "name" : "GL_SYNC_STATUS", "dec" : "37140", "hex" : "0x9114" },
+    { "name" : "GL_SYNC_FLAGS", "dec" : "37141", "hex" : "0x9115" },
+    { "name" : "GL_SYNC_FENCE", "dec" : "37142", "hex" : "0x9116" },
+    { "name" : "GL_SYNC_GPU_COMMANDS_COMPLETE", "dec" : "37143", "hex" : "0x9117" },
+    { "name" : "GL_UNSIGNALED", "dec" : "37144", "hex" : "0x9118" },
+    { "name" : "GL_SIGNALED", "dec" : "37145", "hex" : "0x9119" },
+    { "name" : "GL_ALREADY_SIGNALED", "dec" : "37146", "hex" : "0x911a" },
+    { "name" : "GL_TIMEOUT_EXPIRED", "dec" : "37147", "hex" : "0x911b" },
+    { "name" : "GL_CONDITION_SATISFIED", "dec" : "37148", "hex" : "0x911c" },
+    { "name" : "GL_WAIT_FAILED", "dec" : "37149", "hex" : "0x911d" },
+    { "name" : "GL_SYNC_FLUSH_COMMANDS_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_SAMPLE_POSITION", "dec" : "36432", "hex" : "0x8e50" },
+    { "name" : "GL_SAMPLE_MASK", "dec" : "36433", "hex" : "0x8e51" },
+    { "name" : "GL_SAMPLE_MASK_VALUE", "dec" : "36434", "hex" : "0x8e52" },
+    { "name" : "GL_MAX_SAMPLE_MASK_WORDS", "dec" : "36441", "hex" : "0x8e59" },
+    { "name" : "GL_TEXTURE_2D_MULTISAMPLE", "dec" : "37120", "hex" : "0x9100" },
+    { "name" : "GL_PROXY_TEXTURE_2D_MULTISAMPLE", "dec" : "37121", "hex" : "0x9101" },
+    { "name" : "GL_TEXTURE_2D_MULTISAMPLE_ARRAY", "dec" : "37122", "hex" : "0x9102" },
+    { "name" : "GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY", "dec" : "37123", "hex" : "0x9103" },
+    { "name" : "GL_TEXTURE_BINDING_2D_MULTISAMPLE", "dec" : "37124", "hex" : "0x9104" },
+    { "name" : "GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY", "dec" : "37125", "hex" : "0x9105" },
+    { "name" : "GL_TEXTURE_SAMPLES", "dec" : "37126", "hex" : "0x9106" },
+    { "name" : "GL_TEXTURE_FIXED_SAMPLE_LOCATIONS", "dec" : "37127", "hex" : "0x9107" },
+    { "name" : "GL_SAMPLER_2D_MULTISAMPLE", "dec" : "37128", "hex" : "0x9108" },
+    { "name" : "GL_INT_SAMPLER_2D_MULTISAMPLE", "dec" : "37129", "hex" : "0x9109" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE", "dec" : "37130", "hex" : "0x910a" },
+    { "name" : "GL_SAMPLER_2D_MULTISAMPLE_ARRAY", "dec" : "37131", "hex" : "0x910b" },
+    { "name" : "GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY", "dec" : "37132", "hex" : "0x910c" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY", "dec" : "37133", "hex" : "0x910d" },
+    { "name" : "GL_MAX_COLOR_TEXTURE_SAMPLES", "dec" : "37134", "hex" : "0x910e" },
+    { "name" : "GL_MAX_DEPTH_TEXTURE_SAMPLES", "dec" : "37135", "hex" : "0x910f" },
+    { "name" : "GL_MAX_INTEGER_SAMPLES", "dec" : "37136", "hex" : "0x9110" },
+    { "name" : "GL_VERSION_3_3", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_DIVISOR", "dec" : "35070", "hex" : "0x88fe" },
+    { "name" : "GL_SRC1_COLOR", "dec" : "35065", "hex" : "0x88f9" },
+    { "name" : "GL_ONE_MINUS_SRC1_COLOR", "dec" : "35066", "hex" : "0x88fa" },
+    { "name" : "GL_ONE_MINUS_SRC1_ALPHA", "dec" : "35067", "hex" : "0x88fb" },
+    { "name" : "GL_MAX_DUAL_SOURCE_DRAW_BUFFERS", "dec" : "35068", "hex" : "0x88fc" },
+    { "name" : "GL_ANY_SAMPLES_PASSED", "dec" : "35887", "hex" : "0x8c2f" },
+    { "name" : "GL_SAMPLER_BINDING", "dec" : "35097", "hex" : "0x8919" },
+    { "name" : "GL_RGB10_A2UI", "dec" : "36975", "hex" : "0x906f" },
+    { "name" : "GL_TEXTURE_SWIZZLE_R", "dec" : "36418", "hex" : "0x8e42" },
+    { "name" : "GL_TEXTURE_SWIZZLE_G", "dec" : "36419", "hex" : "0x8e43" },
+    { "name" : "GL_TEXTURE_SWIZZLE_B", "dec" : "36420", "hex" : "0x8e44" },
+    { "name" : "GL_TEXTURE_SWIZZLE_A", "dec" : "36421", "hex" : "0x8e45" },
+    { "name" : "GL_TEXTURE_SWIZZLE_RGBA", "dec" : "36422", "hex" : "0x8e46" },
+    { "name" : "GL_TIME_ELAPSED", "dec" : "35007", "hex" : "0x88bf" },
+    { "name" : "GL_TIMESTAMP", "dec" : "36392", "hex" : "0x8e28" },
+    { "name" : "GL_INT_2_10_10_10_REV", "dec" : "36255", "hex" : "0x8d9f" },
+    { "name" : "GL_VERSION_4_0", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_SAMPLE_SHADING", "dec" : "35894", "hex" : "0x8c36" },
+    { "name" : "GL_MIN_SAMPLE_SHADING_VALUE", "dec" : "35895", "hex" : "0x8c37" },
+    { "name" : "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET", "dec" : "36446", "hex" : "0x8e5e" },
+    { "name" : "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET", "dec" : "36447", "hex" : "0x8e5f" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_ARRAY", "dec" : "36873", "hex" : "0x9009" },
+    { "name" : "GL_TEXTURE_BINDING_CUBE_MAP_ARRAY", "dec" : "36874", "hex" : "0x900a" },
+    { "name" : "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY", "dec" : "36875", "hex" : "0x900b" },
+    { "name" : "GL_SAMPLER_CUBE_MAP_ARRAY", "dec" : "36876", "hex" : "0x900c" },
+    { "name" : "GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW", "dec" : "36877", "hex" : "0x900d" },
+    { "name" : "GL_INT_SAMPLER_CUBE_MAP_ARRAY", "dec" : "36878", "hex" : "0x900e" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY", "dec" : "36879", "hex" : "0x900f" },
+    { "name" : "GL_DRAW_INDIRECT_BUFFER", "dec" : "36671", "hex" : "0x8f3f" },
+    { "name" : "GL_DRAW_INDIRECT_BUFFER_BINDING", "dec" : "36675", "hex" : "0x8f43" },
+    { "name" : "GL_GEOMETRY_SHADER_INVOCATIONS", "dec" : "34943", "hex" : "0x887f" },
+    { "name" : "GL_MAX_GEOMETRY_SHADER_INVOCATIONS", "dec" : "36442", "hex" : "0x8e5a" },
+    { "name" : "GL_MIN_FRAGMENT_INTERPOLATION_OFFSET", "dec" : "36443", "hex" : "0x8e5b" },
+    { "name" : "GL_MAX_FRAGMENT_INTERPOLATION_OFFSET", "dec" : "36444", "hex" : "0x8e5c" },
+    { "name" : "GL_FRAGMENT_INTERPOLATION_OFFSET_BITS", "dec" : "36445", "hex" : "0x8e5d" },
+    { "name" : "GL_MAX_VERTEX_STREAMS", "dec" : "36465", "hex" : "0x8e71" },
+    { "name" : "GL_DOUBLE_VEC2", "dec" : "36860", "hex" : "0x8ffc" },
+    { "name" : "GL_DOUBLE_VEC3", "dec" : "36861", "hex" : "0x8ffd" },
+    { "name" : "GL_DOUBLE_VEC4", "dec" : "36862", "hex" : "0x8ffe" },
+    { "name" : "GL_DOUBLE_MAT2", "dec" : "36678", "hex" : "0x8f46" },
+    { "name" : "GL_DOUBLE_MAT3", "dec" : "36679", "hex" : "0x8f47" },
+    { "name" : "GL_DOUBLE_MAT4", "dec" : "36680", "hex" : "0x8f48" },
+    { "name" : "GL_ACTIVE_SUBROUTINES", "dec" : "36325", "hex" : "0x8de5" },
+    { "name" : "GL_ACTIVE_SUBROUTINE_UNIFORMS", "dec" : "36326", "hex" : "0x8de6" },
+    { "name" : "GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS", "dec" : "36423", "hex" : "0x8e47" },
+    { "name" : "GL_ACTIVE_SUBROUTINE_MAX_LENGTH", "dec" : "36424", "hex" : "0x8e48" },
+    { "name" : "GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH", "dec" : "36425", "hex" : "0x8e49" },
+    { "name" : "GL_MAX_SUBROUTINES", "dec" : "36327", "hex" : "0x8de7" },
+    { "name" : "GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS", "dec" : "36328", "hex" : "0x8de8" },
+    { "name" : "GL_NUM_COMPATIBLE_SUBROUTINES", "dec" : "36426", "hex" : "0x8e4a" },
+    { "name" : "GL_COMPATIBLE_SUBROUTINES", "dec" : "36427", "hex" : "0x8e4b" },
+    { "name" : "GL_PATCHES", "dec" : "14", "hex" : "0xe" },
+    { "name" : "GL_PATCH_VERTICES", "dec" : "36466", "hex" : "0x8e72" },
+    { "name" : "GL_PATCH_DEFAULT_INNER_LEVEL", "dec" : "36467", "hex" : "0x8e73" },
+    { "name" : "GL_PATCH_DEFAULT_OUTER_LEVEL", "dec" : "36468", "hex" : "0x8e74" },
+    { "name" : "GL_TESS_CONTROL_OUTPUT_VERTICES", "dec" : "36469", "hex" : "0x8e75" },
+    { "name" : "GL_TESS_GEN_MODE", "dec" : "36470", "hex" : "0x8e76" },
+    { "name" : "GL_TESS_GEN_SPACING", "dec" : "36471", "hex" : "0x8e77" },
+    { "name" : "GL_TESS_GEN_VERTEX_ORDER", "dec" : "36472", "hex" : "0x8e78" },
+    { "name" : "GL_TESS_GEN_POINT_MODE", "dec" : "36473", "hex" : "0x8e79" },
+    { "name" : "GL_ISOLINES", "dec" : "36474", "hex" : "0x8e7a" },
+    { "name" : "GL_FRACTIONAL_ODD", "dec" : "36475", "hex" : "0x8e7b" },
+    { "name" : "GL_FRACTIONAL_EVEN", "dec" : "36476", "hex" : "0x8e7c" },
+    { "name" : "GL_MAX_PATCH_VERTICES", "dec" : "36477", "hex" : "0x8e7d" },
+    { "name" : "GL_MAX_TESS_GEN_LEVEL", "dec" : "36478", "hex" : "0x8e7e" },
+    { "name" : "GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS", "dec" : "36479", "hex" : "0x8e7f" },
+    { "name" : "GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS", "dec" : "36480", "hex" : "0x8e80" },
+    { "name" : "GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS", "dec" : "36481", "hex" : "0x8e81" },
+    { "name" : "GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS", "dec" : "36482", "hex" : "0x8e82" },
+    { "name" : "GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS", "dec" : "36483", "hex" : "0x8e83" },
+    { "name" : "GL_MAX_TESS_PATCH_COMPONENTS", "dec" : "36484", "hex" : "0x8e84" },
+    { "name" : "GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS", "dec" : "36485", "hex" : "0x8e85" },
+    { "name" : "GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS", "dec" : "36486", "hex" : "0x8e86" },
+    { "name" : "GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS", "dec" : "36489", "hex" : "0x8e89" },
+    { "name" : "GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS", "dec" : "36490", "hex" : "0x8e8a" },
+    { "name" : "GL_MAX_TESS_CONTROL_INPUT_COMPONENTS", "dec" : "34924", "hex" : "0x886c" },
+    { "name" : "GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS", "dec" : "34925", "hex" : "0x886d" },
+    { "name" : "GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS", "dec" : "36382", "hex" : "0x8e1e" },
+    { "name" : "GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS", "dec" : "36383", "hex" : "0x8e1f" },
+    { "name" : "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER", "dec" : "34032", "hex" : "0x84f0" },
+    { "name" : "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER", "dec" : "34033", "hex" : "0x84f1" },
+    { "name" : "GL_TESS_EVALUATION_SHADER", "dec" : "36487", "hex" : "0x8e87" },
+    { "name" : "GL_TESS_CONTROL_SHADER", "dec" : "36488", "hex" : "0x8e88" },
+    { "name" : "GL_TRANSFORM_FEEDBACK", "dec" : "36386", "hex" : "0x8e22" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED", "dec" : "36387", "hex" : "0x8e23" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE", "dec" : "36388", "hex" : "0x8e24" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BINDING", "dec" : "36389", "hex" : "0x8e25" },
+    { "name" : "GL_MAX_TRANSFORM_FEEDBACK_BUFFERS", "dec" : "36464", "hex" : "0x8e70" },
+    { "name" : "GL_VERSION_4_1", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_FIXED", "dec" : "5132", "hex" : "0x140c" },
+    { "name" : "GL_IMPLEMENTATION_COLOR_READ_TYPE", "dec" : "35738", "hex" : "0x8b9a" },
+    { "name" : "GL_IMPLEMENTATION_COLOR_READ_FORMAT", "dec" : "35739", "hex" : "0x8b9b" },
+    { "name" : "GL_LOW_FLOAT", "dec" : "36336", "hex" : "0x8df0" },
+    { "name" : "GL_MEDIUM_FLOAT", "dec" : "36337", "hex" : "0x8df1" },
+    { "name" : "GL_HIGH_FLOAT", "dec" : "36338", "hex" : "0x8df2" },
+    { "name" : "GL_LOW_INT", "dec" : "36339", "hex" : "0x8df3" },
+    { "name" : "GL_MEDIUM_INT", "dec" : "36340", "hex" : "0x8df4" },
+    { "name" : "GL_HIGH_INT", "dec" : "36341", "hex" : "0x8df5" },
+    { "name" : "GL_SHADER_COMPILER", "dec" : "36346", "hex" : "0x8dfa" },
+    { "name" : "GL_SHADER_BINARY_FORMATS", "dec" : "36344", "hex" : "0x8df8" },
+    { "name" : "GL_NUM_SHADER_BINARY_FORMATS", "dec" : "36345", "hex" : "0x8df9" },
+    { "name" : "GL_MAX_VERTEX_UNIFORM_VECTORS", "dec" : "36347", "hex" : "0x8dfb" },
+    { "name" : "GL_MAX_VARYING_VECTORS", "dec" : "36348", "hex" : "0x8dfc" },
+    { "name" : "GL_MAX_FRAGMENT_UNIFORM_VECTORS", "dec" : "36349", "hex" : "0x8dfd" },
+    { "name" : "GL_RGB565", "dec" : "36194", "hex" : "0x8d62" },
+    { "name" : "GL_PROGRAM_BINARY_RETRIEVABLE_HINT", "dec" : "33367", "hex" : "0x8257" },
+    { "name" : "GL_PROGRAM_BINARY_LENGTH", "dec" : "34625", "hex" : "0x8741" },
+    { "name" : "GL_NUM_PROGRAM_BINARY_FORMATS", "dec" : "34814", "hex" : "0x87fe" },
+    { "name" : "GL_PROGRAM_BINARY_FORMATS", "dec" : "34815", "hex" : "0x87ff" },
+    { "name" : "GL_VERTEX_SHADER_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_FRAGMENT_SHADER_BIT", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_GEOMETRY_SHADER_BIT", "dec" : "4", "hex" : "0x4" },
+    { "name" : "GL_TESS_CONTROL_SHADER_BIT", "dec" : "8", "hex" : "0x8" },
+    { "name" : "GL_TESS_EVALUATION_SHADER_BIT", "dec" : "16", "hex" : "0x10" },
+    { "name" : "GL_PROGRAM_SEPARABLE", "dec" : "33368", "hex" : "0x8258" },
+    { "name" : "GL_ACTIVE_PROGRAM", "dec" : "33369", "hex" : "0x8259" },
+    { "name" : "GL_PROGRAM_PIPELINE_BINDING", "dec" : "33370", "hex" : "0x825a" },
+    { "name" : "GL_MAX_VIEWPORTS", "dec" : "33371", "hex" : "0x825b" },
+    { "name" : "GL_VIEWPORT_SUBPIXEL_BITS", "dec" : "33372", "hex" : "0x825c" },
+    { "name" : "GL_VIEWPORT_BOUNDS_RANGE", "dec" : "33373", "hex" : "0x825d" },
+    { "name" : "GL_LAYER_PROVOKING_VERTEX", "dec" : "33374", "hex" : "0x825e" },
+    { "name" : "GL_VIEWPORT_INDEX_PROVOKING_VERTEX", "dec" : "33375", "hex" : "0x825f" },
+    { "name" : "GL_UNDEFINED_VERTEX", "dec" : "33376", "hex" : "0x8260" },
+    { "name" : "GL_VERSION_4_2", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_COPY_READ_BUFFER_BINDING", "dec" : "36662", "hex" : "0x8f36" },
+    { "name" : "GL_COPY_WRITE_BUFFER_BINDING", "dec" : "36663", "hex" : "0x8f37" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_ACTIVE", "dec" : "36388", "hex" : "0x8e24" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_PAUSED", "dec" : "36387", "hex" : "0x8e23" },
+    { "name" : "GL_UNPACK_COMPRESSED_BLOCK_WIDTH", "dec" : "37159", "hex" : "0x9127" },
+    { "name" : "GL_UNPACK_COMPRESSED_BLOCK_HEIGHT", "dec" : "37160", "hex" : "0x9128" },
+    { "name" : "GL_UNPACK_COMPRESSED_BLOCK_DEPTH", "dec" : "37161", "hex" : "0x9129" },
+    { "name" : "GL_UNPACK_COMPRESSED_BLOCK_SIZE", "dec" : "37162", "hex" : "0x912a" },
+    { "name" : "GL_PACK_COMPRESSED_BLOCK_WIDTH", "dec" : "37163", "hex" : "0x912b" },
+    { "name" : "GL_PACK_COMPRESSED_BLOCK_HEIGHT", "dec" : "37164", "hex" : "0x912c" },
+    { "name" : "GL_PACK_COMPRESSED_BLOCK_DEPTH", "dec" : "37165", "hex" : "0x912d" },
+    { "name" : "GL_PACK_COMPRESSED_BLOCK_SIZE", "dec" : "37166", "hex" : "0x912e" },
+    { "name" : "GL_NUM_SAMPLE_COUNTS", "dec" : "37760", "hex" : "0x9380" },
+    { "name" : "GL_MIN_MAP_BUFFER_ALIGNMENT", "dec" : "37052", "hex" : "0x90bc" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER", "dec" : "37568", "hex" : "0x92c0" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_BINDING", "dec" : "37569", "hex" : "0x92c1" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_START", "dec" : "37570", "hex" : "0x92c2" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_SIZE", "dec" : "37571", "hex" : "0x92c3" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE", "dec" : "37572", "hex" : "0x92c4" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS", "dec" : "37573", "hex" : "0x92c5" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES", "dec" : "37574", "hex" : "0x92c6" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER", "dec" : "37575", "hex" : "0x92c7" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER", "dec" : "37576", "hex" : "0x92c8" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER", "dec" : "37577", "hex" : "0x92c9" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER", "dec" : "37578", "hex" : "0x92ca" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER", "dec" : "37579", "hex" : "0x92cb" },
+    { "name" : "GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS", "dec" : "37580", "hex" : "0x92cc" },
+    { "name" : "GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS", "dec" : "37581", "hex" : "0x92cd" },
+    { "name" : "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS", "dec" : "37582", "hex" : "0x92ce" },
+    { "name" : "GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS", "dec" : "37583", "hex" : "0x92cf" },
+    { "name" : "GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS", "dec" : "37584", "hex" : "0x92d0" },
+    { "name" : "GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS", "dec" : "37585", "hex" : "0x92d1" },
+    { "name" : "GL_MAX_VERTEX_ATOMIC_COUNTERS", "dec" : "37586", "hex" : "0x92d2" },
+    { "name" : "GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS", "dec" : "37587", "hex" : "0x92d3" },
+    { "name" : "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS", "dec" : "37588", "hex" : "0x92d4" },
+    { "name" : "GL_MAX_GEOMETRY_ATOMIC_COUNTERS", "dec" : "37589", "hex" : "0x92d5" },
+    { "name" : "GL_MAX_FRAGMENT_ATOMIC_COUNTERS", "dec" : "37590", "hex" : "0x92d6" },
+    { "name" : "GL_MAX_COMBINED_ATOMIC_COUNTERS", "dec" : "37591", "hex" : "0x92d7" },
+    { "name" : "GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE", "dec" : "37592", "hex" : "0x92d8" },
+    { "name" : "GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS", "dec" : "37596", "hex" : "0x92dc" },
+    { "name" : "GL_ACTIVE_ATOMIC_COUNTER_BUFFERS", "dec" : "37593", "hex" : "0x92d9" },
+    { "name" : "GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX", "dec" : "37594", "hex" : "0x92da" },
+    { "name" : "GL_UNSIGNED_INT_ATOMIC_COUNTER", "dec" : "37595", "hex" : "0x92db" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_ELEMENT_ARRAY_BARRIER_BIT", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_UNIFORM_BARRIER_BIT", "dec" : "4", "hex" : "0x4" },
+    { "name" : "GL_TEXTURE_FETCH_BARRIER_BIT", "dec" : "8", "hex" : "0x8" },
+    { "name" : "GL_SHADER_IMAGE_ACCESS_BARRIER_BIT", "dec" : "32", "hex" : "0x20" },
+    { "name" : "GL_COMMAND_BARRIER_BIT", "dec" : "64", "hex" : "0x40" },
+    { "name" : "GL_PIXEL_BUFFER_BARRIER_BIT", "dec" : "128", "hex" : "0x80" },
+    { "name" : "GL_TEXTURE_UPDATE_BARRIER_BIT", "dec" : "256", "hex" : "0x100" },
+    { "name" : "GL_BUFFER_UPDATE_BARRIER_BIT", "dec" : "512", "hex" : "0x200" },
+    { "name" : "GL_FRAMEBUFFER_BARRIER_BIT", "dec" : "1024", "hex" : "0x400" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BARRIER_BIT", "dec" : "2048", "hex" : "0x800" },
+    { "name" : "GL_ATOMIC_COUNTER_BARRIER_BIT", "dec" : "4096", "hex" : "0x1000" },
+    { "name" : "GL_MAX_IMAGE_UNITS", "dec" : "36664", "hex" : "0x8f38" },
+    { "name" : "GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS", "dec" : "36665", "hex" : "0x8f39" },
+    { "name" : "GL_IMAGE_BINDING_NAME", "dec" : "36666", "hex" : "0x8f3a" },
+    { "name" : "GL_IMAGE_BINDING_LEVEL", "dec" : "36667", "hex" : "0x8f3b" },
+    { "name" : "GL_IMAGE_BINDING_LAYERED", "dec" : "36668", "hex" : "0x8f3c" },
+    { "name" : "GL_IMAGE_BINDING_LAYER", "dec" : "36669", "hex" : "0x8f3d" },
+    { "name" : "GL_IMAGE_BINDING_ACCESS", "dec" : "36670", "hex" : "0x8f3e" },
+    { "name" : "GL_IMAGE_1D", "dec" : "36940", "hex" : "0x904c" },
+    { "name" : "GL_IMAGE_2D", "dec" : "36941", "hex" : "0x904d" },
+    { "name" : "GL_IMAGE_3D", "dec" : "36942", "hex" : "0x904e" },
+    { "name" : "GL_IMAGE_2D_RECT", "dec" : "36943", "hex" : "0x904f" },
+    { "name" : "GL_IMAGE_CUBE", "dec" : "36944", "hex" : "0x9050" },
+    { "name" : "GL_IMAGE_BUFFER", "dec" : "36945", "hex" : "0x9051" },
+    { "name" : "GL_IMAGE_1D_ARRAY", "dec" : "36946", "hex" : "0x9052" },
+    { "name" : "GL_IMAGE_2D_ARRAY", "dec" : "36947", "hex" : "0x9053" },
+    { "name" : "GL_IMAGE_CUBE_MAP_ARRAY", "dec" : "36948", "hex" : "0x9054" },
+    { "name" : "GL_IMAGE_2D_MULTISAMPLE", "dec" : "36949", "hex" : "0x9055" },
+    { "name" : "GL_IMAGE_2D_MULTISAMPLE_ARRAY", "dec" : "36950", "hex" : "0x9056" },
+    { "name" : "GL_INT_IMAGE_1D", "dec" : "36951", "hex" : "0x9057" },
+    { "name" : "GL_INT_IMAGE_2D", "dec" : "36952", "hex" : "0x9058" },
+    { "name" : "GL_INT_IMAGE_3D", "dec" : "36953", "hex" : "0x9059" },
+    { "name" : "GL_INT_IMAGE_2D_RECT", "dec" : "36954", "hex" : "0x905a" },
+    { "name" : "GL_INT_IMAGE_CUBE", "dec" : "36955", "hex" : "0x905b" },
+    { "name" : "GL_INT_IMAGE_BUFFER", "dec" : "36956", "hex" : "0x905c" },
+    { "name" : "GL_INT_IMAGE_1D_ARRAY", "dec" : "36957", "hex" : "0x905d" },
+    { "name" : "GL_INT_IMAGE_2D_ARRAY", "dec" : "36958", "hex" : "0x905e" },
+    { "name" : "GL_INT_IMAGE_CUBE_MAP_ARRAY", "dec" : "36959", "hex" : "0x905f" },
+    { "name" : "GL_INT_IMAGE_2D_MULTISAMPLE", "dec" : "36960", "hex" : "0x9060" },
+    { "name" : "GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY", "dec" : "36961", "hex" : "0x9061" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_1D", "dec" : "36962", "hex" : "0x9062" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_2D", "dec" : "36963", "hex" : "0x9063" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_3D", "dec" : "36964", "hex" : "0x9064" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_2D_RECT", "dec" : "36965", "hex" : "0x9065" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_CUBE", "dec" : "36966", "hex" : "0x9066" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_BUFFER", "dec" : "36967", "hex" : "0x9067" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_1D_ARRAY", "dec" : "36968", "hex" : "0x9068" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_2D_ARRAY", "dec" : "36969", "hex" : "0x9069" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY", "dec" : "36970", "hex" : "0x906a" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE", "dec" : "36971", "hex" : "0x906b" },
+    { "name" : "GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY", "dec" : "36972", "hex" : "0x906c" },
+    { "name" : "GL_MAX_IMAGE_SAMPLES", "dec" : "36973", "hex" : "0x906d" },
+    { "name" : "GL_IMAGE_BINDING_FORMAT", "dec" : "36974", "hex" : "0x906e" },
+    { "name" : "GL_IMAGE_FORMAT_COMPATIBILITY_TYPE", "dec" : "37063", "hex" : "0x90c7" },
+    { "name" : "GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE", "dec" : "37064", "hex" : "0x90c8" },
+    { "name" : "GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS", "dec" : "37065", "hex" : "0x90c9" },
+    { "name" : "GL_MAX_VERTEX_IMAGE_UNIFORMS", "dec" : "37066", "hex" : "0x90ca" },
+    { "name" : "GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS", "dec" : "37067", "hex" : "0x90cb" },
+    { "name" : "GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS", "dec" : "37068", "hex" : "0x90cc" },
+    { "name" : "GL_MAX_GEOMETRY_IMAGE_UNIFORMS", "dec" : "37069", "hex" : "0x90cd" },
+    { "name" : "GL_MAX_FRAGMENT_IMAGE_UNIFORMS", "dec" : "37070", "hex" : "0x90ce" },
+    { "name" : "GL_MAX_COMBINED_IMAGE_UNIFORMS", "dec" : "37071", "hex" : "0x90cf" },
+    { "name" : "GL_COMPRESSED_RGBA_BPTC_UNORM", "dec" : "36492", "hex" : "0x8e8c" },
+    { "name" : "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM", "dec" : "36493", "hex" : "0x8e8d" },
+    { "name" : "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT", "dec" : "36494", "hex" : "0x8e8e" },
+    { "name" : "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT", "dec" : "36495", "hex" : "0x8e8f" },
+    { "name" : "GL_TEXTURE_IMMUTABLE_FORMAT", "dec" : "37167", "hex" : "0x912f" },
+    { "name" : "GL_VERSION_4_3", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_NUM_SHADING_LANGUAGE_VERSIONS", "dec" : "33513", "hex" : "0x82e9" },
+    { "name" : "GL_VERTEX_ATTRIB_ARRAY_LONG", "dec" : "34638", "hex" : "0x874e" },
+    { "name" : "GL_COMPRESSED_RGB8_ETC2", "dec" : "37492", "hex" : "0x9274" },
+    { "name" : "GL_COMPRESSED_SRGB8_ETC2", "dec" : "37493", "hex" : "0x9275" },
+    { "name" : "GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2", "dec" : "37494", "hex" : "0x9276" },
+    { "name" : "GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2", "dec" : "37495", "hex" : "0x9277" },
+    { "name" : "GL_COMPRESSED_RGBA8_ETC2_EAC", "dec" : "37496", "hex" : "0x9278" },
+    { "name" : "GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC", "dec" : "37497", "hex" : "0x9279" },
+    { "name" : "GL_COMPRESSED_R11_EAC", "dec" : "37488", "hex" : "0x9270" },
+    { "name" : "GL_COMPRESSED_SIGNED_R11_EAC", "dec" : "37489", "hex" : "0x9271" },
+    { "name" : "GL_COMPRESSED_RG11_EAC", "dec" : "37490", "hex" : "0x9272" },
+    { "name" : "GL_COMPRESSED_SIGNED_RG11_EAC", "dec" : "37491", "hex" : "0x9273" },
+    { "name" : "GL_PRIMITIVE_RESTART_FIXED_INDEX", "dec" : "36201", "hex" : "0x8d69" },
+    { "name" : "GL_ANY_SAMPLES_PASSED_CONSERVATIVE", "dec" : "36202", "hex" : "0x8d6a" },
+    { "name" : "GL_MAX_ELEMENT_INDEX", "dec" : "36203", "hex" : "0x8d6b" },
+    { "name" : "GL_COMPUTE_SHADER", "dec" : "37305", "hex" : "0x91b9" },
+    { "name" : "GL_MAX_COMPUTE_UNIFORM_BLOCKS", "dec" : "37307", "hex" : "0x91bb" },
+    { "name" : "GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS", "dec" : "37308", "hex" : "0x91bc" },
+    { "name" : "GL_MAX_COMPUTE_IMAGE_UNIFORMS", "dec" : "37309", "hex" : "0x91bd" },
+    { "name" : "GL_MAX_COMPUTE_SHARED_MEMORY_SIZE", "dec" : "33378", "hex" : "0x8262" },
+    { "name" : "GL_MAX_COMPUTE_UNIFORM_COMPONENTS", "dec" : "33379", "hex" : "0x8263" },
+    { "name" : "GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS", "dec" : "33380", "hex" : "0x8264" },
+    { "name" : "GL_MAX_COMPUTE_ATOMIC_COUNTERS", "dec" : "33381", "hex" : "0x8265" },
+    { "name" : "GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS", "dec" : "33382", "hex" : "0x8266" },
+    { "name" : "GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS", "dec" : "37099", "hex" : "0x90eb" },
+    { "name" : "GL_MAX_COMPUTE_WORK_GROUP_COUNT", "dec" : "37310", "hex" : "0x91be" },
+    { "name" : "GL_MAX_COMPUTE_WORK_GROUP_SIZE", "dec" : "37311", "hex" : "0x91bf" },
+    { "name" : "GL_COMPUTE_WORK_GROUP_SIZE", "dec" : "33383", "hex" : "0x8267" },
+    { "name" : "GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER", "dec" : "37100", "hex" : "0x90ec" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER", "dec" : "37101", "hex" : "0x90ed" },
+    { "name" : "GL_DISPATCH_INDIRECT_BUFFER", "dec" : "37102", "hex" : "0x90ee" },
+    { "name" : "GL_DISPATCH_INDIRECT_BUFFER_BINDING", "dec" : "37103", "hex" : "0x90ef" },
+    { "name" : "GL_COMPUTE_SHADER_BIT", "dec" : "32", "hex" : "0x20" },
+    { "name" : "GL_DEBUG_OUTPUT_SYNCHRONOUS", "dec" : "33346", "hex" : "0x8242" },
+    { "name" : "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH", "dec" : "33347", "hex" : "0x8243" },
+    { "name" : "GL_DEBUG_CALLBACK_FUNCTION", "dec" : "33348", "hex" : "0x8244" },
+    { "name" : "GL_DEBUG_CALLBACK_USER_PARAM", "dec" : "33349", "hex" : "0x8245" },
+    { "name" : "GL_DEBUG_SOURCE_API", "dec" : "33350", "hex" : "0x8246" },
+    { "name" : "GL_DEBUG_SOURCE_WINDOW_SYSTEM", "dec" : "33351", "hex" : "0x8247" },
+    { "name" : "GL_DEBUG_SOURCE_SHADER_COMPILER", "dec" : "33352", "hex" : "0x8248" },
+    { "name" : "GL_DEBUG_SOURCE_THIRD_PARTY", "dec" : "33353", "hex" : "0x8249" },
+    { "name" : "GL_DEBUG_SOURCE_APPLICATION", "dec" : "33354", "hex" : "0x824a" },
+    { "name" : "GL_DEBUG_SOURCE_OTHER", "dec" : "33355", "hex" : "0x824b" },
+    { "name" : "GL_DEBUG_TYPE_ERROR", "dec" : "33356", "hex" : "0x824c" },
+    { "name" : "GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR", "dec" : "33357", "hex" : "0x824d" },
+    { "name" : "GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR", "dec" : "33358", "hex" : "0x824e" },
+    { "name" : "GL_DEBUG_TYPE_PORTABILITY", "dec" : "33359", "hex" : "0x824f" },
+    { "name" : "GL_DEBUG_TYPE_PERFORMANCE", "dec" : "33360", "hex" : "0x8250" },
+    { "name" : "GL_DEBUG_TYPE_OTHER", "dec" : "33361", "hex" : "0x8251" },
+    { "name" : "GL_MAX_DEBUG_MESSAGE_LENGTH", "dec" : "37187", "hex" : "0x9143" },
+    { "name" : "GL_MAX_DEBUG_LOGGED_MESSAGES", "dec" : "37188", "hex" : "0x9144" },
+    { "name" : "GL_DEBUG_LOGGED_MESSAGES", "dec" : "37189", "hex" : "0x9145" },
+    { "name" : "GL_DEBUG_SEVERITY_HIGH", "dec" : "37190", "hex" : "0x9146" },
+    { "name" : "GL_DEBUG_SEVERITY_MEDIUM", "dec" : "37191", "hex" : "0x9147" },
+    { "name" : "GL_DEBUG_SEVERITY_LOW", "dec" : "37192", "hex" : "0x9148" },
+    { "name" : "GL_DEBUG_TYPE_MARKER", "dec" : "33384", "hex" : "0x8268" },
+    { "name" : "GL_DEBUG_TYPE_PUSH_GROUP", "dec" : "33385", "hex" : "0x8269" },
+    { "name" : "GL_DEBUG_TYPE_POP_GROUP", "dec" : "33386", "hex" : "0x826a" },
+    { "name" : "GL_DEBUG_SEVERITY_NOTIFICATION", "dec" : "33387", "hex" : "0x826b" },
+    { "name" : "GL_MAX_DEBUG_GROUP_STACK_DEPTH", "dec" : "33388", "hex" : "0x826c" },
+    { "name" : "GL_DEBUG_GROUP_STACK_DEPTH", "dec" : "33389", "hex" : "0x826d" },
+    { "name" : "GL_BUFFER", "dec" : "33504", "hex" : "0x82e0" },
+    { "name" : "GL_SHADER", "dec" : "33505", "hex" : "0x82e1" },
+    { "name" : "GL_PROGRAM", "dec" : "33506", "hex" : "0x82e2" },
+    { "name" : "GL_QUERY", "dec" : "33507", "hex" : "0x82e3" },
+    { "name" : "GL_PROGRAM_PIPELINE", "dec" : "33508", "hex" : "0x82e4" },
+    { "name" : "GL_SAMPLER", "dec" : "33510", "hex" : "0x82e6" },
+    { "name" : "GL_MAX_LABEL_LENGTH", "dec" : "33512", "hex" : "0x82e8" },
+    { "name" : "GL_DEBUG_OUTPUT", "dec" : "37600", "hex" : "0x92e0" },
+    { "name" : "GL_CONTEXT_FLAG_DEBUG_BIT", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_MAX_UNIFORM_LOCATIONS", "dec" : "33390", "hex" : "0x826e" },
+    { "name" : "GL_FRAMEBUFFER_DEFAULT_WIDTH", "dec" : "37648", "hex" : "0x9310" },
+    { "name" : "GL_FRAMEBUFFER_DEFAULT_HEIGHT", "dec" : "37649", "hex" : "0x9311" },
+    { "name" : "GL_FRAMEBUFFER_DEFAULT_LAYERS", "dec" : "37650", "hex" : "0x9312" },
+    { "name" : "GL_FRAMEBUFFER_DEFAULT_SAMPLES", "dec" : "37651", "hex" : "0x9313" },
+    { "name" : "GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS", "dec" : "37652", "hex" : "0x9314" },
+    { "name" : "GL_MAX_FRAMEBUFFER_WIDTH", "dec" : "37653", "hex" : "0x9315" },
+    { "name" : "GL_MAX_FRAMEBUFFER_HEIGHT", "dec" : "37654", "hex" : "0x9316" },
+    { "name" : "GL_MAX_FRAMEBUFFER_LAYERS", "dec" : "37655", "hex" : "0x9317" },
+    { "name" : "GL_MAX_FRAMEBUFFER_SAMPLES", "dec" : "37656", "hex" : "0x9318" },
+    { "name" : "GL_INTERNALFORMAT_SUPPORTED", "dec" : "33391", "hex" : "0x826f" },
+    { "name" : "GL_INTERNALFORMAT_PREFERRED", "dec" : "33392", "hex" : "0x8270" },
+    { "name" : "GL_INTERNALFORMAT_RED_SIZE", "dec" : "33393", "hex" : "0x8271" },
+    { "name" : "GL_INTERNALFORMAT_GREEN_SIZE", "dec" : "33394", "hex" : "0x8272" },
+    { "name" : "GL_INTERNALFORMAT_BLUE_SIZE", "dec" : "33395", "hex" : "0x8273" },
+    { "name" : "GL_INTERNALFORMAT_ALPHA_SIZE", "dec" : "33396", "hex" : "0x8274" },
+    { "name" : "GL_INTERNALFORMAT_DEPTH_SIZE", "dec" : "33397", "hex" : "0x8275" },
+    { "name" : "GL_INTERNALFORMAT_STENCIL_SIZE", "dec" : "33398", "hex" : "0x8276" },
+    { "name" : "GL_INTERNALFORMAT_SHARED_SIZE", "dec" : "33399", "hex" : "0x8277" },
+    { "name" : "GL_INTERNALFORMAT_RED_TYPE", "dec" : "33400", "hex" : "0x8278" },
+    { "name" : "GL_INTERNALFORMAT_GREEN_TYPE", "dec" : "33401", "hex" : "0x8279" },
+    { "name" : "GL_INTERNALFORMAT_BLUE_TYPE", "dec" : "33402", "hex" : "0x827a" },
+    { "name" : "GL_INTERNALFORMAT_ALPHA_TYPE", "dec" : "33403", "hex" : "0x827b" },
+    { "name" : "GL_INTERNALFORMAT_DEPTH_TYPE", "dec" : "33404", "hex" : "0x827c" },
+    { "name" : "GL_INTERNALFORMAT_STENCIL_TYPE", "dec" : "33405", "hex" : "0x827d" },
+    { "name" : "GL_MAX_WIDTH", "dec" : "33406", "hex" : "0x827e" },
+    { "name" : "GL_MAX_HEIGHT", "dec" : "33407", "hex" : "0x827f" },
+    { "name" : "GL_MAX_DEPTH", "dec" : "33408", "hex" : "0x8280" },
+    { "name" : "GL_MAX_LAYERS", "dec" : "33409", "hex" : "0x8281" },
+    { "name" : "GL_MAX_COMBINED_DIMENSIONS", "dec" : "33410", "hex" : "0x8282" },
+    { "name" : "GL_COLOR_COMPONENTS", "dec" : "33411", "hex" : "0x8283" },
+    { "name" : "GL_DEPTH_COMPONENTS", "dec" : "33412", "hex" : "0x8284" },
+    { "name" : "GL_STENCIL_COMPONENTS", "dec" : "33413", "hex" : "0x8285" },
+    { "name" : "GL_COLOR_RENDERABLE", "dec" : "33414", "hex" : "0x8286" },
+    { "name" : "GL_DEPTH_RENDERABLE", "dec" : "33415", "hex" : "0x8287" },
+    { "name" : "GL_STENCIL_RENDERABLE", "dec" : "33416", "hex" : "0x8288" },
+    { "name" : "GL_FRAMEBUFFER_RENDERABLE", "dec" : "33417", "hex" : "0x8289" },
+    { "name" : "GL_FRAMEBUFFER_RENDERABLE_LAYERED", "dec" : "33418", "hex" : "0x828a" },
+    { "name" : "GL_FRAMEBUFFER_BLEND", "dec" : "33419", "hex" : "0x828b" },
+    { "name" : "GL_READ_PIXELS", "dec" : "33420", "hex" : "0x828c" },
+    { "name" : "GL_READ_PIXELS_FORMAT", "dec" : "33421", "hex" : "0x828d" },
+    { "name" : "GL_READ_PIXELS_TYPE", "dec" : "33422", "hex" : "0x828e" },
+    { "name" : "GL_TEXTURE_IMAGE_FORMAT", "dec" : "33423", "hex" : "0x828f" },
+    { "name" : "GL_TEXTURE_IMAGE_TYPE", "dec" : "33424", "hex" : "0x8290" },
+    { "name" : "GL_GET_TEXTURE_IMAGE_FORMAT", "dec" : "33425", "hex" : "0x8291" },
+    { "name" : "GL_GET_TEXTURE_IMAGE_TYPE", "dec" : "33426", "hex" : "0x8292" },
+    { "name" : "GL_MIPMAP", "dec" : "33427", "hex" : "0x8293" },
+    { "name" : "GL_MANUAL_GENERATE_MIPMAP", "dec" : "33428", "hex" : "0x8294" },
+    { "name" : "GL_AUTO_GENERATE_MIPMAP", "dec" : "33429", "hex" : "0x8295" },
+    { "name" : "GL_COLOR_ENCODING", "dec" : "33430", "hex" : "0x8296" },
+    { "name" : "GL_SRGB_READ", "dec" : "33431", "hex" : "0x8297" },
+    { "name" : "GL_SRGB_WRITE", "dec" : "33432", "hex" : "0x8298" },
+    { "name" : "GL_FILTER", "dec" : "33434", "hex" : "0x829a" },
+    { "name" : "GL_VERTEX_TEXTURE", "dec" : "33435", "hex" : "0x829b" },
+    { "name" : "GL_TESS_CONTROL_TEXTURE", "dec" : "33436", "hex" : "0x829c" },
+    { "name" : "GL_TESS_EVALUATION_TEXTURE", "dec" : "33437", "hex" : "0x829d" },
+    { "name" : "GL_GEOMETRY_TEXTURE", "dec" : "33438", "hex" : "0x829e" },
+    { "name" : "GL_FRAGMENT_TEXTURE", "dec" : "33439", "hex" : "0x829f" },
+    { "name" : "GL_COMPUTE_TEXTURE", "dec" : "33440", "hex" : "0x82a0" },
+    { "name" : "GL_TEXTURE_SHADOW", "dec" : "33441", "hex" : "0x82a1" },
+    { "name" : "GL_TEXTURE_GATHER", "dec" : "33442", "hex" : "0x82a2" },
+    { "name" : "GL_TEXTURE_GATHER_SHADOW", "dec" : "33443", "hex" : "0x82a3" },
+    { "name" : "GL_SHADER_IMAGE_LOAD", "dec" : "33444", "hex" : "0x82a4" },
+    { "name" : "GL_SHADER_IMAGE_STORE", "dec" : "33445", "hex" : "0x82a5" },
+    { "name" : "GL_SHADER_IMAGE_ATOMIC", "dec" : "33446", "hex" : "0x82a6" },
+    { "name" : "GL_IMAGE_TEXEL_SIZE", "dec" : "33447", "hex" : "0x82a7" },
+    { "name" : "GL_IMAGE_COMPATIBILITY_CLASS", "dec" : "33448", "hex" : "0x82a8" },
+    { "name" : "GL_IMAGE_PIXEL_FORMAT", "dec" : "33449", "hex" : "0x82a9" },
+    { "name" : "GL_IMAGE_PIXEL_TYPE", "dec" : "33450", "hex" : "0x82aa" },
+    { "name" : "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST", "dec" : "33452", "hex" : "0x82ac" },
+    { "name" : "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST", "dec" : "33453", "hex" : "0x82ad" },
+    { "name" : "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE", "dec" : "33454", "hex" : "0x82ae" },
+    { "name" : "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE", "dec" : "33455", "hex" : "0x82af" },
+    { "name" : "GL_TEXTURE_COMPRESSED_BLOCK_WIDTH", "dec" : "33457", "hex" : "0x82b1" },
+    { "name" : "GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT", "dec" : "33458", "hex" : "0x82b2" },
+    { "name" : "GL_TEXTURE_COMPRESSED_BLOCK_SIZE", "dec" : "33459", "hex" : "0x82b3" },
+    { "name" : "GL_CLEAR_BUFFER", "dec" : "33460", "hex" : "0x82b4" },
+    { "name" : "GL_TEXTURE_VIEW", "dec" : "33461", "hex" : "0x82b5" },
+    { "name" : "GL_VIEW_COMPATIBILITY_CLASS", "dec" : "33462", "hex" : "0x82b6" },
+    { "name" : "GL_FULL_SUPPORT", "dec" : "33463", "hex" : "0x82b7" },
+    { "name" : "GL_CAVEAT_SUPPORT", "dec" : "33464", "hex" : "0x82b8" },
+    { "name" : "GL_IMAGE_CLASS_4_X_32", "dec" : "33465", "hex" : "0x82b9" },
+    { "name" : "GL_IMAGE_CLASS_2_X_32", "dec" : "33466", "hex" : "0x82ba" },
+    { "name" : "GL_IMAGE_CLASS_1_X_32", "dec" : "33467", "hex" : "0x82bb" },
+    { "name" : "GL_IMAGE_CLASS_4_X_16", "dec" : "33468", "hex" : "0x82bc" },
+    { "name" : "GL_IMAGE_CLASS_2_X_16", "dec" : "33469", "hex" : "0x82bd" },
+    { "name" : "GL_IMAGE_CLASS_1_X_16", "dec" : "33470", "hex" : "0x82be" },
+    { "name" : "GL_IMAGE_CLASS_4_X_8", "dec" : "33471", "hex" : "0x82bf" },
+    { "name" : "GL_IMAGE_CLASS_2_X_8", "dec" : "33472", "hex" : "0x82c0" },
+    { "name" : "GL_IMAGE_CLASS_1_X_8", "dec" : "33473", "hex" : "0x82c1" },
+    { "name" : "GL_IMAGE_CLASS_11_11_10", "dec" : "33474", "hex" : "0x82c2" },
+    { "name" : "GL_IMAGE_CLASS_10_10_10_2", "dec" : "33475", "hex" : "0x82c3" },
+    { "name" : "GL_VIEW_CLASS_128_BITS", "dec" : "33476", "hex" : "0x82c4" },
+    { "name" : "GL_VIEW_CLASS_96_BITS", "dec" : "33477", "hex" : "0x82c5" },
+    { "name" : "GL_VIEW_CLASS_64_BITS", "dec" : "33478", "hex" : "0x82c6" },
+    { "name" : "GL_VIEW_CLASS_48_BITS", "dec" : "33479", "hex" : "0x82c7" },
+    { "name" : "GL_VIEW_CLASS_32_BITS", "dec" : "33480", "hex" : "0x82c8" },
+    { "name" : "GL_VIEW_CLASS_24_BITS", "dec" : "33481", "hex" : "0x82c9" },
+    { "name" : "GL_VIEW_CLASS_16_BITS", "dec" : "33482", "hex" : "0x82ca" },
+    { "name" : "GL_VIEW_CLASS_8_BITS", "dec" : "33483", "hex" : "0x82cb" },
+    { "name" : "GL_VIEW_CLASS_S3TC_DXT1_RGB", "dec" : "33484", "hex" : "0x82cc" },
+    { "name" : "GL_VIEW_CLASS_S3TC_DXT1_RGBA", "dec" : "33485", "hex" : "0x82cd" },
+    { "name" : "GL_VIEW_CLASS_S3TC_DXT3_RGBA", "dec" : "33486", "hex" : "0x82ce" },
+    { "name" : "GL_VIEW_CLASS_S3TC_DXT5_RGBA", "dec" : "33487", "hex" : "0x82cf" },
+    { "name" : "GL_VIEW_CLASS_RGTC1_RED", "dec" : "33488", "hex" : "0x82d0" },
+    { "name" : "GL_VIEW_CLASS_RGTC2_RG", "dec" : "33489", "hex" : "0x82d1" },
+    { "name" : "GL_VIEW_CLASS_BPTC_UNORM", "dec" : "33490", "hex" : "0x82d2" },
+    { "name" : "GL_VIEW_CLASS_BPTC_FLOAT", "dec" : "33491", "hex" : "0x82d3" },
+    { "name" : "GL_UNIFORM", "dec" : "37601", "hex" : "0x92e1" },
+    { "name" : "GL_UNIFORM_BLOCK", "dec" : "37602", "hex" : "0x92e2" },
+    { "name" : "GL_PROGRAM_INPUT", "dec" : "37603", "hex" : "0x92e3" },
+    { "name" : "GL_PROGRAM_OUTPUT", "dec" : "37604", "hex" : "0x92e4" },
+    { "name" : "GL_BUFFER_VARIABLE", "dec" : "37605", "hex" : "0x92e5" },
+    { "name" : "GL_SHADER_STORAGE_BLOCK", "dec" : "37606", "hex" : "0x92e6" },
+    { "name" : "GL_VERTEX_SUBROUTINE", "dec" : "37608", "hex" : "0x92e8" },
+    { "name" : "GL_TESS_CONTROL_SUBROUTINE", "dec" : "37609", "hex" : "0x92e9" },
+    { "name" : "GL_TESS_EVALUATION_SUBROUTINE", "dec" : "37610", "hex" : "0x92ea" },
+    { "name" : "GL_GEOMETRY_SUBROUTINE", "dec" : "37611", "hex" : "0x92eb" },
+    { "name" : "GL_FRAGMENT_SUBROUTINE", "dec" : "37612", "hex" : "0x92ec" },
+    { "name" : "GL_COMPUTE_SUBROUTINE", "dec" : "37613", "hex" : "0x92ed" },
+    { "name" : "GL_VERTEX_SUBROUTINE_UNIFORM", "dec" : "37614", "hex" : "0x92ee" },
+    { "name" : "GL_TESS_CONTROL_SUBROUTINE_UNIFORM", "dec" : "37615", "hex" : "0x92ef" },
+    { "name" : "GL_TESS_EVALUATION_SUBROUTINE_UNIFORM", "dec" : "37616", "hex" : "0x92f0" },
+    { "name" : "GL_GEOMETRY_SUBROUTINE_UNIFORM", "dec" : "37617", "hex" : "0x92f1" },
+    { "name" : "GL_FRAGMENT_SUBROUTINE_UNIFORM", "dec" : "37618", "hex" : "0x92f2" },
+    { "name" : "GL_COMPUTE_SUBROUTINE_UNIFORM", "dec" : "37619", "hex" : "0x92f3" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_VARYING", "dec" : "37620", "hex" : "0x92f4" },
+    { "name" : "GL_ACTIVE_RESOURCES", "dec" : "37621", "hex" : "0x92f5" },
+    { "name" : "GL_MAX_NAME_LENGTH", "dec" : "37622", "hex" : "0x92f6" },
+    { "name" : "GL_MAX_NUM_ACTIVE_VARIABLES", "dec" : "37623", "hex" : "0x92f7" },
+    { "name" : "GL_MAX_NUM_COMPATIBLE_SUBROUTINES", "dec" : "37624", "hex" : "0x92f8" },
+    { "name" : "GL_NAME_LENGTH", "dec" : "37625", "hex" : "0x92f9" },
+    { "name" : "GL_TYPE", "dec" : "37626", "hex" : "0x92fa" },
+    { "name" : "GL_ARRAY_SIZE", "dec" : "37627", "hex" : "0x92fb" },
+    { "name" : "GL_OFFSET", "dec" : "37628", "hex" : "0x92fc" },
+    { "name" : "GL_BLOCK_INDEX", "dec" : "37629", "hex" : "0x92fd" },
+    { "name" : "GL_ARRAY_STRIDE", "dec" : "37630", "hex" : "0x92fe" },
+    { "name" : "GL_MATRIX_STRIDE", "dec" : "37631", "hex" : "0x92ff" },
+    { "name" : "GL_IS_ROW_MAJOR", "dec" : "37632", "hex" : "0x9300" },
+    { "name" : "GL_ATOMIC_COUNTER_BUFFER_INDEX", "dec" : "37633", "hex" : "0x9301" },
+    { "name" : "GL_BUFFER_BINDING", "dec" : "37634", "hex" : "0x9302" },
+    { "name" : "GL_BUFFER_DATA_SIZE", "dec" : "37635", "hex" : "0x9303" },
+    { "name" : "GL_NUM_ACTIVE_VARIABLES", "dec" : "37636", "hex" : "0x9304" },
+    { "name" : "GL_ACTIVE_VARIABLES", "dec" : "37637", "hex" : "0x9305" },
+    { "name" : "GL_REFERENCED_BY_VERTEX_SHADER", "dec" : "37638", "hex" : "0x9306" },
+    { "name" : "GL_REFERENCED_BY_TESS_CONTROL_SHADER", "dec" : "37639", "hex" : "0x9307" },
+    { "name" : "GL_REFERENCED_BY_TESS_EVALUATION_SHADER", "dec" : "37640", "hex" : "0x9308" },
+    { "name" : "GL_REFERENCED_BY_GEOMETRY_SHADER", "dec" : "37641", "hex" : "0x9309" },
+    { "name" : "GL_REFERENCED_BY_FRAGMENT_SHADER", "dec" : "37642", "hex" : "0x930a" },
+    { "name" : "GL_REFERENCED_BY_COMPUTE_SHADER", "dec" : "37643", "hex" : "0x930b" },
+    { "name" : "GL_TOP_LEVEL_ARRAY_SIZE", "dec" : "37644", "hex" : "0x930c" },
+    { "name" : "GL_TOP_LEVEL_ARRAY_STRIDE", "dec" : "37645", "hex" : "0x930d" },
+    { "name" : "GL_LOCATION", "dec" : "37646", "hex" : "0x930e" },
+    { "name" : "GL_LOCATION_INDEX", "dec" : "37647", "hex" : "0x930f" },
+    { "name" : "GL_IS_PER_PATCH", "dec" : "37607", "hex" : "0x92e7" },
+    { "name" : "GL_SHADER_STORAGE_BUFFER", "dec" : "37074", "hex" : "0x90d2" },
+    { "name" : "GL_SHADER_STORAGE_BUFFER_BINDING", "dec" : "37075", "hex" : "0x90d3" },
+    { "name" : "GL_SHADER_STORAGE_BUFFER_START", "dec" : "37076", "hex" : "0x90d4" },
+    { "name" : "GL_SHADER_STORAGE_BUFFER_SIZE", "dec" : "37077", "hex" : "0x90d5" },
+    { "name" : "GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS", "dec" : "37078", "hex" : "0x90d6" },
+    { "name" : "GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS", "dec" : "37079", "hex" : "0x90d7" },
+    { "name" : "GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS", "dec" : "37080", "hex" : "0x90d8" },
+    { "name" : "GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS", "dec" : "37081", "hex" : "0x90d9" },
+    { "name" : "GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS", "dec" : "37082", "hex" : "0x90da" },
+    { "name" : "GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS", "dec" : "37083", "hex" : "0x90db" },
+    { "name" : "GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS", "dec" : "37084", "hex" : "0x90dc" },
+    { "name" : "GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS", "dec" : "37085", "hex" : "0x90dd" },
+    { "name" : "GL_MAX_SHADER_STORAGE_BLOCK_SIZE", "dec" : "37086", "hex" : "0x90de" },
+    { "name" : "GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT", "dec" : "37087", "hex" : "0x90df" },
+    { "name" : "GL_SHADER_STORAGE_BARRIER_BIT", "dec" : "8192", "hex" : "0x2000" },
+    { "name" : "GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES", "dec" : "36665", "hex" : "0x8f39" },
+    { "name" : "GL_DEPTH_STENCIL_TEXTURE_MODE", "dec" : "37098", "hex" : "0x90ea" },
+    { "name" : "GL_TEXTURE_BUFFER_OFFSET", "dec" : "37277", "hex" : "0x919d" },
+    { "name" : "GL_TEXTURE_BUFFER_SIZE", "dec" : "37278", "hex" : "0x919e" },
+    { "name" : "GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT", "dec" : "37279", "hex" : "0x919f" },
+    { "name" : "GL_TEXTURE_VIEW_MIN_LEVEL", "dec" : "33499", "hex" : "0x82db" },
+    { "name" : "GL_TEXTURE_VIEW_NUM_LEVELS", "dec" : "33500", "hex" : "0x82dc" },
+    { "name" : "GL_TEXTURE_VIEW_MIN_LAYER", "dec" : "33501", "hex" : "0x82dd" },
+    { "name" : "GL_TEXTURE_VIEW_NUM_LAYERS", "dec" : "33502", "hex" : "0x82de" },
+    { "name" : "GL_TEXTURE_IMMUTABLE_LEVELS", "dec" : "33503", "hex" : "0x82df" },
+    { "name" : "GL_VERTEX_ATTRIB_BINDING", "dec" : "33492", "hex" : "0x82d4" },
+    { "name" : "GL_VERTEX_ATTRIB_RELATIVE_OFFSET", "dec" : "33493", "hex" : "0x82d5" },
+    { "name" : "GL_VERTEX_BINDING_DIVISOR", "dec" : "33494", "hex" : "0x82d6" },
+    { "name" : "GL_VERTEX_BINDING_OFFSET", "dec" : "33495", "hex" : "0x82d7" },
+    { "name" : "GL_VERTEX_BINDING_STRIDE", "dec" : "33496", "hex" : "0x82d8" },
+    { "name" : "GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET", "dec" : "33497", "hex" : "0x82d9" },
+    { "name" : "GL_MAX_VERTEX_ATTRIB_BINDINGS", "dec" : "33498", "hex" : "0x82da" },
+    { "name" : "GL_VERTEX_BINDING_BUFFER", "dec" : "36687", "hex" : "0x8f4f" },
+    { "name" : "GL_VERSION_4_4", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_MAX_VERTEX_ATTRIB_STRIDE", "dec" : "33509", "hex" : "0x82e5" },
+    { "name" : "GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED", "dec" : "33313", "hex" : "0x8221" },
+    { "name" : "GL_TEXTURE_BUFFER_BINDING", "dec" : "35882", "hex" : "0x8c2a" },
+    { "name" : "GL_MAP_PERSISTENT_BIT", "dec" : "64", "hex" : "0x40" },
+    { "name" : "GL_MAP_COHERENT_BIT", "dec" : "128", "hex" : "0x80" },
+    { "name" : "GL_DYNAMIC_STORAGE_BIT", "dec" : "256", "hex" : "0x100" },
+    { "name" : "GL_CLIENT_STORAGE_BIT", "dec" : "512", "hex" : "0x200" },
+    { "name" : "GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT", "dec" : "16384", "hex" : "0x4000" },
+    { "name" : "GL_BUFFER_IMMUTABLE_STORAGE", "dec" : "33311", "hex" : "0x821f" },
+    { "name" : "GL_BUFFER_STORAGE_FLAGS", "dec" : "33312", "hex" : "0x8220" },
+    { "name" : "GL_CLEAR_TEXTURE", "dec" : "37733", "hex" : "0x9365" },
+    { "name" : "GL_LOCATION_COMPONENT", "dec" : "37706", "hex" : "0x934a" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_INDEX", "dec" : "37707", "hex" : "0x934b" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE", "dec" : "37708", "hex" : "0x934c" },
+    { "name" : "GL_QUERY_BUFFER", "dec" : "37266", "hex" : "0x9192" },
+    { "name" : "GL_QUERY_BUFFER_BARRIER_BIT", "dec" : "32768", "hex" : "0x8000" },
+    { "name" : "GL_QUERY_BUFFER_BINDING", "dec" : "37267", "hex" : "0x9193" },
+    { "name" : "GL_QUERY_RESULT_NO_WAIT", "dec" : "37268", "hex" : "0x9194" },
+    { "name" : "GL_MIRROR_CLAMP_TO_EDGE", "dec" : "34627", "hex" : "0x8743" },
+    { "name" : "GL_VERSION_4_5", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_CONTEXT_LOST", "dec" : "1287", "hex" : "0x507" },
+    { "name" : "GL_NEGATIVE_ONE_TO_ONE", "dec" : "37726", "hex" : "0x935e" },
+    { "name" : "GL_ZERO_TO_ONE", "dec" : "37727", "hex" : "0x935f" },
+    { "name" : "GL_CLIP_ORIGIN", "dec" : "37724", "hex" : "0x935c" },
+    { "name" : "GL_CLIP_DEPTH_MODE", "dec" : "37725", "hex" : "0x935d" },
+    { "name" : "GL_QUERY_WAIT_INVERTED", "dec" : "36375", "hex" : "0x8e17" },
+    { "name" : "GL_QUERY_NO_WAIT_INVERTED", "dec" : "36376", "hex" : "0x8e18" },
+    { "name" : "GL_QUERY_BY_REGION_WAIT_INVERTED", "dec" : "36377", "hex" : "0x8e19" },
+    { "name" : "GL_QUERY_BY_REGION_NO_WAIT_INVERTED", "dec" : "36378", "hex" : "0x8e1a" },
+    { "name" : "GL_MAX_CULL_DISTANCES", "dec" : "33529", "hex" : "0x82f9" },
+    { "name" : "GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES", "dec" : "33530", "hex" : "0x82fa" },
+    { "name" : "GL_TEXTURE_TARGET", "dec" : "4102", "hex" : "0x1006" },
+    { "name" : "GL_QUERY_TARGET", "dec" : "33514", "hex" : "0x82ea" },
+    { "name" : "GL_GUILTY_CONTEXT_RESET", "dec" : "33363", "hex" : "0x8253" },
+    { "name" : "GL_INNOCENT_CONTEXT_RESET", "dec" : "33364", "hex" : "0x8254" },
+    { "name" : "GL_UNKNOWN_CONTEXT_RESET", "dec" : "33365", "hex" : "0x8255" },
+    { "name" : "GL_RESET_NOTIFICATION_STRATEGY", "dec" : "33366", "hex" : "0x8256" },
+    { "name" : "GL_LOSE_CONTEXT_ON_RESET", "dec" : "33362", "hex" : "0x8252" },
+    { "name" : "GL_NO_RESET_NOTIFICATION", "dec" : "33377", "hex" : "0x8261" },
+    { "name" : "GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT", "dec" : "4", "hex" : "0x4" },
+    { "name" : "GL_CONTEXT_RELEASE_BEHAVIOR", "dec" : "33531", "hex" : "0x82fb" },
+    { "name" : "GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH", "dec" : "33532", "hex" : "0x82fc" },
+    { "name" : "GL_UNSIGNED_INT64_ARB", "dec" : "5135", "hex" : "0x140f" },
+    { "name" : "GL_SYNC_CL_EVENT_ARB", "dec" : "33344", "hex" : "0x8240" },
+    { "name" : "GL_SYNC_CL_EVENT_COMPLETE_ARB", "dec" : "33345", "hex" : "0x8241" },
+    { "name" : "GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB", "dec" : "37700", "hex" : "0x9344" },
+    { "name" : "GL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB", "dec" : "37099", "hex" : "0x90eb" },
+    { "name" : "GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB", "dec" : "37701", "hex" : "0x9345" },
+    { "name" : "GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB", "dec" : "37311", "hex" : "0x91bf" },
+    { "name" : "GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB", "dec" : "33346", "hex" : "0x8242" },
+    { "name" : "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB", "dec" : "33347", "hex" : "0x8243" },
+    { "name" : "GL_DEBUG_CALLBACK_FUNCTION_ARB", "dec" : "33348", "hex" : "0x8244" },
+    { "name" : "GL_DEBUG_CALLBACK_USER_PARAM_ARB", "dec" : "33349", "hex" : "0x8245" },
+    { "name" : "GL_DEBUG_SOURCE_API_ARB", "dec" : "33350", "hex" : "0x8246" },
+    { "name" : "GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB", "dec" : "33351", "hex" : "0x8247" },
+    { "name" : "GL_DEBUG_SOURCE_SHADER_COMPILER_ARB", "dec" : "33352", "hex" : "0x8248" },
+    { "name" : "GL_DEBUG_SOURCE_THIRD_PARTY_ARB", "dec" : "33353", "hex" : "0x8249" },
+    { "name" : "GL_DEBUG_SOURCE_APPLICATION_ARB", "dec" : "33354", "hex" : "0x824a" },
+    { "name" : "GL_DEBUG_SOURCE_OTHER_ARB", "dec" : "33355", "hex" : "0x824b" },
+    { "name" : "GL_DEBUG_TYPE_ERROR_ARB", "dec" : "33356", "hex" : "0x824c" },
+    { "name" : "GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB", "dec" : "33357", "hex" : "0x824d" },
+    { "name" : "GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB", "dec" : "33358", "hex" : "0x824e" },
+    { "name" : "GL_DEBUG_TYPE_PORTABILITY_ARB", "dec" : "33359", "hex" : "0x824f" },
+    { "name" : "GL_DEBUG_TYPE_PERFORMANCE_ARB", "dec" : "33360", "hex" : "0x8250" },
+    { "name" : "GL_DEBUG_TYPE_OTHER_ARB", "dec" : "33361", "hex" : "0x8251" },
+    { "name" : "GL_MAX_DEBUG_MESSAGE_LENGTH_ARB", "dec" : "37187", "hex" : "0x9143" },
+    { "name" : "GL_MAX_DEBUG_LOGGED_MESSAGES_ARB", "dec" : "37188", "hex" : "0x9144" },
+    { "name" : "GL_DEBUG_LOGGED_MESSAGES_ARB", "dec" : "37189", "hex" : "0x9145" },
+    { "name" : "GL_DEBUG_SEVERITY_HIGH_ARB", "dec" : "37190", "hex" : "0x9146" },
+    { "name" : "GL_DEBUG_SEVERITY_MEDIUM_ARB", "dec" : "37191", "hex" : "0x9147" },
+    { "name" : "GL_DEBUG_SEVERITY_LOW_ARB", "dec" : "37192", "hex" : "0x9148" },
+    { "name" : "GL_BLEND_COLOR", "dec" : "32773", "hex" : "0x8005" },
+    { "name" : "GL_BLEND_EQUATION", "dec" : "32777", "hex" : "0x8009" },
+    { "name" : "GL_PARAMETER_BUFFER_ARB", "dec" : "33006", "hex" : "0x80ee" },
+    { "name" : "GL_PARAMETER_BUFFER_BINDING_ARB", "dec" : "33007", "hex" : "0x80ef" },
+    { "name" : "GL_SRGB_DECODE_ARB", "dec" : "33433", "hex" : "0x8299" },
+    { "name" : "GL_VERTICES_SUBMITTED_ARB", "dec" : "33518", "hex" : "0x82ee" },
+    { "name" : "GL_PRIMITIVES_SUBMITTED_ARB", "dec" : "33519", "hex" : "0x82ef" },
+    { "name" : "GL_VERTEX_SHADER_INVOCATIONS_ARB", "dec" : "33520", "hex" : "0x82f0" },
+    { "name" : "GL_TESS_CONTROL_SHADER_PATCHES_ARB", "dec" : "33521", "hex" : "0x82f1" },
+    { "name" : "GL_TESS_EVALUATION_SHADER_INVOCATIONS_ARB", "dec" : "33522", "hex" : "0x82f2" },
+    { "name" : "GL_GEOMETRY_SHADER_PRIMITIVES_EMITTED_ARB", "dec" : "33523", "hex" : "0x82f3" },
+    { "name" : "GL_FRAGMENT_SHADER_INVOCATIONS_ARB", "dec" : "33524", "hex" : "0x82f4" },
+    { "name" : "GL_COMPUTE_SHADER_INVOCATIONS_ARB", "dec" : "33525", "hex" : "0x82f5" },
+    { "name" : "GL_CLIPPING_INPUT_PRIMITIVES_ARB", "dec" : "33526", "hex" : "0x82f6" },
+    { "name" : "GL_CLIPPING_OUTPUT_PRIMITIVES_ARB", "dec" : "33527", "hex" : "0x82f7" },
+    { "name" : "GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB", "dec" : "4", "hex" : "0x4" },
+    { "name" : "GL_LOSE_CONTEXT_ON_RESET_ARB", "dec" : "33362", "hex" : "0x8252" },
+    { "name" : "GL_GUILTY_CONTEXT_RESET_ARB", "dec" : "33363", "hex" : "0x8253" },
+    { "name" : "GL_INNOCENT_CONTEXT_RESET_ARB", "dec" : "33364", "hex" : "0x8254" },
+    { "name" : "GL_UNKNOWN_CONTEXT_RESET_ARB", "dec" : "33365", "hex" : "0x8255" },
+    { "name" : "GL_RESET_NOTIFICATION_STRATEGY_ARB", "dec" : "33366", "hex" : "0x8256" },
+    { "name" : "GL_NO_RESET_NOTIFICATION_ARB", "dec" : "33377", "hex" : "0x8261" },
+    { "name" : "GL_SAMPLE_SHADING_ARB", "dec" : "35894", "hex" : "0x8c36" },
+    { "name" : "GL_MIN_SAMPLE_SHADING_VALUE_ARB", "dec" : "35895", "hex" : "0x8c37" },
+    { "name" : "GL_SHADER_INCLUDE_ARB", "dec" : "36270", "hex" : "0x8dae" },
+    { "name" : "GL_NAMED_STRING_LENGTH_ARB", "dec" : "36329", "hex" : "0x8de9" },
+    { "name" : "GL_NAMED_STRING_TYPE_ARB", "dec" : "36330", "hex" : "0x8dea" },
+    { "name" : "GL_SPARSE_STORAGE_BIT_ARB", "dec" : "1024", "hex" : "0x400" },
+    { "name" : "GL_SPARSE_BUFFER_PAGE_SIZE_ARB", "dec" : "33528", "hex" : "0x82f8" },
+    { "name" : "GL_TEXTURE_SPARSE_ARB", "dec" : "37286", "hex" : "0x91a6" },
+    { "name" : "GL_VIRTUAL_PAGE_SIZE_INDEX_ARB", "dec" : "37287", "hex" : "0x91a7" },
+    { "name" : "GL_NUM_SPARSE_LEVELS_ARB", "dec" : "37290", "hex" : "0x91aa" },
+    { "name" : "GL_NUM_VIRTUAL_PAGE_SIZES_ARB", "dec" : "37288", "hex" : "0x91a8" },
+    { "name" : "GL_VIRTUAL_PAGE_SIZE_X_ARB", "dec" : "37269", "hex" : "0x9195" },
+    { "name" : "GL_VIRTUAL_PAGE_SIZE_Y_ARB", "dec" : "37270", "hex" : "0x9196" },
+    { "name" : "GL_VIRTUAL_PAGE_SIZE_Z_ARB", "dec" : "37271", "hex" : "0x9197" },
+    { "name" : "GL_MAX_SPARSE_TEXTURE_SIZE_ARB", "dec" : "37272", "hex" : "0x9198" },
+    { "name" : "GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB", "dec" : "37273", "hex" : "0x9199" },
+    { "name" : "GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB", "dec" : "37274", "hex" : "0x919a" },
+    { "name" : "GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB", "dec" : "37289", "hex" : "0x91a9" },
+    { "name" : "GL_COMPRESSED_RGBA_BPTC_UNORM_ARB", "dec" : "36492", "hex" : "0x8e8c" },
+    { "name" : "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB", "dec" : "36493", "hex" : "0x8e8d" },
+    { "name" : "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB", "dec" : "36494", "hex" : "0x8e8e" },
+    { "name" : "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB", "dec" : "36495", "hex" : "0x8e8f" },
+    { "name" : "GL_TEXTURE_CUBE_MAP_ARRAY_ARB", "dec" : "36873", "hex" : "0x9009" },
+    { "name" : "GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB", "dec" : "36874", "hex" : "0x900a" },
+    { "name" : "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB", "dec" : "36875", "hex" : "0x900b" },
+    { "name" : "GL_SAMPLER_CUBE_MAP_ARRAY_ARB", "dec" : "36876", "hex" : "0x900c" },
+    { "name" : "GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB", "dec" : "36877", "hex" : "0x900d" },
+    { "name" : "GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB", "dec" : "36878", "hex" : "0x900e" },
+    { "name" : "GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB", "dec" : "36879", "hex" : "0x900f" },
+    { "name" : "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB", "dec" : "36446", "hex" : "0x8e5e" },
+    { "name" : "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB", "dec" : "36447", "hex" : "0x8e5f" },
+    { "name" : "GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB", "dec" : "36767", "hex" : "0x8f9f" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_OVERFLOW_ARB", "dec" : "33516", "hex" : "0x82ec" },
+    { "name" : "GL_TRANSFORM_FEEDBACK_STREAM_OVERFLOW_ARB", "dec" : "33517", "hex" : "0x82ed" },
+    { "name" : "GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR", "dec" : "8", "hex" : "0x8" },
+    { "name" : "GL_CONTEXT_ROBUST_ACCESS", "dec" : "37107", "hex" : "0x90f3" },
+    { "name" : "GL_ACCUM", "dec" : "256", "hex" : "0x100" },
+    { "name" : "GL_LOAD", "dec" : "257", "hex" : "0x101" },
+    { "name" : "GL_RETURN", "dec" : "258", "hex" : "0x102" },
+    { "name" : "GL_MULT", "dec" : "259", "hex" : "0x103" },
+    { "name" : "GL_ADD", "dec" : "260", "hex" : "0x104" },
+    { "name" : "GL_CURRENT_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_POINT_BIT", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_LINE_BIT", "dec" : "4", "hex" : "0x4" },
+    { "name" : "GL_POLYGON_BIT", "dec" : "8", "hex" : "0x8" },
+    { "name" : "GL_POLYGON_STIPPLE_BIT", "dec" : "16", "hex" : "0x10" },
+    { "name" : "GL_PIXEL_MODE_BIT", "dec" : "32", "hex" : "0x20" },
+    { "name" : "GL_LIGHTING_BIT", "dec" : "64", "hex" : "0x40" },
+    { "name" : "GL_FOG_BIT", "dec" : "128", "hex" : "0x80" },
+    { "name" : "GL_ACCUM_BUFFER_BIT", "dec" : "512", "hex" : "0x200" },
+    { "name" : "GL_VIEWPORT_BIT", "dec" : "2048", "hex" : "0x800" },
+    { "name" : "GL_TRANSFORM_BIT", "dec" : "4096", "hex" : "0x1000" },
+    { "name" : "GL_ENABLE_BIT", "dec" : "8192", "hex" : "0x2000" },
+    { "name" : "GL_HINT_BIT", "dec" : "32768", "hex" : "0x8000" },
+    { "name" : "GL_EVAL_BIT", "dec" : "65536", "hex" : "0x10000" },
+    { "name" : "GL_LIST_BIT", "dec" : "131072", "hex" : "0x20000" },
+    { "name" : "GL_TEXTURE_BIT", "dec" : "262144", "hex" : "0x40000" },
+    { "name" : "GL_SCISSOR_BIT", "dec" : "524288", "hex" : "0x80000" },
+    { "name" : "GL_ALL_ATTRIB_BITS", "dec" : "1048575", "hex" : "0xfffff" },
+    { "name" : "GL_QUAD_STRIP", "dec" : "8", "hex" : "0x8" },
+    { "name" : "GL_POLYGON", "dec" : "9", "hex" : "0x9" },
+    { "name" : "GL_CLIP_PLANE0", "dec" : "12288", "hex" : "0x3000" },
+    { "name" : "GL_CLIP_PLANE1", "dec" : "12289", "hex" : "0x3001" },
+    { "name" : "GL_CLIP_PLANE2", "dec" : "12290", "hex" : "0x3002" },
+    { "name" : "GL_CLIP_PLANE3", "dec" : "12291", "hex" : "0x3003" },
+    { "name" : "GL_CLIP_PLANE4", "dec" : "12292", "hex" : "0x3004" },
+    { "name" : "GL_CLIP_PLANE5", "dec" : "12293", "hex" : "0x3005" },
+    { "name" : "GL_2_BYTES", "dec" : "5127", "hex" : "0x1407" },
+    { "name" : "GL_3_BYTES", "dec" : "5128", "hex" : "0x1408" },
+    { "name" : "GL_4_BYTES", "dec" : "5129", "hex" : "0x1409" },
+    { "name" : "GL_AUX0", "dec" : "1033", "hex" : "0x409" },
+    { "name" : "GL_AUX1", "dec" : "1034", "hex" : "0x40a" },
+    { "name" : "GL_AUX2", "dec" : "1035", "hex" : "0x40b" },
+    { "name" : "GL_AUX3", "dec" : "1036", "hex" : "0x40c" },
+    { "name" : "GL_2D", "dec" : "1536", "hex" : "0x600" },
+    { "name" : "GL_3D", "dec" : "1537", "hex" : "0x601" },
+    { "name" : "GL_3D_COLOR", "dec" : "1538", "hex" : "0x602" },
+    { "name" : "GL_3D_COLOR_TEXTURE", "dec" : "1539", "hex" : "0x603" },
+    { "name" : "GL_4D_COLOR_TEXTURE", "dec" : "1540", "hex" : "0x604" },
+    { "name" : "GL_PASS_THROUGH_TOKEN", "dec" : "1792", "hex" : "0x700" },
+    { "name" : "GL_POINT_TOKEN", "dec" : "1793", "hex" : "0x701" },
+    { "name" : "GL_LINE_TOKEN", "dec" : "1794", "hex" : "0x702" },
+    { "name" : "GL_POLYGON_TOKEN", "dec" : "1795", "hex" : "0x703" },
+    { "name" : "GL_BITMAP_TOKEN", "dec" : "1796", "hex" : "0x704" },
+    { "name" : "GL_DRAW_PIXEL_TOKEN", "dec" : "1797", "hex" : "0x705" },
+    { "name" : "GL_COPY_PIXEL_TOKEN", "dec" : "1798", "hex" : "0x706" },
+    { "name" : "GL_LINE_RESET_TOKEN", "dec" : "1799", "hex" : "0x707" },
+    { "name" : "GL_EXP", "dec" : "2048", "hex" : "0x800" },
+    { "name" : "GL_EXP2", "dec" : "2049", "hex" : "0x801" },
+    { "name" : "GL_COEFF", "dec" : "2560", "hex" : "0xa00" },
+    { "name" : "GL_ORDER", "dec" : "2561", "hex" : "0xa01" },
+    { "name" : "GL_DOMAIN", "dec" : "2562", "hex" : "0xa02" },
+    { "name" : "GL_CURRENT_COLOR", "dec" : "2816", "hex" : "0xb00" },
+    { "name" : "GL_CURRENT_INDEX", "dec" : "2817", "hex" : "0xb01" },
+    { "name" : "GL_CURRENT_NORMAL", "dec" : "2818", "hex" : "0xb02" },
+    { "name" : "GL_CURRENT_TEXTURE_COORDS", "dec" : "2819", "hex" : "0xb03" },
+    { "name" : "GL_CURRENT_RASTER_COLOR", "dec" : "2820", "hex" : "0xb04" },
+    { "name" : "GL_CURRENT_RASTER_INDEX", "dec" : "2821", "hex" : "0xb05" },
+    { "name" : "GL_CURRENT_RASTER_TEXTURE_COORDS", "dec" : "2822", "hex" : "0xb06" },
+    { "name" : "GL_CURRENT_RASTER_POSITION", "dec" : "2823", "hex" : "0xb07" },
+    { "name" : "GL_CURRENT_RASTER_POSITION_VALID", "dec" : "2824", "hex" : "0xb08" },
+    { "name" : "GL_CURRENT_RASTER_DISTANCE", "dec" : "2825", "hex" : "0xb09" },
+    { "name" : "GL_POINT_SMOOTH", "dec" : "2832", "hex" : "0xb10" },
+    { "name" : "GL_LINE_STIPPLE", "dec" : "2852", "hex" : "0xb24" },
+    { "name" : "GL_LINE_STIPPLE_PATTERN", "dec" : "2853", "hex" : "0xb25" },
+    { "name" : "GL_LINE_STIPPLE_REPEAT", "dec" : "2854", "hex" : "0xb26" },
+    { "name" : "GL_LIST_MODE", "dec" : "2864", "hex" : "0xb30" },
+    { "name" : "GL_MAX_LIST_NESTING", "dec" : "2865", "hex" : "0xb31" },
+    { "name" : "GL_LIST_BASE", "dec" : "2866", "hex" : "0xb32" },
+    { "name" : "GL_LIST_INDEX", "dec" : "2867", "hex" : "0xb33" },
+    { "name" : "GL_POLYGON_STIPPLE", "dec" : "2882", "hex" : "0xb42" },
+    { "name" : "GL_EDGE_FLAG", "dec" : "2883", "hex" : "0xb43" },
+    { "name" : "GL_LIGHTING", "dec" : "2896", "hex" : "0xb50" },
+    { "name" : "GL_LIGHT_MODEL_LOCAL_VIEWER", "dec" : "2897", "hex" : "0xb51" },
+    { "name" : "GL_LIGHT_MODEL_TWO_SIDE", "dec" : "2898", "hex" : "0xb52" },
+    { "name" : "GL_LIGHT_MODEL_AMBIENT", "dec" : "2899", "hex" : "0xb53" },
+    { "name" : "GL_SHADE_MODEL", "dec" : "2900", "hex" : "0xb54" },
+    { "name" : "GL_COLOR_MATERIAL_FACE", "dec" : "2901", "hex" : "0xb55" },
+    { "name" : "GL_COLOR_MATERIAL_PARAMETER", "dec" : "2902", "hex" : "0xb56" },
+    { "name" : "GL_COLOR_MATERIAL", "dec" : "2903", "hex" : "0xb57" },
+    { "name" : "GL_FOG", "dec" : "2912", "hex" : "0xb60" },
+    { "name" : "GL_FOG_INDEX", "dec" : "2913", "hex" : "0xb61" },
+    { "name" : "GL_FOG_DENSITY", "dec" : "2914", "hex" : "0xb62" },
+    { "name" : "GL_FOG_START", "dec" : "2915", "hex" : "0xb63" },
+    { "name" : "GL_FOG_END", "dec" : "2916", "hex" : "0xb64" },
+    { "name" : "GL_FOG_MODE", "dec" : "2917", "hex" : "0xb65" },
+    { "name" : "GL_FOG_COLOR", "dec" : "2918", "hex" : "0xb66" },
+    { "name" : "GL_ACCUM_CLEAR_VALUE", "dec" : "2944", "hex" : "0xb80" },
+    { "name" : "GL_MATRIX_MODE", "dec" : "2976", "hex" : "0xba0" },
+    { "name" : "GL_NORMALIZE", "dec" : "2977", "hex" : "0xba1" },
+    { "name" : "GL_MODELVIEW_STACK_DEPTH", "dec" : "2979", "hex" : "0xba3" },
+    { "name" : "GL_PROJECTION_STACK_DEPTH", "dec" : "2980", "hex" : "0xba4" },
+    { "name" : "GL_TEXTURE_STACK_DEPTH", "dec" : "2981", "hex" : "0xba5" },
+    { "name" : "GL_MODELVIEW_MATRIX", "dec" : "2982", "hex" : "0xba6" },
+    { "name" : "GL_PROJECTION_MATRIX", "dec" : "2983", "hex" : "0xba7" },
+    { "name" : "GL_TEXTURE_MATRIX", "dec" : "2984", "hex" : "0xba8" },
+    { "name" : "GL_ATTRIB_STACK_DEPTH", "dec" : "2992", "hex" : "0xbb0" },
+    { "name" : "GL_CLIENT_ATTRIB_STACK_DEPTH", "dec" : "2993", "hex" : "0xbb1" },
+    { "name" : "GL_ALPHA_TEST", "dec" : "3008", "hex" : "0xbc0" },
+    { "name" : "GL_ALPHA_TEST_FUNC", "dec" : "3009", "hex" : "0xbc1" },
+    { "name" : "GL_ALPHA_TEST_REF", "dec" : "3010", "hex" : "0xbc2" },
+    { "name" : "GL_INDEX_LOGIC_OP", "dec" : "3057", "hex" : "0xbf1" },
+    { "name" : "GL_AUX_BUFFERS", "dec" : "3072", "hex" : "0xc00" },
+    { "name" : "GL_INDEX_CLEAR_VALUE", "dec" : "3104", "hex" : "0xc20" },
+    { "name" : "GL_INDEX_WRITEMASK", "dec" : "3105", "hex" : "0xc21" },
+    { "name" : "GL_INDEX_MODE", "dec" : "3120", "hex" : "0xc30" },
+    { "name" : "GL_RGBA_MODE", "dec" : "3121", "hex" : "0xc31" },
+    { "name" : "GL_RENDER_MODE", "dec" : "3136", "hex" : "0xc40" },
+    { "name" : "GL_PERSPECTIVE_CORRECTION_HINT", "dec" : "3152", "hex" : "0xc50" },
+    { "name" : "GL_POINT_SMOOTH_HINT", "dec" : "3153", "hex" : "0xc51" },
+    { "name" : "GL_FOG_HINT", "dec" : "3156", "hex" : "0xc54" },
+    { "name" : "GL_TEXTURE_GEN_S", "dec" : "3168", "hex" : "0xc60" },
+    { "name" : "GL_TEXTURE_GEN_T", "dec" : "3169", "hex" : "0xc61" },
+    { "name" : "GL_TEXTURE_GEN_R", "dec" : "3170", "hex" : "0xc62" },
+    { "name" : "GL_TEXTURE_GEN_Q", "dec" : "3171", "hex" : "0xc63" },
+    { "name" : "GL_PIXEL_MAP_I_TO_I", "dec" : "3184", "hex" : "0xc70" },
+    { "name" : "GL_PIXEL_MAP_S_TO_S", "dec" : "3185", "hex" : "0xc71" },
+    { "name" : "GL_PIXEL_MAP_I_TO_R", "dec" : "3186", "hex" : "0xc72" },
+    { "name" : "GL_PIXEL_MAP_I_TO_G", "dec" : "3187", "hex" : "0xc73" },
+    { "name" : "GL_PIXEL_MAP_I_TO_B", "dec" : "3188", "hex" : "0xc74" },
+    { "name" : "GL_PIXEL_MAP_I_TO_A", "dec" : "3189", "hex" : "0xc75" },
+    { "name" : "GL_PIXEL_MAP_R_TO_R", "dec" : "3190", "hex" : "0xc76" },
+    { "name" : "GL_PIXEL_MAP_G_TO_G", "dec" : "3191", "hex" : "0xc77" },
+    { "name" : "GL_PIXEL_MAP_B_TO_B", "dec" : "3192", "hex" : "0xc78" },
+    { "name" : "GL_PIXEL_MAP_A_TO_A", "dec" : "3193", "hex" : "0xc79" },
+    { "name" : "GL_PIXEL_MAP_I_TO_I_SIZE", "dec" : "3248", "hex" : "0xcb0" },
+    { "name" : "GL_PIXEL_MAP_S_TO_S_SIZE", "dec" : "3249", "hex" : "0xcb1" },
+    { "name" : "GL_PIXEL_MAP_I_TO_R_SIZE", "dec" : "3250", "hex" : "0xcb2" },
+    { "name" : "GL_PIXEL_MAP_I_TO_G_SIZE", "dec" : "3251", "hex" : "0xcb3" },
+    { "name" : "GL_PIXEL_MAP_I_TO_B_SIZE", "dec" : "3252", "hex" : "0xcb4" },
+    { "name" : "GL_PIXEL_MAP_I_TO_A_SIZE", "dec" : "3253", "hex" : "0xcb5" },
+    { "name" : "GL_PIXEL_MAP_R_TO_R_SIZE", "dec" : "3254", "hex" : "0xcb6" },
+    { "name" : "GL_PIXEL_MAP_G_TO_G_SIZE", "dec" : "3255", "hex" : "0xcb7" },
+    { "name" : "GL_PIXEL_MAP_B_TO_B_SIZE", "dec" : "3256", "hex" : "0xcb8" },
+    { "name" : "GL_PIXEL_MAP_A_TO_A_SIZE", "dec" : "3257", "hex" : "0xcb9" },
+    { "name" : "GL_MAP_COLOR", "dec" : "3344", "hex" : "0xd10" },
+    { "name" : "GL_MAP_STENCIL", "dec" : "3345", "hex" : "0xd11" },
+    { "name" : "GL_INDEX_SHIFT", "dec" : "3346", "hex" : "0xd12" },
+    { "name" : "GL_INDEX_OFFSET", "dec" : "3347", "hex" : "0xd13" },
+    { "name" : "GL_RED_SCALE", "dec" : "3348", "hex" : "0xd14" },
+    { "name" : "GL_RED_BIAS", "dec" : "3349", "hex" : "0xd15" },
+    { "name" : "GL_ZOOM_X", "dec" : "3350", "hex" : "0xd16" },
+    { "name" : "GL_ZOOM_Y", "dec" : "3351", "hex" : "0xd17" },
+    { "name" : "GL_GREEN_SCALE", "dec" : "3352", "hex" : "0xd18" },
+    { "name" : "GL_GREEN_BIAS", "dec" : "3353", "hex" : "0xd19" },
+    { "name" : "GL_BLUE_SCALE", "dec" : "3354", "hex" : "0xd1a" },
+    { "name" : "GL_BLUE_BIAS", "dec" : "3355", "hex" : "0xd1b" },
+    { "name" : "GL_ALPHA_SCALE", "dec" : "3356", "hex" : "0xd1c" },
+    { "name" : "GL_ALPHA_BIAS", "dec" : "3357", "hex" : "0xd1d" },
+    { "name" : "GL_DEPTH_SCALE", "dec" : "3358", "hex" : "0xd1e" },
+    { "name" : "GL_DEPTH_BIAS", "dec" : "3359", "hex" : "0xd1f" },
+    { "name" : "GL_MAX_EVAL_ORDER", "dec" : "3376", "hex" : "0xd30" },
+    { "name" : "GL_MAX_LIGHTS", "dec" : "3377", "hex" : "0xd31" },
+    { "name" : "GL_MAX_CLIP_PLANES", "dec" : "3378", "hex" : "0xd32" },
+    { "name" : "GL_MAX_PIXEL_MAP_TABLE", "dec" : "3380", "hex" : "0xd34" },
+    { "name" : "GL_MAX_ATTRIB_STACK_DEPTH", "dec" : "3381", "hex" : "0xd35" },
+    { "name" : "GL_MAX_MODELVIEW_STACK_DEPTH", "dec" : "3382", "hex" : "0xd36" },
+    { "name" : "GL_MAX_NAME_STACK_DEPTH", "dec" : "3383", "hex" : "0xd37" },
+    { "name" : "GL_MAX_PROJECTION_STACK_DEPTH", "dec" : "3384", "hex" : "0xd38" },
+    { "name" : "GL_MAX_TEXTURE_STACK_DEPTH", "dec" : "3385", "hex" : "0xd39" },
+    { "name" : "GL_MAX_CLIENT_ATTRIB_STACK_DEPTH", "dec" : "3387", "hex" : "0xd3b" },
+    { "name" : "GL_INDEX_BITS", "dec" : "3409", "hex" : "0xd51" },
+    { "name" : "GL_RED_BITS", "dec" : "3410", "hex" : "0xd52" },
+    { "name" : "GL_GREEN_BITS", "dec" : "3411", "hex" : "0xd53" },
+    { "name" : "GL_BLUE_BITS", "dec" : "3412", "hex" : "0xd54" },
+    { "name" : "GL_ALPHA_BITS", "dec" : "3413", "hex" : "0xd55" },
+    { "name" : "GL_DEPTH_BITS", "dec" : "3414", "hex" : "0xd56" },
+    { "name" : "GL_STENCIL_BITS", "dec" : "3415", "hex" : "0xd57" },
+    { "name" : "GL_ACCUM_RED_BITS", "dec" : "3416", "hex" : "0xd58" },
+    { "name" : "GL_ACCUM_GREEN_BITS", "dec" : "3417", "hex" : "0xd59" },
+    { "name" : "GL_ACCUM_BLUE_BITS", "dec" : "3418", "hex" : "0xd5a" },
+    { "name" : "GL_ACCUM_ALPHA_BITS", "dec" : "3419", "hex" : "0xd5b" },
+    { "name" : "GL_NAME_STACK_DEPTH", "dec" : "3440", "hex" : "0xd70" },
+    { "name" : "GL_AUTO_NORMAL", "dec" : "3456", "hex" : "0xd80" },
+    { "name" : "GL_MAP1_COLOR_4", "dec" : "3472", "hex" : "0xd90" },
+    { "name" : "GL_MAP1_INDEX", "dec" : "3473", "hex" : "0xd91" },
+    { "name" : "GL_MAP1_NORMAL", "dec" : "3474", "hex" : "0xd92" },
+    { "name" : "GL_MAP1_TEXTURE_COORD_1", "dec" : "3475", "hex" : "0xd93" },
+    { "name" : "GL_MAP1_TEXTURE_COORD_2", "dec" : "3476", "hex" : "0xd94" },
+    { "name" : "GL_MAP1_TEXTURE_COORD_3", "dec" : "3477", "hex" : "0xd95" },
+    { "name" : "GL_MAP1_TEXTURE_COORD_4", "dec" : "3478", "hex" : "0xd96" },
+    { "name" : "GL_MAP1_VERTEX_3", "dec" : "3479", "hex" : "0xd97" },
+    { "name" : "GL_MAP1_VERTEX_4", "dec" : "3480", "hex" : "0xd98" },
+    { "name" : "GL_MAP2_COLOR_4", "dec" : "3504", "hex" : "0xdb0" },
+    { "name" : "GL_MAP2_INDEX", "dec" : "3505", "hex" : "0xdb1" },
+    { "name" : "GL_MAP2_NORMAL", "dec" : "3506", "hex" : "0xdb2" },
+    { "name" : "GL_MAP2_TEXTURE_COORD_1", "dec" : "3507", "hex" : "0xdb3" },
+    { "name" : "GL_MAP2_TEXTURE_COORD_2", "dec" : "3508", "hex" : "0xdb4" },
+    { "name" : "GL_MAP2_TEXTURE_COORD_3", "dec" : "3509", "hex" : "0xdb5" },
+    { "name" : "GL_MAP2_TEXTURE_COORD_4", "dec" : "3510", "hex" : "0xdb6" },
+    { "name" : "GL_MAP2_VERTEX_3", "dec" : "3511", "hex" : "0xdb7" },
+    { "name" : "GL_MAP2_VERTEX_4", "dec" : "3512", "hex" : "0xdb8" },
+    { "name" : "GL_MAP1_GRID_DOMAIN", "dec" : "3536", "hex" : "0xdd0" },
+    { "name" : "GL_MAP1_GRID_SEGMENTS", "dec" : "3537", "hex" : "0xdd1" },
+    { "name" : "GL_MAP2_GRID_DOMAIN", "dec" : "3538", "hex" : "0xdd2" },
+    { "name" : "GL_MAP2_GRID_SEGMENTS", "dec" : "3539", "hex" : "0xdd3" },
+    { "name" : "GL_FEEDBACK_BUFFER_POINTER", "dec" : "3568", "hex" : "0xdf0" },
+    { "name" : "GL_FEEDBACK_BUFFER_SIZE", "dec" : "3569", "hex" : "0xdf1" },
+    { "name" : "GL_FEEDBACK_BUFFER_TYPE", "dec" : "3570", "hex" : "0xdf2" },
+    { "name" : "GL_SELECTION_BUFFER_POINTER", "dec" : "3571", "hex" : "0xdf3" },
+    { "name" : "GL_SELECTION_BUFFER_SIZE", "dec" : "3572", "hex" : "0xdf4" },
+    { "name" : "GL_TEXTURE_BORDER", "dec" : "4101", "hex" : "0x1005" },
+    { "name" : "GL_LIGHT0", "dec" : "16384", "hex" : "0x4000" },
+    { "name" : "GL_LIGHT1", "dec" : "16385", "hex" : "0x4001" },
+    { "name" : "GL_LIGHT2", "dec" : "16386", "hex" : "0x4002" },
+    { "name" : "GL_LIGHT3", "dec" : "16387", "hex" : "0x4003" },
+    { "name" : "GL_LIGHT4", "dec" : "16388", "hex" : "0x4004" },
+    { "name" : "GL_LIGHT5", "dec" : "16389", "hex" : "0x4005" },
+    { "name" : "GL_LIGHT6", "dec" : "16390", "hex" : "0x4006" },
+    { "name" : "GL_LIGHT7", "dec" : "16391", "hex" : "0x4007" },
+    { "name" : "GL_AMBIENT", "dec" : "4608", "hex" : "0x1200" },
+    { "name" : "GL_DIFFUSE", "dec" : "4609", "hex" : "0x1201" },
+    { "name" : "GL_SPECULAR", "dec" : "4610", "hex" : "0x1202" },
+    { "name" : "GL_POSITION", "dec" : "4611", "hex" : "0x1203" },
+    { "name" : "GL_SPOT_DIRECTION", "dec" : "4612", "hex" : "0x1204" },
+    { "name" : "GL_SPOT_EXPONENT", "dec" : "4613", "hex" : "0x1205" },
+    { "name" : "GL_SPOT_CUTOFF", "dec" : "4614", "hex" : "0x1206" },
+    { "name" : "GL_CONSTANT_ATTENUATION", "dec" : "4615", "hex" : "0x1207" },
+    { "name" : "GL_LINEAR_ATTENUATION", "dec" : "4616", "hex" : "0x1208" },
+    { "name" : "GL_QUADRATIC_ATTENUATION", "dec" : "4617", "hex" : "0x1209" },
+    { "name" : "GL_COMPILE", "dec" : "4864", "hex" : "0x1300" },
+    { "name" : "GL_COMPILE_AND_EXECUTE", "dec" : "4865", "hex" : "0x1301" },
+    { "name" : "GL_EMISSION", "dec" : "5632", "hex" : "0x1600" },
+    { "name" : "GL_SHININESS", "dec" : "5633", "hex" : "0x1601" },
+    { "name" : "GL_AMBIENT_AND_DIFFUSE", "dec" : "5634", "hex" : "0x1602" },
+    { "name" : "GL_COLOR_INDEXES", "dec" : "5635", "hex" : "0x1603" },
+    { "name" : "GL_MODELVIEW", "dec" : "5888", "hex" : "0x1700" },
+    { "name" : "GL_PROJECTION", "dec" : "5889", "hex" : "0x1701" },
+    { "name" : "GL_COLOR_INDEX", "dec" : "6400", "hex" : "0x1900" },
+    { "name" : "GL_LUMINANCE", "dec" : "6409", "hex" : "0x1909" },
+    { "name" : "GL_LUMINANCE_ALPHA", "dec" : "6410", "hex" : "0x190a" },
+    { "name" : "GL_BITMAP", "dec" : "6656", "hex" : "0x1a00" },
+    { "name" : "GL_RENDER", "dec" : "7168", "hex" : "0x1c00" },
+    { "name" : "GL_FEEDBACK", "dec" : "7169", "hex" : "0x1c01" },
+    { "name" : "GL_SELECT", "dec" : "7170", "hex" : "0x1c02" },
+    { "name" : "GL_FLAT", "dec" : "7424", "hex" : "0x1d00" },
+    { "name" : "GL_SMOOTH", "dec" : "7425", "hex" : "0x1d01" },
+    { "name" : "GL_S", "dec" : "8192", "hex" : "0x2000" },
+    { "name" : "GL_T", "dec" : "8193", "hex" : "0x2001" },
+    { "name" : "GL_R", "dec" : "8194", "hex" : "0x2002" },
+    { "name" : "GL_Q", "dec" : "8195", "hex" : "0x2003" },
+    { "name" : "GL_MODULATE", "dec" : "8448", "hex" : "0x2100" },
+    { "name" : "GL_DECAL", "dec" : "8449", "hex" : "0x2101" },
+    { "name" : "GL_TEXTURE_ENV_MODE", "dec" : "8704", "hex" : "0x2200" },
+    { "name" : "GL_TEXTURE_ENV_COLOR", "dec" : "8705", "hex" : "0x2201" },
+    { "name" : "GL_TEXTURE_ENV", "dec" : "8960", "hex" : "0x2300" },
+    { "name" : "GL_EYE_LINEAR", "dec" : "9216", "hex" : "0x2400" },
+    { "name" : "GL_OBJECT_LINEAR", "dec" : "9217", "hex" : "0x2401" },
+    { "name" : "GL_SPHERE_MAP", "dec" : "9218", "hex" : "0x2402" },
+    { "name" : "GL_TEXTURE_GEN_MODE", "dec" : "9472", "hex" : "0x2500" },
+    { "name" : "GL_OBJECT_PLANE", "dec" : "9473", "hex" : "0x2501" },
+    { "name" : "GL_EYE_PLANE", "dec" : "9474", "hex" : "0x2502" },
+    { "name" : "GL_CLAMP", "dec" : "10496", "hex" : "0x2900" },
+    { "name" : "GL_CLIENT_PIXEL_STORE_BIT", "dec" : "1", "hex" : "0x1" },
+    { "name" : "GL_CLIENT_VERTEX_ARRAY_BIT", "dec" : "2", "hex" : "0x2" },
+    { "name" : "GL_ALPHA4", "dec" : "32827", "hex" : "0x803b" },
+    { "name" : "GL_ALPHA8", "dec" : "32828", "hex" : "0x803c" },
+    { "name" : "GL_ALPHA12", "dec" : "32829", "hex" : "0x803d" },
+    { "name" : "GL_ALPHA16", "dec" : "32830", "hex" : "0x803e" },
+    { "name" : "GL_LUMINANCE4", "dec" : "32831", "hex" : "0x803f" },
+    { "name" : "GL_LUMINANCE8", "dec" : "32832", "hex" : "0x8040" },
+    { "name" : "GL_LUMINANCE12", "dec" : "32833", "hex" : "0x8041" },
+    { "name" : "GL_LUMINANCE16", "dec" : "32834", "hex" : "0x8042" },
+    { "name" : "GL_LUMINANCE4_ALPHA4", "dec" : "32835", "hex" : "0x8043" },
+    { "name" : "GL_LUMINANCE6_ALPHA2", "dec" : "32836", "hex" : "0x8044" },
+    { "name" : "GL_LUMINANCE8_ALPHA8", "dec" : "32837", "hex" : "0x8045" },
+    { "name" : "GL_LUMINANCE12_ALPHA4", "dec" : "32838", "hex" : "0x8046" },
+    { "name" : "GL_LUMINANCE12_ALPHA12", "dec" : "32839", "hex" : "0x8047" },
+    { "name" : "GL_LUMINANCE16_ALPHA16", "dec" : "32840", "hex" : "0x8048" },
+    { "name" : "GL_INTENSITY", "dec" : "32841", "hex" : "0x8049" },
+    { "name" : "GL_INTENSITY4", "dec" : "32842", "hex" : "0x804a" },
+    { "name" : "GL_INTENSITY8", "dec" : "32843", "hex" : "0x804b" },
+    { "name" : "GL_INTENSITY12", "dec" : "32844", "hex" : "0x804c" },
+    { "name" : "GL_INTENSITY16", "dec" : "32845", "hex" : "0x804d" },
+    { "name" : "GL_TEXTURE_LUMINANCE_SIZE", "dec" : "32864", "hex" : "0x8060" },
+    { "name" : "GL_TEXTURE_INTENSITY_SIZE", "dec" : "32865", "hex" : "0x8061" },
+    { "name" : "GL_TEXTURE_PRIORITY", "dec" : "32870", "hex" : "0x8066" },
+    { "name" : "GL_TEXTURE_RESIDENT", "dec" : "32871", "hex" : "0x8067" },
+    { "name" : "GL_NORMAL_ARRAY", "dec" : "32885", "hex" : "0x8075" },
+    { "name" : "GL_COLOR_ARRAY", "dec" : "32886", "hex" : "0x8076" },
+    { "name" : "GL_INDEX_ARRAY", "dec" : "32887", "hex" : "0x8077" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY", "dec" : "32888", "hex" : "0x8078" },
+    { "name" : "GL_EDGE_FLAG_ARRAY", "dec" : "32889", "hex" : "0x8079" },
+    { "name" : "GL_VERTEX_ARRAY_SIZE", "dec" : "32890", "hex" : "0x807a" },
+    { "name" : "GL_VERTEX_ARRAY_TYPE", "dec" : "32891", "hex" : "0x807b" },
+    { "name" : "GL_VERTEX_ARRAY_STRIDE", "dec" : "32892", "hex" : "0x807c" },
+    { "name" : "GL_NORMAL_ARRAY_TYPE", "dec" : "32894", "hex" : "0x807e" },
+    { "name" : "GL_NORMAL_ARRAY_STRIDE", "dec" : "32895", "hex" : "0x807f" },
+    { "name" : "GL_COLOR_ARRAY_SIZE", "dec" : "32897", "hex" : "0x8081" },
+    { "name" : "GL_COLOR_ARRAY_TYPE", "dec" : "32898", "hex" : "0x8082" },
+    { "name" : "GL_COLOR_ARRAY_STRIDE", "dec" : "32899", "hex" : "0x8083" },
+    { "name" : "GL_INDEX_ARRAY_TYPE", "dec" : "32901", "hex" : "0x8085" },
+    { "name" : "GL_INDEX_ARRAY_STRIDE", "dec" : "32902", "hex" : "0x8086" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_SIZE", "dec" : "32904", "hex" : "0x8088" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_TYPE", "dec" : "32905", "hex" : "0x8089" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_STRIDE", "dec" : "32906", "hex" : "0x808a" },
+    { "name" : "GL_EDGE_FLAG_ARRAY_STRIDE", "dec" : "32908", "hex" : "0x808c" },
+    { "name" : "GL_VERTEX_ARRAY_POINTER", "dec" : "32910", "hex" : "0x808e" },
+    { "name" : "GL_NORMAL_ARRAY_POINTER", "dec" : "32911", "hex" : "0x808f" },
+    { "name" : "GL_COLOR_ARRAY_POINTER", "dec" : "32912", "hex" : "0x8090" },
+    { "name" : "GL_INDEX_ARRAY_POINTER", "dec" : "32913", "hex" : "0x8091" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_POINTER", "dec" : "32914", "hex" : "0x8092" },
+    { "name" : "GL_EDGE_FLAG_ARRAY_POINTER", "dec" : "32915", "hex" : "0x8093" },
+    { "name" : "GL_V2F", "dec" : "10784", "hex" : "0x2a20" },
+    { "name" : "GL_V3F", "dec" : "10785", "hex" : "0x2a21" },
+    { "name" : "GL_C4UB_V2F", "dec" : "10786", "hex" : "0x2a22" },
+    { "name" : "GL_C4UB_V3F", "dec" : "10787", "hex" : "0x2a23" },
+    { "name" : "GL_C3F_V3F", "dec" : "10788", "hex" : "0x2a24" },
+    { "name" : "GL_N3F_V3F", "dec" : "10789", "hex" : "0x2a25" },
+    { "name" : "GL_C4F_N3F_V3F", "dec" : "10790", "hex" : "0x2a26" },
+    { "name" : "GL_T2F_V3F", "dec" : "10791", "hex" : "0x2a27" },
+    { "name" : "GL_T4F_V4F", "dec" : "10792", "hex" : "0x2a28" },
+    { "name" : "GL_T2F_C4UB_V3F", "dec" : "10793", "hex" : "0x2a29" },
+    { "name" : "GL_T2F_C3F_V3F", "dec" : "10794", "hex" : "0x2a2a" },
+    { "name" : "GL_T2F_N3F_V3F", "dec" : "10795", "hex" : "0x2a2b" },
+    { "name" : "GL_T2F_C4F_N3F_V3F", "dec" : "10796", "hex" : "0x2a2c" },
+    { "name" : "GL_T4F_C4F_N3F_V4F", "dec" : "10797", "hex" : "0x2a2d" },
+    { "name" : "GL_VERTEX_ARRAY_EXT", "dec" : "32884", "hex" : "0x8074" },
+    { "name" : "GL_NORMAL_ARRAY_EXT", "dec" : "32885", "hex" : "0x8075" },
+    { "name" : "GL_COLOR_ARRAY_EXT", "dec" : "32886", "hex" : "0x8076" },
+    { "name" : "GL_INDEX_ARRAY_EXT", "dec" : "32887", "hex" : "0x8077" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_EXT", "dec" : "32888", "hex" : "0x8078" },
+    { "name" : "GL_EDGE_FLAG_ARRAY_EXT", "dec" : "32889", "hex" : "0x8079" },
+    { "name" : "GL_VERTEX_ARRAY_SIZE_EXT", "dec" : "32890", "hex" : "0x807a" },
+    { "name" : "GL_VERTEX_ARRAY_TYPE_EXT", "dec" : "32891", "hex" : "0x807b" },
+    { "name" : "GL_VERTEX_ARRAY_STRIDE_EXT", "dec" : "32892", "hex" : "0x807c" },
+    { "name" : "GL_VERTEX_ARRAY_COUNT_EXT", "dec" : "32893", "hex" : "0x807d" },
+    { "name" : "GL_NORMAL_ARRAY_TYPE_EXT", "dec" : "32894", "hex" : "0x807e" },
+    { "name" : "GL_NORMAL_ARRAY_STRIDE_EXT", "dec" : "32895", "hex" : "0x807f" },
+    { "name" : "GL_NORMAL_ARRAY_COUNT_EXT", "dec" : "32896", "hex" : "0x8080" },
+    { "name" : "GL_COLOR_ARRAY_SIZE_EXT", "dec" : "32897", "hex" : "0x8081" },
+    { "name" : "GL_COLOR_ARRAY_TYPE_EXT", "dec" : "32898", "hex" : "0x8082" },
+    { "name" : "GL_COLOR_ARRAY_STRIDE_EXT", "dec" : "32899", "hex" : "0x8083" },
+    { "name" : "GL_COLOR_ARRAY_COUNT_EXT", "dec" : "32900", "hex" : "0x8084" },
+    { "name" : "GL_INDEX_ARRAY_TYPE_EXT", "dec" : "32901", "hex" : "0x8085" },
+    { "name" : "GL_INDEX_ARRAY_STRIDE_EXT", "dec" : "32902", "hex" : "0x8086" },
+    { "name" : "GL_INDEX_ARRAY_COUNT_EXT", "dec" : "32903", "hex" : "0x8087" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_SIZE_EXT", "dec" : "32904", "hex" : "0x8088" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_TYPE_EXT", "dec" : "32905", "hex" : "0x8089" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_STRIDE_EXT", "dec" : "32906", "hex" : "0x808a" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_COUNT_EXT", "dec" : "32907", "hex" : "0x808b" },
+    { "name" : "GL_EDGE_FLAG_ARRAY_STRIDE_EXT", "dec" : "32908", "hex" : "0x808c" },
+    { "name" : "GL_EDGE_FLAG_ARRAY_COUNT_EXT", "dec" : "32909", "hex" : "0x808d" },
+    { "name" : "GL_VERTEX_ARRAY_POINTER_EXT", "dec" : "32910", "hex" : "0x808e" },
+    { "name" : "GL_NORMAL_ARRAY_POINTER_EXT", "dec" : "32911", "hex" : "0x808f" },
+    { "name" : "GL_COLOR_ARRAY_POINTER_EXT", "dec" : "32912", "hex" : "0x8090" },
+    { "name" : "GL_INDEX_ARRAY_POINTER_EXT", "dec" : "32913", "hex" : "0x8091" },
+    { "name" : "GL_TEXTURE_COORD_ARRAY_POINTER_EXT", "dec" : "32914", "hex" : "0x8092" },
+    { "name" : "GL_EDGE_FLAG_ARRAY_POINTER_EXT", "dec" : "32915", "hex" : "0x8093" },
+    { "name" : "GL_BGR_EXT", "dec" : "32992", "hex" : "0x80e0" },
+    { "name" : "GL_BGRA_EXT", "dec" : "32993", "hex" : "0x80e1" },
+    { "name" : "GL_COLOR_TABLE_FORMAT_EXT", "dec" : "32984", "hex" : "0x80d8" },
+    { "name" : "GL_COLOR_TABLE_WIDTH_EXT", "dec" : "32985", "hex" : "0x80d9" },
+    { "name" : "GL_COLOR_TABLE_RED_SIZE_EXT", "dec" : "32986", "hex" : "0x80da" },
+    { "name" : "GL_COLOR_TABLE_GREEN_SIZE_EXT", "dec" : "32987", "hex" : "0x80db" },
+    { "name" : "GL_COLOR_TABLE_BLUE_SIZE_EXT", "dec" : "32988", "hex" : "0x80dc" },
+    { "name" : "GL_COLOR_TABLE_ALPHA_SIZE_EXT", "dec" : "32989", "hex" : "0x80dd" },
+    { "name" : "GL_COLOR_TABLE_LUMINANCE_SIZE_EXT", "dec" : "32990", "hex" : "0x80de" },
+    { "name" : "GL_COLOR_TABLE_INTENSITY_SIZE_EXT", "dec" : "32991", "hex" : "0x80df" },
+    { "name" : "GL_COLOR_INDEX1_EXT", "dec" : "32994", "hex" : "0x80e2" },
+    { "name" : "GL_COLOR_INDEX2_EXT", "dec" : "32995", "hex" : "0x80e3" },
+    { "name" : "GL_COLOR_INDEX4_EXT", "dec" : "32996", "hex" : "0x80e4" },
+    { "name" : "GL_COLOR_INDEX8_EXT", "dec" : "32997", "hex" : "0x80e5" },
+    { "name" : "GL_COLOR_INDEX12_EXT", "dec" : "32998", "hex" : "0x80e6" },
+    { "name" : "GL_COLOR_INDEX16_EXT", "dec" : "32999", "hex" : "0x80e7" },
+    { "name" : "GL_MAX_ELEMENTS_VERTICES_WIN", "dec" : "33000", "hex" : "0x80e8" },
+    { "name" : "GL_MAX_ELEMENTS_INDICES_WIN", "dec" : "33001", "hex" : "0x80e9" },
+    { "name" : "GL_PHONG_WIN", "dec" : "33002", "hex" : "0x80ea" },
+    { "name" : "GL_PHONG_HINT_WIN", "dec" : "33003", "hex" : "0x80eb" },
+    { "name" : "GL_FOG_SPECULAR_TEXTURE_WIN", "dec" : "33004", "hex" : "0x80ec" }
+];
+
 
 var translate = function(input) {
-    if (isNaN(input))
-    {
-        var string = input.toUpperCase();
-        if (!input.startsWith("GL_"))
-        {
-            string = "GL_"+input.toUpperCase();
-        };
-        switch (string)
-        {
-            case "GL_DEPTH_BUFFER_BIT" : return "Decimal    : 256\nHexadecimal: 0x100";
-            case "GL_STENCIL_BUFFER_BIT" : return "Decimal    : 1024\nHexadecimal: 0x400";
-            case "GL_COLOR_BUFFER_BIT" : return "Decimal    : 16384\nHexadecimal: 0x4000";
-            case "GL_FALSE" : return "Decimal    : 0\nHexadecimal: 0x0";
-            case "GL_TRUE" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_POINTS" : return "Decimal    : 0\nHexadecimal: 0x0";
-            case "GL_LINES" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_LINE_LOOP" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_LINE_STRIP" : return "Decimal    : 3\nHexadecimal: 0x3";
-            case "GL_TRIANGLES" : return "Decimal    : 4\nHexadecimal: 0x4";
-            case "GL_TRIANGLE_STRIP" : return "Decimal    : 5\nHexadecimal: 0x5";
-            case "GL_TRIANGLE_FAN" : return "Decimal    : 6\nHexadecimal: 0x6";
-            case "GL_QUADS" : return "Decimal    : 7\nHexadecimal: 0x7";
-            case "GL_NEVER" : return "Decimal    : 512\nHexadecimal: 0x200";
-            case "GL_LESS" : return "Decimal    : 513\nHexadecimal: 0x201";
-            case "GL_EQUAL" : return "Decimal    : 514\nHexadecimal: 0x202";
-            case "GL_LEQUAL" : return "Decimal    : 515\nHexadecimal: 0x203";
-            case "GL_GREATER" : return "Decimal    : 516\nHexadecimal: 0x204";
-            case "GL_NOTEQUAL" : return "Decimal    : 517\nHexadecimal: 0x205";
-            case "GL_GEQUAL" : return "Decimal    : 518\nHexadecimal: 0x206";
-            case "GL_ALWAYS" : return "Decimal    : 519\nHexadecimal: 0x207";
-            case "GL_ZERO" : return "Decimal    : 0\nHexadecimal: 0x0";
-            case "GL_ONE" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_SRC_COLOR" : return "Decimal    : 768\nHexadecimal: 0x300";
-            case "GL_ONE_MINUS_SRC_COLOR" : return "Decimal    : 769\nHexadecimal: 0x301";
-            case "GL_SRC_ALPHA" : return "Decimal    : 770\nHexadecimal: 0x302";
-            case "GL_ONE_MINUS_SRC_ALPHA" : return "Decimal    : 771\nHexadecimal: 0x303";
-            case "GL_DST_ALPHA" : return "Decimal    : 772\nHexadecimal: 0x304";
-            case "GL_ONE_MINUS_DST_ALPHA" : return "Decimal    : 773\nHexadecimal: 0x305";
-            case "GL_DST_COLOR" : return "Decimal    : 774\nHexadecimal: 0x306";
-            case "GL_ONE_MINUS_DST_COLOR" : return "Decimal    : 775\nHexadecimal: 0x307";
-            case "GL_SRC_ALPHA_SATURATE" : return "Decimal    : 776\nHexadecimal: 0x308";
-            case "GL_NONE" : return "Decimal    : 0\nHexadecimal: 0x0";
-            case "GL_FRONT_LEFT" : return "Decimal    : 1024\nHexadecimal: 0x400";
-            case "GL_FRONT_RIGHT" : return "Decimal    : 1025\nHexadecimal: 0x401";
-            case "GL_BACK_LEFT" : return "Decimal    : 1026\nHexadecimal: 0x402";
-            case "GL_BACK_RIGHT" : return "Decimal    : 1027\nHexadecimal: 0x403";
-            case "GL_FRONT" : return "Decimal    : 1028\nHexadecimal: 0x404";
-            case "GL_BACK" : return "Decimal    : 1029\nHexadecimal: 0x405";
-            case "GL_LEFT" : return "Decimal    : 1030\nHexadecimal: 0x406";
-            case "GL_RIGHT" : return "Decimal    : 1031\nHexadecimal: 0x407";
-            case "GL_FRONT_AND_BACK" : return "Decimal    : 1032\nHexadecimal: 0x408";
-            case "GL_NO_ERROR" : return "Decimal    : 0\nHexadecimal: 0x0";
-            case "GL_INVALID_ENUM" : return "Decimal    : 1280\nHexadecimal: 0x500";
-            case "GL_INVALID_VALUE" : return "Decimal    : 1281\nHexadecimal: 0x501";
-            case "GL_INVALID_OPERATION" : return "Decimal    : 1282\nHexadecimal: 0x502";
-            case "GL_OUT_OF_MEMORY" : return "Decimal    : 1285\nHexadecimal: 0x505";
-            case "GL_CW" : return "Decimal    : 2304\nHexadecimal: 0x900";
-            case "GL_CCW" : return "Decimal    : 2305\nHexadecimal: 0x901";
-            case "GL_POINT_SIZE" : return "Decimal    : 2833\nHexadecimal: 0xb11";
-            case "GL_POINT_SIZE_RANGE" : return "Decimal    : 2834\nHexadecimal: 0xb12";
-            case "GL_POINT_SIZE_GRANULARITY" : return "Decimal    : 2835\nHexadecimal: 0xb13";
-            case "GL_LINE_SMOOTH" : return "Decimal    : 2848\nHexadecimal: 0xb20";
-            case "GL_LINE_WIDTH" : return "Decimal    : 2849\nHexadecimal: 0xb21";
-            case "GL_LINE_WIDTH_RANGE" : return "Decimal    : 2850\nHexadecimal: 0xb22";
-            case "GL_LINE_WIDTH_GRANULARITY" : return "Decimal    : 2851\nHexadecimal: 0xb23";
-            case "GL_POLYGON_MODE" : return "Decimal    : 2880\nHexadecimal: 0xb40";
-            case "GL_POLYGON_SMOOTH" : return "Decimal    : 2881\nHexadecimal: 0xb41";
-            case "GL_CULL_FACE" : return "Decimal    : 2884\nHexadecimal: 0xb44";
-            case "GL_CULL_FACE_MODE" : return "Decimal    : 2885\nHexadecimal: 0xb45";
-            case "GL_FRONT_FACE" : return "Decimal    : 2886\nHexadecimal: 0xb46";
-            case "GL_DEPTH_RANGE" : return "Decimal    : 2928\nHexadecimal: 0xb70";
-            case "GL_DEPTH_TEST" : return "Decimal    : 2929\nHexadecimal: 0xb71";
-            case "GL_DEPTH_WRITEMASK" : return "Decimal    : 2930\nHexadecimal: 0xb72";
-            case "GL_DEPTH_CLEAR_VALUE" : return "Decimal    : 2931\nHexadecimal: 0xb73";
-            case "GL_DEPTH_FUNC" : return "Decimal    : 2932\nHexadecimal: 0xb74";
-            case "GL_STENCIL_TEST" : return "Decimal    : 2960\nHexadecimal: 0xb90";
-            case "GL_STENCIL_CLEAR_VALUE" : return "Decimal    : 2961\nHexadecimal: 0xb91";
-            case "GL_STENCIL_FUNC" : return "Decimal    : 2962\nHexadecimal: 0xb92";
-            case "GL_STENCIL_VALUE_MASK" : return "Decimal    : 2963\nHexadecimal: 0xb93";
-            case "GL_STENCIL_FAIL" : return "Decimal    : 2964\nHexadecimal: 0xb94";
-            case "GL_STENCIL_PASS_DEPTH_FAIL" : return "Decimal    : 2965\nHexadecimal: 0xb95";
-            case "GL_STENCIL_PASS_DEPTH_PASS" : return "Decimal    : 2966\nHexadecimal: 0xb96";
-            case "GL_STENCIL_REF" : return "Decimal    : 2967\nHexadecimal: 0xb97";
-            case "GL_STENCIL_WRITEMASK" : return "Decimal    : 2968\nHexadecimal: 0xb98";
-            case "GL_VIEWPORT" : return "Decimal    : 2978\nHexadecimal: 0xba2";
-            case "GL_DITHER" : return "Decimal    : 3024\nHexadecimal: 0xbd0";
-            case "GL_BLEND_DST" : return "Decimal    : 3040\nHexadecimal: 0xbe0";
-            case "GL_BLEND_SRC" : return "Decimal    : 3041\nHexadecimal: 0xbe1";
-            case "GL_BLEND" : return "Decimal    : 3042\nHexadecimal: 0xbe2";
-            case "GL_LOGIC_OP_MODE" : return "Decimal    : 3056\nHexadecimal: 0xbf0";
-            case "GL_COLOR_LOGIC_OP" : return "Decimal    : 3058\nHexadecimal: 0xbf2";
-            case "GL_DRAW_BUFFER" : return "Decimal    : 3073\nHexadecimal: 0xc01";
-            case "GL_READ_BUFFER" : return "Decimal    : 3074\nHexadecimal: 0xc02";
-            case "GL_SCISSOR_BOX" : return "Decimal    : 3088\nHexadecimal: 0xc10";
-            case "GL_SCISSOR_TEST" : return "Decimal    : 3089\nHexadecimal: 0xc11";
-            case "GL_COLOR_CLEAR_VALUE" : return "Decimal    : 3106\nHexadecimal: 0xc22";
-            case "GL_COLOR_WRITEMASK" : return "Decimal    : 3107\nHexadecimal: 0xc23";
-            case "GL_DOUBLEBUFFER" : return "Decimal    : 3122\nHexadecimal: 0xc32";
-            case "GL_STEREO" : return "Decimal    : 3123\nHexadecimal: 0xc33";
-            case "GL_LINE_SMOOTH_HINT" : return "Decimal    : 3154\nHexadecimal: 0xc52";
-            case "GL_POLYGON_SMOOTH_HINT" : return "Decimal    : 3155\nHexadecimal: 0xc53";
-            case "GL_UNPACK_SWAP_BYTES" : return "Decimal    : 3312\nHexadecimal: 0xcf0";
-            case "GL_UNPACK_LSB_FIRST" : return "Decimal    : 3313\nHexadecimal: 0xcf1";
-            case "GL_UNPACK_ROW_LENGTH" : return "Decimal    : 3314\nHexadecimal: 0xcf2";
-            case "GL_UNPACK_SKIP_ROWS" : return "Decimal    : 3315\nHexadecimal: 0xcf3";
-            case "GL_UNPACK_SKIP_PIXELS" : return "Decimal    : 3316\nHexadecimal: 0xcf4";
-            case "GL_UNPACK_ALIGNMENT" : return "Decimal    : 3317\nHexadecimal: 0xcf5";
-            case "GL_PACK_SWAP_BYTES" : return "Decimal    : 3328\nHexadecimal: 0xd00";
-            case "GL_PACK_LSB_FIRST" : return "Decimal    : 3329\nHexadecimal: 0xd01";
-            case "GL_PACK_ROW_LENGTH" : return "Decimal    : 3330\nHexadecimal: 0xd02";
-            case "GL_PACK_SKIP_ROWS" : return "Decimal    : 3331\nHexadecimal: 0xd03";
-            case "GL_PACK_SKIP_PIXELS" : return "Decimal    : 3332\nHexadecimal: 0xd04";
-            case "GL_PACK_ALIGNMENT" : return "Decimal    : 3333\nHexadecimal: 0xd05";
-            case "GL_MAX_TEXTURE_SIZE" : return "Decimal    : 3379\nHexadecimal: 0xd33";
-            case "GL_MAX_VIEWPORT_DIMS" : return "Decimal    : 3386\nHexadecimal: 0xd3a";
-            case "GL_SUBPIXEL_BITS" : return "Decimal    : 3408\nHexadecimal: 0xd50";
-            case "GL_POLYGON_OFFSET_UNITS" : return "Decimal    : 10752\nHexadecimal: 0x2a00";
-            case "GL_POLYGON_OFFSET_POINT" : return "Decimal    : 10753\nHexadecimal: 0x2a01";
-            case "GL_POLYGON_OFFSET_LINE" : return "Decimal    : 10754\nHexadecimal: 0x2a02";
-            case "GL_POLYGON_OFFSET_FILL" : return "Decimal    : 32823\nHexadecimal: 0x8037";
-            case "GL_POLYGON_OFFSET_FACTOR" : return "Decimal    : 32824\nHexadecimal: 0x8038";
-            case "GL_TEXTURE_WIDTH" : return "Decimal    : 4096\nHexadecimal: 0x1000";
-            case "GL_TEXTURE_HEIGHT" : return "Decimal    : 4097\nHexadecimal: 0x1001";
-            case "GL_TEXTURE_INTERNAL_FORMAT" : return "Decimal    : 4099\nHexadecimal: 0x1003";
-            case "GL_TEXTURE_BORDER_COLOR" : return "Decimal    : 4100\nHexadecimal: 0x1004";
-            case "GL_TEXTURE_RED_SIZE" : return "Decimal    : 32860\nHexadecimal: 0x805c";
-            case "GL_TEXTURE_GREEN_SIZE" : return "Decimal    : 32861\nHexadecimal: 0x805d";
-            case "GL_TEXTURE_BLUE_SIZE" : return "Decimal    : 32862\nHexadecimal: 0x805e";
-            case "GL_TEXTURE_ALPHA_SIZE" : return "Decimal    : 32863\nHexadecimal: 0x805f";
-            case "GL_DONT_CARE" : return "Decimal    : 4352\nHexadecimal: 0x1100";
-            case "GL_FASTEST" : return "Decimal    : 4353\nHexadecimal: 0x1101";
-            case "GL_NICEST" : return "Decimal    : 4354\nHexadecimal: 0x1102";
-            case "GL_BYTE" : return "Decimal    : 5120\nHexadecimal: 0x1400";
-            case "GL_UNSIGNED_BYTE" : return "Decimal    : 5121\nHexadecimal: 0x1401";
-            case "GL_SHORT" : return "Decimal    : 5122\nHexadecimal: 0x1402";
-            case "GL_UNSIGNED_SHORT" : return "Decimal    : 5123\nHexadecimal: 0x1403";
-            case "GL_INT" : return "Decimal    : 5124\nHexadecimal: 0x1404";
-            case "GL_UNSIGNED_INT" : return "Decimal    : 5125\nHexadecimal: 0x1405";
-            case "GL_FLOAT" : return "Decimal    : 5126\nHexadecimal: 0x1406";
-            case "GL_DOUBLE" : return "Decimal    : 5130\nHexadecimal: 0x140a";
-            case "GL_STACK_OVERFLOW" : return "Decimal    : 1283\nHexadecimal: 0x503";
-            case "GL_STACK_UNDERFLOW" : return "Decimal    : 1284\nHexadecimal: 0x504";
-            case "GL_CLEAR" : return "Decimal    : 5376\nHexadecimal: 0x1500";
-            case "GL_AND" : return "Decimal    : 5377\nHexadecimal: 0x1501";
-            case "GL_AND_REVERSE" : return "Decimal    : 5378\nHexadecimal: 0x1502";
-            case "GL_COPY" : return "Decimal    : 5379\nHexadecimal: 0x1503";
-            case "GL_AND_INVERTED" : return "Decimal    : 5380\nHexadecimal: 0x1504";
-            case "GL_NOOP" : return "Decimal    : 5381\nHexadecimal: 0x1505";
-            case "GL_XOR" : return "Decimal    : 5382\nHexadecimal: 0x1506";
-            case "GL_OR" : return "Decimal    : 5383\nHexadecimal: 0x1507";
-            case "GL_NOR" : return "Decimal    : 5384\nHexadecimal: 0x1508";
-            case "GL_EQUIV" : return "Decimal    : 5385\nHexadecimal: 0x1509";
-            case "GL_INVERT" : return "Decimal    : 5386\nHexadecimal: 0x150a";
-            case "GL_OR_REVERSE" : return "Decimal    : 5387\nHexadecimal: 0x150b";
-            case "GL_COPY_INVERTED" : return "Decimal    : 5388\nHexadecimal: 0x150c";
-            case "GL_OR_INVERTED" : return "Decimal    : 5389\nHexadecimal: 0x150d";
-            case "GL_NAND" : return "Decimal    : 5390\nHexadecimal: 0x150e";
-            case "GL_SET" : return "Decimal    : 5391\nHexadecimal: 0x150f";
-            case "GL_TEXTURE" : return "Decimal    : 5890\nHexadecimal: 0x1702";
-            case "GL_COLOR" : return "Decimal    : 6144\nHexadecimal: 0x1800";
-            case "GL_DEPTH" : return "Decimal    : 6145\nHexadecimal: 0x1801";
-            case "GL_STENCIL" : return "Decimal    : 6146\nHexadecimal: 0x1802";
-            case "GL_STENCIL_INDEX" : return "Decimal    : 6401\nHexadecimal: 0x1901";
-            case "GL_DEPTH_COMPONENT" : return "Decimal    : 6402\nHexadecimal: 0x1902";
-            case "GL_RED" : return "Decimal    : 6403\nHexadecimal: 0x1903";
-            case "GL_GREEN" : return "Decimal    : 6404\nHexadecimal: 0x1904";
-            case "GL_BLUE" : return "Decimal    : 6405\nHexadecimal: 0x1905";
-            case "GL_ALPHA" : return "Decimal    : 6406\nHexadecimal: 0x1906";
-            case "GL_RGB" : return "Decimal    : 6407\nHexadecimal: 0x1907";
-            case "GL_RGBA" : return "Decimal    : 6408\nHexadecimal: 0x1908";
-            case "GL_POINT" : return "Decimal    : 6912\nHexadecimal: 0x1b00";
-            case "GL_LINE" : return "Decimal    : 6913\nHexadecimal: 0x1b01";
-            case "GL_FILL" : return "Decimal    : 6914\nHexadecimal: 0x1b02";
-            case "GL_KEEP" : return "Decimal    : 7680\nHexadecimal: 0x1e00";
-            case "GL_REPLACE" : return "Decimal    : 7681\nHexadecimal: 0x1e01";
-            case "GL_INCR" : return "Decimal    : 7682\nHexadecimal: 0x1e02";
-            case "GL_DECR" : return "Decimal    : 7683\nHexadecimal: 0x1e03";
-            case "GL_VENDOR" : return "Decimal    : 7936\nHexadecimal: 0x1f00";
-            case "GL_RENDERER" : return "Decimal    : 7937\nHexadecimal: 0x1f01";
-            case "GL_VERSION" : return "Decimal    : 7938\nHexadecimal: 0x1f02";
-            case "GL_EXTENSIONS" : return "Decimal    : 7939\nHexadecimal: 0x1f03";
-            case "GL_NEAREST" : return "Decimal    : 9728\nHexadecimal: 0x2600";
-            case "GL_LINEAR" : return "Decimal    : 9729\nHexadecimal: 0x2601";
-            case "GL_NEAREST_MIPMAP_NEAREST" : return "Decimal    : 9984\nHexadecimal: 0x2700";
-            case "GL_LINEAR_MIPMAP_NEAREST" : return "Decimal    : 9985\nHexadecimal: 0x2701";
-            case "GL_NEAREST_MIPMAP_LINEAR" : return "Decimal    : 9986\nHexadecimal: 0x2702";
-            case "GL_LINEAR_MIPMAP_LINEAR" : return "Decimal    : 9987\nHexadecimal: 0x2703";
-            case "GL_TEXTURE_MAG_FILTER" : return "Decimal    : 10240\nHexadecimal: 0x2800";
-            case "GL_TEXTURE_MIN_FILTER" : return "Decimal    : 10241\nHexadecimal: 0x2801";
-            case "GL_TEXTURE_WRAP_S" : return "Decimal    : 10242\nHexadecimal: 0x2802";
-            case "GL_TEXTURE_WRAP_T" : return "Decimal    : 10243\nHexadecimal: 0x2803";
-            case "GL_REPEAT" : return "Decimal    : 10497\nHexadecimal: 0x2901";
-            case "GL_VERTEX_ARRAY" : return "Decimal    : 32884\nHexadecimal: 0x8074";
-            case "GL_PACK_SKIP_IMAGES" : return "Decimal    : 32875\nHexadecimal: 0x806b";
-            case "GL_PACK_IMAGE_HEIGHT" : return "Decimal    : 32876\nHexadecimal: 0x806c";
-            case "GL_UNPACK_SKIP_IMAGES" : return "Decimal    : 32877\nHexadecimal: 0x806d";
-            case "GL_UNPACK_IMAGE_HEIGHT" : return "Decimal    : 32878\nHexadecimal: 0x806e";
-            case "GL_TEXTURE_DEPTH" : return "Decimal    : 32881\nHexadecimal: 0x8071";
-            case "GL_TEXTURE_WRAP_R" : return "Decimal    : 32882\nHexadecimal: 0x8072";
-            case "GL_BGR" : return "Decimal    : 32992\nHexadecimal: 0x80e0";
-            case "GL_BGRA" : return "Decimal    : 32993\nHexadecimal: 0x80e1";
-            case "GL_MAX_ELEMENTS_VERTICES" : return "Decimal    : 33000\nHexadecimal: 0x80e8";
-            case "GL_MAX_ELEMENTS_INDICES" : return "Decimal    : 33001\nHexadecimal: 0x80e9";
-            case "GL_CLAMP_TO_EDGE" : return "Decimal    : 33071\nHexadecimal: 0x812f";
-            case "GL_TEXTURE_MIN_LOD" : return "Decimal    : 33082\nHexadecimal: 0x813a";
-            case "GL_TEXTURE_MAX_LOD" : return "Decimal    : 33083\nHexadecimal: 0x813b";
-            case "GL_TEXTURE_BASE_LEVEL" : return "Decimal    : 33084\nHexadecimal: 0x813c";
-            case "GL_TEXTURE_MAX_LEVEL" : return "Decimal    : 33085\nHexadecimal: 0x813d";
-            case "GL_SMOOTH_POINT_SIZE_RANGE" : return "Decimal    : 2834\nHexadecimal: 0xb12";
-            case "GL_SMOOTH_POINT_SIZE_GRANULARITY" : return "Decimal    : 2835\nHexadecimal: 0xb13";
-            case "GL_SMOOTH_LINE_WIDTH_RANGE" : return "Decimal    : 2850\nHexadecimal: 0xb22";
-            case "GL_SMOOTH_LINE_WIDTH_GRANULARITY" : return "Decimal    : 2851\nHexadecimal: 0xb23";
-            case "GL_ALIASED_LINE_WIDTH_RANGE" : return "Decimal    : 33902\nHexadecimal: 0x846e";
-            case "GL_ACTIVE_TEXTURE" : return "Decimal    : 34016\nHexadecimal: 0x84e0";
-            case "GL_MULTISAMPLE" : return "Decimal    : 32925\nHexadecimal: 0x809d";
-            case "GL_SAMPLE_ALPHA_TO_COVERAGE" : return "Decimal    : 32926\nHexadecimal: 0x809e";
-            case "GL_SAMPLE_ALPHA_TO_ONE" : return "Decimal    : 32927\nHexadecimal: 0x809f";
-            case "GL_SAMPLE_COVERAGE" : return "Decimal    : 32928\nHexadecimal: 0x80a0";
-            case "GL_SAMPLE_BUFFERS" : return "Decimal    : 32936\nHexadecimal: 0x80a8";
-            case "GL_SAMPLES" : return "Decimal    : 32937\nHexadecimal: 0x80a9";
-            case "GL_SAMPLE_COVERAGE_VALUE" : return "Decimal    : 32938\nHexadecimal: 0x80aa";
-            case "GL_SAMPLE_COVERAGE_INVERT" : return "Decimal    : 32939\nHexadecimal: 0x80ab";
-            case "GL_TEXTURE_CUBE_MAP" : return "Decimal    : 34067\nHexadecimal: 0x8513";
-            case "GL_TEXTURE_BINDING_CUBE_MAP" : return "Decimal    : 34068\nHexadecimal: 0x8514";
-            case "GL_TEXTURE_CUBE_MAP_POSITIVE_X" : return "Decimal    : 34069\nHexadecimal: 0x8515";
-            case "GL_TEXTURE_CUBE_MAP_NEGATIVE_X" : return "Decimal    : 34070\nHexadecimal: 0x8516";
-            case "GL_TEXTURE_CUBE_MAP_POSITIVE_Y" : return "Decimal    : 34071\nHexadecimal: 0x8517";
-            case "GL_TEXTURE_CUBE_MAP_NEGATIVE_Y" : return "Decimal    : 34072\nHexadecimal: 0x8518";
-            case "GL_TEXTURE_CUBE_MAP_POSITIVE_Z" : return "Decimal    : 34073\nHexadecimal: 0x8519";
-            case "GL_TEXTURE_CUBE_MAP_NEGATIVE_Z" : return "Decimal    : 34074\nHexadecimal: 0x851a";
-            case "GL_PROXY_TEXTURE_CUBE_MAP" : return "Decimal    : 34075\nHexadecimal: 0x851b";
-            case "GL_MAX_CUBE_MAP_TEXTURE_SIZE" : return "Decimal    : 34076\nHexadecimal: 0x851c";
-            case "GL_COMPRESSED_RGB" : return "Decimal    : 34029\nHexadecimal: 0x84ed";
-            case "GL_COMPRESSED_RGBA" : return "Decimal    : 34030\nHexadecimal: 0x84ee";
-            case "GL_TEXTURE_COMPRESSION_HINT" : return "Decimal    : 34031\nHexadecimal: 0x84ef";
-            case "GL_TEXTURE_COMPRESSED_IMAGE_SIZE" : return "Decimal    : 34464\nHexadecimal: 0x86a0";
-            case "GL_TEXTURE_COMPRESSED" : return "Decimal    : 34465\nHexadecimal: 0x86a1";
-            case "GL_NUM_COMPRESSED_TEXTURE_FORMATS" : return "Decimal    : 34466\nHexadecimal: 0x86a2";
-            case "GL_COMPRESSED_TEXTURE_FORMATS" : return "Decimal    : 34467\nHexadecimal: 0x86a3";
-            case "GL_CLAMP_TO_BORDER" : return "Decimal    : 33069\nHexadecimal: 0x812d";
-            case "GL_BLEND_DST_RGB" : return "Decimal    : 32968\nHexadecimal: 0x80c8";
-            case "GL_BLEND_SRC_RGB" : return "Decimal    : 32969\nHexadecimal: 0x80c9";
-            case "GL_BLEND_DST_ALPHA" : return "Decimal    : 32970\nHexadecimal: 0x80ca";
-            case "GL_BLEND_SRC_ALPHA" : return "Decimal    : 32971\nHexadecimal: 0x80cb";
-            case "GL_POINT_FADE_THRESHOLD_SIZE" : return "Decimal    : 33064\nHexadecimal: 0x8128";
-            case "GL_MIRRORED_REPEAT" : return "Decimal    : 33648\nHexadecimal: 0x8370";
-            case "GL_MAX_TEXTURE_LOD_BIAS" : return "Decimal    : 34045\nHexadecimal: 0x84fd";
-            case "GL_TEXTURE_LOD_BIAS" : return "Decimal    : 34049\nHexadecimal: 0x8501";
-            case "GL_INCR_WRAP" : return "Decimal    : 34055\nHexadecimal: 0x8507";
-            case "GL_DECR_WRAP" : return "Decimal    : 34056\nHexadecimal: 0x8508";
-            case "GL_TEXTURE_DEPTH_SIZE" : return "Decimal    : 34890\nHexadecimal: 0x884a";
-            case "GL_TEXTURE_COMPARE_MODE" : return "Decimal    : 34892\nHexadecimal: 0x884c";
-            case "GL_TEXTURE_COMPARE_FUNC" : return "Decimal    : 34893\nHexadecimal: 0x884d";
-            case "GL_FUNC_ADD" : return "Decimal    : 32774\nHexadecimal: 0x8006";
-            case "GL_FUNC_SUBTRACT" : return "Decimal    : 32778\nHexadecimal: 0x800a";
-            case "GL_FUNC_REVERSE_SUBTRACT" : return "Decimal    : 32779\nHexadecimal: 0x800b";
-            case "GL_MIN" : return "Decimal    : 32775\nHexadecimal: 0x8007";
-            case "GL_MAX" : return "Decimal    : 32776\nHexadecimal: 0x8008";
-            case "GL_CONSTANT_COLOR" : return "Decimal    : 32769\nHexadecimal: 0x8001";
-            case "GL_ONE_MINUS_CONSTANT_COLOR" : return "Decimal    : 32770\nHexadecimal: 0x8002";
-            case "GL_CONSTANT_ALPHA" : return "Decimal    : 32771\nHexadecimal: 0x8003";
-            case "GL_ONE_MINUS_CONSTANT_ALPHA" : return "Decimal    : 32772\nHexadecimal: 0x8004";
-            case "GL_BUFFER_SIZE" : return "Decimal    : 34660\nHexadecimal: 0x8764";
-            case "GL_BUFFER_USAGE" : return "Decimal    : 34661\nHexadecimal: 0x8765";
-            case "GL_QUERY_COUNTER_BITS" : return "Decimal    : 34916\nHexadecimal: 0x8864";
-            case "GL_CURRENT_QUERY" : return "Decimal    : 34917\nHexadecimal: 0x8865";
-            case "GL_QUERY_RESULT" : return "Decimal    : 34918\nHexadecimal: 0x8866";
-            case "GL_QUERY_RESULT_AVAILABLE" : return "Decimal    : 34919\nHexadecimal: 0x8867";
-            case "GL_ARRAY_BUFFER" : return "Decimal    : 34962\nHexadecimal: 0x8892";
-            case "GL_ELEMENT_ARRAY_BUFFER" : return "Decimal    : 34963\nHexadecimal: 0x8893";
-            case "GL_ARRAY_BUFFER_BINDING" : return "Decimal    : 34964\nHexadecimal: 0x8894";
-            case "GL_ELEMENT_ARRAY_BUFFER_BINDING" : return "Decimal    : 34965\nHexadecimal: 0x8895";
-            case "GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING" : return "Decimal    : 34975\nHexadecimal: 0x889f";
-            case "GL_READ_ONLY" : return "Decimal    : 35000\nHexadecimal: 0x88b8";
-            case "GL_WRITE_ONLY" : return "Decimal    : 35001\nHexadecimal: 0x88b9";
-            case "GL_READ_WRITE" : return "Decimal    : 35002\nHexadecimal: 0x88ba";
-            case "GL_BUFFER_ACCESS" : return "Decimal    : 35003\nHexadecimal: 0x88bb";
-            case "GL_BUFFER_MAPPED" : return "Decimal    : 35004\nHexadecimal: 0x88bc";
-            case "GL_BUFFER_MAP_POINTER" : return "Decimal    : 35005\nHexadecimal: 0x88bd";
-            case "GL_STREAM_DRAW" : return "Decimal    : 35040\nHexadecimal: 0x88e0";
-            case "GL_STREAM_READ" : return "Decimal    : 35041\nHexadecimal: 0x88e1";
-            case "GL_STREAM_COPY" : return "Decimal    : 35042\nHexadecimal: 0x88e2";
-            case "GL_STATIC_DRAW" : return "Decimal    : 35044\nHexadecimal: 0x88e4";
-            case "GL_STATIC_READ" : return "Decimal    : 35045\nHexadecimal: 0x88e5";
-            case "GL_STATIC_COPY" : return "Decimal    : 35046\nHexadecimal: 0x88e6";
-            case "GL_DYNAMIC_DRAW" : return "Decimal    : 35048\nHexadecimal: 0x88e8";
-            case "GL_DYNAMIC_READ" : return "Decimal    : 35049\nHexadecimal: 0x88e9";
-            case "GL_DYNAMIC_COPY" : return "Decimal    : 35050\nHexadecimal: 0x88ea";
-            case "GL_SAMPLES_PASSED" : return "Decimal    : 35092\nHexadecimal: 0x8914";
-            case "GL_BLEND_EQUATION_RGB" : return "Decimal    : 32777\nHexadecimal: 0x8009";
-            case "GL_VERTEX_ATTRIB_ARRAY_ENABLED" : return "Decimal    : 34338\nHexadecimal: 0x8622";
-            case "GL_VERTEX_ATTRIB_ARRAY_SIZE" : return "Decimal    : 34339\nHexadecimal: 0x8623";
-            case "GL_VERTEX_ATTRIB_ARRAY_STRIDE" : return "Decimal    : 34340\nHexadecimal: 0x8624";
-            case "GL_VERTEX_ATTRIB_ARRAY_TYPE" : return "Decimal    : 34341\nHexadecimal: 0x8625";
-            case "GL_CURRENT_VERTEX_ATTRIB" : return "Decimal    : 34342\nHexadecimal: 0x8626";
-            case "GL_VERTEX_PROGRAM_POINT_SIZE" : return "Decimal    : 34370\nHexadecimal: 0x8642";
-            case "GL_VERTEX_ATTRIB_ARRAY_POINTER" : return "Decimal    : 34373\nHexadecimal: 0x8645";
-            case "GL_STENCIL_BACK_FUNC" : return "Decimal    : 34816\nHexadecimal: 0x8800";
-            case "GL_STENCIL_BACK_FAIL" : return "Decimal    : 34817\nHexadecimal: 0x8801";
-            case "GL_STENCIL_BACK_PASS_DEPTH_FAIL" : return "Decimal    : 34818\nHexadecimal: 0x8802";
-            case "GL_STENCIL_BACK_PASS_DEPTH_PASS" : return "Decimal    : 34819\nHexadecimal: 0x8803";
-            case "GL_MAX_DRAW_BUFFERS" : return "Decimal    : 34852\nHexadecimal: 0x8824";
-            case "GL_BLEND_EQUATION_ALPHA" : return "Decimal    : 34877\nHexadecimal: 0x883d";
-            case "GL_MAX_VERTEX_ATTRIBS" : return "Decimal    : 34921\nHexadecimal: 0x8869";
-            case "GL_VERTEX_ATTRIB_ARRAY_NORMALIZED" : return "Decimal    : 34922\nHexadecimal: 0x886a";
-            case "GL_MAX_TEXTURE_IMAGE_UNITS" : return "Decimal    : 34930\nHexadecimal: 0x8872";
-            case "GL_FRAGMENT_SHADER" : return "Decimal    : 35632\nHexadecimal: 0x8b30";
-            case "GL_VERTEX_SHADER" : return "Decimal    : 35633\nHexadecimal: 0x8b31";
-            case "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS" : return "Decimal    : 35657\nHexadecimal: 0x8b49";
-            case "GL_MAX_VERTEX_UNIFORM_COMPONENTS" : return "Decimal    : 35658\nHexadecimal: 0x8b4a";
-            case "GL_MAX_VARYING_FLOATS" : return "Decimal    : 35659\nHexadecimal: 0x8b4b";
-            case "GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS" : return "Decimal    : 35660\nHexadecimal: 0x8b4c";
-            case "GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS" : return "Decimal    : 35661\nHexadecimal: 0x8b4d";
-            case "GL_SHADER_TYPE" : return "Decimal    : 35663\nHexadecimal: 0x8b4f";
-            case "GL_BOOL" : return "Decimal    : 35670\nHexadecimal: 0x8b56";
-            case "GL_SAMPLER_CUBE" : return "Decimal    : 35680\nHexadecimal: 0x8b60";
-            case "GL_DELETE_STATUS" : return "Decimal    : 35712\nHexadecimal: 0x8b80";
-            case "GL_COMPILE_STATUS" : return "Decimal    : 35713\nHexadecimal: 0x8b81";
-            case "GL_LINK_STATUS" : return "Decimal    : 35714\nHexadecimal: 0x8b82";
-            case "GL_VALIDATE_STATUS" : return "Decimal    : 35715\nHexadecimal: 0x8b83";
-            case "GL_INFO_LOG_LENGTH" : return "Decimal    : 35716\nHexadecimal: 0x8b84";
-            case "GL_ATTACHED_SHADERS" : return "Decimal    : 35717\nHexadecimal: 0x8b85";
-            case "GL_ACTIVE_UNIFORMS" : return "Decimal    : 35718\nHexadecimal: 0x8b86";
-            case "GL_ACTIVE_UNIFORM_MAX_LENGTH" : return "Decimal    : 35719\nHexadecimal: 0x8b87";
-            case "GL_SHADER_SOURCE_LENGTH" : return "Decimal    : 35720\nHexadecimal: 0x8b88";
-            case "GL_ACTIVE_ATTRIBUTES" : return "Decimal    : 35721\nHexadecimal: 0x8b89";
-            case "GL_ACTIVE_ATTRIBUTE_MAX_LENGTH" : return "Decimal    : 35722\nHexadecimal: 0x8b8a";
-            case "GL_FRAGMENT_SHADER_DERIVATIVE_HINT" : return "Decimal    : 35723\nHexadecimal: 0x8b8b";
-            case "GL_SHADING_LANGUAGE_VERSION" : return "Decimal    : 35724\nHexadecimal: 0x8b8c";
-            case "GL_CURRENT_PROGRAM" : return "Decimal    : 35725\nHexadecimal: 0x8b8d";
-            case "GL_POINT_SPRITE_COORD_ORIGIN" : return "Decimal    : 36000\nHexadecimal: 0x8ca0";
-            case "GL_LOWER_LEFT" : return "Decimal    : 36001\nHexadecimal: 0x8ca1";
-            case "GL_UPPER_LEFT" : return "Decimal    : 36002\nHexadecimal: 0x8ca2";
-            case "GL_STENCIL_BACK_REF" : return "Decimal    : 36003\nHexadecimal: 0x8ca3";
-            case "GL_STENCIL_BACK_VALUE_MASK" : return "Decimal    : 36004\nHexadecimal: 0x8ca4";
-            case "GL_STENCIL_BACK_WRITEMASK" : return "Decimal    : 36005\nHexadecimal: 0x8ca5";
-            case "GL_PIXEL_PACK_BUFFER" : return "Decimal    : 35051\nHexadecimal: 0x88eb";
-            case "GL_PIXEL_UNPACK_BUFFER" : return "Decimal    : 35052\nHexadecimal: 0x88ec";
-            case "GL_PIXEL_PACK_BUFFER_BINDING" : return "Decimal    : 35053\nHexadecimal: 0x88ed";
-            case "GL_PIXEL_UNPACK_BUFFER_BINDING" : return "Decimal    : 35055\nHexadecimal: 0x88ef";
-            case "GL_SRGB" : return "Decimal    : 35904\nHexadecimal: 0x8c40";
-            case "GL_SRGB_ALPHA" : return "Decimal    : 35906\nHexadecimal: 0x8c42";
-            case "GL_COMPRESSED_SRGB" : return "Decimal    : 35912\nHexadecimal: 0x8c48";
-            case "GL_COMPRESSED_SRGB_ALPHA" : return "Decimal    : 35913\nHexadecimal: 0x8c49";
-            case "GL_COMPARE_REF_TO_TEXTURE" : return "Decimal    : 34894\nHexadecimal: 0x884e";
-            case "GL_MAX_CLIP_DISTANCES" : return "Decimal    : 3378\nHexadecimal: 0xd32";
-            case "GL_MAJOR_VERSION" : return "Decimal    : 33307\nHexadecimal: 0x821b";
-            case "GL_MINOR_VERSION" : return "Decimal    : 33308\nHexadecimal: 0x821c";
-            case "GL_NUM_EXTENSIONS" : return "Decimal    : 33309\nHexadecimal: 0x821d";
-            case "GL_CONTEXT_FLAGS" : return "Decimal    : 33310\nHexadecimal: 0x821e";
-            case "GL_COMPRESSED_RED" : return "Decimal    : 33317\nHexadecimal: 0x8225";
-            case "GL_COMPRESSED_RG" : return "Decimal    : 33318\nHexadecimal: 0x8226";
-            case "GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_VERTEX_ATTRIB_ARRAY_INTEGER" : return "Decimal    : 35069\nHexadecimal: 0x88fd";
-            case "GL_MAX_ARRAY_TEXTURE_LAYERS" : return "Decimal    : 35071\nHexadecimal: 0x88ff";
-            case "GL_MIN_PROGRAM_TEXEL_OFFSET" : return "Decimal    : 35076\nHexadecimal: 0x8904";
-            case "GL_MAX_PROGRAM_TEXEL_OFFSET" : return "Decimal    : 35077\nHexadecimal: 0x8905";
-            case "GL_CLAMP_READ_COLOR" : return "Decimal    : 35100\nHexadecimal: 0x891c";
-            case "GL_FIXED_ONLY" : return "Decimal    : 35101\nHexadecimal: 0x891d";
-            case "GL_MAX_VARYING_COMPONENTS" : return "Decimal    : 35659\nHexadecimal: 0x8b4b";
-            case "GL_TEXTURE_SHARED_SIZE" : return "Decimal    : 35903\nHexadecimal: 0x8c3f";
-            case "GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH" : return "Decimal    : 35958\nHexadecimal: 0x8c76";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_MODE" : return "Decimal    : 35967\nHexadecimal: 0x8c7f";
-            case "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS" : return "Decimal    : 35968\nHexadecimal: 0x8c80";
-            case "GL_TRANSFORM_FEEDBACK_VARYINGS" : return "Decimal    : 35971\nHexadecimal: 0x8c83";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_START" : return "Decimal    : 35972\nHexadecimal: 0x8c84";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_SIZE" : return "Decimal    : 35973\nHexadecimal: 0x8c85";
-            case "GL_PRIMITIVES_GENERATED" : return "Decimal    : 35975\nHexadecimal: 0x8c87";
-            case "GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN" : return "Decimal    : 35976\nHexadecimal: 0x8c88";
-            case "GL_RASTERIZER_DISCARD" : return "Decimal    : 35977\nHexadecimal: 0x8c89";
-            case "GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS" : return "Decimal    : 35978\nHexadecimal: 0x8c8a";
-            case "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS" : return "Decimal    : 35979\nHexadecimal: 0x8c8b";
-            case "GL_INTERLEAVED_ATTRIBS" : return "Decimal    : 35980\nHexadecimal: 0x8c8c";
-            case "GL_SEPARATE_ATTRIBS" : return "Decimal    : 35981\nHexadecimal: 0x8c8d";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER" : return "Decimal    : 35982\nHexadecimal: 0x8c8e";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_BINDING" : return "Decimal    : 35983\nHexadecimal: 0x8c8f";
-            case "GL_RED_INTEGER" : return "Decimal    : 36244\nHexadecimal: 0x8d94";
-            case "GL_GREEN_INTEGER" : return "Decimal    : 36245\nHexadecimal: 0x8d95";
-            case "GL_BLUE_INTEGER" : return "Decimal    : 36246\nHexadecimal: 0x8d96";
-            case "GL_RGB_INTEGER" : return "Decimal    : 36248\nHexadecimal: 0x8d98";
-            case "GL_RGBA_INTEGER" : return "Decimal    : 36249\nHexadecimal: 0x8d99";
-            case "GL_BGR_INTEGER" : return "Decimal    : 36250\nHexadecimal: 0x8d9a";
-            case "GL_BGRA_INTEGER" : return "Decimal    : 36251\nHexadecimal: 0x8d9b";
-            case "GL_SAMPLER_CUBE_SHADOW" : return "Decimal    : 36293\nHexadecimal: 0x8dc5";
-            case "GL_INT_SAMPLER_CUBE" : return "Decimal    : 36300\nHexadecimal: 0x8dcc";
-            case "GL_UNSIGNED_INT_SAMPLER_CUBE" : return "Decimal    : 36308\nHexadecimal: 0x8dd4";
-            case "GL_QUERY_WAIT" : return "Decimal    : 36371\nHexadecimal: 0x8e13";
-            case "GL_QUERY_NO_WAIT" : return "Decimal    : 36372\nHexadecimal: 0x8e14";
-            case "GL_QUERY_BY_REGION_WAIT" : return "Decimal    : 36373\nHexadecimal: 0x8e15";
-            case "GL_QUERY_BY_REGION_NO_WAIT" : return "Decimal    : 36374\nHexadecimal: 0x8e16";
-            case "GL_BUFFER_ACCESS_FLAGS" : return "Decimal    : 37151\nHexadecimal: 0x911f";
-            case "GL_BUFFER_MAP_LENGTH" : return "Decimal    : 37152\nHexadecimal: 0x9120";
-            case "GL_BUFFER_MAP_OFFSET" : return "Decimal    : 37153\nHexadecimal: 0x9121";
-            case "GL_INVALID_FRAMEBUFFER_OPERATION" : return "Decimal    : 1286\nHexadecimal: 0x506";
-            case "GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING" : return "Decimal    : 33296\nHexadecimal: 0x8210";
-            case "GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE" : return "Decimal    : 33297\nHexadecimal: 0x8211";
-            case "GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE" : return "Decimal    : 33298\nHexadecimal: 0x8212";
-            case "GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE" : return "Decimal    : 33299\nHexadecimal: 0x8213";
-            case "GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE" : return "Decimal    : 33300\nHexadecimal: 0x8214";
-            case "GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE" : return "Decimal    : 33301\nHexadecimal: 0x8215";
-            case "GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE" : return "Decimal    : 33302\nHexadecimal: 0x8216";
-            case "GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE" : return "Decimal    : 33303\nHexadecimal: 0x8217";
-            case "GL_FRAMEBUFFER_DEFAULT" : return "Decimal    : 33304\nHexadecimal: 0x8218";
-            case "GL_FRAMEBUFFER_UNDEFINED" : return "Decimal    : 33305\nHexadecimal: 0x8219";
-            case "GL_DEPTH_STENCIL_ATTACHMENT" : return "Decimal    : 33306\nHexadecimal: 0x821a";
-            case "GL_MAX_RENDERBUFFER_SIZE" : return "Decimal    : 34024\nHexadecimal: 0x84e8";
-            case "GL_DEPTH_STENCIL" : return "Decimal    : 34041\nHexadecimal: 0x84f9";
-            case "GL_TEXTURE_STENCIL_SIZE" : return "Decimal    : 35057\nHexadecimal: 0x88f1";
-            case "GL_TEXTURE_RED_TYPE" : return "Decimal    : 35856\nHexadecimal: 0x8c10";
-            case "GL_TEXTURE_GREEN_TYPE" : return "Decimal    : 35857\nHexadecimal: 0x8c11";
-            case "GL_TEXTURE_BLUE_TYPE" : return "Decimal    : 35858\nHexadecimal: 0x8c12";
-            case "GL_TEXTURE_ALPHA_TYPE" : return "Decimal    : 35859\nHexadecimal: 0x8c13";
-            case "GL_TEXTURE_DEPTH_TYPE" : return "Decimal    : 35862\nHexadecimal: 0x8c16";
-            case "GL_UNSIGNED_NORMALIZED" : return "Decimal    : 35863\nHexadecimal: 0x8c17";
-            case "GL_FRAMEBUFFER_BINDING" : return "Decimal    : 36006\nHexadecimal: 0x8ca6";
-            case "GL_DRAW_FRAMEBUFFER_BINDING" : return "Decimal    : 36006\nHexadecimal: 0x8ca6";
-            case "GL_RENDERBUFFER_BINDING" : return "Decimal    : 36007\nHexadecimal: 0x8ca7";
-            case "GL_READ_FRAMEBUFFER" : return "Decimal    : 36008\nHexadecimal: 0x8ca8";
-            case "GL_DRAW_FRAMEBUFFER" : return "Decimal    : 36009\nHexadecimal: 0x8ca9";
-            case "GL_READ_FRAMEBUFFER_BINDING" : return "Decimal    : 36010\nHexadecimal: 0x8caa";
-            case "GL_RENDERBUFFER_SAMPLES" : return "Decimal    : 36011\nHexadecimal: 0x8cab";
-            case "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE" : return "Decimal    : 36048\nHexadecimal: 0x8cd0";
-            case "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME" : return "Decimal    : 36049\nHexadecimal: 0x8cd1";
-            case "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL" : return "Decimal    : 36050\nHexadecimal: 0x8cd2";
-            case "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE" : return "Decimal    : 36051\nHexadecimal: 0x8cd3";
-            case "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER" : return "Decimal    : 36052\nHexadecimal: 0x8cd4";
-            case "GL_FRAMEBUFFER_COMPLETE" : return "Decimal    : 36053\nHexadecimal: 0x8cd5";
-            case "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT" : return "Decimal    : 36054\nHexadecimal: 0x8cd6";
-            case "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT" : return "Decimal    : 36055\nHexadecimal: 0x8cd7";
-            case "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER" : return "Decimal    : 36059\nHexadecimal: 0x8cdb";
-            case "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER" : return "Decimal    : 36060\nHexadecimal: 0x8cdc";
-            case "GL_FRAMEBUFFER_UNSUPPORTED" : return "Decimal    : 36061\nHexadecimal: 0x8cdd";
-            case "GL_MAX_COLOR_ATTACHMENTS" : return "Decimal    : 36063\nHexadecimal: 0x8cdf";
-            case "GL_DEPTH_ATTACHMENT" : return "Decimal    : 36096\nHexadecimal: 0x8d00";
-            case "GL_STENCIL_ATTACHMENT" : return "Decimal    : 36128\nHexadecimal: 0x8d20";
-            case "GL_FRAMEBUFFER" : return "Decimal    : 36160\nHexadecimal: 0x8d40";
-            case "GL_RENDERBUFFER" : return "Decimal    : 36161\nHexadecimal: 0x8d41";
-            case "GL_RENDERBUFFER_WIDTH" : return "Decimal    : 36162\nHexadecimal: 0x8d42";
-            case "GL_RENDERBUFFER_HEIGHT" : return "Decimal    : 36163\nHexadecimal: 0x8d43";
-            case "GL_RENDERBUFFER_INTERNAL_FORMAT" : return "Decimal    : 36164\nHexadecimal: 0x8d44";
-            case "GL_RENDERBUFFER_RED_SIZE" : return "Decimal    : 36176\nHexadecimal: 0x8d50";
-            case "GL_RENDERBUFFER_GREEN_SIZE" : return "Decimal    : 36177\nHexadecimal: 0x8d51";
-            case "GL_RENDERBUFFER_BLUE_SIZE" : return "Decimal    : 36178\nHexadecimal: 0x8d52";
-            case "GL_RENDERBUFFER_ALPHA_SIZE" : return "Decimal    : 36179\nHexadecimal: 0x8d53";
-            case "GL_RENDERBUFFER_DEPTH_SIZE" : return "Decimal    : 36180\nHexadecimal: 0x8d54";
-            case "GL_RENDERBUFFER_STENCIL_SIZE" : return "Decimal    : 36181\nHexadecimal: 0x8d55";
-            case "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE" : return "Decimal    : 36182\nHexadecimal: 0x8d56";
-            case "GL_MAX_SAMPLES" : return "Decimal    : 36183\nHexadecimal: 0x8d57";
-            case "GL_FRAMEBUFFER_SRGB" : return "Decimal    : 36281\nHexadecimal: 0x8db9";
-            case "GL_HALF_FLOAT" : return "Decimal    : 5131\nHexadecimal: 0x140b";
-            case "GL_MAP_READ_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_MAP_WRITE_BIT" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_MAP_INVALIDATE_RANGE_BIT" : return "Decimal    : 4\nHexadecimal: 0x4";
-            case "GL_MAP_INVALIDATE_BUFFER_BIT" : return "Decimal    : 8\nHexadecimal: 0x8";
-            case "GL_MAP_FLUSH_EXPLICIT_BIT" : return "Decimal    : 16\nHexadecimal: 0x10";
-            case "GL_MAP_UNSYNCHRONIZED_BIT" : return "Decimal    : 32\nHexadecimal: 0x20";
-            case "GL_RG" : return "Decimal    : 33319\nHexadecimal: 0x8227";
-            case "GL_RG_INTEGER" : return "Decimal    : 33320\nHexadecimal: 0x8228";
-            case "GL_VERTEX_ARRAY_BINDING" : return "Decimal    : 34229\nHexadecimal: 0x85b5";
-            case "GL_SAMPLER_BUFFER" : return "Decimal    : 36290\nHexadecimal: 0x8dc2";
-            case "GL_INT_SAMPLER_BUFFER" : return "Decimal    : 36304\nHexadecimal: 0x8dd0";
-            case "GL_UNSIGNED_INT_SAMPLER_BUFFER" : return "Decimal    : 36312\nHexadecimal: 0x8dd8";
-            case "GL_TEXTURE_BUFFER" : return "Decimal    : 35882\nHexadecimal: 0x8c2a";
-            case "GL_MAX_TEXTURE_BUFFER_SIZE" : return "Decimal    : 35883\nHexadecimal: 0x8c2b";
-            case "GL_TEXTURE_BINDING_BUFFER" : return "Decimal    : 35884\nHexadecimal: 0x8c2c";
-            case "GL_TEXTURE_BUFFER_DATA_STORE_BINDING" : return "Decimal    : 35885\nHexadecimal: 0x8c2d";
-            case "GL_TEXTURE_RECTANGLE" : return "Decimal    : 34037\nHexadecimal: 0x84f5";
-            case "GL_TEXTURE_BINDING_RECTANGLE" : return "Decimal    : 34038\nHexadecimal: 0x84f6";
-            case "GL_PROXY_TEXTURE_RECTANGLE" : return "Decimal    : 34039\nHexadecimal: 0x84f7";
-            case "GL_MAX_RECTANGLE_TEXTURE_SIZE" : return "Decimal    : 34040\nHexadecimal: 0x84f8";
-            case "GL_SIGNED_NORMALIZED" : return "Decimal    : 36764\nHexadecimal: 0x8f9c";
-            case "GL_PRIMITIVE_RESTART" : return "Decimal    : 36765\nHexadecimal: 0x8f9d";
-            case "GL_PRIMITIVE_RESTART_INDEX" : return "Decimal    : 36766\nHexadecimal: 0x8f9e";
-            case "GL_COPY_READ_BUFFER" : return "Decimal    : 36662\nHexadecimal: 0x8f36";
-            case "GL_COPY_WRITE_BUFFER" : return "Decimal    : 36663\nHexadecimal: 0x8f37";
-            case "GL_UNIFORM_BUFFER" : return "Decimal    : 35345\nHexadecimal: 0x8a11";
-            case "GL_UNIFORM_BUFFER_BINDING" : return "Decimal    : 35368\nHexadecimal: 0x8a28";
-            case "GL_UNIFORM_BUFFER_START" : return "Decimal    : 35369\nHexadecimal: 0x8a29";
-            case "GL_UNIFORM_BUFFER_SIZE" : return "Decimal    : 35370\nHexadecimal: 0x8a2a";
-            case "GL_MAX_VERTEX_UNIFORM_BLOCKS" : return "Decimal    : 35371\nHexadecimal: 0x8a2b";
-            case "GL_MAX_GEOMETRY_UNIFORM_BLOCKS" : return "Decimal    : 35372\nHexadecimal: 0x8a2c";
-            case "GL_MAX_FRAGMENT_UNIFORM_BLOCKS" : return "Decimal    : 35373\nHexadecimal: 0x8a2d";
-            case "GL_MAX_COMBINED_UNIFORM_BLOCKS" : return "Decimal    : 35374\nHexadecimal: 0x8a2e";
-            case "GL_MAX_UNIFORM_BUFFER_BINDINGS" : return "Decimal    : 35375\nHexadecimal: 0x8a2f";
-            case "GL_MAX_UNIFORM_BLOCK_SIZE" : return "Decimal    : 35376\nHexadecimal: 0x8a30";
-            case "GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS" : return "Decimal    : 35377\nHexadecimal: 0x8a31";
-            case "GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS" : return "Decimal    : 35378\nHexadecimal: 0x8a32";
-            case "GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS" : return "Decimal    : 35379\nHexadecimal: 0x8a33";
-            case "GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT" : return "Decimal    : 35380\nHexadecimal: 0x8a34";
-            case "GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH" : return "Decimal    : 35381\nHexadecimal: 0x8a35";
-            case "GL_ACTIVE_UNIFORM_BLOCKS" : return "Decimal    : 35382\nHexadecimal: 0x8a36";
-            case "GL_UNIFORM_TYPE" : return "Decimal    : 35383\nHexadecimal: 0x8a37";
-            case "GL_UNIFORM_SIZE" : return "Decimal    : 35384\nHexadecimal: 0x8a38";
-            case "GL_UNIFORM_NAME_LENGTH" : return "Decimal    : 35385\nHexadecimal: 0x8a39";
-            case "GL_UNIFORM_BLOCK_INDEX" : return "Decimal    : 35386\nHexadecimal: 0x8a3a";
-            case "GL_UNIFORM_OFFSET" : return "Decimal    : 35387\nHexadecimal: 0x8a3b";
-            case "GL_UNIFORM_ARRAY_STRIDE" : return "Decimal    : 35388\nHexadecimal: 0x8a3c";
-            case "GL_UNIFORM_MATRIX_STRIDE" : return "Decimal    : 35389\nHexadecimal: 0x8a3d";
-            case "GL_UNIFORM_IS_ROW_MAJOR" : return "Decimal    : 35390\nHexadecimal: 0x8a3e";
-            case "GL_UNIFORM_BLOCK_BINDING" : return "Decimal    : 35391\nHexadecimal: 0x8a3f";
-            case "GL_UNIFORM_BLOCK_DATA_SIZE" : return "Decimal    : 35392\nHexadecimal: 0x8a40";
-            case "GL_UNIFORM_BLOCK_NAME_LENGTH" : return "Decimal    : 35393\nHexadecimal: 0x8a41";
-            case "GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS" : return "Decimal    : 35394\nHexadecimal: 0x8a42";
-            case "GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES" : return "Decimal    : 35395\nHexadecimal: 0x8a43";
-            case "GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER" : return "Decimal    : 35396\nHexadecimal: 0x8a44";
-            case "GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER" : return "Decimal    : 35397\nHexadecimal: 0x8a45";
-            case "GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER" : return "Decimal    : 35398\nHexadecimal: 0x8a46";
-            case "GL_CONTEXT_CORE_PROFILE_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_CONTEXT_COMPATIBILITY_PROFILE_BIT" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_LINES_ADJACENCY" : return "Decimal    : 10\nHexadecimal: 0xa";
-            case "GL_LINE_STRIP_ADJACENCY" : return "Decimal    : 11\nHexadecimal: 0xb";
-            case "GL_TRIANGLES_ADJACENCY" : return "Decimal    : 12\nHexadecimal: 0xc";
-            case "GL_TRIANGLE_STRIP_ADJACENCY" : return "Decimal    : 13\nHexadecimal: 0xd";
-            case "GL_PROGRAM_POINT_SIZE" : return "Decimal    : 34370\nHexadecimal: 0x8642";
-            case "GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS" : return "Decimal    : 35881\nHexadecimal: 0x8c29";
-            case "GL_FRAMEBUFFER_ATTACHMENT_LAYERED" : return "Decimal    : 36263\nHexadecimal: 0x8da7";
-            case "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS" : return "Decimal    : 36264\nHexadecimal: 0x8da8";
-            case "GL_GEOMETRY_SHADER" : return "Decimal    : 36313\nHexadecimal: 0x8dd9";
-            case "GL_GEOMETRY_VERTICES_OUT" : return "Decimal    : 35094\nHexadecimal: 0x8916";
-            case "GL_GEOMETRY_INPUT_TYPE" : return "Decimal    : 35095\nHexadecimal: 0x8917";
-            case "GL_GEOMETRY_OUTPUT_TYPE" : return "Decimal    : 35096\nHexadecimal: 0x8918";
-            case "GL_MAX_GEOMETRY_UNIFORM_COMPONENTS" : return "Decimal    : 36319\nHexadecimal: 0x8ddf";
-            case "GL_MAX_GEOMETRY_OUTPUT_VERTICES" : return "Decimal    : 36320\nHexadecimal: 0x8de0";
-            case "GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS" : return "Decimal    : 36321\nHexadecimal: 0x8de1";
-            case "GL_MAX_VERTEX_OUTPUT_COMPONENTS" : return "Decimal    : 37154\nHexadecimal: 0x9122";
-            case "GL_MAX_GEOMETRY_INPUT_COMPONENTS" : return "Decimal    : 37155\nHexadecimal: 0x9123";
-            case "GL_MAX_GEOMETRY_OUTPUT_COMPONENTS" : return "Decimal    : 37156\nHexadecimal: 0x9124";
-            case "GL_MAX_FRAGMENT_INPUT_COMPONENTS" : return "Decimal    : 37157\nHexadecimal: 0x9125";
-            case "GL_CONTEXT_PROFILE_MASK" : return "Decimal    : 37158\nHexadecimal: 0x9126";
-            case "GL_DEPTH_CLAMP" : return "Decimal    : 34383\nHexadecimal: 0x864f";
-            case "GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION" : return "Decimal    : 36428\nHexadecimal: 0x8e4c";
-            case "GL_FIRST_VERTEX_CONVENTION" : return "Decimal    : 36429\nHexadecimal: 0x8e4d";
-            case "GL_LAST_VERTEX_CONVENTION" : return "Decimal    : 36430\nHexadecimal: 0x8e4e";
-            case "GL_PROVOKING_VERTEX" : return "Decimal    : 36431\nHexadecimal: 0x8e4f";
-            case "GL_TEXTURE_CUBE_MAP_SEAMLESS" : return "Decimal    : 34895\nHexadecimal: 0x884f";
-            case "GL_MAX_SERVER_WAIT_TIMEOUT" : return "Decimal    : 37137\nHexadecimal: 0x9111";
-            case "GL_OBJECT_TYPE" : return "Decimal    : 37138\nHexadecimal: 0x9112";
-            case "GL_SYNC_CONDITION" : return "Decimal    : 37139\nHexadecimal: 0x9113";
-            case "GL_SYNC_STATUS" : return "Decimal    : 37140\nHexadecimal: 0x9114";
-            case "GL_SYNC_FLAGS" : return "Decimal    : 37141\nHexadecimal: 0x9115";
-            case "GL_SYNC_FENCE" : return "Decimal    : 37142\nHexadecimal: 0x9116";
-            case "GL_SYNC_GPU_COMMANDS_COMPLETE" : return "Decimal    : 37143\nHexadecimal: 0x9117";
-            case "GL_UNSIGNALED" : return "Decimal    : 37144\nHexadecimal: 0x9118";
-            case "GL_SIGNALED" : return "Decimal    : 37145\nHexadecimal: 0x9119";
-            case "GL_ALREADY_SIGNALED" : return "Decimal    : 37146\nHexadecimal: 0x911a";
-            case "GL_TIMEOUT_EXPIRED" : return "Decimal    : 37147\nHexadecimal: 0x911b";
-            case "GL_CONDITION_SATISFIED" : return "Decimal    : 37148\nHexadecimal: 0x911c";
-            case "GL_WAIT_FAILED" : return "Decimal    : 37149\nHexadecimal: 0x911d";
-            case "GL_SYNC_FLUSH_COMMANDS_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_SAMPLE_POSITION" : return "Decimal    : 36432\nHexadecimal: 0x8e50";
-            case "GL_SAMPLE_MASK" : return "Decimal    : 36433\nHexadecimal: 0x8e51";
-            case "GL_SAMPLE_MASK_VALUE" : return "Decimal    : 36434\nHexadecimal: 0x8e52";
-            case "GL_MAX_SAMPLE_MASK_WORDS" : return "Decimal    : 36441\nHexadecimal: 0x8e59";
-            case "GL_TEXTURE_SAMPLES" : return "Decimal    : 37126\nHexadecimal: 0x9106";
-            case "GL_TEXTURE_FIXED_SAMPLE_LOCATIONS" : return "Decimal    : 37127\nHexadecimal: 0x9107";
-            case "GL_MAX_COLOR_TEXTURE_SAMPLES" : return "Decimal    : 37134\nHexadecimal: 0x910e";
-            case "GL_MAX_DEPTH_TEXTURE_SAMPLES" : return "Decimal    : 37135\nHexadecimal: 0x910f";
-            case "GL_MAX_INTEGER_SAMPLES" : return "Decimal    : 37136\nHexadecimal: 0x9110";
-            case "GL_VERTEX_ATTRIB_ARRAY_DIVISOR" : return "Decimal    : 35070\nHexadecimal: 0x88fe";
-            case "GL_MAX_DUAL_SOURCE_DRAW_BUFFERS" : return "Decimal    : 35068\nHexadecimal: 0x88fc";
-            case "GL_ANY_SAMPLES_PASSED" : return "Decimal    : 35887\nHexadecimal: 0x8c2f";
-            case "GL_SAMPLER_BINDING" : return "Decimal    : 35097\nHexadecimal: 0x8919";
-            case "GL_TEXTURE_SWIZZLE_R" : return "Decimal    : 36418\nHexadecimal: 0x8e42";
-            case "GL_TEXTURE_SWIZZLE_G" : return "Decimal    : 36419\nHexadecimal: 0x8e43";
-            case "GL_TEXTURE_SWIZZLE_B" : return "Decimal    : 36420\nHexadecimal: 0x8e44";
-            case "GL_TEXTURE_SWIZZLE_A" : return "Decimal    : 36421\nHexadecimal: 0x8e45";
-            case "GL_TEXTURE_SWIZZLE_RGBA" : return "Decimal    : 36422\nHexadecimal: 0x8e46";
-            case "GL_TIME_ELAPSED" : return "Decimal    : 35007\nHexadecimal: 0x88bf";
-            case "GL_TIMESTAMP" : return "Decimal    : 36392\nHexadecimal: 0x8e28";
-            case "GL_SAMPLE_SHADING" : return "Decimal    : 35894\nHexadecimal: 0x8c36";
-            case "GL_MIN_SAMPLE_SHADING_VALUE" : return "Decimal    : 35895\nHexadecimal: 0x8c37";
-            case "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET" : return "Decimal    : 36446\nHexadecimal: 0x8e5e";
-            case "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET" : return "Decimal    : 36447\nHexadecimal: 0x8e5f";
-            case "GL_TEXTURE_CUBE_MAP_ARRAY" : return "Decimal    : 36873\nHexadecimal: 0x9009";
-            case "GL_TEXTURE_BINDING_CUBE_MAP_ARRAY" : return "Decimal    : 36874\nHexadecimal: 0x900a";
-            case "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY" : return "Decimal    : 36875\nHexadecimal: 0x900b";
-            case "GL_SAMPLER_CUBE_MAP_ARRAY" : return "Decimal    : 36876\nHexadecimal: 0x900c";
-            case "GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW" : return "Decimal    : 36877\nHexadecimal: 0x900d";
-            case "GL_INT_SAMPLER_CUBE_MAP_ARRAY" : return "Decimal    : 36878\nHexadecimal: 0x900e";
-            case "GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY" : return "Decimal    : 36879\nHexadecimal: 0x900f";
-            case "GL_DRAW_INDIRECT_BUFFER" : return "Decimal    : 36671\nHexadecimal: 0x8f3f";
-            case "GL_DRAW_INDIRECT_BUFFER_BINDING" : return "Decimal    : 36675\nHexadecimal: 0x8f43";
-            case "GL_GEOMETRY_SHADER_INVOCATIONS" : return "Decimal    : 34943\nHexadecimal: 0x887f";
-            case "GL_MAX_GEOMETRY_SHADER_INVOCATIONS" : return "Decimal    : 36442\nHexadecimal: 0x8e5a";
-            case "GL_MIN_FRAGMENT_INTERPOLATION_OFFSET" : return "Decimal    : 36443\nHexadecimal: 0x8e5b";
-            case "GL_MAX_FRAGMENT_INTERPOLATION_OFFSET" : return "Decimal    : 36444\nHexadecimal: 0x8e5c";
-            case "GL_FRAGMENT_INTERPOLATION_OFFSET_BITS" : return "Decimal    : 36445\nHexadecimal: 0x8e5d";
-            case "GL_MAX_VERTEX_STREAMS" : return "Decimal    : 36465\nHexadecimal: 0x8e71";
-            case "GL_ACTIVE_SUBROUTINES" : return "Decimal    : 36325\nHexadecimal: 0x8de5";
-            case "GL_ACTIVE_SUBROUTINE_UNIFORMS" : return "Decimal    : 36326\nHexadecimal: 0x8de6";
-            case "GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS" : return "Decimal    : 36423\nHexadecimal: 0x8e47";
-            case "GL_ACTIVE_SUBROUTINE_MAX_LENGTH" : return "Decimal    : 36424\nHexadecimal: 0x8e48";
-            case "GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH" : return "Decimal    : 36425\nHexadecimal: 0x8e49";
-            case "GL_MAX_SUBROUTINES" : return "Decimal    : 36327\nHexadecimal: 0x8de7";
-            case "GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS" : return "Decimal    : 36328\nHexadecimal: 0x8de8";
-            case "GL_NUM_COMPATIBLE_SUBROUTINES" : return "Decimal    : 36426\nHexadecimal: 0x8e4a";
-            case "GL_COMPATIBLE_SUBROUTINES" : return "Decimal    : 36427\nHexadecimal: 0x8e4b";
-            case "GL_PATCHES" : return "Decimal    : 14\nHexadecimal: 0xe";
-            case "GL_PATCH_VERTICES" : return "Decimal    : 36466\nHexadecimal: 0x8e72";
-            case "GL_PATCH_DEFAULT_INNER_LEVEL" : return "Decimal    : 36467\nHexadecimal: 0x8e73";
-            case "GL_PATCH_DEFAULT_OUTER_LEVEL" : return "Decimal    : 36468\nHexadecimal: 0x8e74";
-            case "GL_TESS_CONTROL_OUTPUT_VERTICES" : return "Decimal    : 36469\nHexadecimal: 0x8e75";
-            case "GL_TESS_GEN_MODE" : return "Decimal    : 36470\nHexadecimal: 0x8e76";
-            case "GL_TESS_GEN_SPACING" : return "Decimal    : 36471\nHexadecimal: 0x8e77";
-            case "GL_TESS_GEN_VERTEX_ORDER" : return "Decimal    : 36472\nHexadecimal: 0x8e78";
-            case "GL_TESS_GEN_POINT_MODE" : return "Decimal    : 36473\nHexadecimal: 0x8e79";
-            case "GL_ISOLINES" : return "Decimal    : 36474\nHexadecimal: 0x8e7a";
-            case "GL_FRACTIONAL_ODD" : return "Decimal    : 36475\nHexadecimal: 0x8e7b";
-            case "GL_FRACTIONAL_EVEN" : return "Decimal    : 36476\nHexadecimal: 0x8e7c";
-            case "GL_MAX_PATCH_VERTICES" : return "Decimal    : 36477\nHexadecimal: 0x8e7d";
-            case "GL_MAX_TESS_GEN_LEVEL" : return "Decimal    : 36478\nHexadecimal: 0x8e7e";
-            case "GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS" : return "Decimal    : 36479\nHexadecimal: 0x8e7f";
-            case "GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS" : return "Decimal    : 36480\nHexadecimal: 0x8e80";
-            case "GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS" : return "Decimal    : 36481\nHexadecimal: 0x8e81";
-            case "GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS" : return "Decimal    : 36482\nHexadecimal: 0x8e82";
-            case "GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS" : return "Decimal    : 36483\nHexadecimal: 0x8e83";
-            case "GL_MAX_TESS_PATCH_COMPONENTS" : return "Decimal    : 36484\nHexadecimal: 0x8e84";
-            case "GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS" : return "Decimal    : 36485\nHexadecimal: 0x8e85";
-            case "GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS" : return "Decimal    : 36486\nHexadecimal: 0x8e86";
-            case "GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS" : return "Decimal    : 36489\nHexadecimal: 0x8e89";
-            case "GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS" : return "Decimal    : 36490\nHexadecimal: 0x8e8a";
-            case "GL_MAX_TESS_CONTROL_INPUT_COMPONENTS" : return "Decimal    : 34924\nHexadecimal: 0x886c";
-            case "GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS" : return "Decimal    : 34925\nHexadecimal: 0x886d";
-            case "GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS" : return "Decimal    : 36382\nHexadecimal: 0x8e1e";
-            case "GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS" : return "Decimal    : 36383\nHexadecimal: 0x8e1f";
-            case "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER" : return "Decimal    : 34032\nHexadecimal: 0x84f0";
-            case "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER" : return "Decimal    : 34033\nHexadecimal: 0x84f1";
-            case "GL_TESS_EVALUATION_SHADER" : return "Decimal    : 36487\nHexadecimal: 0x8e87";
-            case "GL_TESS_CONTROL_SHADER" : return "Decimal    : 36488\nHexadecimal: 0x8e88";
-            case "GL_TRANSFORM_FEEDBACK" : return "Decimal    : 36386\nHexadecimal: 0x8e22";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED" : return "Decimal    : 36387\nHexadecimal: 0x8e23";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE" : return "Decimal    : 36388\nHexadecimal: 0x8e24";
-            case "GL_TRANSFORM_FEEDBACK_BINDING" : return "Decimal    : 36389\nHexadecimal: 0x8e25";
-            case "GL_MAX_TRANSFORM_FEEDBACK_BUFFERS" : return "Decimal    : 36464\nHexadecimal: 0x8e70";
-            case "GL_FIXED" : return "Decimal    : 5132\nHexadecimal: 0x140c";
-            case "GL_IMPLEMENTATION_COLOR_READ_TYPE" : return "Decimal    : 35738\nHexadecimal: 0x8b9a";
-            case "GL_IMPLEMENTATION_COLOR_READ_FORMAT" : return "Decimal    : 35739\nHexadecimal: 0x8b9b";
-            case "GL_LOW_FLOAT" : return "Decimal    : 36336\nHexadecimal: 0x8df0";
-            case "GL_MEDIUM_FLOAT" : return "Decimal    : 36337\nHexadecimal: 0x8df1";
-            case "GL_HIGH_FLOAT" : return "Decimal    : 36338\nHexadecimal: 0x8df2";
-            case "GL_LOW_INT" : return "Decimal    : 36339\nHexadecimal: 0x8df3";
-            case "GL_MEDIUM_INT" : return "Decimal    : 36340\nHexadecimal: 0x8df4";
-            case "GL_HIGH_INT" : return "Decimal    : 36341\nHexadecimal: 0x8df5";
-            case "GL_SHADER_COMPILER" : return "Decimal    : 36346\nHexadecimal: 0x8dfa";
-            case "GL_SHADER_BINARY_FORMATS" : return "Decimal    : 36344\nHexadecimal: 0x8df8";
-            case "GL_NUM_SHADER_BINARY_FORMATS" : return "Decimal    : 36345\nHexadecimal: 0x8df9";
-            case "GL_MAX_VERTEX_UNIFORM_VECTORS" : return "Decimal    : 36347\nHexadecimal: 0x8dfb";
-            case "GL_MAX_VARYING_VECTORS" : return "Decimal    : 36348\nHexadecimal: 0x8dfc";
-            case "GL_MAX_FRAGMENT_UNIFORM_VECTORS" : return "Decimal    : 36349\nHexadecimal: 0x8dfd";
-            case "GL_PROGRAM_BINARY_RETRIEVABLE_HINT" : return "Decimal    : 33367\nHexadecimal: 0x8257";
-            case "GL_PROGRAM_BINARY_LENGTH" : return "Decimal    : 34625\nHexadecimal: 0x8741";
-            case "GL_NUM_PROGRAM_BINARY_FORMATS" : return "Decimal    : 34814\nHexadecimal: 0x87fe";
-            case "GL_PROGRAM_BINARY_FORMATS" : return "Decimal    : 34815\nHexadecimal: 0x87ff";
-            case "GL_VERTEX_SHADER_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_FRAGMENT_SHADER_BIT" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_GEOMETRY_SHADER_BIT" : return "Decimal    : 4\nHexadecimal: 0x4";
-            case "GL_TESS_CONTROL_SHADER_BIT" : return "Decimal    : 8\nHexadecimal: 0x8";
-            case "GL_TESS_EVALUATION_SHADER_BIT" : return "Decimal    : 16\nHexadecimal: 0x10";
-            case "GL_PROGRAM_SEPARABLE" : return "Decimal    : 33368\nHexadecimal: 0x8258";
-            case "GL_ACTIVE_PROGRAM" : return "Decimal    : 33369\nHexadecimal: 0x8259";
-            case "GL_PROGRAM_PIPELINE_BINDING" : return "Decimal    : 33370\nHexadecimal: 0x825a";
-            case "GL_MAX_VIEWPORTS" : return "Decimal    : 33371\nHexadecimal: 0x825b";
-            case "GL_VIEWPORT_SUBPIXEL_BITS" : return "Decimal    : 33372\nHexadecimal: 0x825c";
-            case "GL_VIEWPORT_BOUNDS_RANGE" : return "Decimal    : 33373\nHexadecimal: 0x825d";
-            case "GL_LAYER_PROVOKING_VERTEX" : return "Decimal    : 33374\nHexadecimal: 0x825e";
-            case "GL_VIEWPORT_INDEX_PROVOKING_VERTEX" : return "Decimal    : 33375\nHexadecimal: 0x825f";
-            case "GL_UNDEFINED_VERTEX" : return "Decimal    : 33376\nHexadecimal: 0x8260";
-            case "GL_COPY_READ_BUFFER_BINDING" : return "Decimal    : 36662\nHexadecimal: 0x8f36";
-            case "GL_COPY_WRITE_BUFFER_BINDING" : return "Decimal    : 36663\nHexadecimal: 0x8f37";
-            case "GL_TRANSFORM_FEEDBACK_ACTIVE" : return "Decimal    : 36388\nHexadecimal: 0x8e24";
-            case "GL_TRANSFORM_FEEDBACK_PAUSED" : return "Decimal    : 36387\nHexadecimal: 0x8e23";
-            case "GL_UNPACK_COMPRESSED_BLOCK_WIDTH" : return "Decimal    : 37159\nHexadecimal: 0x9127";
-            case "GL_UNPACK_COMPRESSED_BLOCK_HEIGHT" : return "Decimal    : 37160\nHexadecimal: 0x9128";
-            case "GL_UNPACK_COMPRESSED_BLOCK_DEPTH" : return "Decimal    : 37161\nHexadecimal: 0x9129";
-            case "GL_UNPACK_COMPRESSED_BLOCK_SIZE" : return "Decimal    : 37162\nHexadecimal: 0x912a";
-            case "GL_PACK_COMPRESSED_BLOCK_WIDTH" : return "Decimal    : 37163\nHexadecimal: 0x912b";
-            case "GL_PACK_COMPRESSED_BLOCK_HEIGHT" : return "Decimal    : 37164\nHexadecimal: 0x912c";
-            case "GL_PACK_COMPRESSED_BLOCK_DEPTH" : return "Decimal    : 37165\nHexadecimal: 0x912d";
-            case "GL_PACK_COMPRESSED_BLOCK_SIZE" : return "Decimal    : 37166\nHexadecimal: 0x912e";
-            case "GL_NUM_SAMPLE_COUNTS" : return "Decimal    : 37760\nHexadecimal: 0x9380";
-            case "GL_MIN_MAP_BUFFER_ALIGNMENT" : return "Decimal    : 37052\nHexadecimal: 0x90bc";
-            case "GL_ATOMIC_COUNTER_BUFFER" : return "Decimal    : 37568\nHexadecimal: 0x92c0";
-            case "GL_ATOMIC_COUNTER_BUFFER_BINDING" : return "Decimal    : 37569\nHexadecimal: 0x92c1";
-            case "GL_ATOMIC_COUNTER_BUFFER_START" : return "Decimal    : 37570\nHexadecimal: 0x92c2";
-            case "GL_ATOMIC_COUNTER_BUFFER_SIZE" : return "Decimal    : 37571\nHexadecimal: 0x92c3";
-            case "GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE" : return "Decimal    : 37572\nHexadecimal: 0x92c4";
-            case "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS" : return "Decimal    : 37573\nHexadecimal: 0x92c5";
-            case "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES" : return "Decimal    : 37574\nHexadecimal: 0x92c6";
-            case "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER" : return "Decimal    : 37575\nHexadecimal: 0x92c7";
-            case "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER" : return "Decimal    : 37576\nHexadecimal: 0x92c8";
-            case "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER" : return "Decimal    : 37577\nHexadecimal: 0x92c9";
-            case "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER" : return "Decimal    : 37578\nHexadecimal: 0x92ca";
-            case "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER" : return "Decimal    : 37579\nHexadecimal: 0x92cb";
-            case "GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 37580\nHexadecimal: 0x92cc";
-            case "GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 37581\nHexadecimal: 0x92cd";
-            case "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 37582\nHexadecimal: 0x92ce";
-            case "GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 37583\nHexadecimal: 0x92cf";
-            case "GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 37584\nHexadecimal: 0x92d0";
-            case "GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 37585\nHexadecimal: 0x92d1";
-            case "GL_MAX_VERTEX_ATOMIC_COUNTERS" : return "Decimal    : 37586\nHexadecimal: 0x92d2";
-            case "GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS" : return "Decimal    : 37587\nHexadecimal: 0x92d3";
-            case "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS" : return "Decimal    : 37588\nHexadecimal: 0x92d4";
-            case "GL_MAX_GEOMETRY_ATOMIC_COUNTERS" : return "Decimal    : 37589\nHexadecimal: 0x92d5";
-            case "GL_MAX_FRAGMENT_ATOMIC_COUNTERS" : return "Decimal    : 37590\nHexadecimal: 0x92d6";
-            case "GL_MAX_COMBINED_ATOMIC_COUNTERS" : return "Decimal    : 37591\nHexadecimal: 0x92d7";
-            case "GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE" : return "Decimal    : 37592\nHexadecimal: 0x92d8";
-            case "GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS" : return "Decimal    : 37596\nHexadecimal: 0x92dc";
-            case "GL_ACTIVE_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 37593\nHexadecimal: 0x92d9";
-            case "GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX" : return "Decimal    : 37594\nHexadecimal: 0x92da";
-            case "GL_UNSIGNED_INT_ATOMIC_COUNTER" : return "Decimal    : 37595\nHexadecimal: 0x92db";
-            case "GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_ELEMENT_ARRAY_BARRIER_BIT" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_UNIFORM_BARRIER_BIT" : return "Decimal    : 4\nHexadecimal: 0x4";
-            case "GL_TEXTURE_FETCH_BARRIER_BIT" : return "Decimal    : 8\nHexadecimal: 0x8";
-            case "GL_SHADER_IMAGE_ACCESS_BARRIER_BIT" : return "Decimal    : 32\nHexadecimal: 0x20";
-            case "GL_COMMAND_BARRIER_BIT" : return "Decimal    : 64\nHexadecimal: 0x40";
-            case "GL_PIXEL_BUFFER_BARRIER_BIT" : return "Decimal    : 128\nHexadecimal: 0x80";
-            case "GL_TEXTURE_UPDATE_BARRIER_BIT" : return "Decimal    : 256\nHexadecimal: 0x100";
-            case "GL_BUFFER_UPDATE_BARRIER_BIT" : return "Decimal    : 512\nHexadecimal: 0x200";
-            case "GL_FRAMEBUFFER_BARRIER_BIT" : return "Decimal    : 1024\nHexadecimal: 0x400";
-            case "GL_TRANSFORM_FEEDBACK_BARRIER_BIT" : return "Decimal    : 2048\nHexadecimal: 0x800";
-            case "GL_ATOMIC_COUNTER_BARRIER_BIT" : return "Decimal    : 4096\nHexadecimal: 0x1000";
-            case "GL_MAX_IMAGE_UNITS" : return "Decimal    : 36664\nHexadecimal: 0x8f38";
-            case "GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS" : return "Decimal    : 36665\nHexadecimal: 0x8f39";
-            case "GL_IMAGE_BINDING_NAME" : return "Decimal    : 36666\nHexadecimal: 0x8f3a";
-            case "GL_IMAGE_BINDING_LEVEL" : return "Decimal    : 36667\nHexadecimal: 0x8f3b";
-            case "GL_IMAGE_BINDING_LAYERED" : return "Decimal    : 36668\nHexadecimal: 0x8f3c";
-            case "GL_IMAGE_BINDING_LAYER" : return "Decimal    : 36669\nHexadecimal: 0x8f3d";
-            case "GL_IMAGE_BINDING_ACCESS" : return "Decimal    : 36670\nHexadecimal: 0x8f3e";
-            case "GL_IMAGE_CUBE" : return "Decimal    : 36944\nHexadecimal: 0x9050";
-            case "GL_IMAGE_BUFFER" : return "Decimal    : 36945\nHexadecimal: 0x9051";
-            case "GL_IMAGE_CUBE_MAP_ARRAY" : return "Decimal    : 36948\nHexadecimal: 0x9054";
-            case "GL_INT_IMAGE_CUBE" : return "Decimal    : 36955\nHexadecimal: 0x905b";
-            case "GL_INT_IMAGE_BUFFER" : return "Decimal    : 36956\nHexadecimal: 0x905c";
-            case "GL_INT_IMAGE_CUBE_MAP_ARRAY" : return "Decimal    : 36959\nHexadecimal: 0x905f";
-            case "GL_UNSIGNED_INT_IMAGE_CUBE" : return "Decimal    : 36966\nHexadecimal: 0x9066";
-            case "GL_UNSIGNED_INT_IMAGE_BUFFER" : return "Decimal    : 36967\nHexadecimal: 0x9067";
-            case "GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY" : return "Decimal    : 36970\nHexadecimal: 0x906a";
-            case "GL_MAX_IMAGE_SAMPLES" : return "Decimal    : 36973\nHexadecimal: 0x906d";
-            case "GL_IMAGE_BINDING_FORMAT" : return "Decimal    : 36974\nHexadecimal: 0x906e";
-            case "GL_IMAGE_FORMAT_COMPATIBILITY_TYPE" : return "Decimal    : 37063\nHexadecimal: 0x90c7";
-            case "GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE" : return "Decimal    : 37064\nHexadecimal: 0x90c8";
-            case "GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS" : return "Decimal    : 37065\nHexadecimal: 0x90c9";
-            case "GL_MAX_VERTEX_IMAGE_UNIFORMS" : return "Decimal    : 37066\nHexadecimal: 0x90ca";
-            case "GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS" : return "Decimal    : 37067\nHexadecimal: 0x90cb";
-            case "GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS" : return "Decimal    : 37068\nHexadecimal: 0x90cc";
-            case "GL_MAX_GEOMETRY_IMAGE_UNIFORMS" : return "Decimal    : 37069\nHexadecimal: 0x90cd";
-            case "GL_MAX_FRAGMENT_IMAGE_UNIFORMS" : return "Decimal    : 37070\nHexadecimal: 0x90ce";
-            case "GL_MAX_COMBINED_IMAGE_UNIFORMS" : return "Decimal    : 37071\nHexadecimal: 0x90cf";
-            case "GL_COMPRESSED_RGBA_BPTC_UNORM" : return "Decimal    : 36492\nHexadecimal: 0x8e8c";
-            case "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM" : return "Decimal    : 36493\nHexadecimal: 0x8e8d";
-            case "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT" : return "Decimal    : 36494\nHexadecimal: 0x8e8e";
-            case "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT" : return "Decimal    : 36495\nHexadecimal: 0x8e8f";
-            case "GL_TEXTURE_IMMUTABLE_FORMAT" : return "Decimal    : 37167\nHexadecimal: 0x912f";
-            case "GL_NUM_SHADING_LANGUAGE_VERSIONS" : return "Decimal    : 33513\nHexadecimal: 0x82e9";
-            case "GL_VERTEX_ATTRIB_ARRAY_LONG" : return "Decimal    : 34638\nHexadecimal: 0x874e";
-            case "GL_PRIMITIVE_RESTART_FIXED_INDEX" : return "Decimal    : 36201\nHexadecimal: 0x8d69";
-            case "GL_ANY_SAMPLES_PASSED_CONSERVATIVE" : return "Decimal    : 36202\nHexadecimal: 0x8d6a";
-            case "GL_MAX_ELEMENT_INDEX" : return "Decimal    : 36203\nHexadecimal: 0x8d6b";
-            case "GL_COMPUTE_SHADER" : return "Decimal    : 37305\nHexadecimal: 0x91b9";
-            case "GL_MAX_COMPUTE_UNIFORM_BLOCKS" : return "Decimal    : 37307\nHexadecimal: 0x91bb";
-            case "GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS" : return "Decimal    : 37308\nHexadecimal: 0x91bc";
-            case "GL_MAX_COMPUTE_IMAGE_UNIFORMS" : return "Decimal    : 37309\nHexadecimal: 0x91bd";
-            case "GL_MAX_COMPUTE_SHARED_MEMORY_SIZE" : return "Decimal    : 33378\nHexadecimal: 0x8262";
-            case "GL_MAX_COMPUTE_UNIFORM_COMPONENTS" : return "Decimal    : 33379\nHexadecimal: 0x8263";
-            case "GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS" : return "Decimal    : 33380\nHexadecimal: 0x8264";
-            case "GL_MAX_COMPUTE_ATOMIC_COUNTERS" : return "Decimal    : 33381\nHexadecimal: 0x8265";
-            case "GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS" : return "Decimal    : 33382\nHexadecimal: 0x8266";
-            case "GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS" : return "Decimal    : 37099\nHexadecimal: 0x90eb";
-            case "GL_MAX_COMPUTE_WORK_GROUP_COUNT" : return "Decimal    : 37310\nHexadecimal: 0x91be";
-            case "GL_MAX_COMPUTE_WORK_GROUP_SIZE" : return "Decimal    : 37311\nHexadecimal: 0x91bf";
-            case "GL_COMPUTE_WORK_GROUP_SIZE" : return "Decimal    : 33383\nHexadecimal: 0x8267";
-            case "GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER" : return "Decimal    : 37100\nHexadecimal: 0x90ec";
-            case "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER" : return "Decimal    : 37101\nHexadecimal: 0x90ed";
-            case "GL_DISPATCH_INDIRECT_BUFFER" : return "Decimal    : 37102\nHexadecimal: 0x90ee";
-            case "GL_DISPATCH_INDIRECT_BUFFER_BINDING" : return "Decimal    : 37103\nHexadecimal: 0x90ef";
-            case "GL_COMPUTE_SHADER_BIT" : return "Decimal    : 32\nHexadecimal: 0x20";
-            case "GL_DEBUG_OUTPUT_SYNCHRONOUS" : return "Decimal    : 33346\nHexadecimal: 0x8242";
-            case "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH" : return "Decimal    : 33347\nHexadecimal: 0x8243";
-            case "GL_DEBUG_CALLBACK_FUNCTION" : return "Decimal    : 33348\nHexadecimal: 0x8244";
-            case "GL_DEBUG_CALLBACK_USER_PARAM" : return "Decimal    : 33349\nHexadecimal: 0x8245";
-            case "GL_DEBUG_SOURCE_API" : return "Decimal    : 33350\nHexadecimal: 0x8246";
-            case "GL_DEBUG_SOURCE_WINDOW_SYSTEM" : return "Decimal    : 33351\nHexadecimal: 0x8247";
-            case "GL_DEBUG_SOURCE_SHADER_COMPILER" : return "Decimal    : 33352\nHexadecimal: 0x8248";
-            case "GL_DEBUG_SOURCE_THIRD_PARTY" : return "Decimal    : 33353\nHexadecimal: 0x8249";
-            case "GL_DEBUG_SOURCE_APPLICATION" : return "Decimal    : 33354\nHexadecimal: 0x824a";
-            case "GL_DEBUG_SOURCE_OTHER" : return "Decimal    : 33355\nHexadecimal: 0x824b";
-            case "GL_DEBUG_TYPE_ERROR" : return "Decimal    : 33356\nHexadecimal: 0x824c";
-            case "GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR" : return "Decimal    : 33357\nHexadecimal: 0x824d";
-            case "GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR" : return "Decimal    : 33358\nHexadecimal: 0x824e";
-            case "GL_DEBUG_TYPE_PORTABILITY" : return "Decimal    : 33359\nHexadecimal: 0x824f";
-            case "GL_DEBUG_TYPE_PERFORMANCE" : return "Decimal    : 33360\nHexadecimal: 0x8250";
-            case "GL_DEBUG_TYPE_OTHER" : return "Decimal    : 33361\nHexadecimal: 0x8251";
-            case "GL_MAX_DEBUG_MESSAGE_LENGTH" : return "Decimal    : 37187\nHexadecimal: 0x9143";
-            case "GL_MAX_DEBUG_LOGGED_MESSAGES" : return "Decimal    : 37188\nHexadecimal: 0x9144";
-            case "GL_DEBUG_LOGGED_MESSAGES" : return "Decimal    : 37189\nHexadecimal: 0x9145";
-            case "GL_DEBUG_SEVERITY_HIGH" : return "Decimal    : 37190\nHexadecimal: 0x9146";
-            case "GL_DEBUG_SEVERITY_MEDIUM" : return "Decimal    : 37191\nHexadecimal: 0x9147";
-            case "GL_DEBUG_SEVERITY_LOW" : return "Decimal    : 37192\nHexadecimal: 0x9148";
-            case "GL_DEBUG_TYPE_MARKER" : return "Decimal    : 33384\nHexadecimal: 0x8268";
-            case "GL_DEBUG_TYPE_PUSH_GROUP" : return "Decimal    : 33385\nHexadecimal: 0x8269";
-            case "GL_DEBUG_TYPE_POP_GROUP" : return "Decimal    : 33386\nHexadecimal: 0x826a";
-            case "GL_DEBUG_SEVERITY_NOTIFICATION" : return "Decimal    : 33387\nHexadecimal: 0x826b";
-            case "GL_MAX_DEBUG_GROUP_STACK_DEPTH" : return "Decimal    : 33388\nHexadecimal: 0x826c";
-            case "GL_DEBUG_GROUP_STACK_DEPTH" : return "Decimal    : 33389\nHexadecimal: 0x826d";
-            case "GL_BUFFER" : return "Decimal    : 33504\nHexadecimal: 0x82e0";
-            case "GL_SHADER" : return "Decimal    : 33505\nHexadecimal: 0x82e1";
-            case "GL_PROGRAM" : return "Decimal    : 33506\nHexadecimal: 0x82e2";
-            case "GL_QUERY" : return "Decimal    : 33507\nHexadecimal: 0x82e3";
-            case "GL_PROGRAM_PIPELINE" : return "Decimal    : 33508\nHexadecimal: 0x82e4";
-            case "GL_SAMPLER" : return "Decimal    : 33510\nHexadecimal: 0x82e6";
-            case "GL_MAX_LABEL_LENGTH" : return "Decimal    : 33512\nHexadecimal: 0x82e8";
-            case "GL_DEBUG_OUTPUT" : return "Decimal    : 37600\nHexadecimal: 0x92e0";
-            case "GL_CONTEXT_FLAG_DEBUG_BIT" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_MAX_UNIFORM_LOCATIONS" : return "Decimal    : 33390\nHexadecimal: 0x826e";
-            case "GL_FRAMEBUFFER_DEFAULT_WIDTH" : return "Decimal    : 37648\nHexadecimal: 0x9310";
-            case "GL_FRAMEBUFFER_DEFAULT_HEIGHT" : return "Decimal    : 37649\nHexadecimal: 0x9311";
-            case "GL_FRAMEBUFFER_DEFAULT_LAYERS" : return "Decimal    : 37650\nHexadecimal: 0x9312";
-            case "GL_FRAMEBUFFER_DEFAULT_SAMPLES" : return "Decimal    : 37651\nHexadecimal: 0x9313";
-            case "GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS" : return "Decimal    : 37652\nHexadecimal: 0x9314";
-            case "GL_MAX_FRAMEBUFFER_WIDTH" : return "Decimal    : 37653\nHexadecimal: 0x9315";
-            case "GL_MAX_FRAMEBUFFER_HEIGHT" : return "Decimal    : 37654\nHexadecimal: 0x9316";
-            case "GL_MAX_FRAMEBUFFER_LAYERS" : return "Decimal    : 37655\nHexadecimal: 0x9317";
-            case "GL_MAX_FRAMEBUFFER_SAMPLES" : return "Decimal    : 37656\nHexadecimal: 0x9318";
-            case "GL_INTERNALFORMAT_SUPPORTED" : return "Decimal    : 33391\nHexadecimal: 0x826f";
-            case "GL_INTERNALFORMAT_PREFERRED" : return "Decimal    : 33392\nHexadecimal: 0x8270";
-            case "GL_INTERNALFORMAT_RED_SIZE" : return "Decimal    : 33393\nHexadecimal: 0x8271";
-            case "GL_INTERNALFORMAT_GREEN_SIZE" : return "Decimal    : 33394\nHexadecimal: 0x8272";
-            case "GL_INTERNALFORMAT_BLUE_SIZE" : return "Decimal    : 33395\nHexadecimal: 0x8273";
-            case "GL_INTERNALFORMAT_ALPHA_SIZE" : return "Decimal    : 33396\nHexadecimal: 0x8274";
-            case "GL_INTERNALFORMAT_DEPTH_SIZE" : return "Decimal    : 33397\nHexadecimal: 0x8275";
-            case "GL_INTERNALFORMAT_STENCIL_SIZE" : return "Decimal    : 33398\nHexadecimal: 0x8276";
-            case "GL_INTERNALFORMAT_SHARED_SIZE" : return "Decimal    : 33399\nHexadecimal: 0x8277";
-            case "GL_INTERNALFORMAT_RED_TYPE" : return "Decimal    : 33400\nHexadecimal: 0x8278";
-            case "GL_INTERNALFORMAT_GREEN_TYPE" : return "Decimal    : 33401\nHexadecimal: 0x8279";
-            case "GL_INTERNALFORMAT_BLUE_TYPE" : return "Decimal    : 33402\nHexadecimal: 0x827a";
-            case "GL_INTERNALFORMAT_ALPHA_TYPE" : return "Decimal    : 33403\nHexadecimal: 0x827b";
-            case "GL_INTERNALFORMAT_DEPTH_TYPE" : return "Decimal    : 33404\nHexadecimal: 0x827c";
-            case "GL_INTERNALFORMAT_STENCIL_TYPE" : return "Decimal    : 33405\nHexadecimal: 0x827d";
-            case "GL_MAX_WIDTH" : return "Decimal    : 33406\nHexadecimal: 0x827e";
-            case "GL_MAX_HEIGHT" : return "Decimal    : 33407\nHexadecimal: 0x827f";
-            case "GL_MAX_DEPTH" : return "Decimal    : 33408\nHexadecimal: 0x8280";
-            case "GL_MAX_LAYERS" : return "Decimal    : 33409\nHexadecimal: 0x8281";
-            case "GL_MAX_COMBINED_DIMENSIONS" : return "Decimal    : 33410\nHexadecimal: 0x8282";
-            case "GL_COLOR_COMPONENTS" : return "Decimal    : 33411\nHexadecimal: 0x8283";
-            case "GL_DEPTH_COMPONENTS" : return "Decimal    : 33412\nHexadecimal: 0x8284";
-            case "GL_STENCIL_COMPONENTS" : return "Decimal    : 33413\nHexadecimal: 0x8285";
-            case "GL_COLOR_RENDERABLE" : return "Decimal    : 33414\nHexadecimal: 0x8286";
-            case "GL_DEPTH_RENDERABLE" : return "Decimal    : 33415\nHexadecimal: 0x8287";
-            case "GL_STENCIL_RENDERABLE" : return "Decimal    : 33416\nHexadecimal: 0x8288";
-            case "GL_FRAMEBUFFER_RENDERABLE" : return "Decimal    : 33417\nHexadecimal: 0x8289";
-            case "GL_FRAMEBUFFER_RENDERABLE_LAYERED" : return "Decimal    : 33418\nHexadecimal: 0x828a";
-            case "GL_FRAMEBUFFER_BLEND" : return "Decimal    : 33419\nHexadecimal: 0x828b";
-            case "GL_READ_PIXELS" : return "Decimal    : 33420\nHexadecimal: 0x828c";
-            case "GL_READ_PIXELS_FORMAT" : return "Decimal    : 33421\nHexadecimal: 0x828d";
-            case "GL_READ_PIXELS_TYPE" : return "Decimal    : 33422\nHexadecimal: 0x828e";
-            case "GL_TEXTURE_IMAGE_FORMAT" : return "Decimal    : 33423\nHexadecimal: 0x828f";
-            case "GL_TEXTURE_IMAGE_TYPE" : return "Decimal    : 33424\nHexadecimal: 0x8290";
-            case "GL_GET_TEXTURE_IMAGE_FORMAT" : return "Decimal    : 33425\nHexadecimal: 0x8291";
-            case "GL_GET_TEXTURE_IMAGE_TYPE" : return "Decimal    : 33426\nHexadecimal: 0x8292";
-            case "GL_MIPMAP" : return "Decimal    : 33427\nHexadecimal: 0x8293";
-            case "GL_MANUAL_GENERATE_MIPMAP" : return "Decimal    : 33428\nHexadecimal: 0x8294";
-            case "GL_AUTO_GENERATE_MIPMAP" : return "Decimal    : 33429\nHexadecimal: 0x8295";
-            case "GL_COLOR_ENCODING" : return "Decimal    : 33430\nHexadecimal: 0x8296";
-            case "GL_SRGB_READ" : return "Decimal    : 33431\nHexadecimal: 0x8297";
-            case "GL_SRGB_WRITE" : return "Decimal    : 33432\nHexadecimal: 0x8298";
-            case "GL_FILTER" : return "Decimal    : 33434\nHexadecimal: 0x829a";
-            case "GL_VERTEX_TEXTURE" : return "Decimal    : 33435\nHexadecimal: 0x829b";
-            case "GL_TESS_CONTROL_TEXTURE" : return "Decimal    : 33436\nHexadecimal: 0x829c";
-            case "GL_TESS_EVALUATION_TEXTURE" : return "Decimal    : 33437\nHexadecimal: 0x829d";
-            case "GL_GEOMETRY_TEXTURE" : return "Decimal    : 33438\nHexadecimal: 0x829e";
-            case "GL_FRAGMENT_TEXTURE" : return "Decimal    : 33439\nHexadecimal: 0x829f";
-            case "GL_COMPUTE_TEXTURE" : return "Decimal    : 33440\nHexadecimal: 0x82a0";
-            case "GL_TEXTURE_SHADOW" : return "Decimal    : 33441\nHexadecimal: 0x82a1";
-            case "GL_TEXTURE_GATHER" : return "Decimal    : 33442\nHexadecimal: 0x82a2";
-            case "GL_TEXTURE_GATHER_SHADOW" : return "Decimal    : 33443\nHexadecimal: 0x82a3";
-            case "GL_SHADER_IMAGE_LOAD" : return "Decimal    : 33444\nHexadecimal: 0x82a4";
-            case "GL_SHADER_IMAGE_STORE" : return "Decimal    : 33445\nHexadecimal: 0x82a5";
-            case "GL_SHADER_IMAGE_ATOMIC" : return "Decimal    : 33446\nHexadecimal: 0x82a6";
-            case "GL_IMAGE_TEXEL_SIZE" : return "Decimal    : 33447\nHexadecimal: 0x82a7";
-            case "GL_IMAGE_COMPATIBILITY_CLASS" : return "Decimal    : 33448\nHexadecimal: 0x82a8";
-            case "GL_IMAGE_PIXEL_FORMAT" : return "Decimal    : 33449\nHexadecimal: 0x82a9";
-            case "GL_IMAGE_PIXEL_TYPE" : return "Decimal    : 33450\nHexadecimal: 0x82aa";
-            case "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST" : return "Decimal    : 33452\nHexadecimal: 0x82ac";
-            case "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST" : return "Decimal    : 33453\nHexadecimal: 0x82ad";
-            case "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE" : return "Decimal    : 33454\nHexadecimal: 0x82ae";
-            case "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE" : return "Decimal    : 33455\nHexadecimal: 0x82af";
-            case "GL_TEXTURE_COMPRESSED_BLOCK_WIDTH" : return "Decimal    : 33457\nHexadecimal: 0x82b1";
-            case "GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT" : return "Decimal    : 33458\nHexadecimal: 0x82b2";
-            case "GL_TEXTURE_COMPRESSED_BLOCK_SIZE" : return "Decimal    : 33459\nHexadecimal: 0x82b3";
-            case "GL_CLEAR_BUFFER" : return "Decimal    : 33460\nHexadecimal: 0x82b4";
-            case "GL_TEXTURE_VIEW" : return "Decimal    : 33461\nHexadecimal: 0x82b5";
-            case "GL_VIEW_COMPATIBILITY_CLASS" : return "Decimal    : 33462\nHexadecimal: 0x82b6";
-            case "GL_FULL_SUPPORT" : return "Decimal    : 33463\nHexadecimal: 0x82b7";
-            case "GL_CAVEAT_SUPPORT" : return "Decimal    : 33464\nHexadecimal: 0x82b8";
-            case "GL_VIEW_CLASS_BPTC_UNORM" : return "Decimal    : 33490\nHexadecimal: 0x82d2";
-            case "GL_VIEW_CLASS_BPTC_FLOAT" : return "Decimal    : 33491\nHexadecimal: 0x82d3";
-            case "GL_UNIFORM" : return "Decimal    : 37601\nHexadecimal: 0x92e1";
-            case "GL_UNIFORM_BLOCK" : return "Decimal    : 37602\nHexadecimal: 0x92e2";
-            case "GL_PROGRAM_INPUT" : return "Decimal    : 37603\nHexadecimal: 0x92e3";
-            case "GL_PROGRAM_OUTPUT" : return "Decimal    : 37604\nHexadecimal: 0x92e4";
-            case "GL_BUFFER_VARIABLE" : return "Decimal    : 37605\nHexadecimal: 0x92e5";
-            case "GL_SHADER_STORAGE_BLOCK" : return "Decimal    : 37606\nHexadecimal: 0x92e6";
-            case "GL_VERTEX_SUBROUTINE" : return "Decimal    : 37608\nHexadecimal: 0x92e8";
-            case "GL_TESS_CONTROL_SUBROUTINE" : return "Decimal    : 37609\nHexadecimal: 0x92e9";
-            case "GL_TESS_EVALUATION_SUBROUTINE" : return "Decimal    : 37610\nHexadecimal: 0x92ea";
-            case "GL_GEOMETRY_SUBROUTINE" : return "Decimal    : 37611\nHexadecimal: 0x92eb";
-            case "GL_FRAGMENT_SUBROUTINE" : return "Decimal    : 37612\nHexadecimal: 0x92ec";
-            case "GL_COMPUTE_SUBROUTINE" : return "Decimal    : 37613\nHexadecimal: 0x92ed";
-            case "GL_VERTEX_SUBROUTINE_UNIFORM" : return "Decimal    : 37614\nHexadecimal: 0x92ee";
-            case "GL_TESS_CONTROL_SUBROUTINE_UNIFORM" : return "Decimal    : 37615\nHexadecimal: 0x92ef";
-            case "GL_TESS_EVALUATION_SUBROUTINE_UNIFORM" : return "Decimal    : 37616\nHexadecimal: 0x92f0";
-            case "GL_GEOMETRY_SUBROUTINE_UNIFORM" : return "Decimal    : 37617\nHexadecimal: 0x92f1";
-            case "GL_FRAGMENT_SUBROUTINE_UNIFORM" : return "Decimal    : 37618\nHexadecimal: 0x92f2";
-            case "GL_COMPUTE_SUBROUTINE_UNIFORM" : return "Decimal    : 37619\nHexadecimal: 0x92f3";
-            case "GL_TRANSFORM_FEEDBACK_VARYING" : return "Decimal    : 37620\nHexadecimal: 0x92f4";
-            case "GL_ACTIVE_RESOURCES" : return "Decimal    : 37621\nHexadecimal: 0x92f5";
-            case "GL_MAX_NAME_LENGTH" : return "Decimal    : 37622\nHexadecimal: 0x92f6";
-            case "GL_MAX_NUM_ACTIVE_VARIABLES" : return "Decimal    : 37623\nHexadecimal: 0x92f7";
-            case "GL_MAX_NUM_COMPATIBLE_SUBROUTINES" : return "Decimal    : 37624\nHexadecimal: 0x92f8";
-            case "GL_NAME_LENGTH" : return "Decimal    : 37625\nHexadecimal: 0x92f9";
-            case "GL_TYPE" : return "Decimal    : 37626\nHexadecimal: 0x92fa";
-            case "GL_ARRAY_SIZE" : return "Decimal    : 37627\nHexadecimal: 0x92fb";
-            case "GL_OFFSET" : return "Decimal    : 37628\nHexadecimal: 0x92fc";
-            case "GL_BLOCK_INDEX" : return "Decimal    : 37629\nHexadecimal: 0x92fd";
-            case "GL_ARRAY_STRIDE" : return "Decimal    : 37630\nHexadecimal: 0x92fe";
-            case "GL_MATRIX_STRIDE" : return "Decimal    : 37631\nHexadecimal: 0x92ff";
-            case "GL_IS_ROW_MAJOR" : return "Decimal    : 37632\nHexadecimal: 0x9300";
-            case "GL_ATOMIC_COUNTER_BUFFER_INDEX" : return "Decimal    : 37633\nHexadecimal: 0x9301";
-            case "GL_BUFFER_BINDING" : return "Decimal    : 37634\nHexadecimal: 0x9302";
-            case "GL_BUFFER_DATA_SIZE" : return "Decimal    : 37635\nHexadecimal: 0x9303";
-            case "GL_NUM_ACTIVE_VARIABLES" : return "Decimal    : 37636\nHexadecimal: 0x9304";
-            case "GL_ACTIVE_VARIABLES" : return "Decimal    : 37637\nHexadecimal: 0x9305";
-            case "GL_REFERENCED_BY_VERTEX_SHADER" : return "Decimal    : 37638\nHexadecimal: 0x9306";
-            case "GL_REFERENCED_BY_TESS_CONTROL_SHADER" : return "Decimal    : 37639\nHexadecimal: 0x9307";
-            case "GL_REFERENCED_BY_TESS_EVALUATION_SHADER" : return "Decimal    : 37640\nHexadecimal: 0x9308";
-            case "GL_REFERENCED_BY_GEOMETRY_SHADER" : return "Decimal    : 37641\nHexadecimal: 0x9309";
-            case "GL_REFERENCED_BY_FRAGMENT_SHADER" : return "Decimal    : 37642\nHexadecimal: 0x930a";
-            case "GL_REFERENCED_BY_COMPUTE_SHADER" : return "Decimal    : 37643\nHexadecimal: 0x930b";
-            case "GL_TOP_LEVEL_ARRAY_SIZE" : return "Decimal    : 37644\nHexadecimal: 0x930c";
-            case "GL_TOP_LEVEL_ARRAY_STRIDE" : return "Decimal    : 37645\nHexadecimal: 0x930d";
-            case "GL_LOCATION" : return "Decimal    : 37646\nHexadecimal: 0x930e";
-            case "GL_LOCATION_INDEX" : return "Decimal    : 37647\nHexadecimal: 0x930f";
-            case "GL_IS_PER_PATCH" : return "Decimal    : 37607\nHexadecimal: 0x92e7";
-            case "GL_SHADER_STORAGE_BUFFER" : return "Decimal    : 37074\nHexadecimal: 0x90d2";
-            case "GL_SHADER_STORAGE_BUFFER_BINDING" : return "Decimal    : 37075\nHexadecimal: 0x90d3";
-            case "GL_SHADER_STORAGE_BUFFER_START" : return "Decimal    : 37076\nHexadecimal: 0x90d4";
-            case "GL_SHADER_STORAGE_BUFFER_SIZE" : return "Decimal    : 37077\nHexadecimal: 0x90d5";
-            case "GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS" : return "Decimal    : 37078\nHexadecimal: 0x90d6";
-            case "GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS" : return "Decimal    : 37079\nHexadecimal: 0x90d7";
-            case "GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS" : return "Decimal    : 37080\nHexadecimal: 0x90d8";
-            case "GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS" : return "Decimal    : 37081\nHexadecimal: 0x90d9";
-            case "GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS" : return "Decimal    : 37082\nHexadecimal: 0x90da";
-            case "GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS" : return "Decimal    : 37083\nHexadecimal: 0x90db";
-            case "GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS" : return "Decimal    : 37084\nHexadecimal: 0x90dc";
-            case "GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS" : return "Decimal    : 37085\nHexadecimal: 0x90dd";
-            case "GL_MAX_SHADER_STORAGE_BLOCK_SIZE" : return "Decimal    : 37086\nHexadecimal: 0x90de";
-            case "GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT" : return "Decimal    : 37087\nHexadecimal: 0x90df";
-            case "GL_SHADER_STORAGE_BARRIER_BIT" : return "Decimal    : 8192\nHexadecimal: 0x2000";
-            case "GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES" : return "Decimal    : 36665\nHexadecimal: 0x8f39";
-            case "GL_DEPTH_STENCIL_TEXTURE_MODE" : return "Decimal    : 37098\nHexadecimal: 0x90ea";
-            case "GL_TEXTURE_BUFFER_OFFSET" : return "Decimal    : 37277\nHexadecimal: 0x919d";
-            case "GL_TEXTURE_BUFFER_SIZE" : return "Decimal    : 37278\nHexadecimal: 0x919e";
-            case "GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT" : return "Decimal    : 37279\nHexadecimal: 0x919f";
-            case "GL_TEXTURE_VIEW_MIN_LEVEL" : return "Decimal    : 33499\nHexadecimal: 0x82db";
-            case "GL_TEXTURE_VIEW_NUM_LEVELS" : return "Decimal    : 33500\nHexadecimal: 0x82dc";
-            case "GL_TEXTURE_VIEW_MIN_LAYER" : return "Decimal    : 33501\nHexadecimal: 0x82dd";
-            case "GL_TEXTURE_VIEW_NUM_LAYERS" : return "Decimal    : 33502\nHexadecimal: 0x82de";
-            case "GL_TEXTURE_IMMUTABLE_LEVELS" : return "Decimal    : 33503\nHexadecimal: 0x82df";
-            case "GL_VERTEX_ATTRIB_BINDING" : return "Decimal    : 33492\nHexadecimal: 0x82d4";
-            case "GL_VERTEX_ATTRIB_RELATIVE_OFFSET" : return "Decimal    : 33493\nHexadecimal: 0x82d5";
-            case "GL_VERTEX_BINDING_DIVISOR" : return "Decimal    : 33494\nHexadecimal: 0x82d6";
-            case "GL_VERTEX_BINDING_OFFSET" : return "Decimal    : 33495\nHexadecimal: 0x82d7";
-            case "GL_VERTEX_BINDING_STRIDE" : return "Decimal    : 33496\nHexadecimal: 0x82d8";
-            case "GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET" : return "Decimal    : 33497\nHexadecimal: 0x82d9";
-            case "GL_MAX_VERTEX_ATTRIB_BINDINGS" : return "Decimal    : 33498\nHexadecimal: 0x82da";
-            case "GL_VERTEX_BINDING_BUFFER" : return "Decimal    : 36687\nHexadecimal: 0x8f4f";
-            case "GL_MAX_VERTEX_ATTRIB_STRIDE" : return "Decimal    : 33509\nHexadecimal: 0x82e5";
-            case "GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED" : return "Decimal    : 33313\nHexadecimal: 0x8221";
-            case "GL_TEXTURE_BUFFER_BINDING" : return "Decimal    : 35882\nHexadecimal: 0x8c2a";
-            case "GL_MAP_PERSISTENT_BIT" : return "Decimal    : 64\nHexadecimal: 0x40";
-            case "GL_MAP_COHERENT_BIT" : return "Decimal    : 128\nHexadecimal: 0x80";
-            case "GL_DYNAMIC_STORAGE_BIT" : return "Decimal    : 256\nHexadecimal: 0x100";
-            case "GL_CLIENT_STORAGE_BIT" : return "Decimal    : 512\nHexadecimal: 0x200";
-            case "GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT" : return "Decimal    : 16384\nHexadecimal: 0x4000";
-            case "GL_BUFFER_IMMUTABLE_STORAGE" : return "Decimal    : 33311\nHexadecimal: 0x821f";
-            case "GL_BUFFER_STORAGE_FLAGS" : return "Decimal    : 33312\nHexadecimal: 0x8220";
-            case "GL_CLEAR_TEXTURE" : return "Decimal    : 37733\nHexadecimal: 0x9365";
-            case "GL_LOCATION_COMPONENT" : return "Decimal    : 37706\nHexadecimal: 0x934a";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_INDEX" : return "Decimal    : 37707\nHexadecimal: 0x934b";
-            case "GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE" : return "Decimal    : 37708\nHexadecimal: 0x934c";
-            case "GL_QUERY_BUFFER" : return "Decimal    : 37266\nHexadecimal: 0x9192";
-            case "GL_QUERY_BUFFER_BARRIER_BIT" : return "Decimal    : 32768\nHexadecimal: 0x8000";
-            case "GL_QUERY_BUFFER_BINDING" : return "Decimal    : 37267\nHexadecimal: 0x9193";
-            case "GL_QUERY_RESULT_NO_WAIT" : return "Decimal    : 37268\nHexadecimal: 0x9194";
-            case "GL_MIRROR_CLAMP_TO_EDGE" : return "Decimal    : 34627\nHexadecimal: 0x8743";
-            case "GL_CONTEXT_LOST" : return "Decimal    : 1287\nHexadecimal: 0x507";
-            case "GL_NEGATIVE_ONE_TO_ONE" : return "Decimal    : 37726\nHexadecimal: 0x935e";
-            case "GL_ZERO_TO_ONE" : return "Decimal    : 37727\nHexadecimal: 0x935f";
-            case "GL_CLIP_ORIGIN" : return "Decimal    : 37724\nHexadecimal: 0x935c";
-            case "GL_CLIP_DEPTH_MODE" : return "Decimal    : 37725\nHexadecimal: 0x935d";
-            case "GL_QUERY_WAIT_INVERTED" : return "Decimal    : 36375\nHexadecimal: 0x8e17";
-            case "GL_QUERY_NO_WAIT_INVERTED" : return "Decimal    : 36376\nHexadecimal: 0x8e18";
-            case "GL_QUERY_BY_REGION_WAIT_INVERTED" : return "Decimal    : 36377\nHexadecimal: 0x8e19";
-            case "GL_QUERY_BY_REGION_NO_WAIT_INVERTED" : return "Decimal    : 36378\nHexadecimal: 0x8e1a";
-            case "GL_MAX_CULL_DISTANCES" : return "Decimal    : 33529\nHexadecimal: 0x82f9";
-            case "GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES" : return "Decimal    : 33530\nHexadecimal: 0x82fa";
-            case "GL_TEXTURE_TARGET" : return "Decimal    : 4102\nHexadecimal: 0x1006";
-            case "GL_QUERY_TARGET" : return "Decimal    : 33514\nHexadecimal: 0x82ea";
-            case "GL_GUILTY_CONTEXT_RESET" : return "Decimal    : 33363\nHexadecimal: 0x8253";
-            case "GL_INNOCENT_CONTEXT_RESET" : return "Decimal    : 33364\nHexadecimal: 0x8254";
-            case "GL_UNKNOWN_CONTEXT_RESET" : return "Decimal    : 33365\nHexadecimal: 0x8255";
-            case "GL_RESET_NOTIFICATION_STRATEGY" : return "Decimal    : 33366\nHexadecimal: 0x8256";
-            case "GL_LOSE_CONTEXT_ON_RESET" : return "Decimal    : 33362\nHexadecimal: 0x8252";
-            case "GL_NO_RESET_NOTIFICATION" : return "Decimal    : 33377\nHexadecimal: 0x8261";
-            case "GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT" : return "Decimal    : 4\nHexadecimal: 0x4";
-            case "GL_CONTEXT_RELEASE_BEHAVIOR" : return "Decimal    : 33531\nHexadecimal: 0x82fb";
-            case "GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH" : return "Decimal    : 33532\nHexadecimal: 0x82fc";
-            case "GL_SYNC_CL_EVENT_ARB" : return "Decimal    : 33344\nHexadecimal: 0x8240";
-            case "GL_SYNC_CL_EVENT_COMPLETE_ARB" : return "Decimal    : 33345\nHexadecimal: 0x8241";
-            case "GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB" : return "Decimal    : 37700\nHexadecimal: 0x9344";
-            case "GL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB" : return "Decimal    : 37099\nHexadecimal: 0x90eb";
-            case "GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB" : return "Decimal    : 37701\nHexadecimal: 0x9345";
-            case "GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB" : return "Decimal    : 37311\nHexadecimal: 0x91bf";
-            case "GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB" : return "Decimal    : 33346\nHexadecimal: 0x8242";
-            case "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB" : return "Decimal    : 33347\nHexadecimal: 0x8243";
-            case "GL_DEBUG_CALLBACK_FUNCTION_ARB" : return "Decimal    : 33348\nHexadecimal: 0x8244";
-            case "GL_DEBUG_CALLBACK_USER_PARAM_ARB" : return "Decimal    : 33349\nHexadecimal: 0x8245";
-            case "GL_DEBUG_SOURCE_API_ARB" : return "Decimal    : 33350\nHexadecimal: 0x8246";
-            case "GL_DEBUG_SOURCE_WINDOW_SYSTEM_ARB" : return "Decimal    : 33351\nHexadecimal: 0x8247";
-            case "GL_DEBUG_SOURCE_SHADER_COMPILER_ARB" : return "Decimal    : 33352\nHexadecimal: 0x8248";
-            case "GL_DEBUG_SOURCE_THIRD_PARTY_ARB" : return "Decimal    : 33353\nHexadecimal: 0x8249";
-            case "GL_DEBUG_SOURCE_APPLICATION_ARB" : return "Decimal    : 33354\nHexadecimal: 0x824a";
-            case "GL_DEBUG_SOURCE_OTHER_ARB" : return "Decimal    : 33355\nHexadecimal: 0x824b";
-            case "GL_DEBUG_TYPE_ERROR_ARB" : return "Decimal    : 33356\nHexadecimal: 0x824c";
-            case "GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB" : return "Decimal    : 33357\nHexadecimal: 0x824d";
-            case "GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB" : return "Decimal    : 33358\nHexadecimal: 0x824e";
-            case "GL_DEBUG_TYPE_PORTABILITY_ARB" : return "Decimal    : 33359\nHexadecimal: 0x824f";
-            case "GL_DEBUG_TYPE_PERFORMANCE_ARB" : return "Decimal    : 33360\nHexadecimal: 0x8250";
-            case "GL_DEBUG_TYPE_OTHER_ARB" : return "Decimal    : 33361\nHexadecimal: 0x8251";
-            case "GL_MAX_DEBUG_MESSAGE_LENGTH_ARB" : return "Decimal    : 37187\nHexadecimal: 0x9143";
-            case "GL_MAX_DEBUG_LOGGED_MESSAGES_ARB" : return "Decimal    : 37188\nHexadecimal: 0x9144";
-            case "GL_DEBUG_LOGGED_MESSAGES_ARB" : return "Decimal    : 37189\nHexadecimal: 0x9145";
-            case "GL_DEBUG_SEVERITY_HIGH_ARB" : return "Decimal    : 37190\nHexadecimal: 0x9146";
-            case "GL_DEBUG_SEVERITY_MEDIUM_ARB" : return "Decimal    : 37191\nHexadecimal: 0x9147";
-            case "GL_DEBUG_SEVERITY_LOW_ARB" : return "Decimal    : 37192\nHexadecimal: 0x9148";
-            case "GL_BLEND_COLOR" : return "Decimal    : 32773\nHexadecimal: 0x8005";
-            case "GL_BLEND_EQUATION" : return "Decimal    : 32777\nHexadecimal: 0x8009";
-            case "GL_PARAMETER_BUFFER_ARB" : return "Decimal    : 33006\nHexadecimal: 0x80ee";
-            case "GL_PARAMETER_BUFFER_BINDING_ARB" : return "Decimal    : 33007\nHexadecimal: 0x80ef";
-            case "GL_SRGB_DECODE_ARB" : return "Decimal    : 33433\nHexadecimal: 0x8299";
-            case "GL_VERTICES_SUBMITTED_ARB" : return "Decimal    : 33518\nHexadecimal: 0x82ee";
-            case "GL_PRIMITIVES_SUBMITTED_ARB" : return "Decimal    : 33519\nHexadecimal: 0x82ef";
-            case "GL_VERTEX_SHADER_INVOCATIONS_ARB" : return "Decimal    : 33520\nHexadecimal: 0x82f0";
-            case "GL_TESS_CONTROL_SHADER_PATCHES_ARB" : return "Decimal    : 33521\nHexadecimal: 0x82f1";
-            case "GL_TESS_EVALUATION_SHADER_INVOCATIONS_ARB" : return "Decimal    : 33522\nHexadecimal: 0x82f2";
-            case "GL_GEOMETRY_SHADER_PRIMITIVES_EMITTED_ARB" : return "Decimal    : 33523\nHexadecimal: 0x82f3";
-            case "GL_FRAGMENT_SHADER_INVOCATIONS_ARB" : return "Decimal    : 33524\nHexadecimal: 0x82f4";
-            case "GL_COMPUTE_SHADER_INVOCATIONS_ARB" : return "Decimal    : 33525\nHexadecimal: 0x82f5";
-            case "GL_CLIPPING_INPUT_PRIMITIVES_ARB" : return "Decimal    : 33526\nHexadecimal: 0x82f6";
-            case "GL_CLIPPING_OUTPUT_PRIMITIVES_ARB" : return "Decimal    : 33527\nHexadecimal: 0x82f7";
-            case "GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB" : return "Decimal    : 4\nHexadecimal: 0x4";
-            case "GL_LOSE_CONTEXT_ON_RESET_ARB" : return "Decimal    : 33362\nHexadecimal: 0x8252";
-            case "GL_GUILTY_CONTEXT_RESET_ARB" : return "Decimal    : 33363\nHexadecimal: 0x8253";
-            case "GL_INNOCENT_CONTEXT_RESET_ARB" : return "Decimal    : 33364\nHexadecimal: 0x8254";
-            case "GL_UNKNOWN_CONTEXT_RESET_ARB" : return "Decimal    : 33365\nHexadecimal: 0x8255";
-            case "GL_RESET_NOTIFICATION_STRATEGY_ARB" : return "Decimal    : 33366\nHexadecimal: 0x8256";
-            case "GL_NO_RESET_NOTIFICATION_ARB" : return "Decimal    : 33377\nHexadecimal: 0x8261";
-            case "GL_SAMPLE_SHADING_ARB" : return "Decimal    : 35894\nHexadecimal: 0x8c36";
-            case "GL_MIN_SAMPLE_SHADING_VALUE_ARB" : return "Decimal    : 35895\nHexadecimal: 0x8c37";
-            case "GL_SHADER_INCLUDE_ARB" : return "Decimal    : 36270\nHexadecimal: 0x8dae";
-            case "GL_NAMED_STRING_LENGTH_ARB" : return "Decimal    : 36329\nHexadecimal: 0x8de9";
-            case "GL_NAMED_STRING_TYPE_ARB" : return "Decimal    : 36330\nHexadecimal: 0x8dea";
-            case "GL_SPARSE_STORAGE_BIT_ARB" : return "Decimal    : 1024\nHexadecimal: 0x400";
-            case "GL_SPARSE_BUFFER_PAGE_SIZE_ARB" : return "Decimal    : 33528\nHexadecimal: 0x82f8";
-            case "GL_TEXTURE_SPARSE_ARB" : return "Decimal    : 37286\nHexadecimal: 0x91a6";
-            case "GL_VIRTUAL_PAGE_SIZE_INDEX_ARB" : return "Decimal    : 37287\nHexadecimal: 0x91a7";
-            case "GL_NUM_SPARSE_LEVELS_ARB" : return "Decimal    : 37290\nHexadecimal: 0x91aa";
-            case "GL_NUM_VIRTUAL_PAGE_SIZES_ARB" : return "Decimal    : 37288\nHexadecimal: 0x91a8";
-            case "GL_VIRTUAL_PAGE_SIZE_X_ARB" : return "Decimal    : 37269\nHexadecimal: 0x9195";
-            case "GL_VIRTUAL_PAGE_SIZE_Y_ARB" : return "Decimal    : 37270\nHexadecimal: 0x9196";
-            case "GL_VIRTUAL_PAGE_SIZE_Z_ARB" : return "Decimal    : 37271\nHexadecimal: 0x9197";
-            case "GL_MAX_SPARSE_TEXTURE_SIZE_ARB" : return "Decimal    : 37272\nHexadecimal: 0x9198";
-            case "GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB" : return "Decimal    : 37274\nHexadecimal: 0x919a";
-            case "GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB" : return "Decimal    : 37289\nHexadecimal: 0x91a9";
-            case "GL_COMPRESSED_RGBA_BPTC_UNORM_ARB" : return "Decimal    : 36492\nHexadecimal: 0x8e8c";
-            case "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB" : return "Decimal    : 36493\nHexadecimal: 0x8e8d";
-            case "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB" : return "Decimal    : 36494\nHexadecimal: 0x8e8e";
-            case "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB" : return "Decimal    : 36495\nHexadecimal: 0x8e8f";
-            case "GL_TEXTURE_CUBE_MAP_ARRAY_ARB" : return "Decimal    : 36873\nHexadecimal: 0x9009";
-            case "GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB" : return "Decimal    : 36874\nHexadecimal: 0x900a";
-            case "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB" : return "Decimal    : 36875\nHexadecimal: 0x900b";
-            case "GL_SAMPLER_CUBE_MAP_ARRAY_ARB" : return "Decimal    : 36876\nHexadecimal: 0x900c";
-            case "GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB" : return "Decimal    : 36877\nHexadecimal: 0x900d";
-            case "GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB" : return "Decimal    : 36878\nHexadecimal: 0x900e";
-            case "GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB" : return "Decimal    : 36879\nHexadecimal: 0x900f";
-            case "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB" : return "Decimal    : 36446\nHexadecimal: 0x8e5e";
-            case "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB" : return "Decimal    : 36447\nHexadecimal: 0x8e5f";
-            case "GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB" : return "Decimal    : 36767\nHexadecimal: 0x8f9f";
-            case "GL_TRANSFORM_FEEDBACK_OVERFLOW_ARB" : return "Decimal    : 33516\nHexadecimal: 0x82ec";
-            case "GL_TRANSFORM_FEEDBACK_STREAM_OVERFLOW_ARB" : return "Decimal    : 33517\nHexadecimal: 0x82ed";
-            case "GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR" : return "Decimal    : 8\nHexadecimal: 0x8";
-            case "GL_CONTEXT_ROBUST_ACCESS" : return "Decimal    : 37107\nHexadecimal: 0x90f3";
-            case "GL_ACCUM" : return "Decimal    : 256\nHexadecimal: 0x100";
-            case "GL_LOAD" : return "Decimal    : 257\nHexadecimal: 0x101";
-            case "GL_RETURN" : return "Decimal    : 258\nHexadecimal: 0x102";
-            case "GL_MULT" : return "Decimal    : 259\nHexadecimal: 0x103";
-            case "GL_ADD" : return "Decimal    : 260\nHexadecimal: 0x104";
-            case "GL_CURRENT_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_POINT_BIT" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_LINE_BIT" : return "Decimal    : 4\nHexadecimal: 0x4";
-            case "GL_POLYGON_BIT" : return "Decimal    : 8\nHexadecimal: 0x8";
-            case "GL_POLYGON_STIPPLE_BIT" : return "Decimal    : 16\nHexadecimal: 0x10";
-            case "GL_PIXEL_MODE_BIT" : return "Decimal    : 32\nHexadecimal: 0x20";
-            case "GL_LIGHTING_BIT" : return "Decimal    : 64\nHexadecimal: 0x40";
-            case "GL_FOG_BIT" : return "Decimal    : 128\nHexadecimal: 0x80";
-            case "GL_ACCUM_BUFFER_BIT" : return "Decimal    : 512\nHexadecimal: 0x200";
-            case "GL_VIEWPORT_BIT" : return "Decimal    : 2048\nHexadecimal: 0x800";
-            case "GL_TRANSFORM_BIT" : return "Decimal    : 4096\nHexadecimal: 0x1000";
-            case "GL_ENABLE_BIT" : return "Decimal    : 8192\nHexadecimal: 0x2000";
-            case "GL_HINT_BIT" : return "Decimal    : 32768\nHexadecimal: 0x8000";
-            case "GL_EVAL_BIT" : return "Decimal    : 65536\nHexadecimal: 0x10000";
-            case "GL_LIST_BIT" : return "Decimal    : 131072\nHexadecimal: 0x20000";
-            case "GL_TEXTURE_BIT" : return "Decimal    : 262144\nHexadecimal: 0x40000";
-            case "GL_SCISSOR_BIT" : return "Decimal    : 524288\nHexadecimal: 0x80000";
-            case "GL_ALL_ATTRIB_BITS" : return "Decimal    : 1048575\nHexadecimal: 0xfffff";
-            case "GL_QUAD_STRIP" : return "Decimal    : 8\nHexadecimal: 0x8";
-            case "GL_POLYGON" : return "Decimal    : 9\nHexadecimal: 0x9";
-            case "GL_PASS_THROUGH_TOKEN" : return "Decimal    : 1792\nHexadecimal: 0x700";
-            case "GL_POINT_TOKEN" : return "Decimal    : 1793\nHexadecimal: 0x701";
-            case "GL_LINE_TOKEN" : return "Decimal    : 1794\nHexadecimal: 0x702";
-            case "GL_POLYGON_TOKEN" : return "Decimal    : 1795\nHexadecimal: 0x703";
-            case "GL_BITMAP_TOKEN" : return "Decimal    : 1796\nHexadecimal: 0x704";
-            case "GL_DRAW_PIXEL_TOKEN" : return "Decimal    : 1797\nHexadecimal: 0x705";
-            case "GL_COPY_PIXEL_TOKEN" : return "Decimal    : 1798\nHexadecimal: 0x706";
-            case "GL_LINE_RESET_TOKEN" : return "Decimal    : 1799\nHexadecimal: 0x707";
-            case "GL_EXP" : return "Decimal    : 2048\nHexadecimal: 0x800";
-            case "GL_COEFF" : return "Decimal    : 2560\nHexadecimal: 0xa00";
-            case "GL_ORDER" : return "Decimal    : 2561\nHexadecimal: 0xa01";
-            case "GL_DOMAIN" : return "Decimal    : 2562\nHexadecimal: 0xa02";
-            case "GL_CURRENT_COLOR" : return "Decimal    : 2816\nHexadecimal: 0xb00";
-            case "GL_CURRENT_INDEX" : return "Decimal    : 2817\nHexadecimal: 0xb01";
-            case "GL_CURRENT_NORMAL" : return "Decimal    : 2818\nHexadecimal: 0xb02";
-            case "GL_CURRENT_TEXTURE_COORDS" : return "Decimal    : 2819\nHexadecimal: 0xb03";
-            case "GL_CURRENT_RASTER_COLOR" : return "Decimal    : 2820\nHexadecimal: 0xb04";
-            case "GL_CURRENT_RASTER_INDEX" : return "Decimal    : 2821\nHexadecimal: 0xb05";
-            case "GL_CURRENT_RASTER_TEXTURE_COORDS" : return "Decimal    : 2822\nHexadecimal: 0xb06";
-            case "GL_CURRENT_RASTER_POSITION" : return "Decimal    : 2823\nHexadecimal: 0xb07";
-            case "GL_CURRENT_RASTER_POSITION_VALID" : return "Decimal    : 2824\nHexadecimal: 0xb08";
-            case "GL_CURRENT_RASTER_DISTANCE" : return "Decimal    : 2825\nHexadecimal: 0xb09";
-            case "GL_POINT_SMOOTH" : return "Decimal    : 2832\nHexadecimal: 0xb10";
-            case "GL_LINE_STIPPLE" : return "Decimal    : 2852\nHexadecimal: 0xb24";
-            case "GL_LINE_STIPPLE_PATTERN" : return "Decimal    : 2853\nHexadecimal: 0xb25";
-            case "GL_LINE_STIPPLE_REPEAT" : return "Decimal    : 2854\nHexadecimal: 0xb26";
-            case "GL_LIST_MODE" : return "Decimal    : 2864\nHexadecimal: 0xb30";
-            case "GL_MAX_LIST_NESTING" : return "Decimal    : 2865\nHexadecimal: 0xb31";
-            case "GL_LIST_BASE" : return "Decimal    : 2866\nHexadecimal: 0xb32";
-            case "GL_LIST_INDEX" : return "Decimal    : 2867\nHexadecimal: 0xb33";
-            case "GL_POLYGON_STIPPLE" : return "Decimal    : 2882\nHexadecimal: 0xb42";
-            case "GL_EDGE_FLAG" : return "Decimal    : 2883\nHexadecimal: 0xb43";
-            case "GL_LIGHTING" : return "Decimal    : 2896\nHexadecimal: 0xb50";
-            case "GL_LIGHT_MODEL_LOCAL_VIEWER" : return "Decimal    : 2897\nHexadecimal: 0xb51";
-            case "GL_LIGHT_MODEL_TWO_SIDE" : return "Decimal    : 2898\nHexadecimal: 0xb52";
-            case "GL_LIGHT_MODEL_AMBIENT" : return "Decimal    : 2899\nHexadecimal: 0xb53";
-            case "GL_SHADE_MODEL" : return "Decimal    : 2900\nHexadecimal: 0xb54";
-            case "GL_COLOR_MATERIAL_FACE" : return "Decimal    : 2901\nHexadecimal: 0xb55";
-            case "GL_COLOR_MATERIAL_PARAMETER" : return "Decimal    : 2902\nHexadecimal: 0xb56";
-            case "GL_COLOR_MATERIAL" : return "Decimal    : 2903\nHexadecimal: 0xb57";
-            case "GL_FOG" : return "Decimal    : 2912\nHexadecimal: 0xb60";
-            case "GL_FOG_INDEX" : return "Decimal    : 2913\nHexadecimal: 0xb61";
-            case "GL_FOG_DENSITY" : return "Decimal    : 2914\nHexadecimal: 0xb62";
-            case "GL_FOG_START" : return "Decimal    : 2915\nHexadecimal: 0xb63";
-            case "GL_FOG_END" : return "Decimal    : 2916\nHexadecimal: 0xb64";
-            case "GL_FOG_MODE" : return "Decimal    : 2917\nHexadecimal: 0xb65";
-            case "GL_FOG_COLOR" : return "Decimal    : 2918\nHexadecimal: 0xb66";
-            case "GL_ACCUM_CLEAR_VALUE" : return "Decimal    : 2944\nHexadecimal: 0xb80";
-            case "GL_MATRIX_MODE" : return "Decimal    : 2976\nHexadecimal: 0xba0";
-            case "GL_NORMALIZE" : return "Decimal    : 2977\nHexadecimal: 0xba1";
-            case "GL_MODELVIEW_STACK_DEPTH" : return "Decimal    : 2979\nHexadecimal: 0xba3";
-            case "GL_PROJECTION_STACK_DEPTH" : return "Decimal    : 2980\nHexadecimal: 0xba4";
-            case "GL_TEXTURE_STACK_DEPTH" : return "Decimal    : 2981\nHexadecimal: 0xba5";
-            case "GL_MODELVIEW_MATRIX" : return "Decimal    : 2982\nHexadecimal: 0xba6";
-            case "GL_PROJECTION_MATRIX" : return "Decimal    : 2983\nHexadecimal: 0xba7";
-            case "GL_TEXTURE_MATRIX" : return "Decimal    : 2984\nHexadecimal: 0xba8";
-            case "GL_ATTRIB_STACK_DEPTH" : return "Decimal    : 2992\nHexadecimal: 0xbb0";
-            case "GL_CLIENT_ATTRIB_STACK_DEPTH" : return "Decimal    : 2993\nHexadecimal: 0xbb1";
-            case "GL_ALPHA_TEST" : return "Decimal    : 3008\nHexadecimal: 0xbc0";
-            case "GL_ALPHA_TEST_FUNC" : return "Decimal    : 3009\nHexadecimal: 0xbc1";
-            case "GL_ALPHA_TEST_REF" : return "Decimal    : 3010\nHexadecimal: 0xbc2";
-            case "GL_INDEX_LOGIC_OP" : return "Decimal    : 3057\nHexadecimal: 0xbf1";
-            case "GL_AUX_BUFFERS" : return "Decimal    : 3072\nHexadecimal: 0xc00";
-            case "GL_INDEX_CLEAR_VALUE" : return "Decimal    : 3104\nHexadecimal: 0xc20";
-            case "GL_INDEX_WRITEMASK" : return "Decimal    : 3105\nHexadecimal: 0xc21";
-            case "GL_INDEX_MODE" : return "Decimal    : 3120\nHexadecimal: 0xc30";
-            case "GL_RGBA_MODE" : return "Decimal    : 3121\nHexadecimal: 0xc31";
-            case "GL_RENDER_MODE" : return "Decimal    : 3136\nHexadecimal: 0xc40";
-            case "GL_PERSPECTIVE_CORRECTION_HINT" : return "Decimal    : 3152\nHexadecimal: 0xc50";
-            case "GL_POINT_SMOOTH_HINT" : return "Decimal    : 3153\nHexadecimal: 0xc51";
-            case "GL_FOG_HINT" : return "Decimal    : 3156\nHexadecimal: 0xc54";
-            case "GL_TEXTURE_GEN_S" : return "Decimal    : 3168\nHexadecimal: 0xc60";
-            case "GL_TEXTURE_GEN_T" : return "Decimal    : 3169\nHexadecimal: 0xc61";
-            case "GL_TEXTURE_GEN_R" : return "Decimal    : 3170\nHexadecimal: 0xc62";
-            case "GL_TEXTURE_GEN_Q" : return "Decimal    : 3171\nHexadecimal: 0xc63";
-            case "GL_PIXEL_MAP_I_TO_I" : return "Decimal    : 3184\nHexadecimal: 0xc70";
-            case "GL_PIXEL_MAP_S_TO_S" : return "Decimal    : 3185\nHexadecimal: 0xc71";
-            case "GL_PIXEL_MAP_I_TO_R" : return "Decimal    : 3186\nHexadecimal: 0xc72";
-            case "GL_PIXEL_MAP_I_TO_G" : return "Decimal    : 3187\nHexadecimal: 0xc73";
-            case "GL_PIXEL_MAP_I_TO_B" : return "Decimal    : 3188\nHexadecimal: 0xc74";
-            case "GL_PIXEL_MAP_I_TO_A" : return "Decimal    : 3189\nHexadecimal: 0xc75";
-            case "GL_PIXEL_MAP_R_TO_R" : return "Decimal    : 3190\nHexadecimal: 0xc76";
-            case "GL_PIXEL_MAP_G_TO_G" : return "Decimal    : 3191\nHexadecimal: 0xc77";
-            case "GL_PIXEL_MAP_B_TO_B" : return "Decimal    : 3192\nHexadecimal: 0xc78";
-            case "GL_PIXEL_MAP_A_TO_A" : return "Decimal    : 3193\nHexadecimal: 0xc79";
-            case "GL_PIXEL_MAP_I_TO_I_SIZE" : return "Decimal    : 3248\nHexadecimal: 0xcb0";
-            case "GL_PIXEL_MAP_S_TO_S_SIZE" : return "Decimal    : 3249\nHexadecimal: 0xcb1";
-            case "GL_PIXEL_MAP_I_TO_R_SIZE" : return "Decimal    : 3250\nHexadecimal: 0xcb2";
-            case "GL_PIXEL_MAP_I_TO_G_SIZE" : return "Decimal    : 3251\nHexadecimal: 0xcb3";
-            case "GL_PIXEL_MAP_I_TO_B_SIZE" : return "Decimal    : 3252\nHexadecimal: 0xcb4";
-            case "GL_PIXEL_MAP_I_TO_A_SIZE" : return "Decimal    : 3253\nHexadecimal: 0xcb5";
-            case "GL_PIXEL_MAP_R_TO_R_SIZE" : return "Decimal    : 3254\nHexadecimal: 0xcb6";
-            case "GL_PIXEL_MAP_G_TO_G_SIZE" : return "Decimal    : 3255\nHexadecimal: 0xcb7";
-            case "GL_PIXEL_MAP_B_TO_B_SIZE" : return "Decimal    : 3256\nHexadecimal: 0xcb8";
-            case "GL_PIXEL_MAP_A_TO_A_SIZE" : return "Decimal    : 3257\nHexadecimal: 0xcb9";
-            case "GL_MAP_COLOR" : return "Decimal    : 3344\nHexadecimal: 0xd10";
-            case "GL_MAP_STENCIL" : return "Decimal    : 3345\nHexadecimal: 0xd11";
-            case "GL_INDEX_SHIFT" : return "Decimal    : 3346\nHexadecimal: 0xd12";
-            case "GL_INDEX_OFFSET" : return "Decimal    : 3347\nHexadecimal: 0xd13";
-            case "GL_RED_SCALE" : return "Decimal    : 3348\nHexadecimal: 0xd14";
-            case "GL_RED_BIAS" : return "Decimal    : 3349\nHexadecimal: 0xd15";
-            case "GL_ZOOM_X" : return "Decimal    : 3350\nHexadecimal: 0xd16";
-            case "GL_ZOOM_Y" : return "Decimal    : 3351\nHexadecimal: 0xd17";
-            case "GL_GREEN_SCALE" : return "Decimal    : 3352\nHexadecimal: 0xd18";
-            case "GL_GREEN_BIAS" : return "Decimal    : 3353\nHexadecimal: 0xd19";
-            case "GL_BLUE_SCALE" : return "Decimal    : 3354\nHexadecimal: 0xd1a";
-            case "GL_BLUE_BIAS" : return "Decimal    : 3355\nHexadecimal: 0xd1b";
-            case "GL_ALPHA_SCALE" : return "Decimal    : 3356\nHexadecimal: 0xd1c";
-            case "GL_ALPHA_BIAS" : return "Decimal    : 3357\nHexadecimal: 0xd1d";
-            case "GL_DEPTH_SCALE" : return "Decimal    : 3358\nHexadecimal: 0xd1e";
-            case "GL_DEPTH_BIAS" : return "Decimal    : 3359\nHexadecimal: 0xd1f";
-            case "GL_MAX_EVAL_ORDER" : return "Decimal    : 3376\nHexadecimal: 0xd30";
-            case "GL_MAX_LIGHTS" : return "Decimal    : 3377\nHexadecimal: 0xd31";
-            case "GL_MAX_CLIP_PLANES" : return "Decimal    : 3378\nHexadecimal: 0xd32";
-            case "GL_MAX_PIXEL_MAP_TABLE" : return "Decimal    : 3380\nHexadecimal: 0xd34";
-            case "GL_MAX_ATTRIB_STACK_DEPTH" : return "Decimal    : 3381\nHexadecimal: 0xd35";
-            case "GL_MAX_MODELVIEW_STACK_DEPTH" : return "Decimal    : 3382\nHexadecimal: 0xd36";
-            case "GL_MAX_NAME_STACK_DEPTH" : return "Decimal    : 3383\nHexadecimal: 0xd37";
-            case "GL_MAX_PROJECTION_STACK_DEPTH" : return "Decimal    : 3384\nHexadecimal: 0xd38";
-            case "GL_MAX_TEXTURE_STACK_DEPTH" : return "Decimal    : 3385\nHexadecimal: 0xd39";
-            case "GL_MAX_CLIENT_ATTRIB_STACK_DEPTH" : return "Decimal    : 3387\nHexadecimal: 0xd3b";
-            case "GL_INDEX_BITS" : return "Decimal    : 3409\nHexadecimal: 0xd51";
-            case "GL_RED_BITS" : return "Decimal    : 3410\nHexadecimal: 0xd52";
-            case "GL_GREEN_BITS" : return "Decimal    : 3411\nHexadecimal: 0xd53";
-            case "GL_BLUE_BITS" : return "Decimal    : 3412\nHexadecimal: 0xd54";
-            case "GL_ALPHA_BITS" : return "Decimal    : 3413\nHexadecimal: 0xd55";
-            case "GL_DEPTH_BITS" : return "Decimal    : 3414\nHexadecimal: 0xd56";
-            case "GL_STENCIL_BITS" : return "Decimal    : 3415\nHexadecimal: 0xd57";
-            case "GL_ACCUM_RED_BITS" : return "Decimal    : 3416\nHexadecimal: 0xd58";
-            case "GL_ACCUM_GREEN_BITS" : return "Decimal    : 3417\nHexadecimal: 0xd59";
-            case "GL_ACCUM_BLUE_BITS" : return "Decimal    : 3418\nHexadecimal: 0xd5a";
-            case "GL_ACCUM_ALPHA_BITS" : return "Decimal    : 3419\nHexadecimal: 0xd5b";
-            case "GL_NAME_STACK_DEPTH" : return "Decimal    : 3440\nHexadecimal: 0xd70";
-            case "GL_AUTO_NORMAL" : return "Decimal    : 3456\nHexadecimal: 0xd80";
-            case "GL_FEEDBACK_BUFFER_POINTER" : return "Decimal    : 3568\nHexadecimal: 0xdf0";
-            case "GL_FEEDBACK_BUFFER_SIZE" : return "Decimal    : 3569\nHexadecimal: 0xdf1";
-            case "GL_FEEDBACK_BUFFER_TYPE" : return "Decimal    : 3570\nHexadecimal: 0xdf2";
-            case "GL_SELECTION_BUFFER_POINTER" : return "Decimal    : 3571\nHexadecimal: 0xdf3";
-            case "GL_SELECTION_BUFFER_SIZE" : return "Decimal    : 3572\nHexadecimal: 0xdf4";
-            case "GL_TEXTURE_BORDER" : return "Decimal    : 4101\nHexadecimal: 0x1005";
-            case "GL_AMBIENT" : return "Decimal    : 4608\nHexadecimal: 0x1200";
-            case "GL_DIFFUSE" : return "Decimal    : 4609\nHexadecimal: 0x1201";
-            case "GL_SPECULAR" : return "Decimal    : 4610\nHexadecimal: 0x1202";
-            case "GL_POSITION" : return "Decimal    : 4611\nHexadecimal: 0x1203";
-            case "GL_SPOT_DIRECTION" : return "Decimal    : 4612\nHexadecimal: 0x1204";
-            case "GL_SPOT_EXPONENT" : return "Decimal    : 4613\nHexadecimal: 0x1205";
-            case "GL_SPOT_CUTOFF" : return "Decimal    : 4614\nHexadecimal: 0x1206";
-            case "GL_CONSTANT_ATTENUATION" : return "Decimal    : 4615\nHexadecimal: 0x1207";
-            case "GL_LINEAR_ATTENUATION" : return "Decimal    : 4616\nHexadecimal: 0x1208";
-            case "GL_QUADRATIC_ATTENUATION" : return "Decimal    : 4617\nHexadecimal: 0x1209";
-            case "GL_COMPILE" : return "Decimal    : 4864\nHexadecimal: 0x1300";
-            case "GL_COMPILE_AND_EXECUTE" : return "Decimal    : 4865\nHexadecimal: 0x1301";
-            case "GL_EMISSION" : return "Decimal    : 5632\nHexadecimal: 0x1600";
-            case "GL_SHININESS" : return "Decimal    : 5633\nHexadecimal: 0x1601";
-            case "GL_AMBIENT_AND_DIFFUSE" : return "Decimal    : 5634\nHexadecimal: 0x1602";
-            case "GL_COLOR_INDEXES" : return "Decimal    : 5635\nHexadecimal: 0x1603";
-            case "GL_MODELVIEW" : return "Decimal    : 5888\nHexadecimal: 0x1700";
-            case "GL_PROJECTION" : return "Decimal    : 5889\nHexadecimal: 0x1701";
-            case "GL_COLOR_INDEX" : return "Decimal    : 6400\nHexadecimal: 0x1900";
-            case "GL_LUMINANCE" : return "Decimal    : 6409\nHexadecimal: 0x1909";
-            case "GL_LUMINANCE_ALPHA" : return "Decimal    : 6410\nHexadecimal: 0x190a";
-            case "GL_BITMAP" : return "Decimal    : 6656\nHexadecimal: 0x1a00";
-            case "GL_RENDER" : return "Decimal    : 7168\nHexadecimal: 0x1c00";
-            case "GL_FEEDBACK" : return "Decimal    : 7169\nHexadecimal: 0x1c01";
-            case "GL_SELECT" : return "Decimal    : 7170\nHexadecimal: 0x1c02";
-            case "GL_FLAT" : return "Decimal    : 7424\nHexadecimal: 0x1d00";
-            case "GL_SMOOTH" : return "Decimal    : 7425\nHexadecimal: 0x1d01";
-            case "GL_S" : return "Decimal    : 8192\nHexadecimal: 0x2000";
-            case "GL_T" : return "Decimal    : 8193\nHexadecimal: 0x2001";
-            case "GL_R" : return "Decimal    : 8194\nHexadecimal: 0x2002";
-            case "GL_Q" : return "Decimal    : 8195\nHexadecimal: 0x2003";
-            case "GL_MODULATE" : return "Decimal    : 8448\nHexadecimal: 0x2100";
-            case "GL_DECAL" : return "Decimal    : 8449\nHexadecimal: 0x2101";
-            case "GL_TEXTURE_ENV_MODE" : return "Decimal    : 8704\nHexadecimal: 0x2200";
-            case "GL_TEXTURE_ENV_COLOR" : return "Decimal    : 8705\nHexadecimal: 0x2201";
-            case "GL_TEXTURE_ENV" : return "Decimal    : 8960\nHexadecimal: 0x2300";
-            case "GL_EYE_LINEAR" : return "Decimal    : 9216\nHexadecimal: 0x2400";
-            case "GL_OBJECT_LINEAR" : return "Decimal    : 9217\nHexadecimal: 0x2401";
-            case "GL_SPHERE_MAP" : return "Decimal    : 9218\nHexadecimal: 0x2402";
-            case "GL_TEXTURE_GEN_MODE" : return "Decimal    : 9472\nHexadecimal: 0x2500";
-            case "GL_OBJECT_PLANE" : return "Decimal    : 9473\nHexadecimal: 0x2501";
-            case "GL_EYE_PLANE" : return "Decimal    : 9474\nHexadecimal: 0x2502";
-            case "GL_CLAMP" : return "Decimal    : 10496\nHexadecimal: 0x2900";
-            case "GL_CLIENT_PIXEL_STORE_BIT" : return "Decimal    : 1\nHexadecimal: 0x1";
-            case "GL_CLIENT_VERTEX_ARRAY_BIT" : return "Decimal    : 2\nHexadecimal: 0x2";
-            case "GL_INTENSITY" : return "Decimal    : 32841\nHexadecimal: 0x8049";
-            case "GL_TEXTURE_LUMINANCE_SIZE" : return "Decimal    : 32864\nHexadecimal: 0x8060";
-            case "GL_TEXTURE_INTENSITY_SIZE" : return "Decimal    : 32865\nHexadecimal: 0x8061";
-            case "GL_TEXTURE_PRIORITY" : return "Decimal    : 32870\nHexadecimal: 0x8066";
-            case "GL_TEXTURE_RESIDENT" : return "Decimal    : 32871\nHexadecimal: 0x8067";
-            case "GL_NORMAL_ARRAY" : return "Decimal    : 32885\nHexadecimal: 0x8075";
-            case "GL_COLOR_ARRAY" : return "Decimal    : 32886\nHexadecimal: 0x8076";
-            case "GL_INDEX_ARRAY" : return "Decimal    : 32887\nHexadecimal: 0x8077";
-            case "GL_TEXTURE_COORD_ARRAY" : return "Decimal    : 32888\nHexadecimal: 0x8078";
-            case "GL_EDGE_FLAG_ARRAY" : return "Decimal    : 32889\nHexadecimal: 0x8079";
-            case "GL_VERTEX_ARRAY_SIZE" : return "Decimal    : 32890\nHexadecimal: 0x807a";
-            case "GL_VERTEX_ARRAY_TYPE" : return "Decimal    : 32891\nHexadecimal: 0x807b";
-            case "GL_VERTEX_ARRAY_STRIDE" : return "Decimal    : 32892\nHexadecimal: 0x807c";
-            case "GL_NORMAL_ARRAY_TYPE" : return "Decimal    : 32894\nHexadecimal: 0x807e";
-            case "GL_NORMAL_ARRAY_STRIDE" : return "Decimal    : 32895\nHexadecimal: 0x807f";
-            case "GL_COLOR_ARRAY_SIZE" : return "Decimal    : 32897\nHexadecimal: 0x8081";
-            case "GL_COLOR_ARRAY_TYPE" : return "Decimal    : 32898\nHexadecimal: 0x8082";
-            case "GL_COLOR_ARRAY_STRIDE" : return "Decimal    : 32899\nHexadecimal: 0x8083";
-            case "GL_INDEX_ARRAY_TYPE" : return "Decimal    : 32901\nHexadecimal: 0x8085";
-            case "GL_INDEX_ARRAY_STRIDE" : return "Decimal    : 32902\nHexadecimal: 0x8086";
-            case "GL_TEXTURE_COORD_ARRAY_SIZE" : return "Decimal    : 32904\nHexadecimal: 0x8088";
-            case "GL_TEXTURE_COORD_ARRAY_TYPE" : return "Decimal    : 32905\nHexadecimal: 0x8089";
-            case "GL_TEXTURE_COORD_ARRAY_STRIDE" : return "Decimal    : 32906\nHexadecimal: 0x808a";
-            case "GL_EDGE_FLAG_ARRAY_STRIDE" : return "Decimal    : 32908\nHexadecimal: 0x808c";
-            case "GL_VERTEX_ARRAY_POINTER" : return "Decimal    : 32910\nHexadecimal: 0x808e";
-            case "GL_NORMAL_ARRAY_POINTER" : return "Decimal    : 32911\nHexadecimal: 0x808f";
-            case "GL_COLOR_ARRAY_POINTER" : return "Decimal    : 32912\nHexadecimal: 0x8090";
-            case "GL_INDEX_ARRAY_POINTER" : return "Decimal    : 32913\nHexadecimal: 0x8091";
-            case "GL_TEXTURE_COORD_ARRAY_POINTER" : return "Decimal    : 32914\nHexadecimal: 0x8092";
-            case "GL_EDGE_FLAG_ARRAY_POINTER" : return "Decimal    : 32915\nHexadecimal: 0x8093";
-            case "GL_VERTEX_ARRAY_EXT" : return "Decimal    : 32884\nHexadecimal: 0x8074";
-            case "GL_NORMAL_ARRAY_EXT" : return "Decimal    : 32885\nHexadecimal: 0x8075";
-            case "GL_COLOR_ARRAY_EXT" : return "Decimal    : 32886\nHexadecimal: 0x8076";
-            case "GL_INDEX_ARRAY_EXT" : return "Decimal    : 32887\nHexadecimal: 0x8077";
-            case "GL_TEXTURE_COORD_ARRAY_EXT" : return "Decimal    : 32888\nHexadecimal: 0x8078";
-            case "GL_EDGE_FLAG_ARRAY_EXT" : return "Decimal    : 32889\nHexadecimal: 0x8079";
-            case "GL_VERTEX_ARRAY_SIZE_EXT" : return "Decimal    : 32890\nHexadecimal: 0x807a";
-            case "GL_VERTEX_ARRAY_TYPE_EXT" : return "Decimal    : 32891\nHexadecimal: 0x807b";
-            case "GL_VERTEX_ARRAY_STRIDE_EXT" : return "Decimal    : 32892\nHexadecimal: 0x807c";
-            case "GL_VERTEX_ARRAY_COUNT_EXT" : return "Decimal    : 32893\nHexadecimal: 0x807d";
-            case "GL_NORMAL_ARRAY_TYPE_EXT" : return "Decimal    : 32894\nHexadecimal: 0x807e";
-            case "GL_NORMAL_ARRAY_STRIDE_EXT" : return "Decimal    : 32895\nHexadecimal: 0x807f";
-            case "GL_NORMAL_ARRAY_COUNT_EXT" : return "Decimal    : 32896\nHexadecimal: 0x8080";
-            case "GL_COLOR_ARRAY_SIZE_EXT" : return "Decimal    : 32897\nHexadecimal: 0x8081";
-            case "GL_COLOR_ARRAY_TYPE_EXT" : return "Decimal    : 32898\nHexadecimal: 0x8082";
-            case "GL_COLOR_ARRAY_STRIDE_EXT" : return "Decimal    : 32899\nHexadecimal: 0x8083";
-            case "GL_COLOR_ARRAY_COUNT_EXT" : return "Decimal    : 32900\nHexadecimal: 0x8084";
-            case "GL_INDEX_ARRAY_TYPE_EXT" : return "Decimal    : 32901\nHexadecimal: 0x8085";
-            case "GL_INDEX_ARRAY_STRIDE_EXT" : return "Decimal    : 32902\nHexadecimal: 0x8086";
-            case "GL_INDEX_ARRAY_COUNT_EXT" : return "Decimal    : 32903\nHexadecimal: 0x8087";
-            case "GL_TEXTURE_COORD_ARRAY_SIZE_EXT" : return "Decimal    : 32904\nHexadecimal: 0x8088";
-            case "GL_TEXTURE_COORD_ARRAY_TYPE_EXT" : return "Decimal    : 32905\nHexadecimal: 0x8089";
-            case "GL_TEXTURE_COORD_ARRAY_STRIDE_EXT" : return "Decimal    : 32906\nHexadecimal: 0x808a";
-            case "GL_TEXTURE_COORD_ARRAY_COUNT_EXT" : return "Decimal    : 32907\nHexadecimal: 0x808b";
-            case "GL_EDGE_FLAG_ARRAY_STRIDE_EXT" : return "Decimal    : 32908\nHexadecimal: 0x808c";
-            case "GL_EDGE_FLAG_ARRAY_COUNT_EXT" : return "Decimal    : 32909\nHexadecimal: 0x808d";
-            case "GL_VERTEX_ARRAY_POINTER_EXT" : return "Decimal    : 32910\nHexadecimal: 0x808e";
-            case "GL_NORMAL_ARRAY_POINTER_EXT" : return "Decimal    : 32911\nHexadecimal: 0x808f";
-            case "GL_COLOR_ARRAY_POINTER_EXT" : return "Decimal    : 32912\nHexadecimal: 0x8090";
-            case "GL_INDEX_ARRAY_POINTER_EXT" : return "Decimal    : 32913\nHexadecimal: 0x8091";
-            case "GL_TEXTURE_COORD_ARRAY_POINTER_EXT" : return "Decimal    : 32914\nHexadecimal: 0x8092";
-            case "GL_EDGE_FLAG_ARRAY_POINTER_EXT" : return "Decimal    : 32915\nHexadecimal: 0x8093";
-            case "GL_BGR_EXT" : return "Decimal    : 32992\nHexadecimal: 0x80e0";
-            case "GL_BGRA_EXT" : return "Decimal    : 32993\nHexadecimal: 0x80e1";
-            case "GL_COLOR_TABLE_FORMAT_EXT" : return "Decimal    : 32984\nHexadecimal: 0x80d8";
-            case "GL_COLOR_TABLE_WIDTH_EXT" : return "Decimal    : 32985\nHexadecimal: 0x80d9";
-            case "GL_COLOR_TABLE_RED_SIZE_EXT" : return "Decimal    : 32986\nHexadecimal: 0x80da";
-            case "GL_COLOR_TABLE_GREEN_SIZE_EXT" : return "Decimal    : 32987\nHexadecimal: 0x80db";
-            case "GL_COLOR_TABLE_BLUE_SIZE_EXT" : return "Decimal    : 32988\nHexadecimal: 0x80dc";
-            case "GL_COLOR_TABLE_ALPHA_SIZE_EXT" : return "Decimal    : 32989\nHexadecimal: 0x80dd";
-            case "GL_COLOR_TABLE_LUMINANCE_SIZE_EXT" : return "Decimal    : 32990\nHexadecimal: 0x80de";
-            case "GL_COLOR_TABLE_INTENSITY_SIZE_EXT" : return "Decimal    : 32991\nHexadecimal: 0x80df";
-            case "GL_MAX_ELEMENTS_VERTICES_WIN" : return "Decimal    : 33000\nHexadecimal: 0x80e8";
-            case "GL_MAX_ELEMENTS_INDICES_WIN" : return "Decimal    : 33001\nHexadecimal: 0x80e9";
-            case "GL_PHONG_WIN" : return "Decimal    : 33002\nHexadecimal: 0x80ea";
-            case "GL_PHONG_HINT_WIN" : return "Decimal    : 33003\nHexadecimal: 0x80eb";
-            case "GL_FOG_SPECULAR_TEXTURE_WIN" : return "Decimal    : 33004\nHexadecimal: 0x80ec";
-        }
-        return "(unknown input string)";
-    }    
-    var value = undefined; 
-    if (input.startsWith("0x") || input.startsWith("0X"))
-    {
+    var theFilter = function(item) { true; };
+    var searchString = input.toUpperCase();
+    theFilter = function(item) {
+        return item.name.indexOf(searchString) !== -1;
+    };
+    if (input.startsWith("0x") || input.startsWith("0X")) {
         value = parseInt(input, 16);
+        var searchString = input.toLowerCase();
+        theFilter = function(item) {
+            return item.hex.startsWith(searchString);
+        };
+    } else {
+        if (!isNaN(parseInt(input, 10))) {
+            theFilter = function(item) {
+                return item.dec.startsWith(input);
+            };
+        }
     }
-    else
-    {
-        value = parseInt(input, 10);
-    }
-    switch (value)
-    {
-            case 256: return "GL_DEPTH_BUFFER_BIT\nGL_TEXTURE_UPDATE_BARRIER_BIT\nGL_DYNAMIC_STORAGE_BIT\nGL_ACCUM";
-            case 1024: return "GL_STENCIL_BUFFER_BIT\nGL_FRONT_LEFT\nGL_FRAMEBUFFER_BARRIER_BIT\nGL_SPARSE_STORAGE_BIT_ARB";
-            case 16384: return "GL_COLOR_BUFFER_BIT\nGL_CLIENT_MAPPED_BUFFER_BARRIER_BIT";
-            case 0: return "GL_FALSE\nGL_POINTS\nGL_ZERO\nGL_NONE\nGL_NO_ERROR";
-            case 1: return "GL_TRUE\nGL_LINES\nGL_ONE\nGL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT\nGL_MAP_READ_BIT\nGL_CONTEXT_CORE_PROFILE_BIT\nGL_SYNC_FLUSH_COMMANDS_BIT\nGL_VERTEX_SHADER_BIT\nGL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT\nGL_CURRENT_BIT\nGL_CLIENT_PIXEL_STORE_BIT";
-            case 2: return "GL_LINE_LOOP\nGL_MAP_WRITE_BIT\nGL_CONTEXT_COMPATIBILITY_PROFILE_BIT\nGL_FRAGMENT_SHADER_BIT\nGL_ELEMENT_ARRAY_BARRIER_BIT\nGL_CONTEXT_FLAG_DEBUG_BIT\nGL_POINT_BIT\nGL_CLIENT_VERTEX_ARRAY_BIT";
-            case 3: return "GL_LINE_STRIP";
-            case 4: return "GL_TRIANGLES\nGL_MAP_INVALIDATE_RANGE_BIT\nGL_GEOMETRY_SHADER_BIT\nGL_UNIFORM_BARRIER_BIT\nGL_CONTEXT_FLAG_ROBUST_ACCESS_BIT\nGL_LINE_BIT";
-            case 5: return "GL_TRIANGLE_STRIP";
-            case 6: return "GL_TRIANGLE_FAN";
-            case 7: return "GL_QUADS";
-            case 512: return "GL_NEVER\nGL_BUFFER_UPDATE_BARRIER_BIT\nGL_CLIENT_STORAGE_BIT\nGL_ACCUM_BUFFER_BIT";
-            case 513: return "GL_LESS";
-            case 514: return "GL_EQUAL";
-            case 515: return "GL_LEQUAL";
-            case 516: return "GL_GREATER";
-            case 517: return "GL_NOTEQUAL";
-            case 518: return "GL_GEQUAL";
-            case 519: return "GL_ALWAYS";
-            case 768: return "GL_SRC_COLOR";
-            case 769: return "GL_ONE_MINUS_SRC_COLOR";
-            case 770: return "GL_SRC_ALPHA";
-            case 771: return "GL_ONE_MINUS_SRC_ALPHA";
-            case 772: return "GL_DST_ALPHA";
-            case 773: return "GL_ONE_MINUS_DST_ALPHA";
-            case 774: return "GL_DST_COLOR";
-            case 775: return "GL_ONE_MINUS_DST_COLOR";
-            case 776: return "GL_SRC_ALPHA_SATURATE";
-            case 1025: return "GL_FRONT_RIGHT";
-            case 1026: return "GL_BACK_LEFT";
-            case 1027: return "GL_BACK_RIGHT";
-            case 1028: return "GL_FRONT";
-            case 1029: return "GL_BACK";
-            case 1030: return "GL_LEFT";
-            case 1031: return "GL_RIGHT";
-            case 1032: return "GL_FRONT_AND_BACK";
-            case 1280: return "GL_INVALID_ENUM";
-            case 1281: return "GL_INVALID_VALUE";
-            case 1282: return "GL_INVALID_OPERATION";
-            case 1285: return "GL_OUT_OF_MEMORY";
-            case 2304: return "GL_CW";
-            case 2305: return "GL_CCW";
-            case 2833: return "GL_POINT_SIZE";
-            case 2834: return "GL_POINT_SIZE_RANGE\nGL_SMOOTH_POINT_SIZE_RANGE";
-            case 2835: return "GL_POINT_SIZE_GRANULARITY\nGL_SMOOTH_POINT_SIZE_GRANULARITY";
-            case 2848: return "GL_LINE_SMOOTH";
-            case 2849: return "GL_LINE_WIDTH";
-            case 2850: return "GL_LINE_WIDTH_RANGE\nGL_SMOOTH_LINE_WIDTH_RANGE";
-            case 2851: return "GL_LINE_WIDTH_GRANULARITY\nGL_SMOOTH_LINE_WIDTH_GRANULARITY";
-            case 2880: return "GL_POLYGON_MODE";
-            case 2881: return "GL_POLYGON_SMOOTH";
-            case 2884: return "GL_CULL_FACE";
-            case 2885: return "GL_CULL_FACE_MODE";
-            case 2886: return "GL_FRONT_FACE";
-            case 2928: return "GL_DEPTH_RANGE";
-            case 2929: return "GL_DEPTH_TEST";
-            case 2930: return "GL_DEPTH_WRITEMASK";
-            case 2931: return "GL_DEPTH_CLEAR_VALUE";
-            case 2932: return "GL_DEPTH_FUNC";
-            case 2960: return "GL_STENCIL_TEST";
-            case 2961: return "GL_STENCIL_CLEAR_VALUE";
-            case 2962: return "GL_STENCIL_FUNC";
-            case 2963: return "GL_STENCIL_VALUE_MASK";
-            case 2964: return "GL_STENCIL_FAIL";
-            case 2965: return "GL_STENCIL_PASS_DEPTH_FAIL";
-            case 2966: return "GL_STENCIL_PASS_DEPTH_PASS";
-            case 2967: return "GL_STENCIL_REF";
-            case 2968: return "GL_STENCIL_WRITEMASK";
-            case 2978: return "GL_VIEWPORT";
-            case 3024: return "GL_DITHER";
-            case 3040: return "GL_BLEND_DST";
-            case 3041: return "GL_BLEND_SRC";
-            case 3042: return "GL_BLEND";
-            case 3056: return "GL_LOGIC_OP_MODE";
-            case 3058: return "GL_COLOR_LOGIC_OP";
-            case 3073: return "GL_DRAW_BUFFER";
-            case 3074: return "GL_READ_BUFFER";
-            case 3088: return "GL_SCISSOR_BOX";
-            case 3089: return "GL_SCISSOR_TEST";
-            case 3106: return "GL_COLOR_CLEAR_VALUE";
-            case 3107: return "GL_COLOR_WRITEMASK";
-            case 3122: return "GL_DOUBLEBUFFER";
-            case 3123: return "GL_STEREO";
-            case 3154: return "GL_LINE_SMOOTH_HINT";
-            case 3155: return "GL_POLYGON_SMOOTH_HINT";
-            case 3312: return "GL_UNPACK_SWAP_BYTES";
-            case 3313: return "GL_UNPACK_LSB_FIRST";
-            case 3314: return "GL_UNPACK_ROW_LENGTH";
-            case 3315: return "GL_UNPACK_SKIP_ROWS";
-            case 3316: return "GL_UNPACK_SKIP_PIXELS";
-            case 3317: return "GL_UNPACK_ALIGNMENT";
-            case 3328: return "GL_PACK_SWAP_BYTES";
-            case 3329: return "GL_PACK_LSB_FIRST";
-            case 3330: return "GL_PACK_ROW_LENGTH";
-            case 3331: return "GL_PACK_SKIP_ROWS";
-            case 3332: return "GL_PACK_SKIP_PIXELS";
-            case 3333: return "GL_PACK_ALIGNMENT";
-            case 3379: return "GL_MAX_TEXTURE_SIZE";
-            case 3386: return "GL_MAX_VIEWPORT_DIMS";
-            case 3408: return "GL_SUBPIXEL_BITS";
-            case 10752: return "GL_POLYGON_OFFSET_UNITS";
-            case 10753: return "GL_POLYGON_OFFSET_POINT";
-            case 10754: return "GL_POLYGON_OFFSET_LINE";
-            case 32823: return "GL_POLYGON_OFFSET_FILL";
-            case 32824: return "GL_POLYGON_OFFSET_FACTOR";
-            case 4096: return "GL_TEXTURE_WIDTH\nGL_ATOMIC_COUNTER_BARRIER_BIT\nGL_TRANSFORM_BIT";
-            case 4097: return "GL_TEXTURE_HEIGHT";
-            case 4099: return "GL_TEXTURE_INTERNAL_FORMAT";
-            case 4100: return "GL_TEXTURE_BORDER_COLOR";
-            case 32860: return "GL_TEXTURE_RED_SIZE";
-            case 32861: return "GL_TEXTURE_GREEN_SIZE";
-            case 32862: return "GL_TEXTURE_BLUE_SIZE";
-            case 32863: return "GL_TEXTURE_ALPHA_SIZE";
-            case 4352: return "GL_DONT_CARE";
-            case 4353: return "GL_FASTEST";
-            case 4354: return "GL_NICEST";
-            case 5120: return "GL_BYTE";
-            case 5121: return "GL_UNSIGNED_BYTE";
-            case 5122: return "GL_SHORT";
-            case 5123: return "GL_UNSIGNED_SHORT";
-            case 5124: return "GL_INT";
-            case 5125: return "GL_UNSIGNED_INT";
-            case 5126: return "GL_FLOAT";
-            case 5130: return "GL_DOUBLE";
-            case 1283: return "GL_STACK_OVERFLOW";
-            case 1284: return "GL_STACK_UNDERFLOW";
-            case 5376: return "GL_CLEAR";
-            case 5377: return "GL_AND";
-            case 5378: return "GL_AND_REVERSE";
-            case 5379: return "GL_COPY";
-            case 5380: return "GL_AND_INVERTED";
-            case 5381: return "GL_NOOP";
-            case 5382: return "GL_XOR";
-            case 5383: return "GL_OR";
-            case 5384: return "GL_NOR";
-            case 5385: return "GL_EQUIV";
-            case 5386: return "GL_INVERT";
-            case 5387: return "GL_OR_REVERSE";
-            case 5388: return "GL_COPY_INVERTED";
-            case 5389: return "GL_OR_INVERTED";
-            case 5390: return "GL_NAND";
-            case 5391: return "GL_SET";
-            case 5890: return "GL_TEXTURE";
-            case 6144: return "GL_COLOR";
-            case 6145: return "GL_DEPTH";
-            case 6146: return "GL_STENCIL";
-            case 6401: return "GL_STENCIL_INDEX";
-            case 6402: return "GL_DEPTH_COMPONENT";
-            case 6403: return "GL_RED";
-            case 6404: return "GL_GREEN";
-            case 6405: return "GL_BLUE";
-            case 6406: return "GL_ALPHA";
-            case 6407: return "GL_RGB";
-            case 6408: return "GL_RGBA";
-            case 6912: return "GL_POINT";
-            case 6913: return "GL_LINE";
-            case 6914: return "GL_FILL";
-            case 7680: return "GL_KEEP";
-            case 7681: return "GL_REPLACE";
-            case 7682: return "GL_INCR";
-            case 7683: return "GL_DECR";
-            case 7936: return "GL_VENDOR";
-            case 7937: return "GL_RENDERER";
-            case 7938: return "GL_VERSION";
-            case 7939: return "GL_EXTENSIONS";
-            case 9728: return "GL_NEAREST";
-            case 9729: return "GL_LINEAR";
-            case 9984: return "GL_NEAREST_MIPMAP_NEAREST";
-            case 9985: return "GL_LINEAR_MIPMAP_NEAREST";
-            case 9986: return "GL_NEAREST_MIPMAP_LINEAR";
-            case 9987: return "GL_LINEAR_MIPMAP_LINEAR";
-            case 10240: return "GL_TEXTURE_MAG_FILTER";
-            case 10241: return "GL_TEXTURE_MIN_FILTER";
-            case 10242: return "GL_TEXTURE_WRAP_S";
-            case 10243: return "GL_TEXTURE_WRAP_T";
-            case 10497: return "GL_REPEAT";
-            case 32884: return "GL_VERTEX_ARRAY\nGL_VERTEX_ARRAY_EXT";
-            case 32875: return "GL_PACK_SKIP_IMAGES";
-            case 32876: return "GL_PACK_IMAGE_HEIGHT";
-            case 32877: return "GL_UNPACK_SKIP_IMAGES";
-            case 32878: return "GL_UNPACK_IMAGE_HEIGHT";
-            case 32881: return "GL_TEXTURE_DEPTH";
-            case 32882: return "GL_TEXTURE_WRAP_R";
-            case 32992: return "GL_BGR\nGL_BGR_EXT";
-            case 32993: return "GL_BGRA\nGL_BGRA_EXT";
-            case 33000: return "GL_MAX_ELEMENTS_VERTICES\nGL_MAX_ELEMENTS_VERTICES_WIN";
-            case 33001: return "GL_MAX_ELEMENTS_INDICES\nGL_MAX_ELEMENTS_INDICES_WIN";
-            case 33071: return "GL_CLAMP_TO_EDGE";
-            case 33082: return "GL_TEXTURE_MIN_LOD";
-            case 33083: return "GL_TEXTURE_MAX_LOD";
-            case 33084: return "GL_TEXTURE_BASE_LEVEL";
-            case 33085: return "GL_TEXTURE_MAX_LEVEL";
-            case 33902: return "GL_ALIASED_LINE_WIDTH_RANGE";
-            case 34016: return "GL_ACTIVE_TEXTURE";
-            case 32925: return "GL_MULTISAMPLE";
-            case 32926: return "GL_SAMPLE_ALPHA_TO_COVERAGE";
-            case 32927: return "GL_SAMPLE_ALPHA_TO_ONE";
-            case 32928: return "GL_SAMPLE_COVERAGE";
-            case 32936: return "GL_SAMPLE_BUFFERS";
-            case 32937: return "GL_SAMPLES";
-            case 32938: return "GL_SAMPLE_COVERAGE_VALUE";
-            case 32939: return "GL_SAMPLE_COVERAGE_INVERT";
-            case 34067: return "GL_TEXTURE_CUBE_MAP";
-            case 34068: return "GL_TEXTURE_BINDING_CUBE_MAP";
-            case 34069: return "GL_TEXTURE_CUBE_MAP_POSITIVE_X";
-            case 34070: return "GL_TEXTURE_CUBE_MAP_NEGATIVE_X";
-            case 34071: return "GL_TEXTURE_CUBE_MAP_POSITIVE_Y";
-            case 34072: return "GL_TEXTURE_CUBE_MAP_NEGATIVE_Y";
-            case 34073: return "GL_TEXTURE_CUBE_MAP_POSITIVE_Z";
-            case 34074: return "GL_TEXTURE_CUBE_MAP_NEGATIVE_Z";
-            case 34075: return "GL_PROXY_TEXTURE_CUBE_MAP";
-            case 34076: return "GL_MAX_CUBE_MAP_TEXTURE_SIZE";
-            case 34029: return "GL_COMPRESSED_RGB";
-            case 34030: return "GL_COMPRESSED_RGBA";
-            case 34031: return "GL_TEXTURE_COMPRESSION_HINT";
-            case 34464: return "GL_TEXTURE_COMPRESSED_IMAGE_SIZE";
-            case 34465: return "GL_TEXTURE_COMPRESSED";
-            case 34466: return "GL_NUM_COMPRESSED_TEXTURE_FORMATS";
-            case 34467: return "GL_COMPRESSED_TEXTURE_FORMATS";
-            case 33069: return "GL_CLAMP_TO_BORDER";
-            case 32968: return "GL_BLEND_DST_RGB";
-            case 32969: return "GL_BLEND_SRC_RGB";
-            case 32970: return "GL_BLEND_DST_ALPHA";
-            case 32971: return "GL_BLEND_SRC_ALPHA";
-            case 33064: return "GL_POINT_FADE_THRESHOLD_SIZE";
-            case 33648: return "GL_MIRRORED_REPEAT";
-            case 34045: return "GL_MAX_TEXTURE_LOD_BIAS";
-            case 34049: return "GL_TEXTURE_LOD_BIAS";
-            case 34055: return "GL_INCR_WRAP";
-            case 34056: return "GL_DECR_WRAP";
-            case 34890: return "GL_TEXTURE_DEPTH_SIZE";
-            case 34892: return "GL_TEXTURE_COMPARE_MODE";
-            case 34893: return "GL_TEXTURE_COMPARE_FUNC";
-            case 32774: return "GL_FUNC_ADD";
-            case 32778: return "GL_FUNC_SUBTRACT";
-            case 32779: return "GL_FUNC_REVERSE_SUBTRACT";
-            case 32775: return "GL_MIN";
-            case 32776: return "GL_MAX";
-            case 32769: return "GL_CONSTANT_COLOR";
-            case 32770: return "GL_ONE_MINUS_CONSTANT_COLOR";
-            case 32771: return "GL_CONSTANT_ALPHA";
-            case 32772: return "GL_ONE_MINUS_CONSTANT_ALPHA";
-            case 34660: return "GL_BUFFER_SIZE";
-            case 34661: return "GL_BUFFER_USAGE";
-            case 34916: return "GL_QUERY_COUNTER_BITS";
-            case 34917: return "GL_CURRENT_QUERY";
-            case 34918: return "GL_QUERY_RESULT";
-            case 34919: return "GL_QUERY_RESULT_AVAILABLE";
-            case 34962: return "GL_ARRAY_BUFFER";
-            case 34963: return "GL_ELEMENT_ARRAY_BUFFER";
-            case 34964: return "GL_ARRAY_BUFFER_BINDING";
-            case 34965: return "GL_ELEMENT_ARRAY_BUFFER_BINDING";
-            case 34975: return "GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING";
-            case 35000: return "GL_READ_ONLY";
-            case 35001: return "GL_WRITE_ONLY";
-            case 35002: return "GL_READ_WRITE";
-            case 35003: return "GL_BUFFER_ACCESS";
-            case 35004: return "GL_BUFFER_MAPPED";
-            case 35005: return "GL_BUFFER_MAP_POINTER";
-            case 35040: return "GL_STREAM_DRAW";
-            case 35041: return "GL_STREAM_READ";
-            case 35042: return "GL_STREAM_COPY";
-            case 35044: return "GL_STATIC_DRAW";
-            case 35045: return "GL_STATIC_READ";
-            case 35046: return "GL_STATIC_COPY";
-            case 35048: return "GL_DYNAMIC_DRAW";
-            case 35049: return "GL_DYNAMIC_READ";
-            case 35050: return "GL_DYNAMIC_COPY";
-            case 35092: return "GL_SAMPLES_PASSED";
-            case 32777: return "GL_BLEND_EQUATION_RGB\nGL_BLEND_EQUATION";
-            case 34338: return "GL_VERTEX_ATTRIB_ARRAY_ENABLED";
-            case 34339: return "GL_VERTEX_ATTRIB_ARRAY_SIZE";
-            case 34340: return "GL_VERTEX_ATTRIB_ARRAY_STRIDE";
-            case 34341: return "GL_VERTEX_ATTRIB_ARRAY_TYPE";
-            case 34342: return "GL_CURRENT_VERTEX_ATTRIB";
-            case 34370: return "GL_VERTEX_PROGRAM_POINT_SIZE\nGL_PROGRAM_POINT_SIZE";
-            case 34373: return "GL_VERTEX_ATTRIB_ARRAY_POINTER";
-            case 34816: return "GL_STENCIL_BACK_FUNC";
-            case 34817: return "GL_STENCIL_BACK_FAIL";
-            case 34818: return "GL_STENCIL_BACK_PASS_DEPTH_FAIL";
-            case 34819: return "GL_STENCIL_BACK_PASS_DEPTH_PASS";
-            case 34852: return "GL_MAX_DRAW_BUFFERS";
-            case 34877: return "GL_BLEND_EQUATION_ALPHA";
-            case 34921: return "GL_MAX_VERTEX_ATTRIBS";
-            case 34922: return "GL_VERTEX_ATTRIB_ARRAY_NORMALIZED";
-            case 34930: return "GL_MAX_TEXTURE_IMAGE_UNITS";
-            case 35632: return "GL_FRAGMENT_SHADER";
-            case 35633: return "GL_VERTEX_SHADER";
-            case 35657: return "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS";
-            case 35658: return "GL_MAX_VERTEX_UNIFORM_COMPONENTS";
-            case 35659: return "GL_MAX_VARYING_FLOATS\nGL_MAX_VARYING_COMPONENTS";
-            case 35660: return "GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS";
-            case 35661: return "GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS";
-            case 35663: return "GL_SHADER_TYPE";
-            case 35670: return "GL_BOOL";
-            case 35680: return "GL_SAMPLER_CUBE";
-            case 35712: return "GL_DELETE_STATUS";
-            case 35713: return "GL_COMPILE_STATUS";
-            case 35714: return "GL_LINK_STATUS";
-            case 35715: return "GL_VALIDATE_STATUS";
-            case 35716: return "GL_INFO_LOG_LENGTH";
-            case 35717: return "GL_ATTACHED_SHADERS";
-            case 35718: return "GL_ACTIVE_UNIFORMS";
-            case 35719: return "GL_ACTIVE_UNIFORM_MAX_LENGTH";
-            case 35720: return "GL_SHADER_SOURCE_LENGTH";
-            case 35721: return "GL_ACTIVE_ATTRIBUTES";
-            case 35722: return "GL_ACTIVE_ATTRIBUTE_MAX_LENGTH";
-            case 35723: return "GL_FRAGMENT_SHADER_DERIVATIVE_HINT";
-            case 35724: return "GL_SHADING_LANGUAGE_VERSION";
-            case 35725: return "GL_CURRENT_PROGRAM";
-            case 36000: return "GL_POINT_SPRITE_COORD_ORIGIN";
-            case 36001: return "GL_LOWER_LEFT";
-            case 36002: return "GL_UPPER_LEFT";
-            case 36003: return "GL_STENCIL_BACK_REF";
-            case 36004: return "GL_STENCIL_BACK_VALUE_MASK";
-            case 36005: return "GL_STENCIL_BACK_WRITEMASK";
-            case 35051: return "GL_PIXEL_PACK_BUFFER";
-            case 35052: return "GL_PIXEL_UNPACK_BUFFER";
-            case 35053: return "GL_PIXEL_PACK_BUFFER_BINDING";
-            case 35055: return "GL_PIXEL_UNPACK_BUFFER_BINDING";
-            case 35904: return "GL_SRGB";
-            case 35906: return "GL_SRGB_ALPHA";
-            case 35912: return "GL_COMPRESSED_SRGB";
-            case 35913: return "GL_COMPRESSED_SRGB_ALPHA";
-            case 34894: return "GL_COMPARE_REF_TO_TEXTURE";
-            case 3378: return "GL_MAX_CLIP_DISTANCES\nGL_MAX_CLIP_PLANES";
-            case 33307: return "GL_MAJOR_VERSION";
-            case 33308: return "GL_MINOR_VERSION";
-            case 33309: return "GL_NUM_EXTENSIONS";
-            case 33310: return "GL_CONTEXT_FLAGS";
-            case 33317: return "GL_COMPRESSED_RED";
-            case 33318: return "GL_COMPRESSED_RG";
-            case 35069: return "GL_VERTEX_ATTRIB_ARRAY_INTEGER";
-            case 35071: return "GL_MAX_ARRAY_TEXTURE_LAYERS";
-            case 35076: return "GL_MIN_PROGRAM_TEXEL_OFFSET";
-            case 35077: return "GL_MAX_PROGRAM_TEXEL_OFFSET";
-            case 35100: return "GL_CLAMP_READ_COLOR";
-            case 35101: return "GL_FIXED_ONLY";
-            case 35903: return "GL_TEXTURE_SHARED_SIZE";
-            case 35958: return "GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH";
-            case 35967: return "GL_TRANSFORM_FEEDBACK_BUFFER_MODE";
-            case 35968: return "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS";
-            case 35971: return "GL_TRANSFORM_FEEDBACK_VARYINGS";
-            case 35972: return "GL_TRANSFORM_FEEDBACK_BUFFER_START";
-            case 35973: return "GL_TRANSFORM_FEEDBACK_BUFFER_SIZE";
-            case 35975: return "GL_PRIMITIVES_GENERATED";
-            case 35976: return "GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN";
-            case 35977: return "GL_RASTERIZER_DISCARD";
-            case 35978: return "GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS";
-            case 35979: return "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS";
-            case 35980: return "GL_INTERLEAVED_ATTRIBS";
-            case 35981: return "GL_SEPARATE_ATTRIBS";
-            case 35982: return "GL_TRANSFORM_FEEDBACK_BUFFER";
-            case 35983: return "GL_TRANSFORM_FEEDBACK_BUFFER_BINDING";
-            case 36244: return "GL_RED_INTEGER";
-            case 36245: return "GL_GREEN_INTEGER";
-            case 36246: return "GL_BLUE_INTEGER";
-            case 36248: return "GL_RGB_INTEGER";
-            case 36249: return "GL_RGBA_INTEGER";
-            case 36250: return "GL_BGR_INTEGER";
-            case 36251: return "GL_BGRA_INTEGER";
-            case 36293: return "GL_SAMPLER_CUBE_SHADOW";
-            case 36300: return "GL_INT_SAMPLER_CUBE";
-            case 36308: return "GL_UNSIGNED_INT_SAMPLER_CUBE";
-            case 36371: return "GL_QUERY_WAIT";
-            case 36372: return "GL_QUERY_NO_WAIT";
-            case 36373: return "GL_QUERY_BY_REGION_WAIT";
-            case 36374: return "GL_QUERY_BY_REGION_NO_WAIT";
-            case 37151: return "GL_BUFFER_ACCESS_FLAGS";
-            case 37152: return "GL_BUFFER_MAP_LENGTH";
-            case 37153: return "GL_BUFFER_MAP_OFFSET";
-            case 1286: return "GL_INVALID_FRAMEBUFFER_OPERATION";
-            case 33296: return "GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING";
-            case 33297: return "GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE";
-            case 33298: return "GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE";
-            case 33299: return "GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE";
-            case 33300: return "GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE";
-            case 33301: return "GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE";
-            case 33302: return "GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE";
-            case 33303: return "GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE";
-            case 33304: return "GL_FRAMEBUFFER_DEFAULT";
-            case 33305: return "GL_FRAMEBUFFER_UNDEFINED";
-            case 33306: return "GL_DEPTH_STENCIL_ATTACHMENT";
-            case 34024: return "GL_MAX_RENDERBUFFER_SIZE";
-            case 34041: return "GL_DEPTH_STENCIL";
-            case 35057: return "GL_TEXTURE_STENCIL_SIZE";
-            case 35856: return "GL_TEXTURE_RED_TYPE";
-            case 35857: return "GL_TEXTURE_GREEN_TYPE";
-            case 35858: return "GL_TEXTURE_BLUE_TYPE";
-            case 35859: return "GL_TEXTURE_ALPHA_TYPE";
-            case 35862: return "GL_TEXTURE_DEPTH_TYPE";
-            case 35863: return "GL_UNSIGNED_NORMALIZED";
-            case 36006: return "GL_FRAMEBUFFER_BINDING\nGL_DRAW_FRAMEBUFFER_BINDING";
-            case 36007: return "GL_RENDERBUFFER_BINDING";
-            case 36008: return "GL_READ_FRAMEBUFFER";
-            case 36009: return "GL_DRAW_FRAMEBUFFER";
-            case 36010: return "GL_READ_FRAMEBUFFER_BINDING";
-            case 36011: return "GL_RENDERBUFFER_SAMPLES";
-            case 36048: return "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE";
-            case 36049: return "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME";
-            case 36050: return "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL";
-            case 36051: return "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE";
-            case 36052: return "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER";
-            case 36053: return "GL_FRAMEBUFFER_COMPLETE";
-            case 36054: return "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT";
-            case 36055: return "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT";
-            case 36059: return "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER";
-            case 36060: return "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER";
-            case 36061: return "GL_FRAMEBUFFER_UNSUPPORTED";
-            case 36063: return "GL_MAX_COLOR_ATTACHMENTS";
-            case 36096: return "GL_DEPTH_ATTACHMENT";
-            case 36128: return "GL_STENCIL_ATTACHMENT";
-            case 36160: return "GL_FRAMEBUFFER";
-            case 36161: return "GL_RENDERBUFFER";
-            case 36162: return "GL_RENDERBUFFER_WIDTH";
-            case 36163: return "GL_RENDERBUFFER_HEIGHT";
-            case 36164: return "GL_RENDERBUFFER_INTERNAL_FORMAT";
-            case 36176: return "GL_RENDERBUFFER_RED_SIZE";
-            case 36177: return "GL_RENDERBUFFER_GREEN_SIZE";
-            case 36178: return "GL_RENDERBUFFER_BLUE_SIZE";
-            case 36179: return "GL_RENDERBUFFER_ALPHA_SIZE";
-            case 36180: return "GL_RENDERBUFFER_DEPTH_SIZE";
-            case 36181: return "GL_RENDERBUFFER_STENCIL_SIZE";
-            case 36182: return "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE";
-            case 36183: return "GL_MAX_SAMPLES";
-            case 36281: return "GL_FRAMEBUFFER_SRGB";
-            case 5131: return "GL_HALF_FLOAT";
-            case 8: return "GL_MAP_INVALIDATE_BUFFER_BIT\nGL_TESS_CONTROL_SHADER_BIT\nGL_TEXTURE_FETCH_BARRIER_BIT\nGL_CONTEXT_FLAG_NO_ERROR_BIT_KHR\nGL_POLYGON_BIT\nGL_QUAD_STRIP";
-            case 16: return "GL_MAP_FLUSH_EXPLICIT_BIT\nGL_TESS_EVALUATION_SHADER_BIT\nGL_POLYGON_STIPPLE_BIT";
-            case 32: return "GL_MAP_UNSYNCHRONIZED_BIT\nGL_SHADER_IMAGE_ACCESS_BARRIER_BIT\nGL_COMPUTE_SHADER_BIT\nGL_PIXEL_MODE_BIT";
-            case 33319: return "GL_RG";
-            case 33320: return "GL_RG_INTEGER";
-            case 34229: return "GL_VERTEX_ARRAY_BINDING";
-            case 36290: return "GL_SAMPLER_BUFFER";
-            case 36304: return "GL_INT_SAMPLER_BUFFER";
-            case 36312: return "GL_UNSIGNED_INT_SAMPLER_BUFFER";
-            case 35882: return "GL_TEXTURE_BUFFER\nGL_TEXTURE_BUFFER_BINDING";
-            case 35883: return "GL_MAX_TEXTURE_BUFFER_SIZE";
-            case 35884: return "GL_TEXTURE_BINDING_BUFFER";
-            case 35885: return "GL_TEXTURE_BUFFER_DATA_STORE_BINDING";
-            case 34037: return "GL_TEXTURE_RECTANGLE";
-            case 34038: return "GL_TEXTURE_BINDING_RECTANGLE";
-            case 34039: return "GL_PROXY_TEXTURE_RECTANGLE";
-            case 34040: return "GL_MAX_RECTANGLE_TEXTURE_SIZE";
-            case 36764: return "GL_SIGNED_NORMALIZED";
-            case 36765: return "GL_PRIMITIVE_RESTART";
-            case 36766: return "GL_PRIMITIVE_RESTART_INDEX";
-            case 36662: return "GL_COPY_READ_BUFFER\nGL_COPY_READ_BUFFER_BINDING";
-            case 36663: return "GL_COPY_WRITE_BUFFER\nGL_COPY_WRITE_BUFFER_BINDING";
-            case 35345: return "GL_UNIFORM_BUFFER";
-            case 35368: return "GL_UNIFORM_BUFFER_BINDING";
-            case 35369: return "GL_UNIFORM_BUFFER_START";
-            case 35370: return "GL_UNIFORM_BUFFER_SIZE";
-            case 35371: return "GL_MAX_VERTEX_UNIFORM_BLOCKS";
-            case 35372: return "GL_MAX_GEOMETRY_UNIFORM_BLOCKS";
-            case 35373: return "GL_MAX_FRAGMENT_UNIFORM_BLOCKS";
-            case 35374: return "GL_MAX_COMBINED_UNIFORM_BLOCKS";
-            case 35375: return "GL_MAX_UNIFORM_BUFFER_BINDINGS";
-            case 35376: return "GL_MAX_UNIFORM_BLOCK_SIZE";
-            case 35377: return "GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS";
-            case 35378: return "GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS";
-            case 35379: return "GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS";
-            case 35380: return "GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT";
-            case 35381: return "GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH";
-            case 35382: return "GL_ACTIVE_UNIFORM_BLOCKS";
-            case 35383: return "GL_UNIFORM_TYPE";
-            case 35384: return "GL_UNIFORM_SIZE";
-            case 35385: return "GL_UNIFORM_NAME_LENGTH";
-            case 35386: return "GL_UNIFORM_BLOCK_INDEX";
-            case 35387: return "GL_UNIFORM_OFFSET";
-            case 35388: return "GL_UNIFORM_ARRAY_STRIDE";
-            case 35389: return "GL_UNIFORM_MATRIX_STRIDE";
-            case 35390: return "GL_UNIFORM_IS_ROW_MAJOR";
-            case 35391: return "GL_UNIFORM_BLOCK_BINDING";
-            case 35392: return "GL_UNIFORM_BLOCK_DATA_SIZE";
-            case 35393: return "GL_UNIFORM_BLOCK_NAME_LENGTH";
-            case 35394: return "GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS";
-            case 35395: return "GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES";
-            case 35396: return "GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER";
-            case 35397: return "GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER";
-            case 35398: return "GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER";
-            case 10: return "GL_LINES_ADJACENCY";
-            case 11: return "GL_LINE_STRIP_ADJACENCY";
-            case 12: return "GL_TRIANGLES_ADJACENCY";
-            case 13: return "GL_TRIANGLE_STRIP_ADJACENCY";
-            case 35881: return "GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS";
-            case 36263: return "GL_FRAMEBUFFER_ATTACHMENT_LAYERED";
-            case 36264: return "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS";
-            case 36313: return "GL_GEOMETRY_SHADER";
-            case 35094: return "GL_GEOMETRY_VERTICES_OUT";
-            case 35095: return "GL_GEOMETRY_INPUT_TYPE";
-            case 35096: return "GL_GEOMETRY_OUTPUT_TYPE";
-            case 36319: return "GL_MAX_GEOMETRY_UNIFORM_COMPONENTS";
-            case 36320: return "GL_MAX_GEOMETRY_OUTPUT_VERTICES";
-            case 36321: return "GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS";
-            case 37154: return "GL_MAX_VERTEX_OUTPUT_COMPONENTS";
-            case 37155: return "GL_MAX_GEOMETRY_INPUT_COMPONENTS";
-            case 37156: return "GL_MAX_GEOMETRY_OUTPUT_COMPONENTS";
-            case 37157: return "GL_MAX_FRAGMENT_INPUT_COMPONENTS";
-            case 37158: return "GL_CONTEXT_PROFILE_MASK";
-            case 34383: return "GL_DEPTH_CLAMP";
-            case 36428: return "GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION";
-            case 36429: return "GL_FIRST_VERTEX_CONVENTION";
-            case 36430: return "GL_LAST_VERTEX_CONVENTION";
-            case 36431: return "GL_PROVOKING_VERTEX";
-            case 34895: return "GL_TEXTURE_CUBE_MAP_SEAMLESS";
-            case 37137: return "GL_MAX_SERVER_WAIT_TIMEOUT";
-            case 37138: return "GL_OBJECT_TYPE";
-            case 37139: return "GL_SYNC_CONDITION";
-            case 37140: return "GL_SYNC_STATUS";
-            case 37141: return "GL_SYNC_FLAGS";
-            case 37142: return "GL_SYNC_FENCE";
-            case 37143: return "GL_SYNC_GPU_COMMANDS_COMPLETE";
-            case 37144: return "GL_UNSIGNALED";
-            case 37145: return "GL_SIGNALED";
-            case 37146: return "GL_ALREADY_SIGNALED";
-            case 37147: return "GL_TIMEOUT_EXPIRED";
-            case 37148: return "GL_CONDITION_SATISFIED";
-            case 37149: return "GL_WAIT_FAILED";
-            case 36432: return "GL_SAMPLE_POSITION";
-            case 36433: return "GL_SAMPLE_MASK";
-            case 36434: return "GL_SAMPLE_MASK_VALUE";
-            case 36441: return "GL_MAX_SAMPLE_MASK_WORDS";
-            case 37126: return "GL_TEXTURE_SAMPLES";
-            case 37127: return "GL_TEXTURE_FIXED_SAMPLE_LOCATIONS";
-            case 37134: return "GL_MAX_COLOR_TEXTURE_SAMPLES";
-            case 37135: return "GL_MAX_DEPTH_TEXTURE_SAMPLES";
-            case 37136: return "GL_MAX_INTEGER_SAMPLES";
-            case 35070: return "GL_VERTEX_ATTRIB_ARRAY_DIVISOR";
-            case 35068: return "GL_MAX_DUAL_SOURCE_DRAW_BUFFERS";
-            case 35887: return "GL_ANY_SAMPLES_PASSED";
-            case 35097: return "GL_SAMPLER_BINDING";
-            case 36418: return "GL_TEXTURE_SWIZZLE_R";
-            case 36419: return "GL_TEXTURE_SWIZZLE_G";
-            case 36420: return "GL_TEXTURE_SWIZZLE_B";
-            case 36421: return "GL_TEXTURE_SWIZZLE_A";
-            case 36422: return "GL_TEXTURE_SWIZZLE_RGBA";
-            case 35007: return "GL_TIME_ELAPSED";
-            case 36392: return "GL_TIMESTAMP";
-            case 35894: return "GL_SAMPLE_SHADING";
-            case 35895: return "GL_MIN_SAMPLE_SHADING_VALUE";
-            case 36446: return "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET";
-            case 36447: return "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET";
-            case 36873: return "GL_TEXTURE_CUBE_MAP_ARRAY";
-            case 36874: return "GL_TEXTURE_BINDING_CUBE_MAP_ARRAY";
-            case 36875: return "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY";
-            case 36876: return "GL_SAMPLER_CUBE_MAP_ARRAY";
-            case 36877: return "GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW";
-            case 36878: return "GL_INT_SAMPLER_CUBE_MAP_ARRAY";
-            case 36879: return "GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY";
-            case 36671: return "GL_DRAW_INDIRECT_BUFFER";
-            case 36675: return "GL_DRAW_INDIRECT_BUFFER_BINDING";
-            case 34943: return "GL_GEOMETRY_SHADER_INVOCATIONS";
-            case 36442: return "GL_MAX_GEOMETRY_SHADER_INVOCATIONS";
-            case 36443: return "GL_MIN_FRAGMENT_INTERPOLATION_OFFSET";
-            case 36444: return "GL_MAX_FRAGMENT_INTERPOLATION_OFFSET";
-            case 36445: return "GL_FRAGMENT_INTERPOLATION_OFFSET_BITS";
-            case 36465: return "GL_MAX_VERTEX_STREAMS";
-            case 36325: return "GL_ACTIVE_SUBROUTINES";
-            case 36326: return "GL_ACTIVE_SUBROUTINE_UNIFORMS";
-            case 36423: return "GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS";
-            case 36424: return "GL_ACTIVE_SUBROUTINE_MAX_LENGTH";
-            case 36425: return "GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH";
-            case 36327: return "GL_MAX_SUBROUTINES";
-            case 36328: return "GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS";
-            case 36426: return "GL_NUM_COMPATIBLE_SUBROUTINES";
-            case 36427: return "GL_COMPATIBLE_SUBROUTINES";
-            case 14: return "GL_PATCHES";
-            case 36466: return "GL_PATCH_VERTICES";
-            case 36467: return "GL_PATCH_DEFAULT_INNER_LEVEL";
-            case 36468: return "GL_PATCH_DEFAULT_OUTER_LEVEL";
-            case 36469: return "GL_TESS_CONTROL_OUTPUT_VERTICES";
-            case 36470: return "GL_TESS_GEN_MODE";
-            case 36471: return "GL_TESS_GEN_SPACING";
-            case 36472: return "GL_TESS_GEN_VERTEX_ORDER";
-            case 36473: return "GL_TESS_GEN_POINT_MODE";
-            case 36474: return "GL_ISOLINES";
-            case 36475: return "GL_FRACTIONAL_ODD";
-            case 36476: return "GL_FRACTIONAL_EVEN";
-            case 36477: return "GL_MAX_PATCH_VERTICES";
-            case 36478: return "GL_MAX_TESS_GEN_LEVEL";
-            case 36479: return "GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS";
-            case 36480: return "GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS";
-            case 36481: return "GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS";
-            case 36482: return "GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS";
-            case 36483: return "GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS";
-            case 36484: return "GL_MAX_TESS_PATCH_COMPONENTS";
-            case 36485: return "GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS";
-            case 36486: return "GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS";
-            case 36489: return "GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS";
-            case 36490: return "GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS";
-            case 34924: return "GL_MAX_TESS_CONTROL_INPUT_COMPONENTS";
-            case 34925: return "GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS";
-            case 36382: return "GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS";
-            case 36383: return "GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS";
-            case 34032: return "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER";
-            case 34033: return "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER";
-            case 36487: return "GL_TESS_EVALUATION_SHADER";
-            case 36488: return "GL_TESS_CONTROL_SHADER";
-            case 36386: return "GL_TRANSFORM_FEEDBACK";
-            case 36387: return "GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED\nGL_TRANSFORM_FEEDBACK_PAUSED";
-            case 36388: return "GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE\nGL_TRANSFORM_FEEDBACK_ACTIVE";
-            case 36389: return "GL_TRANSFORM_FEEDBACK_BINDING";
-            case 36464: return "GL_MAX_TRANSFORM_FEEDBACK_BUFFERS";
-            case 5132: return "GL_FIXED";
-            case 35738: return "GL_IMPLEMENTATION_COLOR_READ_TYPE";
-            case 35739: return "GL_IMPLEMENTATION_COLOR_READ_FORMAT";
-            case 36336: return "GL_LOW_FLOAT";
-            case 36337: return "GL_MEDIUM_FLOAT";
-            case 36338: return "GL_HIGH_FLOAT";
-            case 36339: return "GL_LOW_INT";
-            case 36340: return "GL_MEDIUM_INT";
-            case 36341: return "GL_HIGH_INT";
-            case 36346: return "GL_SHADER_COMPILER";
-            case 36344: return "GL_SHADER_BINARY_FORMATS";
-            case 36345: return "GL_NUM_SHADER_BINARY_FORMATS";
-            case 36347: return "GL_MAX_VERTEX_UNIFORM_VECTORS";
-            case 36348: return "GL_MAX_VARYING_VECTORS";
-            case 36349: return "GL_MAX_FRAGMENT_UNIFORM_VECTORS";
-            case 33367: return "GL_PROGRAM_BINARY_RETRIEVABLE_HINT";
-            case 34625: return "GL_PROGRAM_BINARY_LENGTH";
-            case 34814: return "GL_NUM_PROGRAM_BINARY_FORMATS";
-            case 34815: return "GL_PROGRAM_BINARY_FORMATS";
-            case 33368: return "GL_PROGRAM_SEPARABLE";
-            case 33369: return "GL_ACTIVE_PROGRAM";
-            case 33370: return "GL_PROGRAM_PIPELINE_BINDING";
-            case 33371: return "GL_MAX_VIEWPORTS";
-            case 33372: return "GL_VIEWPORT_SUBPIXEL_BITS";
-            case 33373: return "GL_VIEWPORT_BOUNDS_RANGE";
-            case 33374: return "GL_LAYER_PROVOKING_VERTEX";
-            case 33375: return "GL_VIEWPORT_INDEX_PROVOKING_VERTEX";
-            case 33376: return "GL_UNDEFINED_VERTEX";
-            case 37159: return "GL_UNPACK_COMPRESSED_BLOCK_WIDTH";
-            case 37160: return "GL_UNPACK_COMPRESSED_BLOCK_HEIGHT";
-            case 37161: return "GL_UNPACK_COMPRESSED_BLOCK_DEPTH";
-            case 37162: return "GL_UNPACK_COMPRESSED_BLOCK_SIZE";
-            case 37163: return "GL_PACK_COMPRESSED_BLOCK_WIDTH";
-            case 37164: return "GL_PACK_COMPRESSED_BLOCK_HEIGHT";
-            case 37165: return "GL_PACK_COMPRESSED_BLOCK_DEPTH";
-            case 37166: return "GL_PACK_COMPRESSED_BLOCK_SIZE";
-            case 37760: return "GL_NUM_SAMPLE_COUNTS";
-            case 37052: return "GL_MIN_MAP_BUFFER_ALIGNMENT";
-            case 37568: return "GL_ATOMIC_COUNTER_BUFFER";
-            case 37569: return "GL_ATOMIC_COUNTER_BUFFER_BINDING";
-            case 37570: return "GL_ATOMIC_COUNTER_BUFFER_START";
-            case 37571: return "GL_ATOMIC_COUNTER_BUFFER_SIZE";
-            case 37572: return "GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE";
-            case 37573: return "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS";
-            case 37574: return "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES";
-            case 37575: return "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER";
-            case 37576: return "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER";
-            case 37577: return "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER";
-            case 37578: return "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER";
-            case 37579: return "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER";
-            case 37580: return "GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS";
-            case 37581: return "GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS";
-            case 37582: return "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS";
-            case 37583: return "GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS";
-            case 37584: return "GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS";
-            case 37585: return "GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS";
-            case 37586: return "GL_MAX_VERTEX_ATOMIC_COUNTERS";
-            case 37587: return "GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS";
-            case 37588: return "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS";
-            case 37589: return "GL_MAX_GEOMETRY_ATOMIC_COUNTERS";
-            case 37590: return "GL_MAX_FRAGMENT_ATOMIC_COUNTERS";
-            case 37591: return "GL_MAX_COMBINED_ATOMIC_COUNTERS";
-            case 37592: return "GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE";
-            case 37596: return "GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS";
-            case 37593: return "GL_ACTIVE_ATOMIC_COUNTER_BUFFERS";
-            case 37594: return "GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX";
-            case 37595: return "GL_UNSIGNED_INT_ATOMIC_COUNTER";
-            case 64: return "GL_COMMAND_BARRIER_BIT\nGL_MAP_PERSISTENT_BIT\nGL_LIGHTING_BIT";
-            case 128: return "GL_PIXEL_BUFFER_BARRIER_BIT\nGL_MAP_COHERENT_BIT\nGL_FOG_BIT";
-            case 2048: return "GL_TRANSFORM_FEEDBACK_BARRIER_BIT\nGL_VIEWPORT_BIT\nGL_EXP";
-            case 36664: return "GL_MAX_IMAGE_UNITS";
-            case 36665: return "GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS\nGL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES";
-            case 36666: return "GL_IMAGE_BINDING_NAME";
-            case 36667: return "GL_IMAGE_BINDING_LEVEL";
-            case 36668: return "GL_IMAGE_BINDING_LAYERED";
-            case 36669: return "GL_IMAGE_BINDING_LAYER";
-            case 36670: return "GL_IMAGE_BINDING_ACCESS";
-            case 36944: return "GL_IMAGE_CUBE";
-            case 36945: return "GL_IMAGE_BUFFER";
-            case 36948: return "GL_IMAGE_CUBE_MAP_ARRAY";
-            case 36955: return "GL_INT_IMAGE_CUBE";
-            case 36956: return "GL_INT_IMAGE_BUFFER";
-            case 36959: return "GL_INT_IMAGE_CUBE_MAP_ARRAY";
-            case 36966: return "GL_UNSIGNED_INT_IMAGE_CUBE";
-            case 36967: return "GL_UNSIGNED_INT_IMAGE_BUFFER";
-            case 36970: return "GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY";
-            case 36973: return "GL_MAX_IMAGE_SAMPLES";
-            case 36974: return "GL_IMAGE_BINDING_FORMAT";
-            case 37063: return "GL_IMAGE_FORMAT_COMPATIBILITY_TYPE";
-            case 37064: return "GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE";
-            case 37065: return "GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS";
-            case 37066: return "GL_MAX_VERTEX_IMAGE_UNIFORMS";
-            case 37067: return "GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS";
-            case 37068: return "GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS";
-            case 37069: return "GL_MAX_GEOMETRY_IMAGE_UNIFORMS";
-            case 37070: return "GL_MAX_FRAGMENT_IMAGE_UNIFORMS";
-            case 37071: return "GL_MAX_COMBINED_IMAGE_UNIFORMS";
-            case 36492: return "GL_COMPRESSED_RGBA_BPTC_UNORM";
-            case 36493: return "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM";
-            case 36494: return "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT";
-            case 36495: return "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT";
-            case 37167: return "GL_TEXTURE_IMMUTABLE_FORMAT";
-            case 33513: return "GL_NUM_SHADING_LANGUAGE_VERSIONS";
-            case 34638: return "GL_VERTEX_ATTRIB_ARRAY_LONG";
-            case 36201: return "GL_PRIMITIVE_RESTART_FIXED_INDEX";
-            case 36202: return "GL_ANY_SAMPLES_PASSED_CONSERVATIVE";
-            case 36203: return "GL_MAX_ELEMENT_INDEX";
-            case 37305: return "GL_COMPUTE_SHADER";
-            case 37307: return "GL_MAX_COMPUTE_UNIFORM_BLOCKS";
-            case 37308: return "GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS";
-            case 37309: return "GL_MAX_COMPUTE_IMAGE_UNIFORMS";
-            case 33378: return "GL_MAX_COMPUTE_SHARED_MEMORY_SIZE";
-            case 33379: return "GL_MAX_COMPUTE_UNIFORM_COMPONENTS";
-            case 33380: return "GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS";
-            case 33381: return "GL_MAX_COMPUTE_ATOMIC_COUNTERS";
-            case 33382: return "GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS";
-            case 37099: return "GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS\nGL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB";
-            case 37310: return "GL_MAX_COMPUTE_WORK_GROUP_COUNT";
-            case 37311: return "GL_MAX_COMPUTE_WORK_GROUP_SIZE\nGL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB";
-            case 33383: return "GL_COMPUTE_WORK_GROUP_SIZE";
-            case 37100: return "GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER";
-            case 37101: return "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER";
-            case 37102: return "GL_DISPATCH_INDIRECT_BUFFER";
-            case 37103: return "GL_DISPATCH_INDIRECT_BUFFER_BINDING";
-            case 33346: return "GL_DEBUG_OUTPUT_SYNCHRONOUS";
-            case 33347: return "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH";
-            case 33348: return "GL_DEBUG_CALLBACK_FUNCTION";
-            case 33349: return "GL_DEBUG_CALLBACK_USER_PARAM";
-            case 33350: return "GL_DEBUG_SOURCE_API";
-            case 33351: return "GL_DEBUG_SOURCE_WINDOW_SYSTEM";
-            case 33352: return "GL_DEBUG_SOURCE_SHADER_COMPILER";
-            case 33353: return "GL_DEBUG_SOURCE_THIRD_PARTY";
-            case 33354: return "GL_DEBUG_SOURCE_APPLICATION";
-            case 33355: return "GL_DEBUG_SOURCE_OTHER";
-            case 33356: return "GL_DEBUG_TYPE_ERROR";
-            case 33357: return "GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR";
-            case 33358: return "GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR";
-            case 33359: return "GL_DEBUG_TYPE_PORTABILITY";
-            case 33360: return "GL_DEBUG_TYPE_PERFORMANCE";
-            case 33361: return "GL_DEBUG_TYPE_OTHER";
-            case 37187: return "GL_MAX_DEBUG_MESSAGE_LENGTH";
-            case 37188: return "GL_MAX_DEBUG_LOGGED_MESSAGES";
-            case 37189: return "GL_DEBUG_LOGGED_MESSAGES";
-            case 37190: return "GL_DEBUG_SEVERITY_HIGH";
-            case 37191: return "GL_DEBUG_SEVERITY_MEDIUM";
-            case 37192: return "GL_DEBUG_SEVERITY_LOW";
-            case 33384: return "GL_DEBUG_TYPE_MARKER";
-            case 33385: return "GL_DEBUG_TYPE_PUSH_GROUP";
-            case 33386: return "GL_DEBUG_TYPE_POP_GROUP";
-            case 33387: return "GL_DEBUG_SEVERITY_NOTIFICATION";
-            case 33388: return "GL_MAX_DEBUG_GROUP_STACK_DEPTH";
-            case 33389: return "GL_DEBUG_GROUP_STACK_DEPTH";
-            case 33504: return "GL_BUFFER";
-            case 33505: return "GL_SHADER";
-            case 33506: return "GL_PROGRAM";
-            case 33507: return "GL_QUERY";
-            case 33508: return "GL_PROGRAM_PIPELINE";
-            case 33510: return "GL_SAMPLER";
-            case 33512: return "GL_MAX_LABEL_LENGTH";
-            case 37600: return "GL_DEBUG_OUTPUT";
-            case 33390: return "GL_MAX_UNIFORM_LOCATIONS";
-            case 37648: return "GL_FRAMEBUFFER_DEFAULT_WIDTH";
-            case 37649: return "GL_FRAMEBUFFER_DEFAULT_HEIGHT";
-            case 37650: return "GL_FRAMEBUFFER_DEFAULT_LAYERS";
-            case 37651: return "GL_FRAMEBUFFER_DEFAULT_SAMPLES";
-            case 37652: return "GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS";
-            case 37653: return "GL_MAX_FRAMEBUFFER_WIDTH";
-            case 37654: return "GL_MAX_FRAMEBUFFER_HEIGHT";
-            case 37655: return "GL_MAX_FRAMEBUFFER_LAYERS";
-            case 37656: return "GL_MAX_FRAMEBUFFER_SAMPLES";
-            case 33391: return "GL_INTERNALFORMAT_SUPPORTED";
-            case 33392: return "GL_INTERNALFORMAT_PREFERRED";
-            case 33393: return "GL_INTERNALFORMAT_RED_SIZE";
-            case 33394: return "GL_INTERNALFORMAT_GREEN_SIZE";
-            case 33395: return "GL_INTERNALFORMAT_BLUE_SIZE";
-            case 33396: return "GL_INTERNALFORMAT_ALPHA_SIZE";
-            case 33397: return "GL_INTERNALFORMAT_DEPTH_SIZE";
-            case 33398: return "GL_INTERNALFORMAT_STENCIL_SIZE";
-            case 33399: return "GL_INTERNALFORMAT_SHARED_SIZE";
-            case 33400: return "GL_INTERNALFORMAT_RED_TYPE";
-            case 33401: return "GL_INTERNALFORMAT_GREEN_TYPE";
-            case 33402: return "GL_INTERNALFORMAT_BLUE_TYPE";
-            case 33403: return "GL_INTERNALFORMAT_ALPHA_TYPE";
-            case 33404: return "GL_INTERNALFORMAT_DEPTH_TYPE";
-            case 33405: return "GL_INTERNALFORMAT_STENCIL_TYPE";
-            case 33406: return "GL_MAX_WIDTH";
-            case 33407: return "GL_MAX_HEIGHT";
-            case 33408: return "GL_MAX_DEPTH";
-            case 33409: return "GL_MAX_LAYERS";
-            case 33410: return "GL_MAX_COMBINED_DIMENSIONS";
-            case 33411: return "GL_COLOR_COMPONENTS";
-            case 33412: return "GL_DEPTH_COMPONENTS";
-            case 33413: return "GL_STENCIL_COMPONENTS";
-            case 33414: return "GL_COLOR_RENDERABLE";
-            case 33415: return "GL_DEPTH_RENDERABLE";
-            case 33416: return "GL_STENCIL_RENDERABLE";
-            case 33417: return "GL_FRAMEBUFFER_RENDERABLE";
-            case 33418: return "GL_FRAMEBUFFER_RENDERABLE_LAYERED";
-            case 33419: return "GL_FRAMEBUFFER_BLEND";
-            case 33420: return "GL_READ_PIXELS";
-            case 33421: return "GL_READ_PIXELS_FORMAT";
-            case 33422: return "GL_READ_PIXELS_TYPE";
-            case 33423: return "GL_TEXTURE_IMAGE_FORMAT";
-            case 33424: return "GL_TEXTURE_IMAGE_TYPE";
-            case 33425: return "GL_GET_TEXTURE_IMAGE_FORMAT";
-            case 33426: return "GL_GET_TEXTURE_IMAGE_TYPE";
-            case 33427: return "GL_MIPMAP";
-            case 33428: return "GL_MANUAL_GENERATE_MIPMAP";
-            case 33429: return "GL_AUTO_GENERATE_MIPMAP";
-            case 33430: return "GL_COLOR_ENCODING";
-            case 33431: return "GL_SRGB_READ";
-            case 33432: return "GL_SRGB_WRITE";
-            case 33434: return "GL_FILTER";
-            case 33435: return "GL_VERTEX_TEXTURE";
-            case 33436: return "GL_TESS_CONTROL_TEXTURE";
-            case 33437: return "GL_TESS_EVALUATION_TEXTURE";
-            case 33438: return "GL_GEOMETRY_TEXTURE";
-            case 33439: return "GL_FRAGMENT_TEXTURE";
-            case 33440: return "GL_COMPUTE_TEXTURE";
-            case 33441: return "GL_TEXTURE_SHADOW";
-            case 33442: return "GL_TEXTURE_GATHER";
-            case 33443: return "GL_TEXTURE_GATHER_SHADOW";
-            case 33444: return "GL_SHADER_IMAGE_LOAD";
-            case 33445: return "GL_SHADER_IMAGE_STORE";
-            case 33446: return "GL_SHADER_IMAGE_ATOMIC";
-            case 33447: return "GL_IMAGE_TEXEL_SIZE";
-            case 33448: return "GL_IMAGE_COMPATIBILITY_CLASS";
-            case 33449: return "GL_IMAGE_PIXEL_FORMAT";
-            case 33450: return "GL_IMAGE_PIXEL_TYPE";
-            case 33452: return "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST";
-            case 33453: return "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST";
-            case 33454: return "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE";
-            case 33455: return "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE";
-            case 33457: return "GL_TEXTURE_COMPRESSED_BLOCK_WIDTH";
-            case 33458: return "GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT";
-            case 33459: return "GL_TEXTURE_COMPRESSED_BLOCK_SIZE";
-            case 33460: return "GL_CLEAR_BUFFER";
-            case 33461: return "GL_TEXTURE_VIEW";
-            case 33462: return "GL_VIEW_COMPATIBILITY_CLASS";
-            case 33463: return "GL_FULL_SUPPORT";
-            case 33464: return "GL_CAVEAT_SUPPORT";
-            case 33490: return "GL_VIEW_CLASS_BPTC_UNORM";
-            case 33491: return "GL_VIEW_CLASS_BPTC_FLOAT";
-            case 37601: return "GL_UNIFORM";
-            case 37602: return "GL_UNIFORM_BLOCK";
-            case 37603: return "GL_PROGRAM_INPUT";
-            case 37604: return "GL_PROGRAM_OUTPUT";
-            case 37605: return "GL_BUFFER_VARIABLE";
-            case 37606: return "GL_SHADER_STORAGE_BLOCK";
-            case 37608: return "GL_VERTEX_SUBROUTINE";
-            case 37609: return "GL_TESS_CONTROL_SUBROUTINE";
-            case 37610: return "GL_TESS_EVALUATION_SUBROUTINE";
-            case 37611: return "GL_GEOMETRY_SUBROUTINE";
-            case 37612: return "GL_FRAGMENT_SUBROUTINE";
-            case 37613: return "GL_COMPUTE_SUBROUTINE";
-            case 37614: return "GL_VERTEX_SUBROUTINE_UNIFORM";
-            case 37615: return "GL_TESS_CONTROL_SUBROUTINE_UNIFORM";
-            case 37616: return "GL_TESS_EVALUATION_SUBROUTINE_UNIFORM";
-            case 37617: return "GL_GEOMETRY_SUBROUTINE_UNIFORM";
-            case 37618: return "GL_FRAGMENT_SUBROUTINE_UNIFORM";
-            case 37619: return "GL_COMPUTE_SUBROUTINE_UNIFORM";
-            case 37620: return "GL_TRANSFORM_FEEDBACK_VARYING";
-            case 37621: return "GL_ACTIVE_RESOURCES";
-            case 37622: return "GL_MAX_NAME_LENGTH";
-            case 37623: return "GL_MAX_NUM_ACTIVE_VARIABLES";
-            case 37624: return "GL_MAX_NUM_COMPATIBLE_SUBROUTINES";
-            case 37625: return "GL_NAME_LENGTH";
-            case 37626: return "GL_TYPE";
-            case 37627: return "GL_ARRAY_SIZE";
-            case 37628: return "GL_OFFSET";
-            case 37629: return "GL_BLOCK_INDEX";
-            case 37630: return "GL_ARRAY_STRIDE";
-            case 37631: return "GL_MATRIX_STRIDE";
-            case 37632: return "GL_IS_ROW_MAJOR";
-            case 37633: return "GL_ATOMIC_COUNTER_BUFFER_INDEX";
-            case 37634: return "GL_BUFFER_BINDING";
-            case 37635: return "GL_BUFFER_DATA_SIZE";
-            case 37636: return "GL_NUM_ACTIVE_VARIABLES";
-            case 37637: return "GL_ACTIVE_VARIABLES";
-            case 37638: return "GL_REFERENCED_BY_VERTEX_SHADER";
-            case 37639: return "GL_REFERENCED_BY_TESS_CONTROL_SHADER";
-            case 37640: return "GL_REFERENCED_BY_TESS_EVALUATION_SHADER";
-            case 37641: return "GL_REFERENCED_BY_GEOMETRY_SHADER";
-            case 37642: return "GL_REFERENCED_BY_FRAGMENT_SHADER";
-            case 37643: return "GL_REFERENCED_BY_COMPUTE_SHADER";
-            case 37644: return "GL_TOP_LEVEL_ARRAY_SIZE";
-            case 37645: return "GL_TOP_LEVEL_ARRAY_STRIDE";
-            case 37646: return "GL_LOCATION";
-            case 37647: return "GL_LOCATION_INDEX";
-            case 37607: return "GL_IS_PER_PATCH";
-            case 37074: return "GL_SHADER_STORAGE_BUFFER";
-            case 37075: return "GL_SHADER_STORAGE_BUFFER_BINDING";
-            case 37076: return "GL_SHADER_STORAGE_BUFFER_START";
-            case 37077: return "GL_SHADER_STORAGE_BUFFER_SIZE";
-            case 37078: return "GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS";
-            case 37079: return "GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS";
-            case 37080: return "GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS";
-            case 37081: return "GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS";
-            case 37082: return "GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS";
-            case 37083: return "GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS";
-            case 37084: return "GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS";
-            case 37085: return "GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS";
-            case 37086: return "GL_MAX_SHADER_STORAGE_BLOCK_SIZE";
-            case 37087: return "GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT";
-            case 8192: return "GL_SHADER_STORAGE_BARRIER_BIT\nGL_ENABLE_BIT\nGL_S";
-            case 37098: return "GL_DEPTH_STENCIL_TEXTURE_MODE";
-            case 37277: return "GL_TEXTURE_BUFFER_OFFSET";
-            case 37278: return "GL_TEXTURE_BUFFER_SIZE";
-            case 37279: return "GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT";
-            case 33499: return "GL_TEXTURE_VIEW_MIN_LEVEL";
-            case 33500: return "GL_TEXTURE_VIEW_NUM_LEVELS";
-            case 33501: return "GL_TEXTURE_VIEW_MIN_LAYER";
-            case 33502: return "GL_TEXTURE_VIEW_NUM_LAYERS";
-            case 33503: return "GL_TEXTURE_IMMUTABLE_LEVELS";
-            case 33492: return "GL_VERTEX_ATTRIB_BINDING";
-            case 33493: return "GL_VERTEX_ATTRIB_RELATIVE_OFFSET";
-            case 33494: return "GL_VERTEX_BINDING_DIVISOR";
-            case 33495: return "GL_VERTEX_BINDING_OFFSET";
-            case 33496: return "GL_VERTEX_BINDING_STRIDE";
-            case 33497: return "GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET";
-            case 33498: return "GL_MAX_VERTEX_ATTRIB_BINDINGS";
-            case 36687: return "GL_VERTEX_BINDING_BUFFER";
-            case 33509: return "GL_MAX_VERTEX_ATTRIB_STRIDE";
-            case 33313: return "GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED";
-            case 33311: return "GL_BUFFER_IMMUTABLE_STORAGE";
-            case 33312: return "GL_BUFFER_STORAGE_FLAGS";
-            case 37733: return "GL_CLEAR_TEXTURE";
-            case 37706: return "GL_LOCATION_COMPONENT";
-            case 37707: return "GL_TRANSFORM_FEEDBACK_BUFFER_INDEX";
-            case 37708: return "GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE";
-            case 37266: return "GL_QUERY_BUFFER";
-            case 32768: return "GL_QUERY_BUFFER_BARRIER_BIT\nGL_HINT_BIT";
-            case 37267: return "GL_QUERY_BUFFER_BINDING";
-            case 37268: return "GL_QUERY_RESULT_NO_WAIT";
-            case 34627: return "GL_MIRROR_CLAMP_TO_EDGE";
-            case 1287: return "GL_CONTEXT_LOST";
-            case 37726: return "GL_NEGATIVE_ONE_TO_ONE";
-            case 37727: return "GL_ZERO_TO_ONE";
-            case 37724: return "GL_CLIP_ORIGIN";
-            case 37725: return "GL_CLIP_DEPTH_MODE";
-            case 36375: return "GL_QUERY_WAIT_INVERTED";
-            case 36376: return "GL_QUERY_NO_WAIT_INVERTED";
-            case 36377: return "GL_QUERY_BY_REGION_WAIT_INVERTED";
-            case 36378: return "GL_QUERY_BY_REGION_NO_WAIT_INVERTED";
-            case 33529: return "GL_MAX_CULL_DISTANCES";
-            case 33530: return "GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES";
-            case 4102: return "GL_TEXTURE_TARGET";
-            case 33514: return "GL_QUERY_TARGET";
-            case 33363: return "GL_GUILTY_CONTEXT_RESET";
-            case 33364: return "GL_INNOCENT_CONTEXT_RESET";
-            case 33365: return "GL_UNKNOWN_CONTEXT_RESET";
-            case 33366: return "GL_RESET_NOTIFICATION_STRATEGY";
-            case 33362: return "GL_LOSE_CONTEXT_ON_RESET";
-            case 33377: return "GL_NO_RESET_NOTIFICATION";
-            case 33531: return "GL_CONTEXT_RELEASE_BEHAVIOR";
-            case 33532: return "GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH";
-            case 33344: return "GL_SYNC_CL_EVENT_ARB";
-            case 33345: return "GL_SYNC_CL_EVENT_COMPLETE_ARB";
-            case 37700: return "GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB";
-            case 37701: return "GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB";
-            case 32773: return "GL_BLEND_COLOR";
-            case 33006: return "GL_PARAMETER_BUFFER_ARB";
-            case 33007: return "GL_PARAMETER_BUFFER_BINDING_ARB";
-            case 33433: return "GL_SRGB_DECODE_ARB";
-            case 33518: return "GL_VERTICES_SUBMITTED_ARB";
-            case 33519: return "GL_PRIMITIVES_SUBMITTED_ARB";
-            case 33520: return "GL_VERTEX_SHADER_INVOCATIONS_ARB";
-            case 33521: return "GL_TESS_CONTROL_SHADER_PATCHES_ARB";
-            case 33522: return "GL_TESS_EVALUATION_SHADER_INVOCATIONS_ARB";
-            case 33523: return "GL_GEOMETRY_SHADER_PRIMITIVES_EMITTED_ARB";
-            case 33524: return "GL_FRAGMENT_SHADER_INVOCATIONS_ARB";
-            case 33525: return "GL_COMPUTE_SHADER_INVOCATIONS_ARB";
-            case 33526: return "GL_CLIPPING_INPUT_PRIMITIVES_ARB";
-            case 33527: return "GL_CLIPPING_OUTPUT_PRIMITIVES_ARB";
-            case 36270: return "GL_SHADER_INCLUDE_ARB";
-            case 36329: return "GL_NAMED_STRING_LENGTH_ARB";
-            case 36330: return "GL_NAMED_STRING_TYPE_ARB";
-            case 33528: return "GL_SPARSE_BUFFER_PAGE_SIZE_ARB";
-            case 37286: return "GL_TEXTURE_SPARSE_ARB";
-            case 37287: return "GL_VIRTUAL_PAGE_SIZE_INDEX_ARB";
-            case 37290: return "GL_NUM_SPARSE_LEVELS_ARB";
-            case 37288: return "GL_NUM_VIRTUAL_PAGE_SIZES_ARB";
-            case 37269: return "GL_VIRTUAL_PAGE_SIZE_X_ARB";
-            case 37270: return "GL_VIRTUAL_PAGE_SIZE_Y_ARB";
-            case 37271: return "GL_VIRTUAL_PAGE_SIZE_Z_ARB";
-            case 37272: return "GL_MAX_SPARSE_TEXTURE_SIZE_ARB";
-            case 37274: return "GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB";
-            case 37289: return "GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB";
-            case 36767: return "GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB";
-            case 33516: return "GL_TRANSFORM_FEEDBACK_OVERFLOW_ARB";
-            case 33517: return "GL_TRANSFORM_FEEDBACK_STREAM_OVERFLOW_ARB";
-            case 37107: return "GL_CONTEXT_ROBUST_ACCESS";
-            case 257: return "GL_LOAD";
-            case 258: return "GL_RETURN";
-            case 259: return "GL_MULT";
-            case 260: return "GL_ADD";
-            case 65536: return "GL_EVAL_BIT";
-            case 131072: return "GL_LIST_BIT";
-            case 262144: return "GL_TEXTURE_BIT";
-            case 524288: return "GL_SCISSOR_BIT";
-            case 1048575: return "GL_ALL_ATTRIB_BITS";
-            case 9: return "GL_POLYGON";
-            case 1792: return "GL_PASS_THROUGH_TOKEN";
-            case 1793: return "GL_POINT_TOKEN";
-            case 1794: return "GL_LINE_TOKEN";
-            case 1795: return "GL_POLYGON_TOKEN";
-            case 1796: return "GL_BITMAP_TOKEN";
-            case 1797: return "GL_DRAW_PIXEL_TOKEN";
-            case 1798: return "GL_COPY_PIXEL_TOKEN";
-            case 1799: return "GL_LINE_RESET_TOKEN";
-            case 2560: return "GL_COEFF";
-            case 2561: return "GL_ORDER";
-            case 2562: return "GL_DOMAIN";
-            case 2816: return "GL_CURRENT_COLOR";
-            case 2817: return "GL_CURRENT_INDEX";
-            case 2818: return "GL_CURRENT_NORMAL";
-            case 2819: return "GL_CURRENT_TEXTURE_COORDS";
-            case 2820: return "GL_CURRENT_RASTER_COLOR";
-            case 2821: return "GL_CURRENT_RASTER_INDEX";
-            case 2822: return "GL_CURRENT_RASTER_TEXTURE_COORDS";
-            case 2823: return "GL_CURRENT_RASTER_POSITION";
-            case 2824: return "GL_CURRENT_RASTER_POSITION_VALID";
-            case 2825: return "GL_CURRENT_RASTER_DISTANCE";
-            case 2832: return "GL_POINT_SMOOTH";
-            case 2852: return "GL_LINE_STIPPLE";
-            case 2853: return "GL_LINE_STIPPLE_PATTERN";
-            case 2854: return "GL_LINE_STIPPLE_REPEAT";
-            case 2864: return "GL_LIST_MODE";
-            case 2865: return "GL_MAX_LIST_NESTING";
-            case 2866: return "GL_LIST_BASE";
-            case 2867: return "GL_LIST_INDEX";
-            case 2882: return "GL_POLYGON_STIPPLE";
-            case 2883: return "GL_EDGE_FLAG";
-            case 2896: return "GL_LIGHTING";
-            case 2897: return "GL_LIGHT_MODEL_LOCAL_VIEWER";
-            case 2898: return "GL_LIGHT_MODEL_TWO_SIDE";
-            case 2899: return "GL_LIGHT_MODEL_AMBIENT";
-            case 2900: return "GL_SHADE_MODEL";
-            case 2901: return "GL_COLOR_MATERIAL_FACE";
-            case 2902: return "GL_COLOR_MATERIAL_PARAMETER";
-            case 2903: return "GL_COLOR_MATERIAL";
-            case 2912: return "GL_FOG";
-            case 2913: return "GL_FOG_INDEX";
-            case 2914: return "GL_FOG_DENSITY";
-            case 2915: return "GL_FOG_START";
-            case 2916: return "GL_FOG_END";
-            case 2917: return "GL_FOG_MODE";
-            case 2918: return "GL_FOG_COLOR";
-            case 2944: return "GL_ACCUM_CLEAR_VALUE";
-            case 2976: return "GL_MATRIX_MODE";
-            case 2977: return "GL_NORMALIZE";
-            case 2979: return "GL_MODELVIEW_STACK_DEPTH";
-            case 2980: return "GL_PROJECTION_STACK_DEPTH";
-            case 2981: return "GL_TEXTURE_STACK_DEPTH";
-            case 2982: return "GL_MODELVIEW_MATRIX";
-            case 2983: return "GL_PROJECTION_MATRIX";
-            case 2984: return "GL_TEXTURE_MATRIX";
-            case 2992: return "GL_ATTRIB_STACK_DEPTH";
-            case 2993: return "GL_CLIENT_ATTRIB_STACK_DEPTH";
-            case 3008: return "GL_ALPHA_TEST";
-            case 3009: return "GL_ALPHA_TEST_FUNC";
-            case 3010: return "GL_ALPHA_TEST_REF";
-            case 3057: return "GL_INDEX_LOGIC_OP";
-            case 3072: return "GL_AUX_BUFFERS";
-            case 3104: return "GL_INDEX_CLEAR_VALUE";
-            case 3105: return "GL_INDEX_WRITEMASK";
-            case 3120: return "GL_INDEX_MODE";
-            case 3121: return "GL_RGBA_MODE";
-            case 3136: return "GL_RENDER_MODE";
-            case 3152: return "GL_PERSPECTIVE_CORRECTION_HINT";
-            case 3153: return "GL_POINT_SMOOTH_HINT";
-            case 3156: return "GL_FOG_HINT";
-            case 3168: return "GL_TEXTURE_GEN_S";
-            case 3169: return "GL_TEXTURE_GEN_T";
-            case 3170: return "GL_TEXTURE_GEN_R";
-            case 3171: return "GL_TEXTURE_GEN_Q";
-            case 3184: return "GL_PIXEL_MAP_I_TO_I";
-            case 3185: return "GL_PIXEL_MAP_S_TO_S";
-            case 3186: return "GL_PIXEL_MAP_I_TO_R";
-            case 3187: return "GL_PIXEL_MAP_I_TO_G";
-            case 3188: return "GL_PIXEL_MAP_I_TO_B";
-            case 3189: return "GL_PIXEL_MAP_I_TO_A";
-            case 3190: return "GL_PIXEL_MAP_R_TO_R";
-            case 3191: return "GL_PIXEL_MAP_G_TO_G";
-            case 3192: return "GL_PIXEL_MAP_B_TO_B";
-            case 3193: return "GL_PIXEL_MAP_A_TO_A";
-            case 3248: return "GL_PIXEL_MAP_I_TO_I_SIZE";
-            case 3249: return "GL_PIXEL_MAP_S_TO_S_SIZE";
-            case 3250: return "GL_PIXEL_MAP_I_TO_R_SIZE";
-            case 3251: return "GL_PIXEL_MAP_I_TO_G_SIZE";
-            case 3252: return "GL_PIXEL_MAP_I_TO_B_SIZE";
-            case 3253: return "GL_PIXEL_MAP_I_TO_A_SIZE";
-            case 3254: return "GL_PIXEL_MAP_R_TO_R_SIZE";
-            case 3255: return "GL_PIXEL_MAP_G_TO_G_SIZE";
-            case 3256: return "GL_PIXEL_MAP_B_TO_B_SIZE";
-            case 3257: return "GL_PIXEL_MAP_A_TO_A_SIZE";
-            case 3344: return "GL_MAP_COLOR";
-            case 3345: return "GL_MAP_STENCIL";
-            case 3346: return "GL_INDEX_SHIFT";
-            case 3347: return "GL_INDEX_OFFSET";
-            case 3348: return "GL_RED_SCALE";
-            case 3349: return "GL_RED_BIAS";
-            case 3350: return "GL_ZOOM_X";
-            case 3351: return "GL_ZOOM_Y";
-            case 3352: return "GL_GREEN_SCALE";
-            case 3353: return "GL_GREEN_BIAS";
-            case 3354: return "GL_BLUE_SCALE";
-            case 3355: return "GL_BLUE_BIAS";
-            case 3356: return "GL_ALPHA_SCALE";
-            case 3357: return "GL_ALPHA_BIAS";
-            case 3358: return "GL_DEPTH_SCALE";
-            case 3359: return "GL_DEPTH_BIAS";
-            case 3376: return "GL_MAX_EVAL_ORDER";
-            case 3377: return "GL_MAX_LIGHTS";
-            case 3380: return "GL_MAX_PIXEL_MAP_TABLE";
-            case 3381: return "GL_MAX_ATTRIB_STACK_DEPTH";
-            case 3382: return "GL_MAX_MODELVIEW_STACK_DEPTH";
-            case 3383: return "GL_MAX_NAME_STACK_DEPTH";
-            case 3384: return "GL_MAX_PROJECTION_STACK_DEPTH";
-            case 3385: return "GL_MAX_TEXTURE_STACK_DEPTH";
-            case 3387: return "GL_MAX_CLIENT_ATTRIB_STACK_DEPTH";
-            case 3409: return "GL_INDEX_BITS";
-            case 3410: return "GL_RED_BITS";
-            case 3411: return "GL_GREEN_BITS";
-            case 3412: return "GL_BLUE_BITS";
-            case 3413: return "GL_ALPHA_BITS";
-            case 3414: return "GL_DEPTH_BITS";
-            case 3415: return "GL_STENCIL_BITS";
-            case 3416: return "GL_ACCUM_RED_BITS";
-            case 3417: return "GL_ACCUM_GREEN_BITS";
-            case 3418: return "GL_ACCUM_BLUE_BITS";
-            case 3419: return "GL_ACCUM_ALPHA_BITS";
-            case 3440: return "GL_NAME_STACK_DEPTH";
-            case 3456: return "GL_AUTO_NORMAL";
-            case 3568: return "GL_FEEDBACK_BUFFER_POINTER";
-            case 3569: return "GL_FEEDBACK_BUFFER_SIZE";
-            case 3570: return "GL_FEEDBACK_BUFFER_TYPE";
-            case 3571: return "GL_SELECTION_BUFFER_POINTER";
-            case 3572: return "GL_SELECTION_BUFFER_SIZE";
-            case 4101: return "GL_TEXTURE_BORDER";
-            case 4608: return "GL_AMBIENT";
-            case 4609: return "GL_DIFFUSE";
-            case 4610: return "GL_SPECULAR";
-            case 4611: return "GL_POSITION";
-            case 4612: return "GL_SPOT_DIRECTION";
-            case 4613: return "GL_SPOT_EXPONENT";
-            case 4614: return "GL_SPOT_CUTOFF";
-            case 4615: return "GL_CONSTANT_ATTENUATION";
-            case 4616: return "GL_LINEAR_ATTENUATION";
-            case 4617: return "GL_QUADRATIC_ATTENUATION";
-            case 4864: return "GL_COMPILE";
-            case 4865: return "GL_COMPILE_AND_EXECUTE";
-            case 5632: return "GL_EMISSION";
-            case 5633: return "GL_SHININESS";
-            case 5634: return "GL_AMBIENT_AND_DIFFUSE";
-            case 5635: return "GL_COLOR_INDEXES";
-            case 5888: return "GL_MODELVIEW";
-            case 5889: return "GL_PROJECTION";
-            case 6400: return "GL_COLOR_INDEX";
-            case 6409: return "GL_LUMINANCE";
-            case 6410: return "GL_LUMINANCE_ALPHA";
-            case 6656: return "GL_BITMAP";
-            case 7168: return "GL_RENDER";
-            case 7169: return "GL_FEEDBACK";
-            case 7170: return "GL_SELECT";
-            case 7424: return "GL_FLAT";
-            case 7425: return "GL_SMOOTH";
-            case 8193: return "GL_T";
-            case 8194: return "GL_R";
-            case 8195: return "GL_Q";
-            case 8448: return "GL_MODULATE";
-            case 8449: return "GL_DECAL";
-            case 8704: return "GL_TEXTURE_ENV_MODE";
-            case 8705: return "GL_TEXTURE_ENV_COLOR";
-            case 8960: return "GL_TEXTURE_ENV";
-            case 9216: return "GL_EYE_LINEAR";
-            case 9217: return "GL_OBJECT_LINEAR";
-            case 9218: return "GL_SPHERE_MAP";
-            case 9472: return "GL_TEXTURE_GEN_MODE";
-            case 9473: return "GL_OBJECT_PLANE";
-            case 9474: return "GL_EYE_PLANE";
-            case 10496: return "GL_CLAMP";
-            case 32841: return "GL_INTENSITY";
-            case 32864: return "GL_TEXTURE_LUMINANCE_SIZE";
-            case 32865: return "GL_TEXTURE_INTENSITY_SIZE";
-            case 32870: return "GL_TEXTURE_PRIORITY";
-            case 32871: return "GL_TEXTURE_RESIDENT";
-            case 32885: return "GL_NORMAL_ARRAY\nGL_NORMAL_ARRAY_EXT";
-            case 32886: return "GL_COLOR_ARRAY\nGL_COLOR_ARRAY_EXT";
-            case 32887: return "GL_INDEX_ARRAY\nGL_INDEX_ARRAY_EXT";
-            case 32888: return "GL_TEXTURE_COORD_ARRAY\nGL_TEXTURE_COORD_ARRAY_EXT";
-            case 32889: return "GL_EDGE_FLAG_ARRAY\nGL_EDGE_FLAG_ARRAY_EXT";
-            case 32890: return "GL_VERTEX_ARRAY_SIZE\nGL_VERTEX_ARRAY_SIZE_EXT";
-            case 32891: return "GL_VERTEX_ARRAY_TYPE\nGL_VERTEX_ARRAY_TYPE_EXT";
-            case 32892: return "GL_VERTEX_ARRAY_STRIDE\nGL_VERTEX_ARRAY_STRIDE_EXT";
-            case 32894: return "GL_NORMAL_ARRAY_TYPE\nGL_NORMAL_ARRAY_TYPE_EXT";
-            case 32895: return "GL_NORMAL_ARRAY_STRIDE\nGL_NORMAL_ARRAY_STRIDE_EXT";
-            case 32897: return "GL_COLOR_ARRAY_SIZE\nGL_COLOR_ARRAY_SIZE_EXT";
-            case 32898: return "GL_COLOR_ARRAY_TYPE\nGL_COLOR_ARRAY_TYPE_EXT";
-            case 32899: return "GL_COLOR_ARRAY_STRIDE\nGL_COLOR_ARRAY_STRIDE_EXT";
-            case 32901: return "GL_INDEX_ARRAY_TYPE\nGL_INDEX_ARRAY_TYPE_EXT";
-            case 32902: return "GL_INDEX_ARRAY_STRIDE\nGL_INDEX_ARRAY_STRIDE_EXT";
-            case 32904: return "GL_TEXTURE_COORD_ARRAY_SIZE\nGL_TEXTURE_COORD_ARRAY_SIZE_EXT";
-            case 32905: return "GL_TEXTURE_COORD_ARRAY_TYPE\nGL_TEXTURE_COORD_ARRAY_TYPE_EXT";
-            case 32906: return "GL_TEXTURE_COORD_ARRAY_STRIDE\nGL_TEXTURE_COORD_ARRAY_STRIDE_EXT";
-            case 32908: return "GL_EDGE_FLAG_ARRAY_STRIDE\nGL_EDGE_FLAG_ARRAY_STRIDE_EXT";
-            case 32910: return "GL_VERTEX_ARRAY_POINTER\nGL_VERTEX_ARRAY_POINTER_EXT";
-            case 32911: return "GL_NORMAL_ARRAY_POINTER\nGL_NORMAL_ARRAY_POINTER_EXT";
-            case 32912: return "GL_COLOR_ARRAY_POINTER\nGL_COLOR_ARRAY_POINTER_EXT";
-            case 32913: return "GL_INDEX_ARRAY_POINTER\nGL_INDEX_ARRAY_POINTER_EXT";
-            case 32914: return "GL_TEXTURE_COORD_ARRAY_POINTER\nGL_TEXTURE_COORD_ARRAY_POINTER_EXT";
-            case 32915: return "GL_EDGE_FLAG_ARRAY_POINTER\nGL_EDGE_FLAG_ARRAY_POINTER_EXT";
-            case 32893: return "GL_VERTEX_ARRAY_COUNT_EXT";
-            case 32896: return "GL_NORMAL_ARRAY_COUNT_EXT";
-            case 32900: return "GL_COLOR_ARRAY_COUNT_EXT";
-            case 32903: return "GL_INDEX_ARRAY_COUNT_EXT";
-            case 32907: return "GL_TEXTURE_COORD_ARRAY_COUNT_EXT";
-            case 32909: return "GL_EDGE_FLAG_ARRAY_COUNT_EXT";
-            case 32984: return "GL_COLOR_TABLE_FORMAT_EXT";
-            case 32985: return "GL_COLOR_TABLE_WIDTH_EXT";
-            case 32986: return "GL_COLOR_TABLE_RED_SIZE_EXT";
-            case 32987: return "GL_COLOR_TABLE_GREEN_SIZE_EXT";
-            case 32988: return "GL_COLOR_TABLE_BLUE_SIZE_EXT";
-            case 32989: return "GL_COLOR_TABLE_ALPHA_SIZE_EXT";
-            case 32990: return "GL_COLOR_TABLE_LUMINANCE_SIZE_EXT";
-            case 32991: return "GL_COLOR_TABLE_INTENSITY_SIZE_EXT";
-            case 33002: return "GL_PHONG_WIN";
-            case 33003: return "GL_PHONG_HINT_WIN";
-            case 33004: return "GL_FOG_SPECULAR_TEXTURE_WIN";
-    }
-    return "(unknown input value)";
+    return data.filter(theFilter);
 };
-
 
