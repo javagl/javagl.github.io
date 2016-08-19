@@ -1,0 +1,23 @@
+html {
+         overflow-y: scroll;
+ }
+ 
+ table#data {
+         width: 90%;
+         margin-left: auto;
+         margin-right: auto;
+         font-family: 'Courier';
+         font-size: 16px;
+ }
+ 
+ th td {
+         width: 15%;
+ }
+ 
+ th.long {
+         width: 60%;
+ }
+ 
+ tr.even {
+         background-color: #eeeeee;
+ }

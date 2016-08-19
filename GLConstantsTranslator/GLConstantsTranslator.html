@@ -3,57 +3,9 @@
     <head>
         <title>GL Constants Translator</title>
         <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="scripts/GLConstantsData.js"></script>
         <script type="text/javascript" src="scripts/GLConstantsTranslator.js"></script>
-        <script type="text/javascript">
-            function update() {
-                document.getElementById("output").innerHTML = renderResult(translate(this.value));
-            }
-
-            function init() {
-                document.getElementsByName("Input")[0].addEventListener('input', update);
-                document.getElementById("output").innerHTML = renderResult(translate(""));
-                document.getElementsByName("Input")[0].focus();
-            }
-
-            function renderResult(result) {
-                if (result && result.length > 0) {
-                    return "<table id='data'><th class='long'>Constant Name</th><th>Decimal</th><th>Hexadecimal</th>" + 
-                        result.map(renderRow).join("\n") + "</table>";
-                } else {
-                    return "<p align='center'><b>No matching results</b></p>";
-                }
-            }
-
-            function renderRow(item, idx) {
-                var rowclass = (idx % 2 === 0) ? "even" : "odd";
-                return "<TR class='" + rowclass + "'>" +
-                  "<TD>" + item.name + "</TD>" +
-                  "<TD>" + item.dec + "</TD>" + 
-                  "<TD>" + item.hex + "</TD></TR>";
-            }
-        </script>
-        <style>
-            html {
-                overflow-y: scroll;
-            }        
-            table#data {
-                width: 90%;
-                margin-left:auto; 
-                margin-right:auto;
-                font-family:'Courier'; 
-                font-size:16px;
-            }
-            th td {
-                width: 15%;
-            }
-            th.long {
-                width: 60%;
-            }
-            tr.even {
-                background-color: #eeeeee;
-            }
-        </style>
     </head>
     <body onload="init()">
         <p align="center">
