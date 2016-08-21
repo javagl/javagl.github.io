@@ -1,64 +1,63 @@
 html {
-         overflow-y: scroll;
-         min-height: 1080px;
- }
- 
- table#data {
-         width: 90%;
-         table-layout: fixed;
-         word-wrap: break-word;
-         margin-left: auto;
-         margin-right: auto;
-         font-family: 'Courier';
-         font-size: 1em;
- }
- 
- th td {
-         width: 15%;
- }
- 
- th.long {
-         width: 60%;
- }
- 
- tr.even {
-         background-color: #eeeeee;
- }
- 
- table.contenttable {
-         max-width: 60em;
-         width: 100%;
- }
- 
- td.attribute {
-         width: auto;
-         text-align:right;
-         white-space: nowrap;
- }
- 
- td.content {
-         width: 100%;
- }
- 
- input[type="text"].filter {
-         font-family: 'Courier';
-         font-size: 1em;
-         width: 100%;
- }
- 
- img#forkMeOrDont {
-         position: absolute;
-         top: 0;
-         right: 0;
-         border: 0;
- }
- 
- @media (max-width: 480px) {
-         table#data {
-                  width: 100%;
-         }
-         
-         img#forkMeOrDont {
-                  opacity: 0.3;
-         }
- }
+    overflow-y: scroll;
+}
+
+table#data {
+    width: 90%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Courier';
+    font-size: 1em;
+}
+
+th td {
+    width: 15%;
+}
+
+th.long {
+    width: 60%;
+}
+
+tr.even {
+    background-color: #eeeeee;
+}
+
+table.contenttable {
+    max-width: 60em;
+    width: 100%;
+}
+
+td.attribute {
+    width: auto;
+    text-align: right;
+    white-space: nowrap;
+}
+
+td.content {
+    width: 100%;
+}
+
+input[type="text"].filter {
+    font-family: 'Courier';
+    font-size: 1em;
+    width: 100%;
+}
+
+img#forkMeBanner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
+@media (max-width: 480px) {
+    table#data {
+        width: 100%;
+    }
+
+    img#forkMeOrDont {
+        opacity: 0.3;
+    }
+}

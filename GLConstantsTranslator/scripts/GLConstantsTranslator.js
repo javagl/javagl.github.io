@@ -145,7 +145,6 @@ var filterData = function(input) {
         return item.name.indexOf(searchString) !== -1;
     };
     if (input.startsWith("0x") || input.startsWith("0X")) {
-        value = parseInt(input, 16);
         var searchString = input.toLowerCase();
         theFilter = function(item) {
             return item.hex.startsWith(searchString);
