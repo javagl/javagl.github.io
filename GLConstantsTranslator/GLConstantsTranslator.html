@@ -3,6 +3,7 @@
     <head>
         <title>GL Constants Translator</title>
         <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="scripts/GLConstantsData.js"></script>
         <script type="text/javascript" src="scripts/GLConstantsTranslator.js"></script>
@@ -20,11 +21,11 @@
         <p align="center">
             Other numerical inputs will be interpreted as decimal constant values. 
         </p>
-        <table align="center">
+        <table align="center" class="contenttable">
             <tr>
-                <td>Filter: </td>
-                <td>
-                <input style="font-family:'Courier'; font-size:16px" size="60" type="text" name="Input" />
+                <td class="attribute">Filter: </td>
+                <td class="content">
+                <input type="text" name="Input" class="filter" id="Filter" onclick="document.getElementById('Filter').scrollIntoView(true);" />
                 </td>
             </tr>
         </table>
@@ -32,6 +33,6 @@
             The output
         </div>
 
-        <a href="https://github.com/javagl/javagl.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="images/ForkMeOrDont.png" alt="Fork me on GitHub"></a>
+        <a href="https://github.com/javagl/javagl.github.io"><img id="forkMeOrDont" src="images/ForkMeOrDont.png" alt="Fork me on GitHub"></a>
     </body>
 </html>
