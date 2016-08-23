@@ -52,6 +52,10 @@ img#forkMeBanner {
     border: 0;
 }
 
+div#output {
+    min-height: 100vh;
+}
+
 @media (max-width: 480px) {
     table#data {
         width: 100%;
@@ -60,8 +64,4 @@ img#forkMeBanner {
     img#forkMeBanner {
         opacity: 0.3;
     }
-}
-
-div #output {
-    min-height: 100vh;
 }
