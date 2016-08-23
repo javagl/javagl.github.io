@@ -61,3 +61,7 @@ img#forkMeBanner {
         opacity: 0.3;
     }
 }
+
+div #output {
+    min-height: 100vh;
+}
