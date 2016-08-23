@@ -52,8 +52,8 @@ img#forkMeBanner {
     border: 0;
 }
 
-div#output {
-    min-height: 100vh;
+div#mainContent {
+    min-height: 99vh;
 }
 
 @media (max-width: 480px) {
