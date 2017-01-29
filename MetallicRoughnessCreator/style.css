@@ -1,0 +1,43 @@
+html {
+    overflow-y: scroll;
+    background-color: white;
+}
+
+div#metallicDropArea {
+    font-size: 1.5em;
+    width: 100%;
+    min-height: 300px;
+    border-style: solid;
+    border-width: 3px;
+    text-align: center;
+}
+
+div#roughnessDropArea {
+    font-size: 1.5em;
+    width: 100%;
+    min-height: 300px;
+    border-style: solid;
+    border-width: 3px;
+    text-align: center;
+}
+
+div#outputArea {
+    width: 100%;
+    min-height: 500px;
+    border-style: solid;
+    border-width: 3px;
+    text-align: center;
+}
+
+img#forkMeBanner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
+@media (max-width: 480px) {
+    img#forkMeBanner {
+        opacity: 0.3;
+    }
+}
