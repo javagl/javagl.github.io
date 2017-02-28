@@ -3,7 +3,7 @@ html {
     background-color: white;
 }
 
-div#metallicDropArea {
+div#rDropArea {
     font-size: 1.5em;
     width: 100%;
     min-height: 300px;
@@ -12,7 +12,16 @@ div#metallicDropArea {
     text-align: center;
 }
 
-div#roughnessDropArea {
+div#gDropArea {
+    font-size: 1.5em;
+    width: 100%;
+    min-height: 300px;
+    border-style: solid;
+    border-width: 3px;
+    text-align: center;
+}
+
+div#bDropArea {
     font-size: 1.5em;
     width: 100%;
     min-height: 300px;

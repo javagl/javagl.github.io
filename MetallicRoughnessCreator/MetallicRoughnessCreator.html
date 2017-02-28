@@ -13,23 +13,30 @@
     <p>
     <table width="100%">
         <tr>
-          <td width="50%">
-            <div id="metallicDropArea">
-              Drop metallic file here<br>
-              <img id="metallicImage" width="200px"></img><br>
-              <div id="metallicImageInfo"></div>
+          <td width="30%">
+            <div id="rDropArea">
+              Drop file for the RED channel here<br>
+              <img id="rImage" width="200px"></img><br>
+              <div id="rImageInfo"></div>
             </div>
           </td>
-          <td>
-            <div id="roughnessDropArea">
-              Drop roughness file here<br>
-              <img id="roughnessImage" width="200px"></img><br>
-              <div id="roughnessImageInfo"></div>
+          <td width="30%">
+            <div id="gDropArea">
+              Drop file for GREEN channel here<br>
+              <img id="gImage" width="200px"></img><br>
+              <div id="gImageInfo"></div>
+            </div>
+          </td>
+          <td width="30%">
+            <div id="bDropArea">
+              Drop file for BLUE channel here<br>
+              <img id="bImage" width="200px"></img><br>
+              <div id="bImageInfo"></div>
             </div>
           </td>
         </tr>
         <tr>
-          <td colspan="2">
+          <td colspan="3">
             <div id="outputArea">
               <b>Result</b><br>
               <input type="checkbox" name="flipVerticallyCheckBox" id="flipVerticallyCheckBox">Flip vertically</input><br>
@@ -50,23 +57,33 @@
     <script>
       document.getElementById('flipVerticallyCheckBox').checked = false;
 
-      var metallicDropArea = document.getElementById('metallicDropArea');
-      metallicDropArea.addEventListener('dragover', handleDragOver, false);
-      var metallicHandler = function(e) {
-        var metallicImage = document.getElementById('metallicImage');
-        var metallicImageInfo = document.getElementById('metallicImageInfo');
-        handleFileSelect(e, 0, metallicImage, metallicImageInfo);
+      var rDropArea = document.getElementById('rDropArea');
+      rDropArea.addEventListener('dragover', handleDragOver, false);
+      var rHandler = function(e) {
+        var rImage = document.getElementById('rImage');
+        var rImageInfo = document.getElementById('rImageInfo');
+        handleFileSelect(e, 0, rImage, rImageInfo);
       };
-      metallicDropArea.addEventListener('drop', metallicHandler, false);
+      rDropArea.addEventListener('drop', rHandler, false);
 
-      var roughnessDropArea = document.getElementById('roughnessDropArea');
-      roughnessDropArea.addEventListener('dragover', handleDragOver, false);
-      var roughnessHandler = function(e) {
-        var roughnessImage = document.getElementById('roughnessImage');
-        var roughnessImageInfo = document.getElementById('roughnessImageInfo');
-        handleFileSelect(e, 1, roughnessImage, roughnessImageInfo);
+      var gDropArea = document.getElementById('gDropArea');
+      gDropArea.addEventListener('dragover', handleDragOver, false);
+      var gHandler = function(e) {
+        var gImage = document.getElementById('gImage');
+        var gImageInfo = document.getElementById('gImageInfo');
+        handleFileSelect(e, 1, gImage, gImageInfo);
       };
-      roughnessDropArea.addEventListener('drop', roughnessHandler, false);
+      gDropArea.addEventListener('drop', gHandler, false);
+
+      var bDropArea = document.getElementById('bDropArea');
+      bDropArea.addEventListener('dragover', handleDragOver, false);
+      var bHandler = function(e) {
+        var bImage = document.getElementById('bImage');
+        var bImageInfo = document.getElementById('bImageInfo');
+        handleFileSelect(e, 2, bImage, bImageInfo);
+      };
+      bDropArea.addEventListener('drop', bHandler, false);
+
     </script>
 
 
