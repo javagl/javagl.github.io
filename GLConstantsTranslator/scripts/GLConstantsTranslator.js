@@ -1,5 +1,3 @@
-
-
 var currentChunkUpdate;
 
 var ChunkUpdate = function(min, size, table, result, text) {
@@ -96,7 +94,7 @@ function updateChunk(min, max, table, result) {
         tr.appendChild(td0);
 
         var td1 = document.createElement("td");
-        var txt1 = document.createTextNode(result[i].dec);
+        var txt1 = document.createTextNode(parseInt(result[i].hex, 16));
         td1.appendChild(txt1);
         tr.appendChild(td1);
 
