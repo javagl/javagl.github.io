@@ -138,7 +138,7 @@ var filterData = function(input) {
             return matchpos;
         }
     };
-    
+
     var theFilter = function(item) {
         return item.name.indexOf(searchString) !== -1;
     };
@@ -150,7 +150,7 @@ var filterData = function(input) {
         comparator = compareBy("hex");
     } else if (input.length != 0 && !isNaN(input)) {
         theFilter = function(item) {
-            return item.dec.startsWith(input);
+            return parseInt(item.hex, 16).toString().startsWith(input);
         };
         comparator = compareBy("dec");
     }
